@@ -4,11 +4,30 @@
   
     
     <entry>
+      <title>使用github和Picgo搭建图床</title>
+      <link href="/2022/11/13/%E4%BD%BF%E7%94%A8github%E5%92%8CPicgo%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
+      <url>/2022/11/13/%E4%BD%BF%E7%94%A8github%E5%92%8CPicgo%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</url>
+      
+        <content type="html"><![CDATA[<h1>PicGO 下载地址：</h1><p><a href="https://github.com/Molunerfinn/PicGo/">https://github.com/Molunerfinn/PicGo/</a></p><ol><li>github 创建一个仓库，用于存储图床</li><li>github 新建一个 token，记得保存，后面会用</li></ol><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667910032262-43a3b699-ca91-4254-a4cb-c62ff43330f2.png" alt="img"></p><ol start="3"><li><p>进入 picGO 的图床配置界面进行配置</p></li><li><ol><li>仓库名格式 <code>[github用户名]/[仓库名]</code></li><li>分支，github 创建仓库里的分支，默认主分支为 main</li><li>设定 token，前面创建的 token</li><li>指定存储路径</li><li>自定义域名格式<code>https://cdn.jsdelivr.net/gh/[github用户名]/[仓库名]@main</code> 使用了 jsdelivr 作为 cdn 加速</li></ol></li></ol><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667910887254-46744cec-f3c7-4434-a38f-926f691f4132.png" alt="img"></p><p>以上步骤完成后去上传区测试即可了解是否上传成功了，成功后相册处可以进行复制 url</p><p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667910940377-dfe2fa07-ba7b-4039-ad8f-8d97336503d9.png" alt="img"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 图床 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2022/11/06/hello-world/"/>
       <url>/2022/11/06/hello-world/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start">Quick Start</h2><h3 id="Create-a-new-post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start">Quick Start</h2><h3 id="Create-a-new-post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><p><img src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/image-20221113161708636.png" alt="image-20221113161708636"></p><h3 id="Run-server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
       
       <categories>
@@ -47,7 +66,18 @@
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[<p>嗨，很高兴见到你</p>]]></content>
+        <content type="html"><![CDATA[<p>嗨，很高兴见到你。</p><p>简单介绍一下我自己吧，一个即将毕业的 GIS 专业大四学生，技术方向主要是前端和 GIS，前端会占用更多一些吧。搭建这个博客呢，也是希望能结交一些志同道合的朋友，记录自己学习生活的点点滴滴。希望能够越来越好吧。</p><p>对了，博客的话会尽可能控制周更内的，力在提高博客的质量而不是数量。最近也是在忙着毕业论文的事情可能没有多少时间。更多琐碎的内容，可以见我的语雀空间(内容很多，也稍杂乱一些)。</p><p>不写了，再写下去就浪费时间了 😂。</p>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -68,17 +98,6 @@
       <title>tags</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
