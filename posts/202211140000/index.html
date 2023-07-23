@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>语雀文档同步到hexo 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="语雀文档同步到hexo" />
+<meta property="og:description" content="平常的话，一般都是在用语雀记笔记总结之类的，说实话，个人感觉写作体验非常好。这时候就在想，能不能将语雀文档转移到hexo博客上呢。一开始自己" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/posts/202211140000/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-23T05:15:15+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="语雀文档同步到hexo"/>
+<meta name="twitter:description" content="平常的话，一般都是在用语雀记笔记总结之类的，说实话，个人感觉写作体验非常好。这时候就在想，能不能将语雀文档转移到hexo博客上呢。一开始自己"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://example.com/assets/css/style.min.699f46622e3574a7f9ecca4c5877067845fe89ffcd9c4335df2dff23ddae215e.css" integrity="sha256-aZ9GYi41dKf57MpMWHcGeEX&#43;if/NnEM13y3/I92uIV4=">
+
+  <script src="https://example.com/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://example.com"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/posts/" title="Posts">文章</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="" title="">关于</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/loading.gif" alt="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/loading.gif" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">语雀文档同步到hexo</h1>
+    
+      <p class="card-text--row">2022-11-14 00:00</p>
+      
+      
+      
+        <ul class="card-text--tag">
+          
+            <li><a href="https://example.com/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
+      
+
+      
+      
+        <ul class="card-text--tag">
+          
+            <li><a href="https://example.com/tags/hexo/">hexo</a></li>
+            <li><a href="https://example.com/tags/%E8%AF%AD%E9%9B%80/">语雀</a></li></ul>
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p>平常的话，一般都是在用语雀记笔记总结之类的，说实话，个人感觉写作体验非常好。这时候就在想，能不能将语雀文档转移到hexo博客上呢。一开始自己尝试的是手动转移，试了一篇，太累了不说，图片还不能显示。能否实现一键转移呢，网上随便搜索了一下，就发现了它<code>yuque-hexo</code>。下面介绍下具体的实现过程。(默认大家都用过语雀了哈哈)<!-- raw HTML omitted -->github官方教程地址:<!-- raw HTML omitted --><a href="https://github.com/x-cold/yuque-hexo" target="_blank" rel="noopener">GitHub - x-cold/yuque-hexo: 同步语雀的文章到你的 Hexo 项目吧！</a></p>
+<ol>
+<li><code>npm i yuque-hexo</code> 安装到博客根目录</li>
+<li>安装完后，在package.json，添加自己语雀信息相关的配置，主要是<code>**yuqueConfig**</code>**那一块。(**其余有些配置也是做了一些优化)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;hexo-site&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;0.0.0&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;private&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;scripts&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build&#34;</span>: <span style="color:#e6db74">&#34;hexo generate&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;sync&#34;</span>: <span style="color:#e6db74">&#34;dotenv -e .env yuque-hexo sync&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;cly&#34;</span>: <span style="color:#e6db74">&#34;yuque-hexo clean&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;clean&#34;</span>: <span style="color:#e6db74">&#34;hexo clean&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;deploy&#34;</span>: <span style="color:#e6db74">&#34;hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;serve&#34;</span>: <span style="color:#e6db74">&#34;hexo clean &amp;&amp; hexo generate &amp;&amp; hexo server&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;hexo&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;5.4.2&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;dependencies&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@neilsustc/markdown-it-katex&#34;</span>: <span style="color:#e6db74">&#34;^1.0.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;dotenv-cli&#34;</span>: <span style="color:#e6db74">&#34;^6.0.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo&#34;</span>: <span style="color:#e6db74">&#34;^5.0.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo-deployer-git&#34;</span>: <span style="color:#e6db74">&#34;^3.0.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo-generator-archive&#34;</span>: <span style="color:#e6db74">&#34;^1.0.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo-generator-category&#34;</span>: <span style="color:#e6db74">&#34;^1.0.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo-generator-index&#34;</span>: <span style="color:#e6db74">&#34;^2.0.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo-generator-search&#34;</span>: <span style="color:#e6db74">&#34;^2.4.3&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo-generator-tag&#34;</span>: <span style="color:#e6db74">&#34;^1.0.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo-lazyload-image&#34;</span>: <span style="color:#e6db74">&#34;^1.0.13&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo-offline&#34;</span>: <span style="color:#e6db74">&#34;^2.0.1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo-renderer-ejs&#34;</span>: <span style="color:#e6db74">&#34;^1.0.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo-renderer-markdown-it&#34;</span>: <span style="color:#e6db74">&#34;^6.1.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo-renderer-pug&#34;</span>: <span style="color:#e6db74">&#34;^3.0.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo-renderer-stylus&#34;</span>: <span style="color:#e6db74">&#34;^2.1.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo-server&#34;</span>: <span style="color:#e6db74">&#34;^2.0.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo-theme-butterfly&#34;</span>: <span style="color:#e6db74">&#34;^4.5.1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo-theme-landscape&#34;</span>: <span style="color:#e6db74">&#34;^0.0.3&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;hexo-wordcount&#34;</span>: <span style="color:#e6db74">&#34;^6.0.1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;markdown-it&#34;</span>: <span style="color:#e6db74">&#34;&gt;=6&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;yuque-hexo&#34;</span>: <span style="color:#e6db74">&#34;^1.9.5&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;yuqueConfig&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;postPath&#34;</span>: <span style="color:#e6db74">&#34;source/_posts&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;cachePath&#34;</span>: <span style="color:#e6db74">&#34;yuque.json&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;mdNameFormat&#34;</span>: <span style="color:#e6db74">&#34;title&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;adapter&#34;</span>: <span style="color:#e6db74">&#34;hexo&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;concurrency&#34;</span>: <span style="color:#ae81ff">5</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;baseUrl&#34;</span>: <span style="color:#e6db74">&#34;https://www.yuque.com/api/v2&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;lastGeneratePath&#34;</span>: <span style="color:#e6db74">&#34;./last-generate-timestamp.txt&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;login&#34;</span>: <span style="color:#e6db74">&#34;antusheng-2wzx0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;repo&#34;</span>: <span style="color:#e6db74">&#34;blog&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;onlyPublished&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;onlyPublic&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;imgCdn&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;concurrency&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;imageBed&#34;</span>: <span style="color:#e6db74">&#34;github&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;enabled&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;bucket&#34;</span>: <span style="color:#e6db74">&#34;wanhuatong&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;host&#34;</span>: <span style="color:#e6db74">&#34;cdn.jsdelivr.net&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;prefixKey&#34;</span>: <span style="color:#e6db74">&#34;img/blog&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th><strong>参数名</strong></th>
+<th><strong>含义</strong></th>
+<th><strong>默认值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>postPath</td>
+<td>文档同步后生成的路径</td>
+<td>source/_posts/yuque</td>
+</tr>
+<tr>
+<td>cachePath</td>
+<td>文档下载缓存文件</td>
+<td>yuque.json</td>
+</tr>
+<tr>
+<td>lastGeneratePath</td>
+<td>上一次同步结束的时间戳的文件</td>
+<td></td>
+</tr>
+<tr>
+<td>mdNameFormat</td>
+<td>文件名命名方式 (title / slug)</td>
+<td>title</td>
+</tr>
+<tr>
+<td>adapter</td>
+<td>文档生成格式 (hexo/markdown)</td>
+<td>hexo</td>
+</tr>
+<tr>
+<td>concurrency</td>
+<td>下载文章并发数</td>
+<td>5</td>
+</tr>
+<tr>
+<td>baseUrl</td>
+<td>语雀 API 地址</td>
+<td>-</td>
+</tr>
+<tr>
+<td>login</td>
+<td>语雀 login (group), 也称为个人路径</td>
+<td>-</td>
+</tr>
+<tr>
+<td>repo</td>
+<td>语雀仓库短名称，也称为语雀知识库路径</td>
+<td>-</td>
+</tr>
+<tr>
+<td>onlyPublished</td>
+<td>只展示已经发布的文章</td>
+<td>false</td>
+</tr>
+<tr>
+<td>onlyPublic</td>
+<td>只展示公开文章</td>
+<td>false</td>
+</tr>
+<tr>
+<td>imgCdn</td>
+<td>语雀图片转CDN配置</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>其中 <code>**login**</code>和<code>**repo**</code>字段，参照 知识库设置里的信息<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1668436412964-c6cc7d2d-f689-48dd-b9e6-e2078606040c.png#averageHue=%23fdfdfc&amp;clientId=u3b743297-994a-4&amp;from=paste&amp;height=472&amp;id=uc6d4a5f3&amp;originHeight=590&amp;originWidth=1224&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=31235&amp;status=done&amp;style=none&amp;taskId=uc1a9daea-44b0-4d4b-b7f8-326540eb1d9&amp;title=&amp;width=979.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted --></p>
+<ol start="2">
+<li>生成图床token ，本人用的是github图床</li>
+<li>生成语雀token，授权范围此处我是多勾了，应该只需要图集，文档和知识库这三个权限即可。</li>
+</ol>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1668435002886-b8aae4b4-485b-405e-85c7-aaa8ef2d6c9a.png#averageHue=%23fdfcfc&amp;clientId=u3b743297-994a-4&amp;from=paste&amp;height=508&amp;id=u9a8b0e91&amp;originHeight=635&amp;originWidth=1739&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=56181&amp;status=done&amp;style=none&amp;taskId=ud92ff310-e926-400e-8508-b9745a482f3&amp;title=&amp;width=1391.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1668435048521-8f47c741-f712-4507-8b82-24e030ebaa96.png#averageHue=%23fdfcfa&amp;clientId=u3b743297-994a-4&amp;from=paste&amp;height=187&amp;id=uf94e0efe&amp;originHeight=234&amp;originWidth=551&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=28136&amp;status=done&amp;style=none&amp;taskId=u61ff85c4-fccf-406a-86a3-c6fc4f822f6&amp;title=&amp;width=440.8" alt="image.png" loading="lazy" /></p>
+</p>
+<ol start="4">
+<li>在博客根目录新建环境变量文件.env 文件，记得在.gitnore 文件中配置忽略.env，并配置如下：</li>
+</ol>
+<pre tabindex="0"><code>YUQUE_TOKEN=xxx   --语雀token
+SECRET_ID=xxx   --github 用户名
+SECRET_KEY=xxx  --github图床token
+</code></pre><ol start="5">
+<li>安装dotenv-cli(将环境变量从.env加载到process.env)，<code>npm i dotenv-cli</code> 就可以通过<code>dotenv -e .env</code>将环境变量传递给程序了。为了方便，我们在package.json 里配置scripts，这部分不了解的可以看下这里</li>
+</ol>
+<p><a href="https://www.ruanyifeng.com/blog/2016/10/npm_scripts.html" target="_blank" rel="noopener">https://www.ruanyifeng.com/blog/2016/10/npm_scripts.html</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build&#34;</span>: <span style="color:#e6db74">&#34;hexo generate&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;sync&#34;</span>: <span style="color:#e6db74">&#34;dotenv -e .env yuque-hexo sync&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;cly&#34;</span>: <span style="color:#e6db74">&#34;yuque-hexo clean&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;clean&#34;</span>: <span style="color:#e6db74">&#34;hexo clean&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;deploy&#34;</span>: <span style="color:#e6db74">&#34;hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;serve&#34;</span>: <span style="color:#e6db74">&#34;hexo clean &amp;&amp; hexo generate &amp;&amp; hexo server&#34;</span>
+</span></span><span style="display:flex;"><span>  }<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span></code></pre></div><p>说明：</p>
+<ol>
+<li><code>yuque-hexo sync</code>会将语雀指定的知识库里的文章同步到指定的目录里。</li>
+<li><code>yuque-hexo clean</code> 会清除缓存，即生成的<code>yuque.json</code>及其对应的文件</li>
+</ol>
+<p>到这里基本上就配置完毕了，可以使用<code>npm run sync</code>来测试能否同步了。</p>
+<p>顺带一提，front-matter的配置也可以在语雀中这样写，即用分割线分隔front-matter和正文，注意要设置转换格式为<code>**hexo**</code>。不过某些语雀自带格式转markdown可能会丢失，比如卡片之类的。<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1668522328966-ce6120d1-68a2-4306-8978-873e8bd7bb05.png#averageHue=%23f1f0f0&amp;clientId=uf2b0eb19-7e3d-4&amp;from=paste&amp;height=378&amp;id=uf52858d6&amp;originHeight=472&amp;originWidth=867&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=57443&amp;status=done&amp;style=none&amp;taskId=ueee715aa-b819-492c-b8c7-5be089b8d24&amp;title=&amp;width=693.6" alt="image.png" loading="lazy" /></p>
+</p>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/QQ截图20221114231828.png"></div>
+  <div class="card-text">
+    <a href="/posts/202211140000/"><h4 class="card-text--title text-ellipsis">hexo 博客搭建</h4></a>
+    <p class="card-text--row">2022-11-14 00:00</p>
+  </div>
+</section>
+    
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+
+    
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/posts/202211141603/">github&#43;PicGO图床搭建</a></li>
+      
+        <li class="post-item"><a href="/posts/202211140000/">hexo 博客搭建</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://example.com/categories/%E6%9D%82%E9%A1%B9/">杂项</a>
+          <span>3</span>
+        </li>
+      
+        <li>
+          <a href="https://example.com/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://example.com/tags/hexo/" data-count="2" class="soft-size--small soft-style--hover soft-style--active">hexo</a>
+      
+        <a href="https://example.com/tags/%E5%9B%BE%E5%BA%8A-hello-world/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图床 hello world</a>
+      
+        <a href="https://example.com/tags/%E8%AF%AD%E9%9B%80/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">语雀</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

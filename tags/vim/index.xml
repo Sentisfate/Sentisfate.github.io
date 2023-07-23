@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on GIS咖喱棒</title>
+    <link>https://example.com/tags/vim/</link>
+    <description>Recent content in vim on GIS咖喱棒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>1135643799@qq.com (gisculibur)</managingEditor>
+    <webMaster>1135643799@qq.com (gisculibur)</webMaster>
+    <lastBuildDate>Sun, 04 Jan 1970 00:32:03 +0800</lastBuildDate><atom:link href="https://example.com/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>title</title>
+      <link>https://example.com/posts/197001040032/</link>
+      <pubDate>Sun, 04 Jan 1970 00:32:03 +0800</pubDate>
+      <author>1135643799@qq.com (gisculibur)</author>
+      <guid>https://example.com/posts/197001040032/</guid>
+      <description>PicGO 下载地址：GitHub - Molunerfinn/PicGo: A simple &amp;amp; beautiful tool for pictures uploading built by vue-cli-electron-builder github 创建一个仓库，用于存储图床 github 新建一个 token，记得保存，后面会用 进入 picGO 的图床配置界面进</description>
+    </item>
+    
+  </channel>
+</rss>

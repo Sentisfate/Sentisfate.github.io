@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GIS咖喱棒</title>
+    <link>https://example.com/</link>
+    <description>Recent content on GIS咖喱棒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>1135643799@qq.com (gisculibur)</managingEditor>
+    <webMaster>1135643799@qq.com (gisculibur)</webMaster>
+    <lastBuildDate>Fri, 21 Jul 2023 06:11:07 +0000</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>测试标题发生改变会不会影响</title>
+      <link>https://example.com/posts/cfksxn7pxs6v0mud/</link>
+      <pubDate>Fri, 21 Jul 2023 06:11:07 +0000</pubDate>
+      <author>1135643799@qq.com (gisculibur)</author>
+      <guid>https://example.com/posts/cfksxn7pxs6v0mud/</guid>
+      <description>测试图片2测试更新呢测试文档顺序是否 是自动更新</description>
+    </item>
+    
+    <item>
+      <title>测试自动发布</title>
+      <link>https://example.com/posts/gxyk735ugzm79gtd/</link>
+      <pubDate>Thu, 20 Jul 2023 07:57:53 +0000</pubDate>
+      <author>1135643799@qq.com (gisculibur)</author>
+      <guid>https://example.com/posts/gxyk735ugzm79gtd/</guid>
+      <description>是否发布 通过如上来让图片自动发布测试是否是更新顺序决定的接口返回值顺序</description>
+    </item>
+    
+    <item>
+      <title>hello pic</title>
+      <link>https://example.com/posts/mdg3tixgk82n5i6f/</link>
+      <pubDate>Thu, 20 Jul 2023 07:52:54 +0000</pubDate>
+      <author>1135643799@qq.com (gisculibur)</author>
+      <guid>https://example.com/posts/mdg3tixgk82n5i6f/</guid>
+      <description>图片1 带有描述的图片 hello</description>
+    </item>
+    
+    <item>
+      <title>github&#43;PicGO图床搭建</title>
+      <link>https://example.com/posts/tutr23bce4h2ynsq/</link>
+      <pubDate>Mon, 14 Nov 2022 16:09:27 +0000</pubDate>
+      <author>1135643799@qq.com (gisculibur)</author>
+      <guid>https://example.com/posts/tutr23bce4h2ynsq/</guid>
+      <description>PicGO下载地址：GitHub - Molunerfinn/PicGo: A simple &amp;amp; beautiful tool for pictures uploading built by vue-cli-electron-builder github创建一个仓库，用于存储图床 github新建一个token，记得保存，后</description>
+    </item>
+    
+    <item>
+      <title>语雀文档同步到hexo</title>
+      <link>https://example.com/posts/zc3ig9dxbpso4hdc/</link>
+      <pubDate>Mon, 14 Nov 2022 15:04:30 +0000</pubDate>
+      <author>1135643799@qq.com (gisculibur)</author>
+      <guid>https://example.com/posts/zc3ig9dxbpso4hdc/</guid>
+      <description>平常的话，一般都是在用语雀记笔记总结之类的，说实话，个人感觉写作体验非常好。这时候就在想，能不能将语雀文档转移到hexo博客上呢。一开始自己</description>
+    </item>
+    
+    <item>
+      <title>hexo 博客搭建</title>
+      <link>https://example.com/posts/iqkl8z5s6wuebt6x/</link>
+      <pubDate>Mon, 14 Nov 2022 14:54:53 +0000</pubDate>
+      <author>1135643799@qq.com (gisculibur)</author>
+      <guid>https://example.com/posts/iqkl8z5s6wuebt6x/</guid>
+      <description>一、前置要求 node.js v12版本以上 git 安装hexo 全局安装 npm install -g hexo-cli 局部安装 npm i hexo 将hexo所在node_modules配置环境变量之中即可使用hex</description>
+    </item>
+    
+    <item>
+      <title>测试自定义文章</title>
+      <link>https://example.com/docs/tutr23bce4h2ynsq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>1135643799@qq.com (gisculibur)</author>
+      <guid>https://example.com/docs/tutr23bce4h2ynsq/</guid>
+      <description>测试自定义文章</description>
+    </item>
+    
+  </channel>
+</rss>
