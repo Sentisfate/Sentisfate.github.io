@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>语雀 on GIS咖喱棒</title>
+    <link>https://Sentisfate.github.io/tags/%E8%AF%AD%E9%9B%80/</link>
+    <description>Recent content in 语雀 on GIS咖喱棒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>1135643799@qq.com (gisculibur)</managingEditor>
+    <webMaster>1135643799@qq.com (gisculibur)</webMaster>
+    <lastBuildDate>Mon, 14 Nov 2022 15:04:30 +0000</lastBuildDate><atom:link href="https://Sentisfate.github.io/tags/%E8%AF%AD%E9%9B%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>语雀文档同步到hexo</title>
+      <link>https://Sentisfate.github.io/posts/zc3ig9dxbpso4hdc/</link>
+      <pubDate>Mon, 14 Nov 2022 15:04:30 +0000</pubDate>
+      <author>1135643799@qq.com (gisculibur)</author>
+      <guid>https://Sentisfate.github.io/posts/zc3ig9dxbpso4hdc/</guid>
+      <description>平常的话，一般都是在用语雀记笔记总结之类的，说实话，个人感觉写作体验非常好。这时候就在想，能不能将语雀文档转移到hexo博客上呢。一开始自己</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hexo on GIS咖喱棒</title>
+    <link>https://Sentisfate.github.io/tags/hexo/</link>
+    <description>Recent content in hexo on GIS咖喱棒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>1135643799@qq.com (gisculibur)</managingEditor>
+    <webMaster>1135643799@qq.com (gisculibur)</webMaster>
+    <lastBuildDate>Mon, 14 Nov 2022 15:04:30 +0000</lastBuildDate><atom:link href="https://Sentisfate.github.io/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>语雀文档同步到hexo</title>
+      <link>https://Sentisfate.github.io/posts/zc3ig9dxbpso4hdc/</link>
+      <pubDate>Mon, 14 Nov 2022 15:04:30 +0000</pubDate>
+      <author>1135643799@qq.com (gisculibur)</author>
+      <guid>https://Sentisfate.github.io/posts/zc3ig9dxbpso4hdc/</guid>
+      <description>平常的话，一般都是在用语雀记笔记总结之类的，说实话，个人感觉写作体验非常好。这时候就在想，能不能将语雀文档转移到hexo博客上呢。一开始自己</description>
+    </item>
+    
+    <item>
+      <title>hexo 博客搭建</title>
+      <link>https://Sentisfate.github.io/posts/iqkl8z5s6wuebt6x/</link>
+      <pubDate>Mon, 14 Nov 2022 14:54:53 +0000</pubDate>
+      <author>1135643799@qq.com (gisculibur)</author>
+      <guid>https://Sentisfate.github.io/posts/iqkl8z5s6wuebt6x/</guid>
+      <description>一、前置要求 node.js v12版本以上 git 安装hexo 全局安装 npm install -g hexo-cli 局部安装 npm i hexo 将hexo所在node_modules配置环境变量之中即可使用hex</description>
+    </item>
+    
+  </channel>
+</rss>
