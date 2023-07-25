@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>hexo 搭建个人博客(静态） 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="hexo 搭建个人博客(静态）" />
+<meta property="og:description" content="一、前置要求 node.js v12版本以上 git 安装hexo 全局安装 npm install -g hexo-cli 局部安装 npm i hexo 将hexo所在node_modules配置环境变量之中即可使用hex" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/vq9pap/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-11-03T13:54:23+00:00" />
+<meta property="article:modified_time" content="2022-11-13T08:24:25+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="hexo 搭建个人博客(静态）"/>
+<meta name="twitter:description" content="一、前置要求 node.js v12版本以上 git 安装hexo 全局安装 npm install -g hexo-cli 局部安装 npm i hexo 将hexo所在node_modules配置环境变量之中即可使用hex"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667484056336-7f96aab2-2ec6-4a05-bb0d-42d805c2a207.png" alt="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667484056336-7f96aab2-2ec6-4a05-bb0d-42d805c2a207.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">hexo 搭建个人博客(静态）</h1>
+    
+      <p class="card-text--row">2022-11-03 13:54</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="一前置要求">一、前置要求</h1>
+<ul>
+<li>node.js v12版本以上</li>
+<li>git</li>
+</ul>
+<p>安装hexo</p>
+<ul>
+<li>全局安装 <code>npm install -g hexo-cli</code></li>
+<li>局部安装 <code>npm i hexo</code> 将hexo所在node_modules配置环境变量之中即可使用hexo命令</li>
+</ul>
+<p>检验 终端输入hexo命令，有如下提示即说明安装成功<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667484056336-7f96aab2-2ec6-4a05-bb0d-42d805c2a207.png#averageHue=%23100f0e&amp;clientId=u253bc12f-be6b-4&amp;from=paste&amp;height=298&amp;id=ud738c4ae&amp;originHeight=372&amp;originWidth=901&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=39938&amp;status=done&amp;style=none&amp;taskId=u8d64cbcb-d4f9-4c29-9516-dda4adc08a4&amp;title=&amp;width=720.8" alt="image.png" loading="lazy" /></p>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="二建站">二、建站</h1>
+<ol>
+<li>在指定路径下使用<code>hexo init &lt;folder name&gt;</code>创建网站根目录</li>
+<li><code>cd &lt;folder name&gt;</code></li>
+<li><code>npm i</code> 安装依赖</li>
+</ol>
+<p>完成后的目录大概如下，(本人用的是pnpm，稍有不同)<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667484870603-fccf6c0d-36e5-4ff7-ab85-604cbe94729f.png#averageHue=%2327292c&amp;clientId=u253bc12f-be6b-4&amp;from=paste&amp;height=244&amp;id=u04953aba&amp;originHeight=305&amp;originWidth=204&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=12454&amp;status=done&amp;style=none&amp;taskId=u4c22ac44-0aec-4c06-9589-e7c263cd0a3&amp;title=&amp;width=163.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->下面重点介绍一下每个文件夹有什么用。</p>
+<ol>
+<li><code>.**github**</code>应该是表明hexo的版本信息相关的，内容如下</li>
+</ol>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667485070322-26ecfbf5-eae0-4753-a9e2-0bb61e61c760.png#averageHue=%231f1e1e&amp;clientId=u253bc12f-be6b-4&amp;from=paste&amp;height=145&amp;id=u53e86060&amp;originHeight=181&amp;originWidth=385&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=9553&amp;status=done&amp;style=none&amp;taskId=udc962a90-2852-4e84-babc-36df38e4841&amp;title=&amp;width=308" alt="image.png" loading="lazy" /></p>
+</p>
+<ol start="2">
+<li><code>**node_modules **</code>熟悉node的都知道，存放的是依赖文件，<code>npm i</code> 下载的都在这里</li>
+<li><code>**scaffolds**</code>** **模板文件夹，新建文章时，hexo会根据scaffold来建立文件。</li>
+</ol>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667485655350-b28fb119-3d38-4e1a-9daa-ada946ad67b6.png#averageHue=%239f8e59&amp;clientId=u253bc12f-be6b-4&amp;from=paste&amp;height=134&amp;id=u2d49aedd&amp;originHeight=168&amp;originWidth=619&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=12698&amp;status=done&amp;style=none&amp;taskId=ueee3ac30-61f1-43ef-8667-d2db6e7d457&amp;title=&amp;width=495.2" alt="image.png" loading="lazy" /></p>
+</p>
+<ol start="4">
+<li><code>**source**</code>文件夹，资源目录，除<code>**_posts **</code>文件夹外，开头命名为<code>**_**</code>的文件或文件夹会被忽略。md文件和html文件会被解析到<code>**public**</code>(通过hexo g生成)文件夹</li>
+</ol>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667485696918-cfce6d77-13c8-4abe-8317-900888b9afa7.png#averageHue=%232c2a29&amp;clientId=u253bc12f-be6b-4&amp;from=paste&amp;height=258&amp;id=uc9fd1311&amp;originHeight=322&amp;originWidth=1073&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=46962&amp;status=done&amp;style=none&amp;taskId=u3711b78f-490f-480c-a77a-eacd8f780ae&amp;title=&amp;width=858.4" alt="image.png" loading="lazy" /></p>
+</p>
+<ol start="5">
+<li><code>**themes**</code>主题文件夹，hexo根据主题生成静态页面</li>
+</ol>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667485721880-7a54c67d-cc55-4378-b25f-72c57f9a9f84.png#averageHue=%23b9cac2&amp;clientId=u253bc12f-be6b-4&amp;from=paste&amp;height=51&amp;id=u95156b27&amp;originHeight=64&amp;originWidth=311&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=2956&amp;status=done&amp;style=none&amp;taskId=ubff994ef-15b3-4bba-b5bc-b74f7c6d8d2&amp;title=&amp;width=248.8" alt="image.png" loading="lazy" /></p>
+</p>
+<ol start="6">
+<li><code>**_config.yml**</code> 配置文件，存放网站的配置信息，详细可见<a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">官网</a></li>
+<li><code>**package.json**</code> 存放依赖关系的文件</li>
+</ol>
+<p>使继续在该目录下使用hexo命令 <code>hexo generate</code>或缩写<code>hexo g</code>生成静态页面，此时目录中多了一个public文件夹。<!-- raw HTML omitted -->继续运行<code>**hexo s**</code>命令，启动服务，可以查看建立起的网站。<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667559904316-6fdc579b-80ce-45a1-956a-9a339500a4be.png#averageHue=%23161412&amp;clientId=ue588d905-3bca-4&amp;from=paste&amp;height=30&amp;id=u2b344633&amp;originHeight=37&amp;originWidth=788&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=6388&amp;status=done&amp;style=none&amp;taskId=u1b03b9b1-cb85-4f7e-887c-9cf333f768b&amp;title=&amp;width=630.4" alt="image.png" loading="lazy" /></p>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="三创建文章">三、创建文章</h1>
+<p>使用<code>hexo new &quot;title&quot;</code>来生成博客文章，默认是markdown格式。生成的文件在source/_posts目录下<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667560219220-2cd988c3-7a09-4ec5-89d1-038d75c8d529.png#averageHue=%230d0c0c&amp;clientId=ue588d905-3bca-4&amp;from=paste&amp;height=30&amp;id=ud39f7c64&amp;originHeight=37&amp;originWidth=284&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=2083&amp;status=done&amp;style=none&amp;taskId=uafd63b76-c49c-4c81-9be4-df9a95d6e2b&amp;title=&amp;width=227.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->使用<code>hexo g</code>生成静态页面，再使用<code>hexo s</code>启动服务</p>
+<blockquote>
+<p>注意：这里的md文件前面须有
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667560677420-ea644c80-5477-4b93-bf95-c66e37dba0e8.png#averageHue=%23f6f6f6&amp;clientId=ue588d905-3bca-4&amp;from=paste&amp;height=98&amp;id=u272135f6&amp;originHeight=122&amp;originWidth=591&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=3788&amp;status=done&amp;style=none&amp;taskId=uae635ced-bc9d-4ec1-ac26-303c20842bd&amp;title=&amp;width=472.8" alt="image.png" loading="lazy" /></p>
+
+这样的一系列键值对，且要保证格式一致，<code>:</code>后面需要有一个空格，否则会报如下的错，类似的错无也是类似的原因，格式不正确
+
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667560741196-580d0349-de8e-4769-bd12-fc6c8929b88f.png#averageHue=%2319140b&amp;clientId=ue588d905-3bca-4&amp;from=paste&amp;height=19&amp;id=ue5b7dc0f&amp;originHeight=24&amp;originWidth=885&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=4309&amp;status=done&amp;style=none&amp;taskId=u48cceb50-fe4a-4622-83fe-754c453cd27&amp;title=&amp;width=708" alt="image.png" loading="lazy" /></p>
+</p>
+</blockquote>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667560846203-5f5f0b56-a0c2-42b5-8ad4-9b899d5924d1.png#averageHue=%23f8f8f8&amp;clientId=ue588d905-3bca-4&amp;from=paste&amp;height=324&amp;id=u1168c4f2&amp;originHeight=405&amp;originWidth=1179&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=16118&amp;status=done&amp;style=none&amp;taskId=u7690b9d1-62d0-4da9-b0c9-cf776352f4e&amp;title=&amp;width=943.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->生成<strong>草稿</strong>：<code>hexo new draft &quot;title&quot;</code>  草稿不会生成html文件<!-- raw HTML omitted -->生成纯页面：<code>hexo new page &quot;page title&quot;</code><!-- raw HTML omitted -->草稿有一个单独的文件夹<code>_drafts</code>，页面则有自己独自的文件夹。<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667561042767-f976c8b2-ccb0-40a0-9894-c9211d3998f3.png#averageHue=%23f5f4f2&amp;clientId=ue588d905-3bca-4&amp;from=paste&amp;height=98&amp;id=u12f7233a&amp;originHeight=123&amp;originWidth=323&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=3358&amp;status=done&amp;style=none&amp;taskId=u9e082df3-f648-4998-a363-e4d2081ce36&amp;title=&amp;width=258.4" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->页面和草稿的模板在scaffolds文件夹下。<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667561124529-64fc23a4-73d3-4594-b864-5095ea93d5a1.png#averageHue=%23c5954a&amp;clientId=ue588d905-3bca-4&amp;from=paste&amp;height=69&amp;id=ubcf40e7f&amp;originHeight=86&amp;originWidth=314&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=3927&amp;status=done&amp;style=none&amp;taskId=u1aaceca0-1ddf-427a-91ee-25e31a197cf&amp;title=&amp;width=251.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->不难发现，可以自定义模板后通过hexo new 模板 来创建.每个模板都有一个前置配置项，称为<code>Front-matter</code>格式如下(yaml语法)：<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667561726702-749b4771-eeb1-4fcb-a421-bc33055f1af5.png#averageHue=%23fcfcfc&amp;clientId=ue588d905-3bca-4&amp;from=paste&amp;height=172&amp;id=uaf312e80&amp;originHeight=215&amp;originWidth=479&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=7242&amp;status=done&amp;style=none&amp;taskId=u5b6453ff-c569-4a42-9bbc-9df57d7a060&amp;title=&amp;width=383.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667561760426-f4a43fc7-2b70-4aa1-bd59-7f753e058f1d.png#averageHue=%23f5f5f4&amp;clientId=ue588d905-3bca-4&amp;from=paste&amp;height=496&amp;id=u29329fb8&amp;originHeight=620&amp;originWidth=916&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=62964&amp;status=done&amp;style=none&amp;taskId=u127703ec-daaf-4467-b374-c0a4aed26c7&amp;title=&amp;width=732.8" alt="image.png" loading="lazy" /></p>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="四配置文件">四、配置文件</h1>
+<p>_config.yml文件，有网站配置文件和主题配置文件<!-- raw HTML omitted -->主题配置文件在themes的对应主题文件夹中，网站配置文件在根目录。<!-- raw HTML omitted -->各配置项官网有，且很详细。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="五常用命令">五、常用命令</h1>
+<ul>
+<li><code>hexo init</code> 新建一个网站</li>
+<li><code>hexo generate</code>生成静态文件
+<ul>
+<li><code>-d</code>，<code>--deploy</code> 文件生成后立即部署</li>
+<li><code>-w</code>，<code>--watch</code> 监视文件变动，有变动就会重新generate</li>
+</ul>
+</li>
+<li><code>hexo publish draftname</code> 发布草稿</li>
+<li><code>hexo server</code> 启动服务器
+<ul>
+<li><code>-p</code>，<code>--port</code> 重设端口</li>
+<li><code>-s</code>，<code>--static</code>只使用静态文件</li>
+<li><code>-l</code>，<code>--log</code>生成日志</li>
+</ul>
+</li>
+<li><code>hexo deploy</code>部署网站</li>
+<li><code>hexo render file</code> 渲染单个文件，与generate的区别是generate会生成所有文件。</li>
+<li><code>hexo clean</code>清楚缓存或者已生成的静态文件</li>
+<li><code>hexo list &lt;type&gt;</code> 列出网站信息</li>
+</ul>
+<p>常用选项</p>
+<ul>
+<li><code>--safe</code> 不使用任何插件和脚本
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ul>
+<h1 id="六部署到github">六、部署到github</h1>
+<p>使用的是官网提供的一个一键部署方案。步骤如下：</p>
+<ol>
+<li>在网站配置文件中找到如下配置项并进行修改，<strong>注意格式语法不要错，详见</strong><a href="https://hexo.io/zh-cn/docs/one-command-deployment.html" target="_blank" rel="noopener"><strong>官网</strong></a></li>
+</ol>
+<pre tabindex="0"><code>deploy:
+	type: git
+	repo: https://github.com/Sentisfate/Sentisfate.github.io
+	branch: gh-pages
+</code></pre><ol start="2">
+<li>安装<code>npm install hexo-deployer-git --save</code></li>
+<li>执行<code>hexo clean</code> <code>hexo g</code> <code>hexo d</code></li>
+<li>修改<code>github pages</code> 的默认分支为你推送的分支</li>
+</ol>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667623468321-da4668ee-364a-44ba-95fc-8a0fe7cd75e7.png#averageHue=%23fefefd&amp;clientId=u64a5e82b-b4f8-4&amp;from=paste&amp;height=536&amp;id=ua0331c75&amp;originHeight=670&amp;originWidth=1712&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=84610&amp;status=done&amp;style=none&amp;taskId=u6a3d31fd-18ad-433b-8cdc-add6792d10f&amp;title=&amp;width=1369.6" alt="image.png" loading="lazy" /></p>
+</p>
+<ol start="5">
+<li>访问网站即可看到发布的博客了</li>
+</ol>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667623509936-77955055-34f5-4528-9011-b44913683c2f.png#averageHue=%23ddddd6&amp;clientId=u64a5e82b-b4f8-4&amp;from=paste&amp;height=690&amp;id=u39c686b5&amp;originHeight=863&amp;originWidth=1670&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=457404&amp;status=done&amp;style=none&amp;taskId=u628086c8-062d-4c45-9400-1673db14c9e&amp;title=&amp;width=1336" alt="image.png" loading="lazy" /></p>
+</p>
+<ol start="6">
+<li>此时，新建完文章后，就可以通过<code>hexo g</code>和<code>hexo d</code>发布到网站了</li>
+</ol>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667645792957-e4ad69ec-50c9-4d65-b554-82771b7835d9.png#averageHue=%23aca194&amp;clientId=ubf2ca8eb-f52d-4&amp;from=paste&amp;height=602&amp;id=u7107cb10&amp;originHeight=752&amp;originWidth=1496&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=348690&amp;status=done&amp;style=none&amp;taskId=u1e887460-0f95-4677-934a-0407f9f2ee9&amp;title=&amp;width=1196.8" alt="image.png" loading="lazy" /></p>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="七主题配置">七、主题配置</h1>
+<p>主题详见<!-- raw HTML omitted --><a href="https://hexo.io/themes/" target="_blank" rel="noopener">Themes</a><!-- raw HTML omitted -->这里介绍下博主使用的butterfly主题及其相关配置，官网很细，<!-- raw HTML omitted --><a href="https://butterfly.js.org/" target="_blank" rel="noopener">Butterfly</a></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="常用到的配置">常用到的配置</h1>
+<ol>
+<li>
+<p>文章置顶
+:::tips
+hexo-generator-index从 2.0.0 开始，已经支持文章置顶功能。你可以直接在文章的front-matter区域里添加sticky: 1属性来把这篇文章置顶。数值越大，置顶的优先级越大。
+:::</p>
+</li>
+<li>
+<p>文章封面
+:::tips
+文章的markdown文档上,在Front-matter添加cover,并填上要显示的图片地址。
+:::</p>
+</li>
+</ol>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/__latex/8f7f9f94915f75f13d8e8869600ac1ad.svg"></div>
+  <div class="card-text">
+    <a href="/docs/agmq4d/"><h4 class="card-text--title text-ellipsis">754 到达终点数字</h4></a>
+    <p class="card-text--row">2022-11-04 04:09</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/hi51z4/"><h4 class="card-text--title text-ellipsis">1668 最大重复子字符串</h4></a>
+    <p class="card-text--row">2022-11-03 03:26</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一前置要求">一、前置要求</a></li>
+    <li><a href="#二建站">二、建站</a></li>
+    <li><a href="#三创建文章">三、创建文章</a></li>
+    <li><a href="#四配置文件">四、配置文件</a></li>
+    <li><a href="#五常用命令">五、常用命令</a></li>
+    <li><a href="#六部署到github">六、部署到github</a></li>
+    <li><a href="#七主题配置">七、主题配置</a></li>
+    <li><a href="#常用到的配置">常用到的配置</a></li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

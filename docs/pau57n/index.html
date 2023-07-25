@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>React进阶 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="React进阶" />
+<meta property="og:description" content="一、子组件优化 Memo 1.引例 子组件不使用父组件的数据，父组件数据更新，子组件会更新。甚至父组件没有使用到更新的数据也会更新。😵 import React from &#39;react&#39;; import { useEffect } from" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/pau57n/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-08-01T08:37:53+00:00" />
+<meta property="article:modified_time" content="2022-09-27T08:00:54+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="React进阶"/>
+<meta name="twitter:description" content="一、子组件优化 Memo 1.引例 子组件不使用父组件的数据，父组件数据更新，子组件会更新。甚至父组件没有使用到更新的数据也会更新。😵 import React from &#39;react&#39;; import { useEffect } from"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1659361101118-98ee9422-cdd5-4158-a4fa-d8d7e0cdcfa1.png" alt="https://cdn.nlark.com/yuque/0/2022/png/29064333/1659361101118-98ee9422-cdd5-4158-a4fa-d8d7e0cdcfa1.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">React进阶</h1>
+    
+      <p class="card-text--row">2022-08-01 08:37</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="一子组件优化-memo">一、子组件优化 Memo</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="1引例">1.引例</h3>
+<blockquote>
+<p>子组件不使用父组件的数据，父组件数据更新，子组件会更新。甚至父组件没有使用到更新的数据也会更新。😵</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useEffect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Count</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./Count&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">City</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">setCount</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useEffect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;父组件更新了&#39;</span>);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)}&gt;<span style="color:#a6e22e">count</span>&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">Count</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">City</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useEffect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Count</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useEffect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;子组件更新了&#39;</span>);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">子组件</span>&lt;/<span style="color:#f92672">div</span>&gt;;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Count</span>;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="解决方案">解决方案</h3>
+<p>使用memo解决，此时跟子组件不相干的基本数据类型更新后，子组件不会更新</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useEffect</span>, <span style="color:#a6e22e">memo</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Count</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">memo</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useEffect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;子组件更新了&#39;</span>);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">子组件</span>&lt;/<span style="color:#f92672">div</span>&gt;;
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Count</span>;
+</span></span></code></pre></div><p><strong>使用memo</strong>后，给子组件直接传递引用类型如对象和方法，父组件（相关引用类型未更新）更新后，子组件不会更新。</p>
+<blockquote>
+<p>猜测，页面更新时，数据存储在了内存里，其引用(地址)并没有变化</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">setCount</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">person</span>, <span style="color:#a6e22e">setPerson</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;张三&#39;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">18</span> };
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">Count</span> <span style="color:#a6e22e">person</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">person</span>} <span style="color:#a6e22e">addCount</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">setCount</span>} /&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">memo</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Count</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">memo</span>(({ <span style="color:#a6e22e">person</span>, <span style="color:#a6e22e">addCount</span> }) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">子组件</span>&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#a6e22e">addCount</span>(<span style="color:#ae81ff">0</span>)}&gt;<span style="color:#a6e22e">点击父组件count归0</span>&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Count</span>;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="新的问题">新的问题</h3>
+<p>当给子组件传递一个方法，主要是<strong>匿名函数，箭头函数</strong>时，memo会失效父组件更新时子组件会更新</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span> &lt;<span style="color:#f92672">Count</span> <span style="color:#a6e22e">person</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">person</span>} <span style="color:#a6e22e">addCount</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)} /&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">Count</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">person</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">person</span>;
+</span></span><span style="display:flex;"><span>  }}
+</span></span><span style="display:flex;"><span>  /&gt;
+</span></span></code></pre></div><blockquote>
+<p>猜测，父组件没有保存匿名函数的相关引用在栈中，子组件保存了其引用，每次父组件在更新后，就会向子组件重新传递一个新的匿名函数，因此子组件那里就会认为状态改变，更新页面</p>
+</blockquote>
+<p>验证:<!-- raw HTML omitted -->思路：将父组件传递的方法存放到redux里，并且比较前后两个方法的引用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">memo</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useEffect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useDispatch</span>, <span style="color:#a6e22e">useSelector</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-redux&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Count</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">memo</span>((<span style="color:#a6e22e">props</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">$dispatch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useDispatch</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">fooArr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useSelector</span>((<span style="color:#a6e22e">state</span>) =&gt; <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">fooSlice</span>.<span style="color:#a6e22e">functionArr</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useEffect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">fooArr</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;子组件更新了&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">fooArr</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">fooArr</span>[<span style="color:#ae81ff">1</span>]) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">fooArr</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">===</span> <span style="color:#a6e22e">fooArr</span>[<span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">子组件</span>
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/* &lt;button onClick={() =&gt; addCount(0)}&gt;点击父组件count归0&lt;/button&gt; */</span>}
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">addCount</span>()}&gt;<span style="color:#a6e22e">点击父组件count归0</span>&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">$dispatch</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;fooSlice/pushFoo&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">payload</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">addCount</span>,
+</span></span><span style="display:flex;"><span>          });
+</span></span><span style="display:flex;"><span>        }}
+</span></span><span style="display:flex;"><span>      &gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">派发函数</span>
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Count</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useEffect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useState</span>, <span style="color:#a6e22e">useMemo</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Count</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./Count&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">City</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">setCount</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">person</span>, <span style="color:#a6e22e">setPerson</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;张三&#39;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">18</span> };
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useEffect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;父组件更新了&#39;</span>);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">flag</span>, <span style="color:#a6e22e">setFlag</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">CountMemo</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useMemo</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">Count</span> <span style="color:#a6e22e">flag</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">flag</span>} <span style="color:#a6e22e">addCount</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)} /&gt;;
+</span></span><span style="display:flex;"><span>  }, [<span style="color:#a6e22e">flag</span>]);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)}&gt;{<span style="color:#a6e22e">count</span>}&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#a6e22e">setFlag</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">flag</span>)}&gt;<span style="color:#a6e22e">更新子组件</span>&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/* 未更新版 */</span>}
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/* &lt;Count person={person} addCount={setCount} /&gt; */</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/* 更新版 */</span>}
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/* &lt;Count person={person} addCount={() =&gt; setCount(count + 1)} /&gt; */</span>}
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/* &lt;Count
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        person={function () {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">          person;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        }}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      /&gt; */</span>}
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/*useMemo版*/</span>}
+</span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">CountMemo</span>}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">City</span>;
+</span></span></code></pre></div><p>redux里相关逻辑</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">createSlice</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@reduxjs/toolkit&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fooSlice</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createSlice</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;fooSlice&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">initialState</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">functionArr</span><span style="color:#f92672">:</span> [],
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">reducers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">pushFoo</span>(<span style="color:#a6e22e">state</span>, { <span style="color:#a6e22e">payload</span> }) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">functionArr</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">payload</span>);
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>打印结果:虽然出现了不知道的错误，但是比较下来的结果是false，证明引用不一样<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1659361101118-98ee9422-cdd5-4158-a4fa-d8d7e0cdcfa1.png#clientId=ucf8c1633-a9de-4&amp;from=paste&amp;height=100&amp;id=ua2f181a9&amp;originHeight=125&amp;originWidth=347&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=3058&amp;status=done&amp;style=none&amp;taskId=u1ab9ac64-fd7d-49b5-a181-46a97a7760f&amp;title=&amp;width=277.6" alt="image.png" loading="lazy" /></p>
+</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="usememo">useMemo</h2>
+<p>针对以上问题，<!-- raw HTML omitted --> 解决方案，使用<code>**useMemo**</code>，语法：<!-- raw HTML omitted --><code>**useMemo(callback,depsarr)**</code><!-- raw HTML omitted --><code>**callback  function **</code>返回一个值，可以是组件或者js相关的值，<!-- raw HTML omitted --><code>**depsarr  array **</code> 数组，只有其中的值发生改变才会执行callback</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useMemo</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">City</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">city</span>, <span style="color:#a6e22e">setCity</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;武汉&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">setCount</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">double</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useMemo</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 只有当依赖改变才会重新计算
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;useMemo&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>  }, [<span style="color:#a6e22e">count</span>]);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">setCity</span>(<span style="color:#a6e22e">city</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>          }}
+</span></span><span style="display:flex;"><span>        &gt;
+</span></span><span style="display:flex;"><span>          {<span style="color:#a6e22e">city</span>}
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>          }}
+</span></span><span style="display:flex;"><span>        &gt;
+</span></span><span style="display:flex;"><span>          {<span style="color:#a6e22e">count</span>}
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">City</span>;
+</span></span></code></pre></div><p>了解了上面的特性后，通过useMemo把Count组件返回，<strong>相当于一个组件的计算属性，<strong>在通过使用返回的</strong>变量</strong>，达到只有num改变后才会组件触发更新。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">//flag用于改变传递给子组件的状态让其更新  
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">flag</span>, <span style="color:#a6e22e">setFlag</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">CountMemo</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useMemo</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">Count</span> <span style="color:#a6e22e">flag</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">flag</span>} <span style="color:#a6e22e">addCount</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)} /&gt;;
+</span></span><span style="display:flex;"><span>  }, [<span style="color:#a6e22e">flag</span>]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>{<span style="color:#a6e22e">CountMemo</span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useEffect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useState</span>, <span style="color:#a6e22e">useMemo</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Count</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./Count&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">City</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">setCount</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">person</span>, <span style="color:#a6e22e">setPerson</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;张三&#39;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">18</span> };
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useEffect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;父组件更新了&#39;</span>);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">flag</span>, <span style="color:#a6e22e">setFlag</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">CountMemo</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useMemo</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">Count</span> <span style="color:#a6e22e">flag</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">flag</span>} <span style="color:#a6e22e">addCount</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)} /&gt;;
+</span></span><span style="display:flex;"><span>  }, [<span style="color:#a6e22e">flag</span>]);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)}&gt;{<span style="color:#a6e22e">count</span>}&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#a6e22e">setFlag</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">flag</span>)}&gt;<span style="color:#a6e22e">更新子组件</span>&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/* 未更新版 */</span>}
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/* &lt;Count person={person} addCount={setCount} /&gt; */</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/* 更新版 */</span>}
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/* &lt;Count person={person} addCount={() =&gt; setCount(count + 1)} /&gt; */</span>}
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/* &lt;Count
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        person={function () {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">          person;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        }}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      /&gt; */</span>}
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/*useMemo版*/</span>}
+</span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">CountMemo</span>}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">City</span>;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="usememo拓展">useMemo拓展</h2>
+<p><strong>可以实现计算属性和监听器的功能</strong>，注意，由于jsx语法的灵活性，可以达到对组件的监听和计算。</p>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1659423242183-7412604f-e18f-435d-85e8-469c2f4c0263.png"></div>
+  <div class="card-text">
+    <a href="/docs/gpziq0/"><h4 class="card-text--title text-ellipsis">mobx</h4></a>
+    <p class="card-text--row">2022-08-02 01:04</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1659337702750-d38228a4-1792-467b-b665-05f24a5e3a92.png"></div>
+  <div class="card-text">
+    <a href="/docs/bed4go/"><h4 class="card-text--title text-ellipsis">Redux</h4></a>
+    <p class="card-text--row">2022-08-01 06:43</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一子组件优化-memo">一、子组件优化 Memo</a>
+          <ul>
+            <li><a href="#1引例">1.引例</a></li>
+            <li><a href="#解决方案">解决方案</a></li>
+            <li><a href="#新的问题">新的问题</a></li>
+          </ul>
+        </li>
+        <li><a href="#usememo">useMemo</a></li>
+        <li><a href="#usememo拓展">useMemo拓展</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

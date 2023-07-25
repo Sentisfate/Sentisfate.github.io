@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>Redux 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="Redux" />
+<meta property="og:description" content="是什么 是react 的一个状态管理工具 基本思想 入门 使用redux 安装依赖 **npm i redux****npm i react-redux** 创建store/index.js import { createStore } from &#39;redux&#39;; const initState = { count: 1, }; //" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/bed4go/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-08-01T06:43:05+00:00" />
+<meta property="article:modified_time" content="2022-12-15T13:08:04+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Redux"/>
+<meta name="twitter:description" content="是什么 是react 的一个状态管理工具 基本思想 入门 使用redux 安装依赖 **npm i redux****npm i react-redux** 创建store/index.js import { createStore } from &#39;redux&#39;; const initState = { count: 1, }; //"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1659337702750-d38228a4-1792-467b-b665-05f24a5e3a92.png" alt="https://cdn.nlark.com/yuque/0/2022/png/29064333/1659337702750-d38228a4-1792-467b-b665-05f24a5e3a92.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">Redux</h1>
+    
+      <p class="card-text--row">2022-08-01 06:43</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="是什么">是什么</h2>
+<blockquote>
+<p>是react 的一个状态管理工具</p>
+</blockquote>
+<p>基本思想<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1659337702750-d38228a4-1792-467b-b665-05f24a5e3a92.png#averageHue=%23fcf2f2&amp;clientId=u5dbdf891-96ba-4&amp;from=paste&amp;id=u036e969b&amp;originHeight=866&amp;originWidth=1280&amp;originalType=url&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=64230&amp;status=done&amp;style=none&amp;taskId=u248dba75-50e8-41a4-a4ac-ab3e0d55102&amp;title=" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/gif/29064333/1659352476695-da9f8529-ea52-4f27-bfe7-dc3fd812e775.gif#averageHue=%23f3ebd5&amp;clientId=u7e325958-101e-4&amp;from=paste&amp;id=u1a9e5ea3&amp;originHeight=1080&amp;originWidth=1440&amp;originalType=url&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;taskId=u3fd38b5d-96c2-45a3-9f9b-cb668089fc2&amp;title=" alt="" loading="lazy" /></p>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="入门-使用redux">入门 使用redux</h2>
+<ol>
+<li>安装依赖</li>
+</ol>
+<p><code>**npm i redux**</code><!-- raw HTML omitted --><code>**npm i react-redux**</code></p>
+<ol start="2">
+<li>创建store/index.js</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">createStore</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;redux&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">initState</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// reducer --&gt;pinia 中的actions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">reducer</span>(<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">initState</span>, <span style="color:#a6e22e">action</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">switch</span> (<span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">type</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;counter/incremented&#39;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> };
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;counter/decremented&#39;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">count</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> };
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">state</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createStore</span>(<span style="color:#a6e22e">reducer</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">store</span>;
+</span></span></code></pre></div><ol start="3">
+<li>配置main.jsx</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactDOM</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-dom/client&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./App&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">store</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./store&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Provider</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-redux&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">createRoot</span>(document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)).<span style="color:#a6e22e">render</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Provider</span> <span style="color:#a6e22e">store</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">store</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">App</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Provider&gt;</span>
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><ol start="4">
+<li>使用<code>**store**</code>中的数据 <code>**store.getState().状态名**</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useEffect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useStore</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-redux&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">City</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useStore</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useEffect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">store</span>);
+</span></span><span style="display:flex;"><span>  }, []);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">getState</span>().<span style="color:#a6e22e">count</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;;</span>
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">City</span>;
+</span></span></code></pre></div><p>store结构：<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1659338051212-0b6f940e-4c76-4ac7-bfba-4a097e8fa7c1.png#averageHue=%23fdfcfc&amp;clientId=uc5f41e45-ade9-4&amp;from=paste&amp;height=254&amp;id=ubb6b9afe&amp;originHeight=318&amp;originWidth=774&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=36224&amp;status=done&amp;style=none&amp;taskId=u112cf401-a0d1-457a-adda-7e78c94b9bd&amp;title=&amp;width=619.2" alt="image.png" loading="lazy" /></p>
+</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="使用reduxjstoolkit">使用reduxjs/toolkit</h2>
+<ol>
+<li>安装依赖</li>
+</ol>
+<p><code>**npm install @reduxjs/toolkit react-redux**</code></p>
+<ol start="2">
+<li>使用<code>**createSlice**</code>定义切片，一个包含了state和action的逻辑块</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">createSlice</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@reduxjs/toolkit&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">counterSlice</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createSlice</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;counter&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">initialState</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">reducers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">increment</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">state</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">createSlice</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@reduxjs/toolkit&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">CitySlice</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createSlice</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;city&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">initialState</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;武汉&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">reducers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//注意这里的第二个参数是dispatch({})派发过来的对象，这里将其解构只用了payload
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">changeCity</span>(<span style="color:#a6e22e">state</span>,{<span style="color:#a6e22e">payload</span>}) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">payload</span>;
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><ol start="3">
+<li>集中管理切片，注意易错点，<code>**slice**</code>里用的是<code>**reducers**</code>，而<code>**store**</code>里用的是<code>**reducer**</code></li>
+</ol>
+<blockquote>
+<p>💡注意每个 <code>**reducer** </code>只负责管理全局 <code>state</code>中它负责的一部分。每个 <code>**reducer** </code>的 state 参数都不同，分别对应它管理的那部分 <code>state </code>数据。<strong>全局总的state也就是</strong><code>**store**</code><strong>的</strong><code>**state**</code>只有一个<code>**reducer**</code>负责，这个<code>reducer</code>由每个切片的<code>reducer</code>组成，因此<code>configStore</code>里的配置选项不写<code>reducers</code>，而每个切片有许许多多个状态，这些状态都有对应的<code>reducer</code>负责，一般肯定不止一个，所以切片里的选项为<code>**reducers**</code></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">configureStore</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@reduxjs/toolkit&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">counterSlice</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./modules/count&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">CitySlice</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./modules/city&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">configureStore</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// reducer: counterSlice.reducer,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">//只有一个切片可以像上面一样写，但是基本上不会只有一个
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">reducer</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">city</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">CitySlice</span>.<span style="color:#a6e22e">reducer</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">counter</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">counterSlice</span>.<span style="color:#a6e22e">reducer</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><ol start="4">
+<li>main.jsx中使用<code>Provider</code>引入<code>store</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactDOM</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-dom/client&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./App&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">store</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./store&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Provider</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-redux&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">createRoot</span>(document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)).<span style="color:#a6e22e">render</span>(
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">Provider</span> <span style="color:#a6e22e">store</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">store</span>}&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">App</span> /&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">Provider</span>&gt;
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><ol start="5">
+<li>在组件中使用redux的数据
+<ol>
+<li>获取<code>**state**</code>** **state为一个对象，每个属性是一个slice的状态，属性名为slice 的<code>**name**</code>，因此<code>**name**</code>要唯一</li>
+</ol>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useSelector</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-redux&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useSelector</span>((<span style="color:#a6e22e">state</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">state</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">state</span>;
+</span></span><span style="display:flex;"><span>  });
+</span></span></code></pre></div><p>
+  <figure class="figure-image">
+    <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1659352301352-37a8f91c-4698-429a-8e08-91c3f40c898f.png#averageHue=%23fdfcfc&amp;clientId=u7e325958-101e-4&amp;from=paste&amp;height=160&amp;id=u6e9b8e15&amp;originHeight=200&amp;originWidth=361&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=true&amp;size=10042&amp;status=done&amp;style=none&amp;taskId=u3f32c5bf-b84c-4a08-82f9-e1184229543&amp;title=state%E6%89%93%E5%8D%B0%E7%BB%93%E6%9E%9C&amp;width=288.8" title="state打印结果" alt="state打印结果" loading="lazy" />
+    <figcaption>state打印结果</figcaption>
+  </figure>
+</p>
+<ol start="2">
+<li>获取对应属性的值可以这样写</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">city</span><span style="color:#f92672">=</span><span style="color:#a6e22e">useSelector</span>(<span style="color:#a6e22e">state</span>=&gt;<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">city</span>.<span style="color:#a6e22e">value</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">count</span><span style="color:#f92672">=</span><span style="color:#a6e22e">useSelector</span>(<span style="color:#a6e22e">state</span>=&gt;<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">counter</span>.<span style="color:#a6e22e">value</span>)
+</span></span></code></pre></div><ol start="6">
+<li>使用<code>**useDispatch**</code>向<code>**redux**</code>派发事件，改变状态</li>
+</ol>
+<p>语法: <code>**$dispatch({type:'slicename/reducer',payload:value...})**</code>** <strong><!-- raw HTML omitted --><strong>注意：</strong><code>**{type:'slicename/reducer',key:value}**</code></strong> 会作为reducer的第二个参数,可以自定义键值对来传递数据.**</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useSelector</span>, <span style="color:#a6e22e">useDispatch</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-redux&#39;</span>;
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">$dispatch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useDispatch</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">increment</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">$dispatch</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;counter/increment&#39;</span>,
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">increment</span>}&gt;{<span style="color:#a6e22e">count</span>}&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">newCity</span>, <span style="color:#a6e22e">setNewCity</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">changeCity</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">$dispatch</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;city/changeCity&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">payload</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">newCity</span>,
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">input</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">newCity</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{(<span style="color:#a6e22e">e</span>) =&gt; {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">setNewCity</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>);
+</span></span><span style="display:flex;"><span>          }}
+</span></span><span style="display:flex;"><span>        /&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">changeCity</span>}&gt;{<span style="color:#a6e22e">city</span>}&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">p</span>&gt;
+</span></span></code></pre></div><p>:::info
+派发给store的事件，会根据type来确定由具体哪个slice的哪个reducer来执行，再根据payload传递来的数据替换原有的状态。
+:::
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="总结">总结</h2>
+<p>了解上述流程，再来看这张图，就基本明白了<!-- raw HTML omitted -->当事件触发时，引起了向store的派发操作，根据派发的类型和负载，相应的reducer就会操作状态，从而引发视图的改变。<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/gif/29064333/1659352476695-da9f8529-ea52-4f27-bfe7-dc3fd812e775.gif#averageHue=%23f3ebd5&amp;from=url&amp;id=kIe1D&amp;originHeight=1080&amp;originWidth=1440&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+</p>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1659361101118-98ee9422-cdd5-4158-a4fa-d8d7e0cdcfa1.png"></div>
+  <div class="card-text">
+    <a href="/docs/pau57n/"><h4 class="card-text--title text-ellipsis">React进阶</h4></a>
+    <p class="card-text--row">2022-08-01 08:37</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/kapoxf/"><h4 class="card-text--title text-ellipsis">控制路由跳转后的scroll滚动位置</h4></a>
+    <p class="card-text--row">2022-08-01 02:01</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#是什么">是什么</a></li>
+        <li><a href="#入门-使用redux">入门 使用redux</a></li>
+        <li><a href="#使用reduxjstoolkit">使用reduxjs/toolkit</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

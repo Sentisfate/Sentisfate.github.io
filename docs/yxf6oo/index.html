@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>单词拆分 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="单词拆分" />
+<meta property="og:description" content="题目描述 leetcode 解法1 dfs 思路： 一个单词如果要能拆分，必定这个字符串的第一个字符开始到某一字符结束所构成的单词能够在字典种找到。并且剩下的字符串可以" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/yxf6oo/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-09-07T04:42:54+00:00" />
+<meta property="article:modified_time" content="2022-11-19T09:20:04+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="单词拆分"/>
+<meta name="twitter:description" content="题目描述 leetcode 解法1 dfs 思路： 一个单词如果要能拆分，必定这个字符串的第一个字符开始到某一字符结束所构成的单词能够在字典种找到。并且剩下的字符串可以"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1662525699916-a6aeeacb-4d6d-4c83-9735-d5ee965e732f.png" alt="https://cdn.nlark.com/yuque/0/2022/png/29064333/1662525699916-a6aeeacb-4d6d-4c83-9735-d5ee965e732f.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">单词拆分</h1>
+    
+      <p class="card-text--row">2022-09-07 04:42</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="题目描述">题目描述</h2>
+<p>
+  <figure class="figure-image">
+    <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1662525699916-a6aeeacb-4d6d-4c83-9735-d5ee965e732f.png#clientId=ue8e911cf-9b1d-4&amp;from=paste&amp;height=524&amp;id=u338def19&amp;originHeight=655&amp;originWidth=599&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=true&amp;size=34435&amp;status=done&amp;style=none&amp;taskId=u0c42854f-fd33-4fbc-8ff9-65bf06bdd82&amp;title=leetcode&amp;width=479.2" title="leetcode" alt="leetcode" loading="lazy" />
+    <figcaption>leetcode</figcaption>
+  </figure>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="解法1--dfs">解法1  dfs</h2>
+<p>思路：</p>
+<blockquote>
+<p>一个单词如果要能拆分，必定这个字符串的第一个字符开始到某一字符结束所构成的单词能够在字典种找到。并且剩下的字符串可以按照同样的规律来找。很显然，可以通过递归的方式来查找</p>
+</blockquote>
+<p>临界条件：
+:::info
+当递归函数要查询的字符串为空时，说明可以拆分。返回true
+:::
+
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1662526423631-1adcedf4-df29-418b-9e68-7a4bec52503b.png#clientId=ue8e911cf-9b1d-4&amp;from=paste&amp;height=272&amp;id=uc58ac37c&amp;originHeight=340&amp;originWidth=690&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=33234&amp;status=done&amp;style=none&amp;taskId=u1c134eea-5e71-4fd5-a761-16255746cee&amp;title=&amp;width=552" alt="image.png" loading="lazy" /></p>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {string} s
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {string[]} wordDict
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {boolean}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">wordBreak</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">wordDict</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">wordDict</span>.<span style="color:#a6e22e">includes</span>(<span style="color:#a6e22e">s</span>)){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 如果可以由字典种组成的话，则字符串满足从第一个字符开始到某一位置的单词能在字典种找到
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 拿么剩下的字符串按照同样的条件一样可以在字典种找到对应的单词
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 因此可以考虑使用递归的方式来查找
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dfs</span><span style="color:#f92672">=</span>(<span style="color:#a6e22e">s</span>,<span style="color:#a6e22e">wordDict</span>)=&gt;{
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//当递归的字符串长度为1时，说明前面有一种拆分方式可以成功
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">length</span><span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">length</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">word</span><span style="color:#f92672">=</span><span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">0</span>,<span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">word</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//如果当前的单词可以在字典种找到的话，就递归搜索后面的字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">wordDict</span>.<span style="color:#a6e22e">includes</span>(<span style="color:#a6e22e">word</span>)){
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">dfs</span>(<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>),<span style="color:#a6e22e">wordDict</span>)){
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//没有一个能够成立的话就
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#a6e22e">s</span>,<span style="color:#a6e22e">wordDict</span>)
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>上面的方法时间复杂度会比较高，遇到某些情况可能会超时，如
+:::tips
+&ldquo;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab&rdquo; [&ldquo;a&rdquo;,&ldquo;aa&rdquo;,&ldquo;aaa&rdquo;,&ldquo;aaaa&rdquo;,&ldquo;aaaaa&rdquo;,&ldquo;aaaaaa&rdquo;,&ldquo;aaaaaaa&rdquo;,&ldquo;aaaaaaaa&rdquo;,&ldquo;aaaaaaaaa&rdquo;,&ldquo;aaaaaaaaaa&rdquo;]
+:::
+
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1662527960062-dab0fa68-9cc0-45ac-8a64-316b434f4a44.png#clientId=ue8e911cf-9b1d-4&amp;from=paste&amp;height=484&amp;id=uc49c28cc&amp;originHeight=605&amp;originWidth=1174&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=51271&amp;status=done&amp;style=none&amp;taskId=uded9c66d-1567-4571-9b4d-df900054a58&amp;title=&amp;width=939.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->因此可以用一个数组记忆某一节点后面的递归结果即可</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {string} s
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {string[]} wordDict
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {boolean}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">wordBreak</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">wordDict</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">wordDict</span>.<span style="color:#a6e22e">includes</span>(<span style="color:#a6e22e">s</span>)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 如果可以由字典种组成的话，则字符串满足从第一个字符开始到某一位置的单词能在字典种找到
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// 拿么剩下的字符串按照同样的条件一样可以在字典种找到对应的单词
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// 因此可以考虑使用递归的方式来查找
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 用于记录从当前字符串第i个开始的字符串能否拆分成单词
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">memo</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Array(<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">length</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//start 记录的是上一次字符的位置
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dfs</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">wordDict</span>, <span style="color:#a6e22e">start</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//当递归的字符串长度为1时，说明前面有一种拆分方式可以成功
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">memo</span>[<span style="color:#a6e22e">start</span>] <span style="color:#f92672">!=</span> <span style="color:#66d9ef">undefined</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">memo</span>[<span style="color:#a6e22e">start</span>];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//假定当前开始位置不能被拆分
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">memo</span>[<span style="color:#a6e22e">start</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//如果从当前位置开始的字符串能够拆分的话就返回
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">//如果当前位置开始的字符串的状态未知的话，就进行递归确认当前的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">word</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//如果当前的单词可以在字典种找到的话，就递归搜索后面的字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">wordDict</span>.<span style="color:#a6e22e">includes</span>(<span style="color:#a6e22e">word</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//递归标记标记从该字符后面开始的字符串可以被拆分,如果后面的字符可以拆分，当前开始的位置就可以拆分，否则当前开始的位置的字符串就不能拆分
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">dfs</span>(<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>), <span style="color:#a6e22e">wordDict</span>, <span style="color:#a6e22e">start</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)) {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">memo</span>[<span style="color:#a6e22e">start</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">memo</span>[<span style="color:#a6e22e">start</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//没有一个能够成立的话就
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  };
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">wordDict</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="解法2-动态规划法">解法2 动态规划法</h2>
+<p>:::tips
+思路：用一个数组dp来记录前<code>i</code>个字符组成的字符串是否可以被拆分，并记录下i的索引。<!-- raw HTML omitted -->前<code>j (j&gt;i)</code>个字符串是否可以被拆分成单词就可以转换为</p>
+<ul>
+<li><code>i+1 ~ j</code>个字符组成的字符串是否在字典中</li>
+<li>dp中记录的<code>i+1~j</code>是否在字典中
+:::</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {string} s
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {string[]} wordDict
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {boolean}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">wordBreak</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">wordDict</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//考虑用动态规划来解决
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 用一个数组来存储前i为字符是否能够被拆分成单词,并记下这个i
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">n</span><span style="color:#f92672">=</span><span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">length</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 默认存储前0个
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">dp</span><span style="color:#f92672">=</span>[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">d</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">n</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">j</span><span style="color:#f92672">=</span><span style="color:#a6e22e">dp</span>.<span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;<span style="color:#a6e22e">j</span><span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0</span>;<span style="color:#a6e22e">j</span><span style="color:#f92672">--</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">wordDict</span>.<span style="color:#a6e22e">includes</span>(<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#a6e22e">dp</span>[<span style="color:#a6e22e">j</span>]<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,<span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>))){
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">dp</span>[<span style="color:#a6e22e">d</span><span style="color:#f92672">++</span>]<span style="color:#f92672">=</span><span style="color:#a6e22e">i</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">dp</span>[<span style="color:#a6e22e">dp</span>.<span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">==</span><span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div>
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/lhbwey/"><h4 class="card-text--title text-ellipsis">动态规划法</h4></a>
+    <p class="card-text--row">2022-09-07 09:56</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1662520346547-ed0bde51-aec0-42f4-bc99-67e4c0df8298.png"></div>
+  <div class="card-text">
+    <a href="/docs/gcl8uo/"><h4 class="card-text--title text-ellipsis">重排列单词间的空格</h4></a>
+    <p class="card-text--row">2022-09-07 03:14</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#题目描述">题目描述</a></li>
+        <li><a href="#解法1--dfs">解法1  dfs</a></li>
+        <li><a href="#解法2-动态规划法">解法2 动态规划法</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

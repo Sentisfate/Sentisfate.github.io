@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>Git 教程 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="Git 教程" />
+<meta property="og:description" content="配置 查看配置 git config -l 查看系统配置git config --system --list 查看用户自定义配置git config --global --list 配置用户名和邮箱 git config --global user.name &#34;&lt;username&gt;&#34; git config --global user.email &#34;&lt;your email&gt;&#34; 环境变量只是为了在任何地方使用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/fggrbu/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-11-05T07:59:05+00:00" />
+<meta property="article:modified_time" content="2023-07-23T09:24:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Git 教程"/>
+<meta name="twitter:description" content="配置 查看配置 git config -l 查看系统配置git config --system --list 查看用户自定义配置git config --global --list 配置用户名和邮箱 git config --global user.name &#34;&lt;username&gt;&#34; git config --global user.email &#34;&lt;your email&gt;&#34; 环境变量只是为了在任何地方使用"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667636711859-00134582-eec0-4a1f-bbf9-a6f028e03e6b.png" alt="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667636711859-00134582-eec0-4a1f-bbf9-a6f028e03e6b.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">Git 教程</h1>
+    
+      <p class="card-text--row">2022-11-05 07:59</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="配置">配置</h2>
+<ul>
+<li>查看配置 <code>git config -l</code></li>
+<li>查看系统配置<code>git config --system --list</code></li>
+<li>查看用户自定义配置<code>git config --global --list</code></li>
+<li>配置用户名和邮箱</li>
+</ul>
+<pre tabindex="0"><code>git config --global user.name &#34;&lt;username&gt;&#34;
+git config --global user.email &#34;&lt;your email&gt;&#34;
+</code></pre><blockquote>
+<p>环境变量只是为了在任何地方使用</p>
+</blockquote>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="git基本理论">git基本理论</h2>
+<p>git 本地有三个工作区，工作目录(Working Directory)，暂存区(Stage/index)，资源库(Repository)，加上远程git仓库(Remote Directory)可以分为四个工作区。</p>
+<ol>
+<li>工作目录：平时放代码的地方</li>
+<li>index/Stage 暂存区，临时存放改动</li>
+<li>Repository，本地仓库</li>
+<li>Remote Direcotry，远程仓库</li>
+</ol>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667636711859-00134582-eec0-4a1f-bbf9-a6f028e03e6b.png#averageHue=%23ece1ce&amp;clientId=u978d2f36-d275-4&amp;from=paste&amp;height=186&amp;id=u8110cff7&amp;originHeight=233&amp;originWidth=245&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=34815&amp;status=done&amp;style=none&amp;taskId=u6c504a62-7b14-4243-8723-16ee843d46d&amp;title=&amp;width=196" alt="image.png" loading="lazy" /></p>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="工作流程">工作流程</h2>
+<p>git的工作流程一般如下：</p>
+<ol>
+<li>在工作目录中添加，修改文件</li>
+<li>将需要版本控制的文件放图暂存区</li>
+<li>将暂存区文件提交到git仓库</li>
+<li>本地仓库推送给远程仓库
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ol>
+<h2 id="常用命令">常用命令</h2>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1667637192780-f52f2ede-63ce-413e-870f-10d1bb74a5a4.png#averageHue=%23e3e3dd&amp;clientId=u978d2f36-d275-4&amp;from=paste&amp;height=342&amp;id=u25f67496&amp;originHeight=428&amp;originWidth=1333&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=177367&amp;status=done&amp;style=none&amp;taskId=ue3cee304-bade-4f8c-a6d4-3895ae97249&amp;title=&amp;width=1066.4" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->本地仓库搭建 <code>git init</code> 多了一个.git文件夹<!-- raw HTML omitted -->克隆远程仓库<code>git clone &lt;url&gt;</code>
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="git文件操作">git文件操作</h2>
+<p>git文件具有四种状态：</p>
+<ul>
+<li><code>Untracked</code>，未跟踪，此文件没有加入到<code>git</code>库，不参与版本控制，可以通过<code>git add </code>来使状态变为<code>staged</code></li>
+<li>Unmodify，文件已入库，未修改，版本库文件内容与文件中内容完全一致，该状态可以通过改变内容变为<code>Modified</code>，或者使用<code>git rm</code>移出版本库变为<code>Untracked</code></li>
+<li>Modified，文件已修改，<code>git add</code> 可以使其变为<code>staged</code>，<code>git ``checkout </code>返回 <code>unmodify</code>。</li>
+<li>Staged，暂存状态，执行<code>git commit</code>，将同步到版本库，文件变为<code>Unmodify</code>，执行<code>git reset HEAD filename</code> 取消暂存，变为<code>Modified</code></li>
+</ul>
+<ol>
+<li><code>git add &lt;file&gt;</code> ，<code>git add .</code>添加 所有文件到暂存区</li>
+<li><code>git comit -m</code>提交暂存区所有的内容到本地仓库，<code>-m</code>提交信息</li>
+</ol>
+<blockquote>
+<p>忽略文件 .gitignore</p>
+</blockquote>
+<pre tabindex="0"><code>.txt
+lib.txt
+node_modules/
+public/
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="git分支">GIT分支</h2>
+<p>常见分支：</p>
+<blockquote>
+<ul>
+<li>main主分支</li>
+<li>dev 开发版</li>
+</ul>
+</blockquote>
+<p>常用命令：</p>
+<ul>
+<li><code>git branch</code>列出所有分支</li>
+<li><code>git branch -r</code>远程分支</li>
+<li><code>git branch &lt;分支名&gt;</code>新建分支</li>
+<li><code>git checkout -b &lt;分支名&gt;</code>新建并切换到该分支</li>
+<li><code>git merge &lt;branch&gt;</code>合并指定分支到当前分支</li>
+<li><code>git branch -d &lt;branch&gt;</code>删除分支</li>
+<li><code>git branch -dr &lt;branch&gt;</code> 删除远程分支</li>
+</ul>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/jpeg/29064333/1675660496387-cf7578ac-a2b0-4622-93b6-34b78a58dc12.jpeg#averageHue=%23203235&amp;clientId=u8b93af8c-8384-4&amp;from=paste&amp;id=u7741696d&amp;originHeight=1466&amp;originWidth=2076&amp;originalType=url&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;taskId=u9149011a-80ef-47fe-9b51-90e0eef5df0&amp;title=" alt="" loading="lazy" /></p>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="分支操作">分支操作</h1>
+<ol>
+<li><code>git branch</code> 查看本地分支</li>
+<li><code>git branch -a</code> 查看本地线上分支</li>
+<li><code>git branch -vv</code>查看本地分支与远程分支关联情况</li>
+<li><code>git branch name</code>创建分支</li>
+<li><code>git checkout name</code>切换到name分支</li>
+<li><code>git checkout -b name</code>创建并切换到分支</li>
+<li><code>git branch -d name</code>删除分支</li>
+<li><code>git checkout -b name origin/name</code>创建分支并和远程分支相关联</li>
+<li><code>git push 远程仓库 本地分支:远程分支</code>推送分支  简单粗暴<code>git push</code> 会默认push到已关联的分支，如果分支未关联，则提前需要关联(参考7或者<code>**git push -u origin dev**</code>)</li>
+<li><code>**git pull origin dev:dev**</code>拉取远程分支的同时创建本地分支</li>
+<li><code> git branch --set-upstream-to=origin/&lt;branch&gt; 本地分支</code> 将本地分支与远程分支相关联</li>
+<li><code>git -m oldBranch newBranch</code> 重命名分支</li>
+<li><code>git stash</code>存储分支修改的内容</li>
+<li><code>git stash pop</code>恢复上面的内容</li>
+<li><code>git merge targetBranch</code>将目标分支合并到当前分支</li>
+<li><code>git rebase target</code> 将当前分支的工作移到目标分支的顶端，此操作后还需切换到target分支后再rebase一次</li>
+<li>强制推送 <code>git push -f origin/分支名</code></li>
+</ol>
+<blockquote>
+<p>注意:git远程分支远程手动创建后，需要git pull拉取更新一下，才能更新到本地，本地才能查看到新建的远程分支</p>
+</blockquote>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/mye6x1r4himw493m/"><h4 class="card-text--title text-ellipsis">769.最多能完成排序的块</h4></a>
+    <p class="card-text--row">2022-11-06 04:11</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/ubpu3ic3xs03zgiq/"><h4 class="card-text--title text-ellipsis">1106 解析布尔表达式</h4></a>
+    <p class="card-text--row">2022-11-05 04:11</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#配置">配置</a></li>
+        <li><a href="#git基本理论">git基本理论</a></li>
+        <li><a href="#工作流程">工作流程</a></li>
+        <li><a href="#常用命令">常用命令</a></li>
+        <li><a href="#git文件操作">git文件操作</a></li>
+        <li><a href="#git分支">GIT分支</a></li>
+      </ul>
+    </li>
+    <li><a href="#分支操作">分支操作</a></li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

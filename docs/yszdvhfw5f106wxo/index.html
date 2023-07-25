@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>二维空间变换 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="二维空间变换" />
+<meta property="og:description" content="先来快速画个矩形。 &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34; /&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34; /&gt; &lt;title&gt;Document&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;canvas id=&#34;glcanvas&#34; width=&#34;840&#34; height=&#34;480&#34;&gt; 你的浏览器似乎不支持或者禁用了 HTML5 &lt;code&gt;&amp;lt;canvas&amp;gt;&lt;/code&gt; 元素。 &lt;/canvas&gt; &lt;script id=&#34;vertex-shader-2d&#34; type=&#34;x-shader/x-vertex&#34;&gt; attribute vec2 a_position; uniform mat3 u_matrix; varying vec4 v_color; void main() { gl_Position = vec4((u_matrix * vec3(a_position," />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/yszdvhfw5f106wxo/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2023-07-17T03:21:27+00:00" />
+<meta property="article:modified_time" content="2023-07-25T03:16:07+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="二维空间变换"/>
+<meta name="twitter:description" content="先来快速画个矩形。 &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34; /&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34; /&gt; &lt;title&gt;Document&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;canvas id=&#34;glcanvas&#34; width=&#34;840&#34; height=&#34;480&#34;&gt; 你的浏览器似乎不支持或者禁用了 HTML5 &lt;code&gt;&amp;lt;canvas&amp;gt;&lt;/code&gt; 元素。 &lt;/canvas&gt; &lt;script id=&#34;vertex-shader-2d&#34; type=&#34;x-shader/x-vertex&#34;&gt; attribute vec2 a_position; uniform mat3 u_matrix; varying vec4 v_color; void main() { gl_Position = vec4((u_matrix * vec3(a_position,"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/__latex/6a29b515746fb8ec1a2d63d224244345.svg" alt="https://cdn.nlark.com/yuque/__latex/6a29b515746fb8ec1a2d63d224244345.svg" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">二维空间变换</h1>
+    
+      <p class="card-text--row">2023-07-17 03:21</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p>先来快速画个矩形。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;Document&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">canvas</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;glcanvas&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;840&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;480&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      你的浏览器似乎不支持或者禁用了 HTML5 &lt;<span style="color:#f92672">code</span>&gt;&amp;lt;canvas&amp;gt;&lt;/<span style="color:#f92672">code</span>&gt; 元素。
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">canvas</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vertex-shader-2d&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;x-shader/x-vertex&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">attribute</span> <span style="color:#a6e22e">vec2</span> <span style="color:#a6e22e">a_position</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">uniform</span> <span style="color:#a6e22e">mat3</span> <span style="color:#a6e22e">u_matrix</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">varying</span> <span style="color:#a6e22e">vec4</span> <span style="color:#a6e22e">v_color</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl_Position</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">vec4</span>((<span style="color:#a6e22e">u_matrix</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">vec3</span>(<span style="color:#a6e22e">a_position</span>, <span style="color:#ae81ff">1</span>)).<span style="color:#a6e22e">xy</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">v_color</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl_Position</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fragment-shader-2d&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;x-shader/x-fragment&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">precision</span> <span style="color:#a6e22e">mediump</span> <span style="color:#66d9ef">float</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">varying</span> <span style="color:#a6e22e">vec4</span> <span style="color:#a6e22e">v_color</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl_FragColor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">v_color</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">canvas</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;glcanvas&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">gl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">getContext</span>(<span style="color:#e6db74">&#34;webgl&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">gl</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">alert</span>(
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;无法初始化 WebGL，你的浏览器、操作系统或硬件等可能不支持 WebGL。&#34;</span>
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;不支持gl&#34;</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createShader</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">type</span>, <span style="color:#a6e22e">source</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">shader</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">createShader</span>(<span style="color:#a6e22e">type</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">shaderSource</span>(<span style="color:#a6e22e">shader</span>, <span style="color:#a6e22e">source</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">compileShader</span>(<span style="color:#a6e22e">shader</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getShaderParameter</span>(<span style="color:#a6e22e">shader</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">COMPILE_STATUS</span>)) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">shader</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createProgram</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">vsShader</span>, <span style="color:#a6e22e">fsShader</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">program</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">createProgram</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">attachShader</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">vsShader</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">attachShader</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">fsShader</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">linkProgram</span>(<span style="color:#a6e22e">program</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getProgramParameter</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">LINK_STATUS</span>)) {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">useProgram</span>(<span style="color:#a6e22e">program</span>);
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">program</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setUniformMat3</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">uniformName</span>, <span style="color:#a6e22e">arr</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getUniformLocation</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">uniformName</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">uniformMatrix3fv</span>(<span style="color:#a6e22e">location</span>, <span style="color:#66d9ef">false</span>, <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Float32Array</span>(<span style="color:#a6e22e">arr</span>));
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setVertexAttribute2D</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">attrName</span>, <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> []) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getAttribLocation</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">attrName</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">enableVertexAttribArray</span>(<span style="color:#a6e22e">location</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">buffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">createBuffer</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">bindBuffer</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">ARRAY_BUFFER</span>, <span style="color:#a6e22e">buffer</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">bufferData</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">ARRAY_BUFFER</span>, <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Float32Array</span>(<span style="color:#a6e22e">data</span>), <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">STATIC_DRAW</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">vertexAttribPointer</span>(<span style="color:#a6e22e">location</span>, <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">FLOAT</span>, <span style="color:#66d9ef">false</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">draw</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">start</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">TRIANGLES</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">viewport</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">width</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">height</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">clearColor</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0.1</span>); <span style="color:#75715e">//设置清空颜色
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">clear</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">COLOR_BUFFER_BIT</span>); <span style="color:#75715e">//清空画布
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">drawArrays</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">TRIANGLES</span>, <span style="color:#a6e22e">start</span>,<span style="color:#a6e22e">count</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vsShader</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createShader</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">VERTEX_SHADER</span>,
+</span></span><span style="display:flex;"><span>        document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;#vertex-shader-2d&#34;</span>).<span style="color:#a6e22e">innerHTML</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fsShader</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createShader</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">FRAGMENT_SHADER</span>,
+</span></span><span style="display:flex;"><span>        document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;#fragment-shader-2d&#34;</span>).<span style="color:#a6e22e">innerHTML</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">program</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createProgram</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">vsShader</span>, <span style="color:#a6e22e">fsShader</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setVertexAttribute2D</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">program</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;a_position&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">getRectangle</span>(<span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setUniformMat3</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">program</span>, <span style="color:#e6db74">&#34;u_matrix&#34;</span>, <span style="color:#a6e22e">getMat3</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">canvas</span>));
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">draw</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMat3</span>(<span style="color:#a6e22e">canvas</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rec</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">getBoundingClientRect</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">center</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">x</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">rec</span>.<span style="color:#a6e22e">left</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">rec</span>.<span style="color:#a6e22e">right</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">y</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">rec</span>.<span style="color:#a6e22e">top</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">rec</span>.<span style="color:#a6e22e">bottom</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">center</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">w</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">width</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">h</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">height</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> [
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">w</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0.0</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0.0</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">h</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>          (<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">x</span>) <span style="color:#f92672">/</span> <span style="color:#a6e22e">w</span>,
+</span></span><span style="display:flex;"><span>          (<span style="color:#ae81ff">2.0</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">y</span>) <span style="color:#f92672">/</span> <span style="color:#a6e22e">h</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>        ];
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getRectangle</span>(<span style="color:#a6e22e">lx</span>, <span style="color:#a6e22e">ly</span>, <span style="color:#a6e22e">rx</span>, <span style="color:#a6e22e">ry</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">lx</span>, <span style="color:#a6e22e">ly</span>, <span style="color:#a6e22e">lx</span>, <span style="color:#a6e22e">ry</span>, <span style="color:#a6e22e">rx</span>, <span style="color:#a6e22e">ry</span>, <span style="color:#a6e22e">lx</span>, <span style="color:#a6e22e">ly</span>, <span style="color:#a6e22e">rx</span>, <span style="color:#a6e22e">ry</span>, <span style="color:#a6e22e">rx</span>, <span style="color:#a6e22e">ly</span>];
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>进行二维空间变换前，最重要的就是明确你所处的坐标系以及变换在哪个坐标系进行。不同的坐标系有不同的效果
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="平移">平移</h1>
+<p>对于平移，利用glsl的向量的特性，可以简单的使用一个vec2向量来表示各分量的变化。假定位移量以屏幕坐标为准，着色器更改如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-glsl" data-lang="glsl"><span style="display:flex;"><span><span style="color:#66d9ef">attribute</span> <span style="color:#66d9ef">vec2</span> a_position;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> mat3 u_matrix;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//位移量</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> <span style="color:#66d9ef">vec2</span> u_translation;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">varying</span> <span style="color:#66d9ef">vec4</span> v_color;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> main() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">vec2</span> position<span style="color:#f92672">=</span>a_position<span style="color:#f92672">+</span>u_translation;<span style="color:#75715e">// 在屏幕坐标系下进行平移</span>
+</span></span><span style="display:flex;"><span>  gl_Position <span style="color:#f92672">=</span> <span style="color:#66d9ef">vec4</span>((u_matrix <span style="color:#f92672">*</span> <span style="color:#66d9ef">vec3</span>(position, <span style="color:#ae81ff">1</span>)).xy, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>  v_color <span style="color:#f92672">=</span> gl_Position <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="旋转">旋转</h1>
+<p>旋转是图形中的每个点，绕某个确定的点进行旋转，利用三角函数可以计算最新的点，对于绕原点旋转的图形，公式表现如下：<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/__latex/6a29b515746fb8ec1a2d63d224244345.svg#card=math&amp;code=%5Cbegin%7Bbmatrix%7Dx_1%5C%5Cy_1%5Cend%7Bbmatrix%7D%3D%0A%5Cbegin%7Bbmatrix%7Dcos%5Ctheta%26-sin%5Ctheta%5C%5Csin%5Ctheta%26cos%5Ctheta%5Cend%7Bbmatrix%7D%0A%5Cbegin%7Bbmatrix%7Dx%5C%5Cy%5Cend%7Bbmatrix%7D&amp;id=S1fdK" alt="" loading="lazy" /></p>
+<!-- raw HTML omitted -->注意上面的矩阵角度<strong>相对于坐标系</strong>逆时针为正，如果想要以顺时针为正计算，用
+  <p><img src="https://cdn.nlark.com/yuque/__latex/37a7ec155feb4abece8f72607651522d.svg#card=math&amp;code=-%5Ctheta&amp;id=pMB4D" alt="" loading="lazy" /></p>
+代入即可。<!-- raw HTML omitted -->对于正常的笛卡尔坐标系，逆时针顺序是按照1、2、3、4象限进行的，与人眼观察一致。而对于屏幕坐标系这类y轴翻转了的直角坐标系，其1、2、3、4象限顺序在人眼观察看来是顺时针。<!-- raw HTML omitted -->因此，在进行图形旋转前，要先确定当前点的坐标是在什么样的坐标系下进行的，如下面这几种情况：</p>
+<ol>
+<li>对像素坐标进行旋转</li>
+</ol>
+<p>对像素坐标用旋转矩阵，则其会绕屏幕左上角旋转，在着色器中代码大致如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-glsl" data-lang="glsl"><span style="display:flex;"><span><span style="color:#66d9ef">attribute</span> <span style="color:#66d9ef">vec2</span> a_position;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 像素坐标转裁剪空间转换矩阵</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> mat3 u_matrix;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 旋转</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> <span style="color:#66d9ef">mat2</span> u_rotate;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// canvas的分辨率</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> <span style="color:#66d9ef">vec2</span> u_resolution;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> main() {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 旋转</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">vec2</span> position<span style="color:#f92672">=</span>u_rotate<span style="color:#f92672">*</span>a_position;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 将坐标转换为裁剪空间坐标</span>
+</span></span><span style="display:flex;"><span>  position<span style="color:#f92672">=</span>(u_matrix <span style="color:#f92672">*</span> <span style="color:#66d9ef">vec3</span>(position, <span style="color:#ae81ff">1</span>)).xy;
+</span></span><span style="display:flex;"><span>  gl_Position <span style="color:#f92672">=</span> <span style="color:#66d9ef">vec4</span>(position, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="2">
+<li>对裁剪空间坐标进行旋转，则是在将点的坐标转换为裁剪空间后进行旋转，旋转中心为裁剪空间坐标原点</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-glsl" data-lang="glsl"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">vec2</span> position<span style="color:#f92672">=</span> (u_matrix<span style="color:#f92672">*</span> <span style="color:#66d9ef">vec3</span>(a_position,<span style="color:#ae81ff">1</span>)).xy;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 后旋转</span>
+</span></span><span style="display:flex;"><span>position<span style="color:#f92672">=</span>u_rotate<span style="color:#f92672">*</span>position;
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><ol start="3">
+<li>或者指定某一个点进行旋转，这里以屏幕坐标下的图形中心点为例。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-glsl" data-lang="glsl"><span style="display:flex;"><span><span style="color:#66d9ef">attribute</span> <span style="color:#66d9ef">vec2</span> a_position;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 像素坐标转裁剪空间转换矩阵</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> mat3 u_matrix;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 位移量</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> <span style="color:#66d9ef">vec2</span> u_translation;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 旋转</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> <span style="color:#66d9ef">mat2</span> u_rotate;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 缩放</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> <span style="color:#66d9ef">mat2</span> u_scale;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// canvas的分辨率</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> <span style="color:#66d9ef">vec2</span> u_resolution;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> <span style="color:#66d9ef">vec2</span> u_rotateCenter;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">varying</span> <span style="color:#66d9ef">vec4</span> v_color;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> main() {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//先将坐标转换为以u_rotateCenter 为原点的坐标</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">vec2</span> position<span style="color:#f92672">=</span>a_position<span style="color:#f92672">-</span>u_rotateCenter;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 对变换后的坐标进行旋转</span>
+</span></span><span style="display:flex;"><span>  position<span style="color:#f92672">=</span>u_rotate<span style="color:#f92672">*</span>position;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 将坐标转为屏幕坐标</span>
+</span></span><span style="display:flex;"><span>  position<span style="color:#f92672">=</span>position<span style="color:#f92672">+</span>u_rotateCenter;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 将旋转后的坐标转换为裁剪空间坐标</span>
+</span></span><span style="display:flex;"><span>  position<span style="color:#f92672">=</span>(u_matrix <span style="color:#f92672">*</span> <span style="color:#66d9ef">vec3</span>(position, <span style="color:#ae81ff">1</span>)).xy;
+</span></span><span style="display:flex;"><span>  gl_Position <span style="color:#f92672">=</span> <span style="color:#66d9ef">vec4</span>(position, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>  v_color <span style="color:#f92672">=</span> gl_Position <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>或者先变换到裁剪空间再旋转，注意和前面的旋转方向（肉眼观察，如果不改传入的旋转矩阵的话）就不一样了</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-glsl" data-lang="glsl"><span style="display:flex;"><span><span style="color:#66d9ef">vec2</span> rotateCenter<span style="color:#f92672">=</span>(u_matrix <span style="color:#f92672">*</span> <span style="color:#66d9ef">vec3</span>(u_rotateCenter, <span style="color:#ae81ff">1</span>)).xy;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">vec2</span> position<span style="color:#f92672">=</span>(u_matrix <span style="color:#f92672">*</span> <span style="color:#66d9ef">vec3</span>(a_position, <span style="color:#ae81ff">1</span>)).xy;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 移动坐标系旋转，再恢复坐标系</span>
+</span></span><span style="display:flex;"><span>position<span style="color:#f92672">=</span>u_rotate<span style="color:#f92672">*</span>(position<span style="color:#f92672">-</span>rotateCenter)<span style="color:#f92672">+</span>rotateCenter;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="缩放">缩放</h1>
+<p>同样用矩阵表示，如下：<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/__latex/04216cfb3c165f8ad62f715ebd6203d6.svg#card=math&amp;code=%5Cbegin%7Bbmatrix%7Dx_1%5C%5Cy_1%5Cend%7Bbmatrix%7D%3D%0A%5Cbegin%7Bbmatrix%7Ds_x%260%5C%5C0%26s_y%5Cend%7Bbmatrix%7D%5Cbegin%7Bbmatrix%7Dx%5C%5Cy%5Cend%7Bbmatrix%7D%3D%0A%5Cbegin%7Bbmatrix%7Ds_xx%5C%5Cs_yy%5Cend%7Bbmatrix%7D&amp;id=NaNm1" alt="" loading="lazy" /></p>
+<!-- raw HTML omitted -->与旋转一样，不同的参考中心对缩放的效果肯定也不一样。这里以屏幕坐标原点和指定参考中心为例，看下效果。<!-- raw HTML omitted -->指定参考中心：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-glsl" data-lang="glsl"><span style="display:flex;"><span><span style="color:#66d9ef">attribute</span> <span style="color:#66d9ef">vec2</span> a_position;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> mat3 u_matrix;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 位移量</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> <span style="color:#66d9ef">vec2</span> u_translation;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 旋转</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> <span style="color:#66d9ef">mat2</span> u_rotate;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 缩放</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> <span style="color:#66d9ef">mat2</span> u_scale;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// canvas的分辨率</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> <span style="color:#66d9ef">vec2</span> u_resolution;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 图形中心-像素坐标系</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> <span style="color:#66d9ef">vec2</span> u_center;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">varying</span> <span style="color:#66d9ef">vec4</span> v_color;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> main() {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 缩放</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">vec2</span> position<span style="color:#f92672">=</span>u_scale<span style="color:#f92672">*</span>(a_position<span style="color:#f92672">-</span>u_center)<span style="color:#f92672">+</span>u_center;
+</span></span><span style="display:flex;"><span>  position<span style="color:#f92672">=</span>(u_matrix <span style="color:#f92672">*</span> <span style="color:#66d9ef">vec3</span>(position, <span style="color:#ae81ff">1</span>)).xy;
+</span></span><span style="display:flex;"><span>  gl_Position <span style="color:#f92672">=</span> <span style="color:#66d9ef">vec4</span>(position, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>  v_color <span style="color:#f92672">=</span> gl_Position <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1690252441686-94c05b59-cc26-491b-a639-f662e5e25a9c.png#averageHue=%23eaeaea&amp;clientId=ubba7424d-591b-4&amp;from=paste&amp;height=605&amp;id=uaba74017&amp;originHeight=605&amp;originWidth=857&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=11170&amp;status=done&amp;style=none&amp;taskId=u1fc15286-d628-49be-99ad-4e507a3031a&amp;title=&amp;width=857" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->以屏幕左上角为参考中心<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1690252519082-9aa62b87-8288-4c83-ad32-8d6133642834.png#averageHue=%23e9e7e7&amp;clientId=ubba7424d-591b-4&amp;from=paste&amp;height=600&amp;id=u7b6b57db&amp;originHeight=600&amp;originWidth=891&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=11196&amp;status=done&amp;style=none&amp;taskId=u03fc11bd-3e86-4702-b304-f456e4950ba&amp;title=&amp;width=891" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->最后简单的写个集成平移旋转和缩放的示例</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;Document&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">canvas</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;glcanvas&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;840&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;480&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      你的浏览器似乎不支持或者禁用了 HTML5 &lt;<span style="color:#f92672">code</span>&gt;&amp;lt;canvas&amp;gt;&lt;/<span style="color:#f92672">code</span>&gt; 元素。
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">canvas</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-range-container&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      水平位移：
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;range&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;translateX&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">min</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-100&#34;</span> <span style="color:#a6e22e">max</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;800&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">br</span> /&gt;
+</span></span><span style="display:flex;"><span>      垂直位移：
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;range&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;translateY&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">min</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-100&#34;</span> <span style="color:#a6e22e">max</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;800&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">br</span> /&gt;
+</span></span><span style="display:flex;"><span>      旋转：
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;range&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rotate&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">min</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-360&#34;</span> <span style="color:#a6e22e">max</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;360&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">br</span> /&gt;
+</span></span><span style="display:flex;"><span>      缩放X：
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;range&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;scaleX&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">step</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.1&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">min</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-10&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">max</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10&#34;</span>
+</span></span><span style="display:flex;"><span>      /&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">br</span> /&gt;
+</span></span><span style="display:flex;"><span>      缩放Y：
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;range&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;scaleY&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">step</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.1&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">min</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-10&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">max</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10&#34;</span>
+</span></span><span style="display:flex;"><span>      /&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">br</span> /&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;range&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;centerX&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">step</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.1&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;300&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">min</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">max</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;800&#34;</span>
+</span></span><span style="display:flex;"><span>      /&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>&gt;centerX：1&lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">br</span> /&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;range&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;centerY&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">step</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.1&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;150&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">min</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">max</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;600&#34;</span>
+</span></span><span style="display:flex;"><span>      /&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>&gt;centerY：&lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">br</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vertex-shader-2d&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;x-shader/x-vertex&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">attribute</span> <span style="color:#a6e22e">vec2</span> <span style="color:#a6e22e">a_position</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">uniform</span> <span style="color:#a6e22e">mat3</span> <span style="color:#a6e22e">u_matrix</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 位移量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">uniform</span> <span style="color:#a6e22e">vec2</span> <span style="color:#a6e22e">u_translation</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 旋转
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">uniform</span> <span style="color:#a6e22e">mat2</span> <span style="color:#a6e22e">u_rotate</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 缩放
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">uniform</span> <span style="color:#a6e22e">mat2</span> <span style="color:#a6e22e">u_scale</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 旋转和缩放的参考中心
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">uniform</span> <span style="color:#a6e22e">vec2</span> <span style="color:#a6e22e">u_center</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">varying</span> <span style="color:#a6e22e">vec4</span> <span style="color:#a6e22e">v_color</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 先缩放，后旋转，最后平移-均在屏幕坐标系进行
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">vec2</span> <span style="color:#a6e22e">position</span><span style="color:#f92672">=</span><span style="color:#a6e22e">u_rotate</span><span style="color:#f92672">*</span><span style="color:#a6e22e">u_scale</span><span style="color:#f92672">*</span>(<span style="color:#a6e22e">a_position</span><span style="color:#f92672">-</span><span style="color:#a6e22e">u_center</span>)<span style="color:#f92672">+</span><span style="color:#a6e22e">u_center</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">position</span><span style="color:#f92672">=</span><span style="color:#a6e22e">position</span><span style="color:#f92672">+</span><span style="color:#a6e22e">u_translation</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 将坐标转换为裁剪空间坐标
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">position</span><span style="color:#f92672">=</span>(<span style="color:#a6e22e">u_matrix</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">vec3</span>(<span style="color:#a6e22e">position</span>, <span style="color:#ae81ff">1</span>)).<span style="color:#a6e22e">xy</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl_Position</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">vec4</span>(<span style="color:#a6e22e">position</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">v_color</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl_Position</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fragment-shader-2d&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;x-shader/x-fragment&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">precision</span> <span style="color:#a6e22e">mediump</span> <span style="color:#66d9ef">float</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">varying</span> <span style="color:#a6e22e">vec4</span> <span style="color:#a6e22e">v_color</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl_FragColor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">v_color</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">canvas</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;glcanvas&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">gl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">getContext</span>(<span style="color:#e6db74">&#34;webgl&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">gl</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">alert</span>(
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;无法初始化 WebGL，你的浏览器、操作系统或硬件等可能不支持 WebGL。&#34;</span>
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;不支持gl&#34;</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createShader</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">type</span>, <span style="color:#a6e22e">source</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">shader</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">createShader</span>(<span style="color:#a6e22e">type</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">shaderSource</span>(<span style="color:#a6e22e">shader</span>, <span style="color:#a6e22e">source</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">compileShader</span>(<span style="color:#a6e22e">shader</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getShaderParameter</span>(<span style="color:#a6e22e">shader</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">COMPILE_STATUS</span>)) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">shader</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createProgram</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">vsShader</span>, <span style="color:#a6e22e">fsShader</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">program</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">createProgram</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">attachShader</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">vsShader</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">attachShader</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">fsShader</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">linkProgram</span>(<span style="color:#a6e22e">program</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getProgramParameter</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">LINK_STATUS</span>)) {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">useProgram</span>(<span style="color:#a6e22e">program</span>);
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">program</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setUniformMat3</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">uniformName</span>, <span style="color:#a6e22e">arr</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getUniformLocation</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">uniformName</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">uniformMatrix3fv</span>(<span style="color:#a6e22e">location</span>, <span style="color:#66d9ef">false</span>, <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Float32Array</span>(<span style="color:#a6e22e">arr</span>));
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setUniform2fv</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">uniformName</span>, <span style="color:#a6e22e">arr</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getUniformLocation</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">uniformName</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">uniform2fv</span>(<span style="color:#a6e22e">location</span>, <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Float32Array</span>(<span style="color:#a6e22e">arr</span>));
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setUniformMat2</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">uniformName</span>, <span style="color:#a6e22e">arr</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getUniformLocation</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">uniformName</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">uniformMatrix2fv</span>(<span style="color:#a6e22e">location</span>, <span style="color:#66d9ef">false</span>, <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Float32Array</span>(<span style="color:#a6e22e">arr</span>));
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setVertexAttribute2D</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">attrName</span>, <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> []) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getAttribLocation</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">attrName</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">enableVertexAttribArray</span>(<span style="color:#a6e22e">location</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">buffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">createBuffer</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">bindBuffer</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">ARRAY_BUFFER</span>, <span style="color:#a6e22e">buffer</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">bufferData</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">ARRAY_BUFFER</span>, <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Float32Array</span>(<span style="color:#a6e22e">data</span>), <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">STATIC_DRAW</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">vertexAttribPointer</span>(<span style="color:#a6e22e">location</span>, <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">FLOAT</span>, <span style="color:#66d9ef">false</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">draw</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">start</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">TRIANGLES</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">viewport</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">width</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">height</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">clearColor</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0.1</span>); <span style="color:#75715e">//设置清空颜色
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">clear</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">COLOR_BUFFER_BIT</span>); <span style="color:#75715e">//清空画布
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">drawArrays</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">TRIANGLES</span>, <span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">count</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vsShader</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createShader</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">VERTEX_SHADER</span>,
+</span></span><span style="display:flex;"><span>        document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;#vertex-shader-2d&#34;</span>).<span style="color:#a6e22e">innerHTML</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fsShader</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createShader</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">FRAGMENT_SHADER</span>,
+</span></span><span style="display:flex;"><span>        document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;#fragment-shader-2d&#34;</span>).<span style="color:#a6e22e">innerHTML</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">program</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createProgram</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">vsShader</span>, <span style="color:#a6e22e">fsShader</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setVertexAttribute2D</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">program</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;a_position&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">getRectangle</span>(<span style="color:#ae81ff">400</span>, <span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setUniformMat3</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">program</span>, <span style="color:#e6db74">&#34;u_matrix&#34;</span>, <span style="color:#a6e22e">getMat3</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">canvas</span>));
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setUniform2fv</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">program</span>, <span style="color:#e6db74">&#34;u_center&#34;</span>, [
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">300</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">150</span>,
+</span></span><span style="display:flex;"><span>      ]);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">transform</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">translateX</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">translateY</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">rotate</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">scaleX</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">scaleY</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">centerY</span><span style="color:#f92672">:</span><span style="color:#ae81ff">150</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">centerX</span><span style="color:#f92672">:</span><span style="color:#ae81ff">300</span>,
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">drawScene</span>();
+</span></span><span style="display:flex;"><span>      document
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;#input-range-container&#34;</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;input&#34;</span>, (<span style="color:#a6e22e">e</span>) =&gt; {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">attributes</span>.<span style="color:#a6e22e">name</span>.<span style="color:#a6e22e">value</span>;
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>;
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">name</span><span style="color:#f92672">===</span><span style="color:#e6db74">&#39;centerX&#39;</span><span style="color:#f92672">||</span><span style="color:#a6e22e">name</span><span style="color:#f92672">===</span><span style="color:#e6db74">&#39;centerY&#39;</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">nextElementSibling</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">label</span>.<span style="color:#a6e22e">innerText</span><span style="color:#f92672">=</span><span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">value</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">transform</span>[<span style="color:#a6e22e">name</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>;
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">drawScene</span>();
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">drawScene</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">transform</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">theta</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">transform</span>.<span style="color:#a6e22e">rotate</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">180</span>) <span style="color:#f92672">*</span> Math.<span style="color:#a6e22e">PI</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sinTheta</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">sin</span>(<span style="color:#a6e22e">theta</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cosTheta</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">cos</span>(<span style="color:#a6e22e">theta</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rotate</span> <span style="color:#f92672">=</span> [<span style="color:#a6e22e">cosTheta</span>, <span style="color:#a6e22e">sinTheta</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">sinTheta</span>, <span style="color:#a6e22e">cosTheta</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">scale</span> <span style="color:#f92672">=</span> [<span style="color:#a6e22e">transform</span>.<span style="color:#a6e22e">scaleX</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">transform</span>.<span style="color:#a6e22e">scaleY</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setUniform2fv</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">program</span>, <span style="color:#e6db74">&#34;u_translation&#34;</span>, [
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">transform</span>.<span style="color:#a6e22e">translateX</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">transform</span>.<span style="color:#a6e22e">translateY</span>,
+</span></span><span style="display:flex;"><span>        ]);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setUniform2fv</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">program</span>, <span style="color:#e6db74">&#34;u_center&#34;</span>, [
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">transform</span>.<span style="color:#a6e22e">centerX</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">transform</span>.<span style="color:#a6e22e">centerY</span>,
+</span></span><span style="display:flex;"><span>        ]);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setUniformMat2</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">program</span>, <span style="color:#e6db74">&#34;u_rotate&#34;</span>, <span style="color:#a6e22e">rotate</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setUniformMat2</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">program</span>, <span style="color:#e6db74">&#34;u_scale&#34;</span>, <span style="color:#a6e22e">scale</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">draw</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMat3</span>(<span style="color:#a6e22e">canvas</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rec</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">getBoundingClientRect</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">center</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">x</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">rec</span>.<span style="color:#a6e22e">left</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">rec</span>.<span style="color:#a6e22e">right</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">y</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">rec</span>.<span style="color:#a6e22e">top</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">rec</span>.<span style="color:#a6e22e">bottom</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">center</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">w</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">width</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">h</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">height</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> [
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">w</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0.0</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0.0</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">h</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>          (<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">x</span>) <span style="color:#f92672">/</span> <span style="color:#a6e22e">w</span>,
+</span></span><span style="display:flex;"><span>          (<span style="color:#ae81ff">2.0</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">y</span>) <span style="color:#f92672">/</span> <span style="color:#a6e22e">h</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>        ];
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getRectangle</span>(<span style="color:#a6e22e">lx</span>, <span style="color:#a6e22e">ly</span>, <span style="color:#a6e22e">rx</span>, <span style="color:#a6e22e">ry</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">lx</span>, <span style="color:#a6e22e">ly</span>, <span style="color:#a6e22e">lx</span>, <span style="color:#a6e22e">ry</span>, <span style="color:#a6e22e">rx</span>, <span style="color:#a6e22e">ry</span>, <span style="color:#a6e22e">lx</span>, <span style="color:#a6e22e">ly</span>, <span style="color:#a6e22e">rx</span>, <span style="color:#a6e22e">ry</span>, <span style="color:#a6e22e">rx</span>, <span style="color:#a6e22e">ly</span>];
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="齐次变换矩阵">齐次变换矩阵</h1>
+<p>使用齐次变换矩阵同时实现旋转平移缩放。<!-- raw HTML omitted -->将前面的旋转，缩放和平移升高一维，<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/__latex/a00c9d9f03b652139cc45bc37413c459.svg#card=math&amp;code=%5Cbegin%7Bbmatrix%7Ds_x%260%260%5C%5C0%26s_y%260%5C%5C0%260%261%5Cend%7Bbmatrix%7D%5Cbegin%7Bbmatrix%7Dx%5C%5Cy%5C%5C1%5Cend%7Bbmatrix%7D%3D%0A%5Cbegin%7Bbmatrix%7Ds_xx%5C%5Cs_yy%5C%5C1%5Cend%7Bbmatrix%7D&amp;id=ndZB7" alt="" loading="lazy" /></p>
+</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="trs顺序">TRS顺序</h1>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/yhukc626st6vddnl/"><h4 class="card-text--title text-ellipsis">使用ESM模块导入导出</h4></a>
+    <p class="card-text--row">2023-07-20 01:15</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2023/png/29064333/1689560953952-4bf0f4a2-2428-4e54-b94a-1e24a3b787ca.png"></div>
+  <div class="card-text">
+    <a href="/docs/df4gowc920t4wmdq/"><h4 class="card-text--title text-ellipsis">计算一个DOM元素的中心点</h4></a>
+    <p class="card-text--row">2023-07-17 02:29</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#平移">平移</a></li>
+    <li><a href="#旋转">旋转</a></li>
+    <li><a href="#缩放">缩放</a></li>
+    <li><a href="#齐次变换矩阵">齐次变换矩阵</a></li>
+    <li><a href="#trs顺序">TRS顺序</a></li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

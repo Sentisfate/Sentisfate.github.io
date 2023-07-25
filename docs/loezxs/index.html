@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>Vue进阶 生命周期 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="Vue进阶 生命周期" />
+<meta property="og:description" content="一. Vue生命周期 1.介绍 vue的生命周期是指vue实例从创建到销毁的全过程, 常用的有4个阶段, 每个阶段有两个生命周期函数.生命周期函数是在" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/loezxs/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-06-10T07:35:17+00:00" />
+<meta property="article:modified_time" content="2023-04-26T03:59:43+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue进阶 生命周期"/>
+<meta name="twitter:description" content="一. Vue生命周期 1.介绍 vue的生命周期是指vue实例从创建到销毁的全过程, 常用的有4个阶段, 每个阶段有两个生命周期函数.生命周期函数是在"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655009341403-a585d1c9-99df-4879-a95d-ab90dbe3f0eb.png" alt="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655009341403-a585d1c9-99df-4879-a95d-ab90dbe3f0eb.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">Vue进阶 生命周期</h1>
+    
+      <p class="card-text--row">2022-06-10 07:35</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="一-vue生命周期">一. Vue生命周期</h1>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="1介绍">1.介绍</h2>
+<p>vue的生命周期是指vue实例从创建到销毁的全过程, 常用的有4个阶段, 每个阶段有两个生命周期函数.<!-- raw HTML omitted --><strong>生命周期函数</strong>是在生命周期相应阶段中执行的函数.</p>
+<blockquote>
+<p>create 相关  vue实例初始化</p>
+<ul>
+<li>beforeCreate</li>
+<li>created</li>
+</ul>
+</blockquote>
+<p>mount 相关 vue实例的挂载阶段</p>
+<blockquote>
+<ul>
+<li>beforeMount</li>
+<li>mounted</li>
+</ul>
+</blockquote>
+<p>update 相关 vue实例的更新阶段</p>
+<blockquote>
+<ul>
+<li>beforeUpdate</li>
+<li>updated</li>
+</ul>
+</blockquote>
+<p>destroy 相关 vue实例的销毁阶段</p>
+<blockquote>
+<ul>
+<li>beforeDestroy</li>
+<li>destroyed</li>
+</ul>
+</blockquote>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="2create相关生命周期">2.create相关生命周期</h2>
+<p>这个阶段包含的相关函数有 <code>**beforeCreate**</code>** <strong><code>**created**</code></strong>,**先来说说结论<!-- raw HTML omitted -->共同点:
+:::info</p>
+<ul>
+<li>
+<p>这两个阶段都对<code>**vm**</code>数据进行了初始化</p>
+</li>
+<li>
+<p>在生命周期中都只执行了一次
+:::
+区别:
+:::info</p>
+</li>
+<li>
+<p>beforeCreate阶段并没有实现<strong>vm</strong>数据的响应式,不能够获取访问其中的数据</p>
+</li>
+<li>
+<p>created 阶段,实现了对vm中的数据的响应式
+:::
+个人理解:</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>这个阶段是vue实例的创建阶段,确切点说是vue实例中<strong>数据的初始化</strong>与<strong>响应式</strong>的创建阶段</li>
+<li>在这个阶段,将<strong>data,methods</strong>等属性挂载到<strong>vm</strong>实例上,实现了响应式</li>
+<li>这个阶段无法操作DOM,因为DOM还没有渲染</li>
+<li>created阶段是<strong>最早可以访问数据</strong>的阶段</li>
+</ul>
+</blockquote>
+<p>demo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;create&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        {{msg | formatNumber}}
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;increment&#34;</span>&gt;点击&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#app&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">filters</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">formatNumber</span>(<span style="color:#a6e22e">num</span>) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;点击了&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">num</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;次&#39;</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">msg</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">beforeCreate</span>() {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">increment</span>)
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">created</span>() {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">increment</span>)
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">increment</span>() {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>我们运行上面的代码,打开浏览器的调试工具进行如下断点的设置.<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655009341403-a585d1c9-99df-4879-a95d-ab90dbe3f0eb.png#averageHue=%23f8f8f7&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=415&amp;id=u625969ab&amp;originHeight=519&amp;originWidth=1310&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=72151&amp;status=done&amp;style=none&amp;taskId=u6e015a7d-5073-4a98-b8c6-7ae4fc182f5&amp;title=&amp;width=1048" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->刷新页面后,检查控制台的输出结果.发现除this以外,其余两个的输出都是<code>undefined</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">increment</span>)
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655009364240-8fb9e997-2e55-41a3-903b-4d7cb9ec3505.png#averageHue=%23fdfdfd&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=82&amp;id=u6e070e2a&amp;originHeight=102&amp;originWidth=774&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=7032&amp;status=done&amp;style=none&amp;taskId=u97c792b1-cf07-41be-8b35-ced6a7cc609&amp;title=&amp;width=619.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->我们知道,undefined表示没有赋值的变量.这里则表示,当前vm实例中没有<code>**msg**</code>和<code>**increment**</code>属性,点开上面的<strong>vue</strong>左侧的小三角,确实找不到msg和increment,但是能够看到数据已经初始化好了,只是没有挂载到<code>**vm**</code>实例身上.<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655009976290-8a651030-bd47-4eff-97a9-a64b3d76c44f.png#averageHue=%23fefdfd&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=532&amp;id=u7d1ff28e&amp;originHeight=665&amp;originWidth=839&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=67790&amp;status=done&amp;style=none&amp;taskId=u0c232782-9c79-4c04-9d1c-5f4992f8504&amp;title=&amp;width=671.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->让代码运行至下一个断点,created阶段的输出结果,能够在vm实例身上看到<code>**msg**</code>和<code>**increment**</code><strong>.</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">increment</span>)
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655010258783-601a0e86-0ec5-4363-8ec7-ac6855446f9d.png#averageHue=%23fefdfd&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=600&amp;id=ue92ca4b7&amp;originHeight=750&amp;originWidth=692&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=67245&amp;status=done&amp;style=none&amp;taskId=uad1a56cb-54d3-476e-b6f0-a8421887edd&amp;title=&amp;width=553.6" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->此时观察一下页面的话,我们会发现页面处于未被vue渲染的状态.而这则涉及到生命周期的下一个阶段了.<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655010452002-4b7b0869-0b70-44f5-b53e-49669a4b7e5a.png#averageHue=%23aeadac&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=71&amp;id=u20fa970b&amp;originHeight=89&amp;originWidth=551&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=6704&amp;status=done&amp;style=none&amp;taskId=u0b41c64e-5624-4c95-bd41-972770451cb&amp;title=&amp;width=440.8" alt="image.png" loading="lazy" /></p>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="3mount相关相关生命周期">3.mount相关相关生命周期</h2>
+<p>这一阶段包含函数有<code>**beforeMount**``**mounted**</code><!-- raw HTML omitted -->共同点:
+:::info</p>
+<ul>
+<li>在生命周期中都只执行了一次
+:::
+区别:
+:::info</li>
+</ul>
+<ol>
+<li>mount与create阶段的区别
+<ol>
+<li>mount阶段创建了$el</li>
+</ol>
+</li>
+<li>mounted 与beforeMount的区别
+<ol>
+<li>beforeMount阶段创建了$el,但并没有将模板渲染到视图上</li>
+<li>mounted阶段编译了模板,渲染了视图
+:::</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>$el 是用于获取<strong>vue</strong>实例要挂载的<strong>DOM</strong>对象,也就是用于获取要挂载的<strong>视图</strong>,其通常有以下几种方法来确定</p>
+</blockquote>
+<p>:::info</p>
+<ol>
+<li>在创建vue实例的同时指定el选项,el选项的作用就是确定要挂载的视图</li>
+<li>没有指定el的时候,可以通过<code>**vm.$mount(el)**</code>来指定视图.el取值和el选项取值相同.</li>
+<li>mount阶段vm<strong>创建了$el属性</strong>后就立刻将其<strong>指向</strong>了<strong>原来的dom</strong>中的**&ldquo;el&rdquo;**
+:::</li>
+</ol>
+<blockquote>
+<p>template 模板 是<strong>DOM</strong>中可以<strong>被vue解析</strong>的字符串,通常有插值和指令两种.它是如何指定的呢</p>
+</blockquote>
+<p>:::info</p>
+<ol>
+<li>在vue实例创建的时候,使用<strong>template</strong>选项来指定模板</li>
+<li>未指定template时,将<code>**el**</code>的指定的dom对象的<code>**outerHtml**</code>作为template
+:::
+个人理解:
+:::info</li>
+</ol>
+<ul>
+<li>这一阶段是渲染DOM的阶段</li>
+<li><code>**beforeMount**</code>阶段vm<strong>创建了$el属性</strong>后就立刻将其<strong>指向</strong>了<strong>原来的dom</strong>中的**&ldquo;el&rdquo;**</li>
+<li>beforeMount阶<strong>没有编译模板</strong>,视图<strong>没有更新为vm的数据</strong>,<strong>无法操作DOM</strong></li>
+<li>mounted阶段可以操作DOM.模板编译已经完成.这是可以<strong>最早操作DOM的阶段</strong>
+:::
+demo:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;mount&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        {{msg | formatNumber}}
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;increment&#34;</span>&gt;点击&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// el: &#39;#app&#39;,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#a6e22e">filters</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">formatNumber</span>(<span style="color:#a6e22e">num</span>) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;点击了&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">num</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;次&#39;</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">msg</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">beforeMount</span>() {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span> <span style="color:#f92672">===</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#app&#39;</span>))
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">mounted</span>() {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span> <span style="color:#f92672">===</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#app&#39;</span>))
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">increment</span>() {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">$mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>运行上面的代码,并设置断点.<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655022253273-1aba1bc8-b183-4cf0-9454-efce11c169d9.png#averageHue=%23f7f7f6&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=428&amp;id=u25898953&amp;originHeight=535&amp;originWidth=843&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=58340&amp;status=done&amp;style=none&amp;taskId=u1fc9d823-80d1-4adf-b3fc-2a63129694a&amp;title=&amp;width=674.4" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->刷新页面,观察控制台输出结果.发现相较于create阶段多了一个<code>**$el**</code>属性,还有一些其他细节性变化暂不深究.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span> <span style="color:#f92672">===</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#app&#39;</span>))
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655022457994-3cd2d0a4-f373-4927-a110-994f9f69ab8a.png#averageHue=%23fefdfd&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=556&amp;id=u8103521f&amp;originHeight=695&amp;originWidth=834&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=68311&amp;status=done&amp;style=none&amp;taskId=u6e941410-ec12-439c-b24c-4be453ccb67&amp;title=&amp;width=667.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->点开<code>**$el**</code>发现其基本与dom中的<code>**#app**</code>所写的内容一致.通过<code>**console.log(this.$el === document.querySelector('#app'))**</code>将其与获取到的dom对象进行比较输出,结果为true,证实了vm中的<code>**$el**</code>与dom中的<code>**#app**</code>是同一个对象.<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655022795559-0bb862e6-2093-43cd-897c-ebf66fced3bf.png#averageHue=%23fefdfd&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=116&amp;id=udf7e528d&amp;originHeight=145&amp;originWidth=630&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=7346&amp;status=done&amp;style=none&amp;taskId=u8c5bb3ea-8d9b-4fab-b84d-6ede65dc8d1&amp;title=&amp;width=504" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->运行至下一个断点处,此时发现页面改变了.<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655023105020-6d9ebefe-006a-4354-90ad-2c11242b0ad4.png#averageHue=%23acacab&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=88&amp;id=uea28fe11&amp;originHeight=110&amp;originWidth=215&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=2180&amp;status=done&amp;style=none&amp;taskId=u6658915e-5cf3-46f2-81ed-9c37eca0c0f&amp;title=&amp;width=172" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->观察打印结果,发现除具有<code>**$el**</code>,<code>**_isMounted**</code>属性变为了true.模板数据挂载完成</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span> <span style="color:#f92672">===</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#app&#39;</span>))
+</span></span><span style="display:flex;"><span>           
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655023093463-c537be45-4b6c-4f95-8d9d-763212922c56.png#averageHue=%23fefdfd&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=556&amp;id=u10d00ec6&amp;originHeight=695&amp;originWidth=763&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=73292&amp;status=done&amp;style=none&amp;taskId=u6fade2dc-7678-47cb-84e2-00b646b66ec&amp;title=&amp;width=610.4" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->此时的<code>**$el**</code>与dom中的<code>**#app**</code><strong>一样也是同一个对象.</strong><!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655023345425-9ea742ff-d955-455c-8868-c20fe8963dad.png#averageHue=%23fefefe&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=118&amp;id=ucf3c9afb&amp;originHeight=147&amp;originWidth=538&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=5032&amp;status=done&amp;style=none&amp;taskId=uce69ffb6-84cb-40ad-9b37-6a7dacd60a2&amp;title=&amp;width=430.4" alt="image.png" loading="lazy" /></p>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="4update相关生命周期">4.update相关生命周期</h2>
+<p>这个阶段包含的相关函数有<code>**beforeUpdate**</code>** **<code>**updated**</code><!-- raw HTML omitted -->共同点:
+:::info</p>
+<ul>
+<li>
+<p>只有与视图有关联的数据更新，发生变化，才会进入该声明周期</p>
+</li>
+<li>
+<p>data中的数据都已经更新了</p>
+</li>
+<li>
+<p>执行的次数都与data数据更新次数有关
+:::
+区别:
+:::info</p>
+</li>
+<li>
+<p>beforeUpdate 阶段视图未更新, updated阶段视图更新了
+:::
+个人理解</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>这个生命周期描述的是视图是否<strong>响应式的</strong>更新</li>
+<li>beforeUpdate 阶段<strong>视图更新前更新了数据</strong></li>
+<li>updated 用更新了的数据<strong>重新渲染了视图</strong></li>
+<li>当想要数据发生改变时执行某些函数时,可以利用这两个函数</li>
+</ul>
+</blockquote>
+<p>demo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;update&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        {{msg | formatNumber}}
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;increment&#34;</span>&gt;点击&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// el: &#39;#app&#39;,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#a6e22e">filters</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">formatNumber</span>(<span style="color:#a6e22e">num</span>) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;点击了&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">num</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;次&#39;</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">msg</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">beforeUpdate</span>() {
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 数据是新的但页面没有更新
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;beforeUpdate...&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;beforeUpdate...&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_data</span>);
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">updated</span>() {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;updated...&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;updated...&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_data</span>);
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">increment</span>() {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">$mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>老样子,运行并设置断点<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655024981548-cba860bd-a79d-43e6-b8cf-4371f63b4f62.png#averageHue=%23f8f7f7&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=376&amp;id=uabdfcd93&amp;originHeight=470&amp;originWidth=1161&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=64703&amp;status=done&amp;style=none&amp;taskId=u13be6e93-83a0-4771-ad5c-09108c54e40&amp;title=&amp;width=928.8" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->点击按钮,进行数据的修改.观察打印结果,发现<code>**msg**</code>已经变为了<strong>1</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;beforeUpdate...&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;beforeUpdate...&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_data</span>);
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655025082872-5bca613f-3243-40a4-988e-d59778301095.png#averageHue=%23fdfcfc&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=88&amp;id=ue2da5861&amp;originHeight=110&amp;originWidth=764&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=9481&amp;status=done&amp;style=none&amp;taskId=u5a4b1ed2-61d5-4793-9463-35a0d493960&amp;title=&amp;width=611.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->但是页面仍然显示为<strong>0</strong>.<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655025112882-7e0fe298-8e54-4fbf-a9e0-07bf4212147e.png#averageHue=%23b1b0b0&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=99&amp;id=u22091303&amp;originHeight=124&amp;originWidth=506&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=6098&amp;status=done&amp;style=none&amp;taskId=u70e438f8-bb5c-4e0e-ad5e-3eaf6ad28e3&amp;title=&amp;width=404.8" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->继续运行程序,观察页面和打印结果.页面变为了<strong>1</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;updated...&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;updated...&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_data</span>);
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655025192001-238195f2-c26e-441f-9105-41fb396ea583.png#averageHue=%23adadad&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=79&amp;id=uc0657880&amp;originHeight=99&amp;originWidth=622&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=5749&amp;status=done&amp;style=none&amp;taskId=u1f36ef84-a462-4c71-a0d1-f05072d0298&amp;title=&amp;width=497.6" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655025234271-69e2c2df-081b-443d-8620-fa4acd72afc9.png#averageHue=%23fdfdfc&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=299&amp;id=uf4d679d0&amp;originHeight=374&amp;originWidth=801&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=41246&amp;status=done&amp;style=none&amp;taskId=u18a0db9f-5513-495a-8623-be2e182346d&amp;title=&amp;width=640.8" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->比较发现<code>**beforeUpdate**</code>和<code>**updated**</code>的打印的结果是一样的.多次点击按钮修改数据,均会执行<code>**beforeUpdate**</code>和<code>**updated**</code>两个函数
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="5destory相关生命周期">5.destory相关生命周期</h2>
+<p><strong>keep-alive  与router-view配合使用以达到不销毁组件</strong><!-- raw HTML omitted -->这个阶段包含两个函数,<code>**beforeDestory **``**destoryed**</code><!-- raw HTML omitted --><strong>共同点:</strong>
+:::info</p>
+<ul>
+<li>
+<p>当执行<code>**vm.$destroy()**</code>时,数据改变<strong>不会再对视图进行更新</strong>,update相关函数不会再执行.</p>
+</li>
+<li>
+<p>服务器端渲染时不调用,一旦调用便不再渲染.</p>
+</li>
+<li>
+<p>只会执行一次
+:::
+<strong>区别:</strong>
+:::info</p>
+</li>
+<li>
+<p><code>**beforeDestroyed**</code>这个函数在vm实例被销毁前调用,在这一阶段<strong>vm实例依然可用</strong></p>
+</li>
+<li>
+<p><code>**destroyed**</code>阶段<code>**_isdestroyed**</code>属性才为<code>**true**</code>,before时仍为<code>**false**</code></p>
+</li>
+<li>
+<p><strong>但在实际使用中发现这两个阶段vm实例都可以使用,data,methods中的数据都存在</strong>
+:::
+<strong>个人理解:</strong></p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>这个阶段是vm实例的销毁阶段,所谓的销毁,其实就是<strong>数据的解绑,指令的解除等</strong>,也就是视图<strong>响应式的解除</strong>,这个过程是<strong>不可逆的.</strong></li>
+<li>通常再beforeDestroy阶段解绑一些全局事件,这些事件不会随着vm的销毁而解绑,需要手动解绑</li>
+<li>销毁后页面仍然存在,且vm.$el与当前的页面上的dom对象仍然是同一个.也就是说可以通过<code>**$el**</code>来<strong>操作dom</strong></li>
+<li><strong>为什么销毁后数据会保留?而没有将整个vm的内存清空呢</strong></li>
+<li><strong>推测</strong>是由于$el的关系,可能会影响到页面</li>
+</ul>
+</blockquote>
+<p>demo(接下来的内容纯粹是根据自己调试和网上的一些奇奇怪怪的资料来得出的.并非正确):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;destroy&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        {{msg | formatNumber}}
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;increment&#34;</span>&gt;点击+1&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;destroySelf&#34;</span>&gt;点击销毁&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// el: &#39;#app&#39;,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#a6e22e">filters</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">formatNumber</span>(<span style="color:#a6e22e">num</span>) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;点击了&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">num</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;次&#39;</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">msg</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">beforeUpdate</span>() {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;beforeUpdate...&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>);
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">updated</span>() {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;updated...&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>);
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">beforeDestroy</span>() {
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 数据是新的但页面没有更新
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;  beforeDestroy  &#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// this.$el.innerHTML = &#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;beforeDestroyed...&#39;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span> <span style="color:#f92672">===</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#app&#39;</span>))
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">destroyed</span>() {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;  destroyed  &#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// this.$el.innerHTML = &#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;destroyed...&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;destroyed...&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_data</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span> <span style="color:#f92672">===</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#app&#39;</span>))
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">increment</span>() {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">destroySelf</span>() {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$destroy</span>()
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">$mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><ol>
+<li>运行上述代码,老样子添加断点.</li>
+</ol>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655035796677-e0aac847-4b6b-4448-b253-9c3286a70903.png#averageHue=%23f6f5f4&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=351&amp;id=u8d78825a&amp;originHeight=439&amp;originWidth=1043&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=60352&amp;status=done&amp;style=none&amp;taskId=u7f0d638a-dea2-4331-b969-b9c6c4adecf&amp;title=&amp;width=834.4" alt="image.png" loading="lazy" /></p>
+</p>
+<ol start="2">
+<li>接着点击销毁按钮,观察控制台打印的结果</li>
+</ol>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655035841116-088751d2-c31b-48b3-b382-4e47c0ef2017.png#averageHue=%23f9f9f8&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=108&amp;id=u129596c1&amp;originHeight=135&amp;originWidth=376&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=3433&amp;status=done&amp;style=none&amp;taskId=u882fea77-c090-4ecc-960e-e032806f16a&amp;title=&amp;width=300.8" alt="image.png" loading="lazy" /></p>
+</p>
+<ol start="3">
+<li>从控制台打印的<code>**this**</code>的结果可以看出,在beforeDestroy的阶段,vm实例中的数据一样可以获得.此时vm的几个状态属性<code>**_isMounted**</code>为true,<code>**_isDestroyed**</code>为false**,**<code>**_isBeginDestroyed**</code>**为false, **说明此时vm实例还未开始销毁.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;  beforeDestroy  &#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// this.$el.innerHTML = &#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;beforeDestroyed...&#39;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span> <span style="color:#f92672">===</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#app&#39;</span>))
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655036077026-df50fda6-7add-42f1-ba84-b8709e64677f.png#averageHue=%23fefdfd&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=621&amp;id=ucd8dd2ab&amp;originHeight=721&amp;originWidth=683&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=73575&amp;status=done&amp;style=none&amp;taskId=u33c11327-60aa-4fbe-b6b8-18319177f58&amp;title=&amp;width=588.4000244140625" alt="image.png" loading="lazy" /></p>
+</p>
+<ol start="4">
+<li>其余的打印结果则说明了此时可以照常调用<strong>vm</strong>的属性等,此时$el与dom中的值是同一个</li>
+</ol>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655036555716-a2b2ea73-acb8-4f70-bb65-205f48e5fb2d.png#averageHue=%23f9f8f7&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=66&amp;id=u8b61478c&amp;originHeight=82&amp;originWidth=389&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=3743&amp;status=done&amp;style=none&amp;taskId=u67bdcd45-6cae-4586-b5e8-1c0609a06ee&amp;title=&amp;width=311.2" alt="image.png" loading="lazy" /></p>
+</p>
+<ol start="5">
+<li>接着让程序运行至下个断点,控制台打印结果如下</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;  destroyed  &#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// this.$el.innerHTML = &#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;destroyed...&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;destroyed...&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_data</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span> <span style="color:#f92672">===</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#app&#39;</span>))
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655036795461-f90330ce-cf10-4cbc-89ce-a4016b2c1443.png#averageHue=%23fdfcfb&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=82&amp;id=u1da01c47&amp;originHeight=102&amp;originWidth=715&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=9720&amp;status=done&amp;style=none&amp;taskId=u7ca3d73c-bcb1-4700-bd35-782ffc8ac35&amp;title=&amp;width=572" alt="image.png" loading="lazy" /></p>
+</p>
+<ol start="6">
+<li>我在这个demo中写了<code>**update**</code>相关的函数,在<code>**beforeDestroy**</code><strong>中对msg进行了修改</strong>,发现并没有执行update相关函数的,因此得出结论<strong>destroy阶段</strong>不会再执行<strong>update阶段相关函数过程</strong>,前面也说了,update阶段是<strong>视图更新相关的函数</strong>,既然不执行此函数,自然也不会更新视图.即页面.</li>
+<li>再看看其他的打印结果,发现,依然可以对vm实例的各种属性进行修改,调用等.此外<code>**$el**</code>与<code>**#app**</code>的比较结果为true.</li>
+<li>点开vue查看属性.发现**3 **中的几个状态属性都是为true,此时仍处于挂载状态.</li>
+</ol>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655037348028-caba7293-61a8-4e91-b13f-6381a88c4d97.png#averageHue=%23fefdfc&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=82&amp;id=u424d1fb4&amp;originHeight=102&amp;originWidth=310&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=8436&amp;status=done&amp;style=none&amp;taskId=uaf935bc9-255a-4e58-bdf4-6169fe36e0d&amp;title=&amp;width=248" alt="image.png" loading="lazy" /></p>
+</p>
+<ol start="9">
+<li>程序继续运行,<strong>再次点击销毁按钮</strong>,发现页面毫无反应,说明该阶段<strong>只能执行一次.</strong></li>
+<li>点击+1按钮.,控制台依旧会打印,说明事件依然存在,但是页面没有更新.</li>
+</ol>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655037926290-c06b470a-be46-4fe2-b03c-7ccae2417357.png#averageHue=%23faf8f7&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=103&amp;id=u84257da8&amp;originHeight=129&amp;originWidth=244&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=1888&amp;status=done&amp;style=none&amp;taskId=u4d0dd9a5-9f70-4240-8470-00ec84194fe&amp;title=&amp;width=195.2" alt="image.png" loading="lazy" /></p>
+</p>
+<ol start="11">
+<li>既然<code>**$el**</code>与<code>**#app**</code>是同一个,那么应该可以通过<code>**$el**</code>来操作dom.接下来<strong>分别</strong>取消<code>**beforeDestroy**</code>和<code>**destroyed**</code>的<code>**// this.$el.innerHTML = ''**</code>,观察页面的结果,发现页面为空了.说明可以通过它来操作dom.</li>
+</ol>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655037654412-0d70d40d-03dd-4f01-9395-41e798442d00.png#averageHue=%23afafaf&amp;clientId=u3b1671f5-ba28-4&amp;from=paste&amp;height=122&amp;id=uab2a3849&amp;originHeight=152&amp;originWidth=547&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=4392&amp;status=done&amp;style=none&amp;taskId=u9d84e2e8-2da9-4e36-bfcf-3249b4c3306&amp;title=&amp;width=437.6" alt="image.png" loading="lazy" /></p>
+</p>
+<ol start="12">
+<li>接着,再在vm实例创建代码中加个<code>**mounted**</code>函数,代码如下</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">mounted</span>() {
+</span></span><span style="display:flex;"><span>	window.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#a6e22e">handler</span>)
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div><ol start="13">
+<li>并在vm实例创建前写一个handler函数.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">handler</span>(<span style="color:#a6e22e">e</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">pageX</span>, <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">pageY</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="14">
+<li>重新运行,点击销毁按钮销毁vm后,再次点击屏幕,发现点击窗口依然触发了点击事件.<strong>销毁无法解绑全局事件,<strong>此时就要手动在<code>**beforeDestroy**</code>或者</strong>destroyed</strong>函数里加上一句<code>**window.removeEventListener('click', handler)**</code>来解绑全局点击事件了.
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ol>
+<h2 id="6总结">6.总结</h2>
+<p>最后再来看看这张图,是不是理解更深入了呢.<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655038451064-acc8c184-ea7a-41d7-b383-3ba90c294144.png#averageHue=%23fefdfb&amp;clientId=u3b1671f5-ba28-4&amp;from=drop&amp;id=ubbecc1ee&amp;originHeight=3039&amp;originWidth=1200&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=50021&amp;status=done&amp;style=none&amp;taskId=udce92dd3-80cd-4f35-a3c5-b5bb15ed836&amp;title=" alt="lifecycle.png" loading="lazy" /></p>
+</p>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1655171697669-b6e08858-3210-4ac5-98ac-cc1c1032d229.png"></div>
+  <div class="card-text">
+    <a href="/docs/fcud2u/"><h4 class="card-text--title text-ellipsis">Vue脚手架</h4></a>
+    <p class="card-text--row">2022-06-14 01:46</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1654831348830-58fa2e4c-2266-4afb-aae0-f0f1fb7511f0.png"></div>
+  <div class="card-text">
+    <a href="/docs/dd5295/"><h4 class="card-text--title text-ellipsis">js如何判断数组是否为空</h4></a>
+    <p class="card-text--row">2022-06-10 02:59</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一-vue生命周期">一. Vue生命周期</a>
+      <ul>
+        <li><a href="#1介绍">1.介绍</a></li>
+        <li><a href="#2create相关生命周期">2.create相关生命周期</a></li>
+        <li><a href="#3mount相关相关生命周期">3.mount相关相关生命周期</a></li>
+        <li><a href="#4update相关生命周期">4.update相关生命周期</a></li>
+        <li><a href="#5destory相关生命周期">5.destory相关生命周期</a></li>
+        <li><a href="#6总结">6.总结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

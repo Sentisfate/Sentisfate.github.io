@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>Express框架应用-实现用户模块 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="Express框架应用-实现用户模块" />
+<meta property="og:description" content="一. 需求分析 1 系统框架 选择前后端分离的系统架构 2 具体的业务需求 有一个页面, 可以展示用户的列表 有一个页面, 可以添加用户信息 有一个页面, 可以修改" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/espda1/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-05-30T07:56:24+00:00" />
+<meta property="article:modified_time" content="2023-04-26T04:27:47+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Express框架应用-实现用户模块"/>
+<meta name="twitter:description" content="一. 需求分析 1 系统框架 选择前后端分离的系统架构 2 具体的业务需求 有一个页面, 可以展示用户的列表 有一个页面, 可以添加用户信息 有一个页面, 可以修改"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2022/png/25807822/1648695506673-bd3b5eed-f357-4304-9808-bdac0a727b1e.png" alt="https://cdn.nlark.com/yuque/0/2022/png/25807822/1648695506673-bd3b5eed-f357-4304-9808-bdac0a727b1e.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">Express框架应用-实现用户模块</h1>
+    
+      <p class="card-text--row">2022-05-30 07:56</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="一-需求分析">一. 需求分析</h1>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="1-系统框架">1 系统框架</h2>
+<p>选择前后端分离的系统架构</p>
+<p>
+  <p><img src="http://image.brojie.cn/image-20211124095029131.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=ctG6d&amp;originHeight=425&amp;originWidth=1066&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=#id=xxEUw&amp;originHeight=425&amp;originWidth=1066&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="2-具体的业务需求">2 具体的业务需求</h2>
+<ol>
+<li>有一个页面, 可以展示用户的列表</li>
+<li>有一个页面, 可以添加用户信息</li>
+<li>有一个页面, 可以修改用户信息</li>
+<li>点击删除按钮, 可以删除用户信息</li>
+</ol>
+<p>
+  <p><img src="http://image.brojie.cn/%E7%94%A8%E6%88%B7%E6%A8%A1%E5%9D%97%E8%8D%89%E5%9B%BE.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=AGl5J&amp;originHeight=750&amp;originWidth=1050&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=#id=siD3i&amp;originHeight=750&amp;originWidth=1050&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="二-技术方案">二. 技术方案</h1>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="1-数据库设计">1 数据库设计</h2>
+<blockquote>
+<p>用户表  (users)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>类型</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>主键, 自增</td>
+</tr>
+<tr>
+<td>name</td>
+<td>varchar(255)</td>
+<td>用户的姓名</td>
+</tr>
+<tr>
+<td>age</td>
+<td>tinyint unsigned</td>
+<td>用户的年龄</td>
+</tr>
+</tbody>
+</table>
+<p>使用Navicate建表</p>
+<p>
+  <p><img src="http://image.brojie.cn/image-20211124102753646.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=eTzDV&amp;originHeight=379&amp;originWidth=1515&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=#id=Yfo0g&amp;originHeight=379&amp;originWidth=1515&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="2-接口设计">2 接口设计</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="1-baseurl">1) baseURL</h3>
+<pre tabindex="0"><code>http://localhost:3000
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="2-用户模块">2) 用户模块</h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="获取所有用户">获取所有用户</h4>
+<blockquote>
+<p>请求</p>
+</blockquote>
+<p>请求方式: GET</p>
+<p>请求URL: /users</p>
+<pre tabindex="0"><code>GET /users
+</code></pre><blockquote>
+<p>响应</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;xiaoming&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;age&#34;</span>: <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;xiaomei&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;age&#34;</span>: <span style="color:#ae81ff">18</span>
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="根据id获取单个用户">根据id获取单个用户</h4>
+<blockquote>
+<p>请求</p>
+</blockquote>
+<p>请求方式 GET</p>
+<p>请求地址 /users/:id</p>
+<pre tabindex="0"><code>GET /users/:id
+GET /users/1
+</code></pre><blockquote>
+<p>响应</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;xiaoming&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;age&#34;</span>: <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="添加用户">添加用户</h4>
+<blockquote>
+<p>请求</p>
+</blockquote>
+<p>请求方式 POST</p>
+<p>接口地址 /users</p>
+<pre tabindex="0"><code>POST /users
+</code></pre><p>请求参数</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;xiaoming&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&#34;age&#34;</span>: <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>响应</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;xiaoming&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;age&#34;</span>: <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="修改用户">修改用户</h4>
+<blockquote>
+<p>请求</p>
+</blockquote>
+<p>请求方式 PUT</p>
+<p>请求地址 /users/1</p>
+<pre tabindex="0"><code>PUT /users/:id
+PUT /users/1
+</code></pre><p>请求参数</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;xiaoming-new&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&#34;age&#34;</span>: <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>响应</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;xiaoming-new&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;age&#34;</span>: <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="删除用户">删除用户</h4>
+<blockquote>
+<p>请求</p>
+</blockquote>
+<p>请求方式 DELETE</p>
+<p>请求地址 /users/:id</p>
+<pre tabindex="0"><code>DELETE /users/:id
+DELETE /users/1
+</code></pre><blockquote>
+<p>响应</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">空</span>
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="三-技术实现">三. 技术实现</h1>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="1-后端">1 后端</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="1-项目搭建">1) 项目搭建</h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="安装express脚手架">安装express脚手架</h4>
+<p>执行命令, 全局安装脚本架(也称为项目生成器)</p>
+<pre tabindex="0"><code>npm i express-generator -g
+</code></pre><p>安装完成后, 在全局会多一个命令</p>
+<pre tabindex="0"><code>express
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="通过脚手加搭建项目">通过脚手加搭建项目</h4>
+<p>在根目录下, 执行命令</p>
+<pre tabindex="0"><code>express --no-view backEnd
+</code></pre><ul>
+<li>在目录下创建一个<code>backEnd</code>的目录, 作为后端项目的目录</li>
+<li><code>--no-view</code>: 创建一个数据服务, 不提供页面服务</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="安装相关依赖">安装相关依赖</h4>
+<p>进入<code>backEnd</code>目录, 执行命令, 根据<code>package.jsoon</code>中的依赖项, 安装项目所有的依赖<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/25807822/1648695506673-bd3b5eed-f357-4304-9808-bdac0a727b1e.png#averageHue=%23282c34&amp;id=Yxbnu&amp;originHeight=256&amp;originWidth=589&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+</p>
+<ul>
+<li>cookie-parser: 解析cookie的中间件</li>
+<li>debug: 调试代码的中间件</li>
+<li>express: express框架包</li>
+<li>morgan: 记录日志的中间件</li>
+</ul>
+<pre tabindex="0"><code>npm install
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="启动项目">启动项目</h4>
+<p>使用<code>nodemon</code>启动项目,</p>
+<p>将<code>nodemon</code>作为开发时依赖安装</p>
+<pre tabindex="0"><code>npm i nodemon -D
+</code></pre><p>会在<code>package.json</code>中, 生成devDependencies</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;devDependencies&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;nodemon&#34;</span>: <span style="color:#e6db74">&#34;^2.0.15&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>修改<code>pagckage.json</code>中的脚本</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;start&#34;</span>: <span style="color:#e6db74">&#34;nodemon ./bin/www&#34;</span>
+</span></span><span style="display:flex;"><span>}<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span></code></pre></div><p>执行</p>
+<pre tabindex="0"><code>npm run start
+</code></pre><p>使用浏览器测试</p>
+<p>
+  <p><img src="http://image.brojie.cn/image-20211124113548406.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=iSvga&amp;originHeight=327&amp;originWidth=679&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=#id=BtdE3&amp;originHeight=327&amp;originWidth=679&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="2-实现获取所有用户">2) 实现获取所有用户</h3>
+<p>编写<code>router/users.js</code>文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/&#39;</span>, (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 一. 编写sql语句
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// 二. 执行sql语句, 获得结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// 三. 返回数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>})
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="安装mysql包">安装mysql包</h4>
+<pre tabindex="0"><code>npm i mysql
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="复用数据库操作模块">复用数据库操作模块</h4>
+<p>
+  <p><img src="http://image.brojie.cn/image-20211124115058248.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=hjC7t&amp;originHeight=528&amp;originWidth=1381&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=#id=gKUs8&amp;originHeight=528&amp;originWidth=1381&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+</p>
+<p>修改配置</p>
+<p>
+  <p><img src="http://image.brojie.cn/image-20211124115150000.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=UKabr&amp;originHeight=739&amp;originWidth=1418&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=#id=NsAbd&amp;originHeight=739&amp;originWidth=1418&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+</p>
+<p>导入db模块</p>
+<p>
+  <p><img src="http://image.brojie.cn/image-20211124115443072.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=pCvuy&amp;originHeight=882&amp;originWidth=1572&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=#id=tSEfY&amp;originHeight=882&amp;originWidth=1572&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+</p>
+<blockquote>
+<p>示例</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">getAll</span>, <span style="color:#a6e22e">getById</span>, <span style="color:#a6e22e">exec</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../db&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 编写接口
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// GET /users
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 一. 编写sql语句
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sql</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;select * from users&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 二. 执行sql语句, 获得结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">users</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">getAll</span>(<span style="color:#a6e22e">sql</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 三. 返回数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">users</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="测试">测试</h4>
+<p>创建<code>test/users.http</code>测试文件</p>
+<pre tabindex="0"><code>@baseURL = http://localhost:3000
+
+###
+GET {{baseURL}}/users
+</code></pre><p>
+  <p><img src="http://image.brojie.cn/image-20211124115837758.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=eaiHc&amp;originHeight=890&amp;originWidth=1385&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=#id=slmZG&amp;originHeight=890&amp;originWidth=1385&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="3-实现根据id获取单个用户">3) 实现根据id获取单个用户</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 根据id获取单个用户
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// GET /users/:id -&gt; {}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/:id&#39;</span>, <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 一. 解析参数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> { <span style="color:#a6e22e">id</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">params</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 二. 操作数据库
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sql</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`select * from users where id=</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">getById</span>(<span style="color:#a6e22e">sql</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 三. 返回结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">user</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>测试</p>
+<p>
+  <p><img src="http://image.brojie.cn/image-20211124141638789.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=Fu3gF&amp;originHeight=815&amp;originWidth=1685&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=#id=lYP4p&amp;originHeight=815&amp;originWidth=1685&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="4-实现添加用户">4) 实现添加用户</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 添加用户
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// POST /users {&#34;name&#34;:&#34;test&#34;, &#34;age&#34;:20}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 一. 解析参数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">age</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 二. 操作数据库
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sql</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`insert into users (name, age) values (&#39;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;, &#39;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">age</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;)`</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// console.log(sql)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">resData</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">exec</span>(<span style="color:#a6e22e">sql</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//console.log(resData)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// 三. 返回结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">resData</span>.<span style="color:#a6e22e">insertId</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span>, <span style="color:#75715e">// name: name
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">age</span>, <span style="color:#75715e">// age: age
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  })
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>测试</p>
+<p>
+  <p><img src="http://image.brojie.cn/image-20211124152105399.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=Bjx4e&amp;originHeight=745&amp;originWidth=1414&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=#id=adCV3&amp;originHeight=745&amp;originWidth=1414&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="5-实现修改接口">5) 实现修改接口</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 修改用户
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// PUT /users/:id {&#34;name&#34;:&#34;test-new&#34;, &#34;age&#34;:30}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#39;/:id&#39;</span>, <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 一. 解析参数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> { <span style="color:#a6e22e">id</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">params</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> { <span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">age</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 二. 操作数据库
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sql</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`update users set name=&#39;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;, age=&#39;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">age</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#39; where id=</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">resData</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">exec</span>(<span style="color:#a6e22e">sql</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 三. 返回结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">resData</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">id</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">age</span>,
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>测试</p>
+<p>
+  <p><img src="http://image.brojie.cn/image-20211124153726078.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=DZ5mI&amp;originHeight=624&amp;originWidth=1657&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=#id=cZhvm&amp;originHeight=624&amp;originWidth=1657&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="6-实现删除接口">6) 实现删除接口</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 删除用户
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">router</span>.<span style="color:#66d9ef">delete</span>(<span style="color:#e6db74">&#39;/:id&#39;</span>, <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 一. 解析参数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> { <span style="color:#a6e22e">id</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">params</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 二. 操作数据库
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sql</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`delete from users where id = &#39;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;`</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">exec</span>(<span style="color:#a6e22e">sql</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 三. 返回结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">204</span>).<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>测试</p>
+<p>
+  <p><img src="http://image.brojie.cn/image-20211124154425207.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=RbHqz&amp;originHeight=645&amp;originWidth=1788&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=#id=c5Nat&amp;originHeight=645&amp;originWidth=1788&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="2-前端">2 前端</h2>
+<p>前后端交互流程图<!-- raw HTML omitted --><a href="https://www.processon.com/view/link/62469c7f5653bb072bd3185d" target="_blank" rel="noopener">点击查看【processon】</a></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="1-创建listhtml">1) 创建list.html</h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="编写页面结构">编写页面结构</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;用户列表&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h1</span>&gt;用户列表&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;./add.html&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;add-btn&#34;</span>&gt;添加用户&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">table</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;user-list&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">tr</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">th</span>&gt;id&lt;/<span style="color:#f92672">th</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">th</span>&gt;name&lt;/<span style="color:#f92672">th</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">th</span>&gt;age&lt;/<span style="color:#f92672">th</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">th</span>&gt;操作&lt;/<span style="color:#f92672">th</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">tr</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">table</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="编写样式">编写样式</h4>
+<p>base.css</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">*</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">a</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">text-decoration</span>: <span style="color:#66d9ef">none</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">table</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">th</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">td</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#000</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>style.css</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">container</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">80</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">container</span> .<span style="color:#a6e22e">add-btn</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* 第一段: position display */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline-block</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* 第二段: 盒子模型 margin padding border width height */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#169bd5</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* 第三段: 背景相关 */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#ecf5ff</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* 第四段: 文本相关 */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#169bd5</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">cursor</span>: <span style="color:#66d9ef">pointer</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* 第五段: CSS3新增属性 */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">box-sizing</span>: <span style="color:#66d9ef">border-box</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">transition</span>: <span style="color:#66d9ef">all</span> <span style="color:#ae81ff">0.2</span><span style="color:#66d9ef">s</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">container</span> .<span style="color:#a6e22e">add-btn</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#fff</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#169bd5</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">container</span> .<span style="color:#a6e22e">user-list</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">500</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#000</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border-spacing</span>: <span style="color:#ae81ff">0</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border-collapse</span>: <span style="color:#66d9ef">collapse</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="编写js">编写js</h4>
+<p>引入jquery</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</span></span></code></pre></div><p>发送ajax请求</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 调用接口(获取所有用户)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">ajax</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://localhost:3000/users&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;GET&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">res</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>)
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>发现报错:</p>
+<p>
+  <p><img src="http://image.brojie.cn/image-20211124164004435.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=b5cG2&amp;originHeight=284&amp;originWidth=980&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=#id=BTsAR&amp;originHeight=284&amp;originWidth=980&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+</p>
+<blockquote>
+<p>原因</p>
+</blockquote>
+<p>发生了跨域请求</p>
+<blockquote>
+<p>跨域请求</p>
+</blockquote>
+<ol>
+<li>由于浏览器同源策略导致跨域问题</li>
+<li>当浏览器从一个域向另一个域发送请求时, 它认为这种请求不安全, 不允许发送</li>
+</ol>
+<p>域 = 协议  + 域名 + 端口</p>
+<blockquote>
+<p>最常用的解决方案</p>
+</blockquote>
+<p>在服务端开启CORS, 在服务端回复的响应头中, 加入特殊的头信息, 允许浏览器发送跨域请求</p>
+<p>在后端安装cors中间件</p>
+<p><a href="https://www.npmjs.com/package/cors" target="_blank" rel="noopener">https://www.npmjs.com/package/cors</a></p>
+<pre tabindex="0"><code>npm i cors
+</code></pre><p>在app.js中导入cors中间件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cors</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;cors&#39;</span>)
+</span></span></code></pre></div><p>全局注册cors()中间件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">cors</span>())
+</span></span></code></pre></div><p>在ajax请求中,遍历拿到的数组,创建tr元素,追加到表格后面</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>        <span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">ajax</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;http://localhost:3000/users&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;GET&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">res</span>){
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">//遍历res数组,创建tr元素,追加到表格后面
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">item</span> =&gt; {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tr</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`&lt;tr&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                                    &lt;td&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;/td&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                                    &lt;td&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;/td&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                                    &lt;td&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">age</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;/td&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                                    &lt;td&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                                        &lt;a href=&#34;#&#34;&gt;修改&lt;/a&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                                        &lt;a href=&#34;#&#34;&gt;删除&lt;/a&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                                    &lt;/td&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                                &lt;/tr&gt;`</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;.user-list&#39;</span>).<span style="color:#a6e22e">append</span>(<span style="color:#a6e22e">tr</span>)
+</span></span><span style="display:flex;"><span>                });
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        })
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="2-创建addhtml">2) 创建add.html</h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="编写页面结构-1">编写页面结构</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;添加用户&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- 二. 编写样式 --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;css/base.css&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;css/style.css&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- 一. 编写HTML结构 --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h1</span>&gt;添加用户&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-item&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span>&gt;用户名: &lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;请输入用户名&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-item&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;age&#34;</span>&gt;年龄: &lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;age&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;age&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;请输入年龄&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;add-btn&#34;</span>&gt;提交&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="编写样式-1">编写样式</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">container</span> .<span style="color:#a6e22e">form-item</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">container</span> .<span style="color:#a6e22e">form-item</span> <span style="color:#f92672">input</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">40</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">lightgray</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">15</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">outline</span>: <span style="color:#66d9ef">none</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">container</span> .<span style="color:#a6e22e">form-item</span> <span style="color:#f92672">input</span>:<span style="color:#a6e22e">focus</span>{
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">border-color</span>: <span style="color:#66d9ef">lightblue</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="编写js-1">编写js</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//监听btn的点击事件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#btn&#39;</span>).<span style="color:#a6e22e">click</span>(<span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//获取用户名和密码进行判断
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#username&#39;</span>).<span style="color:#a6e22e">val</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#age&#39;</span>).<span style="color:#a6e22e">val</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//判断
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">name</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">age</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;&#39;</span>){
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;用户名和密码不能为空&#39;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//发送异步请求
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">ajax</span>({
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;POST&#39;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">url</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;http://localhost:3000/users&#39;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">data</span><span style="color:#f92672">:</span>{<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span><span style="color:#a6e22e">name</span>,<span style="color:#a6e22e">age</span><span style="color:#f92672">:</span><span style="color:#a6e22e">age</span>},
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">success</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">res</span>){
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;添加成功&#39;</span>)
+</span></span><span style="display:flex;"><span>			window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;./list.html&#39;</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="3-创建edithtml">3) 创建edit.html</h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="修改list入口">修改list入口</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">ajax</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://localhost:3000/users&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;GET&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">res</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// console.log(res)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 遍历res数组
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 创建一个tr元素, 追加到表格的最后
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">item</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tr</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`&lt;tr&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                    &lt;td&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;/td&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                    &lt;td&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;/td&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                    &lt;td&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">age</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;/td&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                    &lt;td&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                      &lt;a href=&#34;./edit.html?id=</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;&gt;修改&lt;/a&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                      &lt;a href=&#34;#&#34; onclick=&#34;del(</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">)&#34;&gt;删除&lt;/a&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                    &lt;/td&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                  &lt;/tr&gt;`</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;.user-list&#39;</span>).<span style="color:#a6e22e">append</span>(<span style="color:#a6e22e">tr</span>)
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="编写页面">编写页面</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#f92672">&lt;!</span><span style="color:#a6e22e">DOCTYPE</span> <span style="color:#a6e22e">html</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">head</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">meta</span> <span style="color:#a6e22e">http</span><span style="color:#f92672">-</span><span style="color:#a6e22e">equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">title</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">修改用户</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/title&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!--</span> <span style="color:#a6e22e">二</span>. <span style="color:#a6e22e">编写样式</span> <span style="color:#f92672">--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;css/base.css&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;css/style.css&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/head&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">body</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!--</span> <span style="color:#a6e22e">一</span>. <span style="color:#a6e22e">编写HTML结构</span> <span style="color:#f92672">--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">修改用户</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#66d9ef">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#66d9ef">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-item&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">label</span> <span style="color:#66d9ef">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">用户名</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/label&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;请输入用户名&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#66d9ef">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-item&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">label</span> <span style="color:#66d9ef">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;age&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">年龄</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/label&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;age&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;age&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;请输入年龄&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn&#34;</span> <span style="color:#66d9ef">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;add-btn&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">提交</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 三. 发送ajax请求, 根据id查找用户的信息
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// console.log(window.location)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// console.log(window.location.search)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// console.log(window.location.search.replace(&#39;?&#39;, &#39;&#39;))
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// console.log(window.location.search.replace(&#39;?&#39;, &#39;&#39;).split(&#39;=&#39;))
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// console.log(window.location.search.replace(&#39;?&#39;, &#39;&#39;).split(&#39;=&#39;)[1])
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">search</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">&#39;?&#39;</span>,<span style="color:#e6db74">&#39;&#39;</span>).<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;=&#39;</span>)[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//发送ajax请求,根据id查询用户信息,并回显数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">ajax</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;GET&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;http://localhost:3000/users/&#39;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">id</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">res</span>){
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">//设置input的值（回显数据）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#username&#39;</span>).<span style="color:#a6e22e">val</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">name</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#age&#39;</span>).<span style="color:#a6e22e">val</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">age</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//添加点击事件,发送put请求修改用户信息
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#btn&#39;</span>).<span style="color:#a6e22e">click</span>(<span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//获取input输入的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#username&#39;</span>).<span style="color:#a6e22e">val</span>()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#age&#39;</span>).<span style="color:#a6e22e">val</span>()
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//判断
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">name</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">age</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;&#39;</span>){
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;用户名和密码不能为空&#39;</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//发送put请求
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">ajax</span>({
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;PUT&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;http://localhost:3000/users/&#39;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">id</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span>{<span style="color:#a6e22e">name</span>,<span style="color:#a6e22e">age</span>},
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">res</span>){
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;更新成功&#39;</span>)
+</span></span><span style="display:flex;"><span>                    window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;./list.html&#39;</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            })
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/body&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/html&gt;</span>
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="4-实现删除">4) 实现删除</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 处理删除
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">del</span>(<span style="color:#a6e22e">id</span>){
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span>  <span style="color:#a6e22e">confirm</span>(<span style="color:#e6db74">&#39;你确定要删除吗&#39;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">c</span>){
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">ajax</span>({
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;DELETE&#39;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">url</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;http://localhost:3000/users/&#39;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">id</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">success</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">res</span>){
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;./list.html&#39;</span>
+</span></span><span style="display:flex;"><span>		}}) 
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/lm8qk5/"><h4 class="card-text--title text-ellipsis">Mysql 配置文件</h4></a>
+    <p class="card-text--row">2022-06-02 03:35</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/jpeg/29064333/1653875721497-e6b4a7f7-b315-4034-8c61-b0d41799fda3.jpeg"></div>
+  <div class="card-text">
+    <a href="/docs/sv8zqs/"><h4 class="card-text--title text-ellipsis">Express脚手架</h4></a>
+    <p class="card-text--row">2022-05-30 01:13</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一-需求分析">一. 需求分析</a>
+      <ul>
+        <li><a href="#1-系统框架">1 系统框架</a></li>
+        <li><a href="#2-具体的业务需求">2 具体的业务需求</a></li>
+      </ul>
+    </li>
+    <li><a href="#二-技术方案">二. 技术方案</a>
+      <ul>
+        <li><a href="#1-数据库设计">1 数据库设计</a></li>
+        <li><a href="#2-接口设计">2 接口设计</a>
+          <ul>
+            <li><a href="#1-baseurl">1) baseURL</a></li>
+            <li><a href="#2-用户模块">2) 用户模块</a>
+              <ul>
+                <li><a href="#获取所有用户">获取所有用户</a></li>
+                <li><a href="#根据id获取单个用户">根据id获取单个用户</a></li>
+                <li><a href="#添加用户">添加用户</a></li>
+                <li><a href="#修改用户">修改用户</a></li>
+                <li><a href="#删除用户">删除用户</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#三-技术实现">三. 技术实现</a>
+      <ul>
+        <li><a href="#1-后端">1 后端</a>
+          <ul>
+            <li><a href="#1-项目搭建">1) 项目搭建</a>
+              <ul>
+                <li><a href="#安装express脚手架">安装express脚手架</a></li>
+                <li><a href="#通过脚手加搭建项目">通过脚手加搭建项目</a></li>
+                <li><a href="#安装相关依赖">安装相关依赖</a></li>
+                <li><a href="#启动项目">启动项目</a></li>
+              </ul>
+            </li>
+            <li><a href="#2-实现获取所有用户">2) 实现获取所有用户</a>
+              <ul>
+                <li><a href="#安装mysql包">安装mysql包</a></li>
+                <li><a href="#复用数据库操作模块">复用数据库操作模块</a></li>
+                <li><a href="#测试">测试</a></li>
+              </ul>
+            </li>
+            <li><a href="#3-实现根据id获取单个用户">3) 实现根据id获取单个用户</a></li>
+            <li><a href="#4-实现添加用户">4) 实现添加用户</a></li>
+            <li><a href="#5-实现修改接口">5) 实现修改接口</a></li>
+            <li><a href="#6-实现删除接口">6) 实现删除接口</a></li>
+          </ul>
+        </li>
+        <li><a href="#2-前端">2 前端</a>
+          <ul>
+            <li><a href="#1-创建listhtml">1) 创建list.html</a>
+              <ul>
+                <li><a href="#编写页面结构">编写页面结构</a></li>
+                <li><a href="#编写样式">编写样式</a></li>
+                <li><a href="#编写js">编写js</a></li>
+              </ul>
+            </li>
+            <li><a href="#2-创建addhtml">2) 创建add.html</a>
+              <ul>
+                <li><a href="#编写页面结构-1">编写页面结构</a></li>
+                <li><a href="#编写样式-1">编写样式</a></li>
+                <li><a href="#编写js-1">编写js</a></li>
+              </ul>
+            </li>
+            <li><a href="#3-创建edithtml">3) 创建edit.html</a>
+              <ul>
+                <li><a href="#修改list入口">修改list入口</a></li>
+                <li><a href="#编写页面">编写页面</a></li>
+              </ul>
+            </li>
+            <li><a href="#4-实现删除">4) 实现删除</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

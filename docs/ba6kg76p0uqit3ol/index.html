@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>工作原理 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="工作原理" />
+<meta property="og:description" content="webgl在gpu上的工作原理基本分为2部分： 将顶点转换到裁剪空间坐标 基于第一部分的结果绘制像素点 var primitiveType = gl.TRIANGLES; var offset = 0; var count = 9; gl.drawArrays(primitiveType, offset, count); 上面这段代码" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/ba6kg76p0uqit3ol/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2023-07-04T03:44:52+00:00" />
+<meta property="article:modified_time" content="2023-07-17T02:43:32+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="工作原理"/>
+<meta name="twitter:description" content="webgl在gpu上的工作原理基本分为2部分： 将顶点转换到裁剪空间坐标 基于第一部分的结果绘制像素点 var primitiveType = gl.TRIANGLES; var offset = 0; var count = 9; gl.drawArrays(primitiveType, offset, count); 上面这段代码"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2023/gif/29064333/1688435333105-44d46882-9a26-47a9-961f-406d3fac4441.gif" alt="https://cdn.nlark.com/yuque/0/2023/gif/29064333/1688435333105-44d46882-9a26-47a9-961f-406d3fac4441.gif" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">工作原理</h1>
+    
+      <p class="card-text--row">2023-07-04 03:44</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p>webgl在gpu上的工作原理基本分为2部分：</p>
+<ul>
+<li>将顶点转换到裁剪空间坐标</li>
+<li>基于第一部分的结果绘制像素点</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">primitiveType</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">TRIANGLES</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">offset</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">9</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">drawArrays</span>(<span style="color:#a6e22e">primitiveType</span>, <span style="color:#a6e22e">offset</span>, <span style="color:#a6e22e">count</span>);
+</span></span></code></pre></div><p>上面这段代码的过程大致如下：<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/gif/29064333/1688435333105-44d46882-9a26-47a9-961f-406d3fac4441.gif#averageHue=%23222221&amp;clientId=ud828be04-7abb-4&amp;from=paste&amp;id=u3f20927a&amp;originHeight=245&amp;originWidth=405&amp;originalType=url&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;taskId=uf9d0571b-4a1e-44dc-966b-4b48cdb5b54&amp;title=" alt="" loading="lazy" /></p>
+<!-- raw HTML omitted -->顶点着色器会依次处理每个顶点，根据drawArrays指定的次数，顶点着色器也会相应的运行对应次数，再依据绘制类型，webgl决定何时去画什么样的图形。<!-- raw HTML omitted -->绘制不同顶点颜色的三角形：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-glsl" data-lang="glsl"><span style="display:flex;"><span><span style="color:#66d9ef">attribute</span> <span style="color:#66d9ef">vec2</span> a_position;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> mat3 u_m;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 定义一个可变颜色，每个顶点一个颜色，将会被传递给片段着色器</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">varying</span> <span style="color:#66d9ef">vec4</span> v_color;      
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> main() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">vec3</span> position<span style="color:#f92672">=</span><span style="color:#66d9ef">vec3</span>(a_position.x,a_position.y,<span style="color:#ae81ff">1.0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">vec3</span> result<span style="color:#f92672">=</span>u_m<span style="color:#f92672">*</span>position;
+</span></span><span style="display:flex;"><span>  gl_Position <span style="color:#f92672">=</span> <span style="color:#66d9ef">vec4</span>(result.x,result.y,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 将裁剪空间转为颜色空间</span>
+</span></span><span style="display:flex;"><span>  v_color<span style="color:#f92672">=</span>gl_Position<span style="color:#f92672">*</span><span style="color:#ae81ff">0.5</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.5</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-glsl" data-lang="glsl"><span style="display:flex;"><span><span style="color:#66d9ef">precision</span> <span style="color:#66d9ef">mediump</span> <span style="color:#66d9ef">float</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 定义一个同名的可变变量来接收从顶点着色器传递过来的数据</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">varying</span> <span style="color:#66d9ef">vec4</span> v_color; 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> main(){
+</span></span><span style="display:flex;"><span>  gl_FragColor<span style="color:#f92672">=</span>v_color;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;Document&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">*</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      #glcanvas {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">0</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">black</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">canvas</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;glcanvas&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;800&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;600&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      你的浏览器似乎不支持或者禁用了 HTML5 &lt;<span style="color:#f92672">code</span>&gt;&amp;lt;canvas&amp;gt;&lt;/<span style="color:#f92672">code</span>&gt; 元素。
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">canvas</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">canvas</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;glcanvas&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">bottom</span>, <span style="color:#a6e22e">right</span>, <span style="color:#a6e22e">top</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">left</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">getBoundingClientRect</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 计算 canvas的中心点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">center</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">x</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">left</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">right</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">y</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">bottom</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">t</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">gl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">getContext</span>(<span style="color:#e6db74">&#34;webgl&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 确认 WebGL 支持性
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">gl</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">alert</span>(
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;无法初始化 WebGL，你的浏览器、操作系统或硬件等可能不支持 WebGL。&#34;</span>
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;不支持gl&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// return;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 创建着色器的方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createShader</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">type</span>, <span style="color:#a6e22e">source</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">shader</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">createShader</span>(<span style="color:#a6e22e">type</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">shaderSource</span>(<span style="color:#a6e22e">shader</span>, <span style="color:#a6e22e">source</span>); <span style="color:#75715e">//为着色器对象提供数据源，即我们写的着色器代码
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">compileShader</span>(<span style="color:#a6e22e">shader</span>); <span style="color:#75715e">//编译着色器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">success</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getShaderParameter</span>(<span style="color:#a6e22e">shader</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">COMPILE_STATUS</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 成功编译后返回着色器对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">success</span>) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">shader</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 计算变换矩阵
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMat3</span>(<span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">h</span>, <span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> [
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">w</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0.0</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0.0</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">h</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>          (<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">x</span>) <span style="color:#f92672">/</span> <span style="color:#a6e22e">w</span>,
+</span></span><span style="display:flex;"><span>          (<span style="color:#ae81ff">2.0</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">y</span>) <span style="color:#f92672">/</span> <span style="color:#a6e22e">h</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>        ];
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vsSource</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      attribute vec2 a_position;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      uniform mat3 u_m;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      // 定义一个可变颜色，每个顶点一个颜色，将会被传递给片段着色器
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      varying vec4 v_color;      
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      void main() {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        vec3 position=vec3(a_position.x,a_position.y,1.0);
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        vec3 result=u_m*position;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        gl_Position = vec4(result.x,result.y,0,1);
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        // 将裁剪空间转为颜色空间
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        v_color=gl_Position*0.5+0.5;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      `</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fsSource</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      precision mediump float;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      // 定义一个同名的可变变量来接收从顶点着色器传递过来的数据
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      varying vec4 v_color; 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      void main(){
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        gl_FragColor=v_color;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      `</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 创建着色器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vertexShader</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createShader</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">VERTEX_SHADER</span>, <span style="color:#a6e22e">vsSource</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fragmentShader</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createShader</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">FRAGMENT_SHADER</span>, <span style="color:#a6e22e">fsSource</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 将着色器链接到一个program着色程序
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createProgram</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">vertexShader</span>, <span style="color:#a6e22e">fragmentShader</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">program</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">createProgram</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">attachShader</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">vertexShader</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">attachShader</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">fragmentShader</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">linkProgram</span>(<span style="color:#a6e22e">program</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">success</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getProgramParameter</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">LINK_STATUS</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">success</span>) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">program</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 未链接成功，则打印相关信息，并删除失败的program
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getProgramInfoLog</span>(<span style="color:#a6e22e">program</span>));
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">deleteProgram</span>(<span style="color:#a6e22e">program</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">program</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createProgram</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">vertexShader</span>, <span style="color:#a6e22e">fragmentShader</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">positionAttributeLocation</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getAttribLocation</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">program</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;a_position&#34;</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">u_m</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getUniformLocation</span>(<span style="color:#a6e22e">program</span>, <span style="color:#e6db74">&#34;u_m&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">viewport</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">width</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">height</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">clearColor</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0.5</span>); <span style="color:#75715e">//设置清空颜色
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">clear</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">COLOR_BUFFER_BIT</span>); <span style="color:#75715e">//清空画布
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">useProgram</span>(<span style="color:#a6e22e">program</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">enableVertexAttribArray</span>(<span style="color:#a6e22e">positionAttributeLocation</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">positionBuffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">createBuffer</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">bindBuffer</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">ARRAY_BUFFER</span>, <span style="color:#a6e22e">positionBuffer</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">bufferData</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">ARRAY_BUFFER</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Float32Array</span>([<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">800</span>, <span style="color:#ae81ff">600</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">600</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">800</span>,<span style="color:#ae81ff">600</span>,<span style="color:#ae81ff">800</span>,<span style="color:#ae81ff">0</span>]),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">STATIC_DRAW</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 设置全局变量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">uniformMatrix3fv</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">u_m</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Float32Array</span>(
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">getMat3</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">width</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">height</span>, <span style="color:#a6e22e">center</span>.<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">center</span>.<span style="color:#a6e22e">y</span>)
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 配置顶点属性指针
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">vertexAttribPointer</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">positionAttributeLocation</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">FLOAT</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">primitiveType</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">TRIANGLES</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">drawArrays</span>(<span style="color:#a6e22e">primitiveType</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">6</span>);
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><blockquote>
+<p>varying 可变变量，用于从顶点着色器向片段着色器中传递数据</p>
+</blockquote>
+<p>这里绘制了两个三角形，把裁剪空间铺满，由于采用的可变颜色是通过裁剪空间的顶点数据转换为颜色空间得到的，因此体现的是一个<code>r-g</code>（b分量为0.5，a分量为1）渐变颜色空间的信息。下面是空间大致四个分量的范围<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1688449666519-4ecc3d1b-a143-4011-8010-c23bfba50d66.png#averageHue=%23b0d07f&amp;clientId=u0fe9b86d-8112-4&amp;from=paste&amp;height=717&amp;id=u25992f0a&amp;originHeight=717&amp;originWidth=925&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=31280&amp;status=done&amp;style=none&amp;taskId=u055aef10-8424-49b5-a4be-d1e7df9271d&amp;title=&amp;width=925" alt="image.png" loading="lazy" /></p>
+</p>
+<blockquote>
+<p>只传递到了顶点颜色的值，中间颜色是如何产生的？</p>
+</blockquote>
+<p>webgl，在光栅化三角形时，会将三个值进行插值，每一个像素在调用片段着色器时，<code>varying</code>可变量的值是一个插值。<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/gif/29064333/1688449097384-b19287bc-1ad3-4d57-9d6b-4e964cd16fa1.gif#averageHue=%2343443c&amp;clientId=u0fe9b86d-8112-4&amp;from=paste&amp;height=408&amp;id=u37042acc&amp;originHeight=408&amp;originWidth=615&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=765431&amp;status=done&amp;style=none&amp;taskId=u3f04c48f-7f87-433a-9028-91232bb5e29&amp;title=&amp;width=615" alt="gif.gif" loading="lazy" /></p>
+<!-- raw HTML omitted -->通过属性传递颜色给着色器：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-glsl" data-lang="glsl"><span style="display:flex;"><span><span style="color:#66d9ef">attribute</span> <span style="color:#66d9ef">vec2</span> a_position;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">attribute</span> <span style="color:#66d9ef">vec4</span> a_color;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uniform</span> mat3 u_m;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 定义一个可变颜色，每个顶点一个颜色，将会被传递给片段着色器</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">varying</span> <span style="color:#66d9ef">vec4</span> v_color;      
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> main() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">vec3</span> position<span style="color:#f92672">=</span><span style="color:#66d9ef">vec3</span>(a_position.x,a_position.y,<span style="color:#ae81ff">1.0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">vec3</span> result<span style="color:#f92672">=</span>u_m<span style="color:#f92672">*</span>position;
+</span></span><span style="display:flex;"><span>  gl_Position <span style="color:#f92672">=</span> <span style="color:#66d9ef">vec4</span>(result.x,result.y,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 将裁剪空间转为颜色空间</span>
+</span></span><span style="display:flex;"><span>  v_color<span style="color:#f92672">=</span>a_color;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-glsl" data-lang="glsl"><span style="display:flex;"><span><span style="color:#66d9ef">precision</span> <span style="color:#66d9ef">mediump</span> <span style="color:#66d9ef">float</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 定义一个同名的可变变量来接收从顶点着色器传递过来的数据</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">varying</span> <span style="color:#66d9ef">vec4</span> v_color; 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> main(){
+</span></span><span style="display:flex;"><span>  gl_FragColor<span style="color:#f92672">=</span>v_color;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;Document&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">*</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      #glcanvas {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">0</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">black</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">canvas</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;glcanvas&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;800&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;600&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      你的浏览器似乎不支持或者禁用了 HTML5 &lt;<span style="color:#f92672">code</span>&gt;&amp;lt;canvas&amp;gt;&lt;/<span style="color:#f92672">code</span>&gt; 元素。
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">canvas</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">canvas</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;glcanvas&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">bottom</span>, <span style="color:#a6e22e">right</span>, <span style="color:#a6e22e">top</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">left</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">getBoundingClientRect</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 计算 canvas的中心点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">center</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">x</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">left</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">right</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">y</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">bottom</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">t</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">gl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">getContext</span>(<span style="color:#e6db74">&#34;webgl&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 确认 WebGL 支持性
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">gl</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">alert</span>(
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;无法初始化 WebGL，你的浏览器、操作系统或硬件等可能不支持 WebGL。&#34;</span>
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;不支持gl&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// return;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 创建着色器的方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createShader</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">type</span>, <span style="color:#a6e22e">source</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">shader</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">createShader</span>(<span style="color:#a6e22e">type</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">shaderSource</span>(<span style="color:#a6e22e">shader</span>, <span style="color:#a6e22e">source</span>); <span style="color:#75715e">//为着色器对象提供数据源，即我们写的着色器代码
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">compileShader</span>(<span style="color:#a6e22e">shader</span>); <span style="color:#75715e">//编译着色器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">success</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getShaderParameter</span>(<span style="color:#a6e22e">shader</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">COMPILE_STATUS</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 成功编译后返回着色器对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">success</span>) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">shader</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 计算变换矩阵
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMat3</span>(<span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">h</span>, <span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> [
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">w</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0.0</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0.0</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">h</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>          (<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">x</span>) <span style="color:#f92672">/</span> <span style="color:#a6e22e">w</span>,
+</span></span><span style="display:flex;"><span>          (<span style="color:#ae81ff">2.0</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">y</span>) <span style="color:#f92672">/</span> <span style="color:#a6e22e">h</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>        ];
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vsSource</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      attribute vec2 a_position;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      attribute vec4 a_color;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      uniform mat3 u_m;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      // 定义一个可变颜色，每个顶点一个颜色，将会被传递给片段着色器
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      varying vec4 v_color;      
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      void main() {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        vec3 position=vec3(a_position.x,a_position.y,1.0);
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        vec3 result=u_m*position;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        gl_Position = vec4(result.x,result.y,0,1);
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        // 将裁剪空间转为颜色空间
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        v_color=a_color;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      `</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fsSource</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      precision mediump float;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      // 定义一个同名的可变变量来接收从顶点着色器传递过来的数据
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      varying vec4 v_color; 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      void main(){
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        gl_FragColor=v_color;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      `</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 创建着色器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vertexShader</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createShader</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">VERTEX_SHADER</span>, <span style="color:#a6e22e">vsSource</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fragmentShader</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createShader</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">FRAGMENT_SHADER</span>, <span style="color:#a6e22e">fsSource</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 将着色器链接到一个program着色程序
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createProgram</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">vertexShader</span>, <span style="color:#a6e22e">fragmentShader</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">program</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">createProgram</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">attachShader</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">vertexShader</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">attachShader</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">fragmentShader</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">linkProgram</span>(<span style="color:#a6e22e">program</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">success</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getProgramParameter</span>(<span style="color:#a6e22e">program</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">LINK_STATUS</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">success</span>) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">program</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 未链接成功，则打印相关信息，并删除失败的program
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getProgramInfoLog</span>(<span style="color:#a6e22e">program</span>));
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">deleteProgram</span>(<span style="color:#a6e22e">program</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">program</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createProgram</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">vertexShader</span>, <span style="color:#a6e22e">fragmentShader</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">positionAttributeLocation</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getAttribLocation</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">program</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;a_position&#34;</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">colorLocation</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getAttribLocation</span>(<span style="color:#a6e22e">program</span>, <span style="color:#e6db74">&#34;a_color&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">u_m</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getUniformLocation</span>(<span style="color:#a6e22e">program</span>, <span style="color:#e6db74">&#34;u_m&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">viewport</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">width</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">height</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">useProgram</span>(<span style="color:#a6e22e">program</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//  启用属性
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">enableVertexAttribArray</span>(<span style="color:#a6e22e">positionAttributeLocation</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">enableVertexAttribArray</span>(<span style="color:#a6e22e">colorLocation</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 初始化数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">positionBuffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">createBuffer</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">bindBuffer</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">ARRAY_BUFFER</span>, <span style="color:#a6e22e">positionBuffer</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">bufferData</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">ARRAY_BUFFER</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Float32Array</span>([<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">800</span>, <span style="color:#ae81ff">600</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">600</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">800</span>, <span style="color:#ae81ff">600</span>, <span style="color:#ae81ff">800</span>, <span style="color:#ae81ff">0</span>]),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">STATIC_DRAW</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">colorBuffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">createBuffer</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">bindBuffer</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">ARRAY_BUFFER</span>, <span style="color:#a6e22e">colorBuffer</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">bufferData</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">ARRAY_BUFFER</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Float32Array</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>]),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">STATIC_DRAW</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 绑定属性和缓冲，以及配置顶点属性
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">bindBuffer</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">ARRAY_BUFFER</span>, <span style="color:#a6e22e">positionBuffer</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">vertexAttribPointer</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">positionAttributeLocation</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">FLOAT</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">bindBuffer</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">ARRAY_BUFFER</span>, <span style="color:#a6e22e">colorBuffer</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">vertexAttribPointer</span>(<span style="color:#a6e22e">colorLocation</span>, <span style="color:#ae81ff">4</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">FLOAT</span>, <span style="color:#66d9ef">false</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 设置全局变量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">uniformMatrix3fv</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">u_m</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Float32Array</span>(
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">getMat3</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">width</span>, <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">height</span>, <span style="color:#a6e22e">center</span>.<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">center</span>.<span style="color:#a6e22e">y</span>)
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 配置顶点属性指针
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">clearColor</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0.5</span>); <span style="color:#75715e">//设置清空颜色
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">clear</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">COLOR_BUFFER_BIT</span>); <span style="color:#75715e">//清空画布
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">drawArrays</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">TRIANGLES</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1688459203413-c4446181-742c-48c6-b991-3ade63bc1eb4.png#averageHue=%23429c20&amp;clientId=u6bf70084-428b-4&amp;from=paste&amp;height=599&amp;id=u103bcc30&amp;originHeight=599&amp;originWidth=804&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=28405&amp;status=done&amp;style=none&amp;taskId=u61b7338d-aed5-4423-a592-c4e507b8390&amp;title=&amp;width=804" alt="image.png" loading="lazy" /></p>
+</p>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/zq5r25l134hg6izm/"><h4 class="card-text--title text-ellipsis">属性Attribute变量</h4></a>
+    <p class="card-text--row">2023-07-04 07:47</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2023/png/29064333/1689563703067-2c97d3c3-7207-41f4-aaed-0cbdd929ea82.png"></div>
+  <div class="card-text">
+    <a href="/docs/svtodw7q78u8twpt/"><h4 class="card-text--title text-ellipsis">错误记录</h4></a>
+    <p class="card-text--row">2023-07-04 02:46</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents"></nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

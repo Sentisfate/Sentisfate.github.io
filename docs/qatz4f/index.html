@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>Vue3 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="Vue3" />
+<meta property="og:description" content="教程Vue3.x新特性 vue2的缺陷，组件的业务逻辑过于复杂的情况，逻辑过于复杂， 一、入门 &lt;script setup&gt; // 在setup中暴露的变量,页面可以直接使用 //" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/qatz4f/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-07-20T08:41:33+00:00" />
+<meta property="article:modified_time" content="2023-02-09T06:10:21+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue3"/>
+<meta name="twitter:description" content="教程Vue3.x新特性 vue2的缺陷，组件的业务逻辑过于复杂的情况，逻辑过于复杂， 一、入门 &lt;script setup&gt; // 在setup中暴露的变量,页面可以直接使用 //"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2022/gif/327963/1645669614806-3180680a-1ac4-4160-886b-c0af63971f96.gif" alt="https://cdn.nlark.com/yuque/0/2022/gif/327963/1645669614806-3180680a-1ac4-4160-886b-c0af63971f96.gif" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">Vue3</h1>
+    
+      <p class="card-text--row">2022-07-20 08:41</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p>教程<!-- raw HTML omitted --><a href="https://www.yuque.com/uyyv8m/vue3.x?view=doc_embed" target="_blank" rel="noopener">Vue3.x</a><!-- raw HTML omitted -->新特性<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/gif/327963/1645669614806-3180680a-1ac4-4160-886b-c0af63971f96.gif#averageHue=%23070403&amp;from=url&amp;id=wZR8q&amp;originHeight=540&amp;originWidth=785&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/gif/327963/1645669629819-da18592f-6cba-4c6d-a3b8-7ac155da5c11.gif#averageHue=%23070403&amp;from=url&amp;id=yMF1z&amp;originHeight=600&amp;originWidth=735&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy" /></p>
+<!-- raw HTML omitted -->vue2的缺陷，组件的业务逻辑过于复杂的情况，逻辑过于复杂，
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="一入门">一、入门</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">setup</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 在setup中暴露的变量,页面可以直接使用
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// 使用ref包裹变量值后，让数据变为响应式
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">//相当于vue2，data中的数据，相当于react-hooks中的useState
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ref</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">num</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">22</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleClick</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;clicked...&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">num</span>.<span style="color:#a6e22e">value</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">num</span>.<span style="color:#a6e22e">value</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleClick&#34;</span>&gt;{{ num }}&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">scoped</span>&gt;
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">logo</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">6</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">1.5</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">will-change</span>: <span style="color:#66d9ef">filter</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">logo</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">filter</span>: drop-shadow(<span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">#646cff</span>aa);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">logo</span>.<span style="color:#a6e22e">vue</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">filter</span>: drop-shadow(<span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">#42b883</span>aa);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span></code></pre></div><p><strong>注意，要让数据变为响应式数据，需要使用变量.value</strong>
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="定义响应式数据流程">定义响应式数据流程</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//定义响应式数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">msg</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#e6db74">&#39;hello&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//修改数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;hello world&#39;</span>
+</span></span></code></pre></div><p>经过<code>**ref() **</code>修饰的基础数据是一种<code>**RefImpl**</code>类型的对象，<code>**RefImpl**(reference，implement)</code>**是一种引用的实现。<strong>相当于将msg塞到了一个对象里。<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658672998127-6ced3eb4-93ef-450c-b464-764cccfa1704.png#averageHue=%23fefdfd&amp;clientId=u54f930b2-3823-4&amp;from=paste&amp;height=128&amp;id=u36a25a7e&amp;originHeight=160&amp;originWidth=879&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=17051&amp;status=done&amp;style=none&amp;taskId=ube26cf87-f101-4431-a82d-8aaa2078053&amp;title=&amp;width=703.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->如果要再对数据进行操作，就要改变其value属性的值。而复杂数据类型的引用的实现是通过<code>**Proxy**</code></strong> **对象来操作的，能够获得一个对象的代理<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658673536000-3701e813-76e3-442e-b4b9-fb78db214d30.png#averageHue=%23fefdfd&amp;clientId=u54f930b2-3823-4&amp;from=paste&amp;height=223&amp;id=ue1396b43&amp;originHeight=279&amp;originWidth=921&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=29121&amp;status=done&amp;style=none&amp;taskId=u8b63832e-63a9-49c8-92c8-acee13d8ab2&amp;title=&amp;width=736.8" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->value是一个Proxy代理对象。<!-- raw HTML omitted -->ref函数可以接受基本数据类型和引用类型<!-- raw HTML omitted -->基本数据类型的响应式是通过 Object.defineProperty()的get和set完成<!-- raw HTML omitted -->引用数据类型是通过Vue3的reactive函数实现的。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="二refreactivetorefs">二、ref/reactive/toRefs</h2>
+<p>ref -&gt;data<!-- raw HTML omitted -->引用的实现  <code>const list = ref(['html', 'css', 'js']);</code><!-- raw HTML omitted -->改变数据要使用   <code>.value</code> 才能实现响应式<!-- raw HTML omitted -->reactive-&gt;data+methods</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">reactive</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">add</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">count</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">state</span>);
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;state.add&#34;</span>&gt;{{ state.count }}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p>解构<code>**reactive**</code>，使用<code>**toRefs**</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">count3</span>, <span style="color:#a6e22e">add</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">toRefs</span>(<span style="color:#a6e22e">state</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//或者
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">count3</span>, <span style="color:#a6e22e">add</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">toRefs</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">reactive</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">count3</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">add</span>() {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">count3</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="vue3-自定义hooks_借鉴了reacthooks">Vue3 自定义hooks_借鉴了ReactHooks</h2>
+<p>拆分逻辑
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="父子组件传值">父子组件传值</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">父传子</span><span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">父组件中传值</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">通过动态绑定变量的方式</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">childen</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">total</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;total&#34;</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">pagesize</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pagesize&#34;</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">pagenum</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pagenum&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/childen&gt;</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">子组件中接收</span><span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#a6e22e">defineProps</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">props</span> <span style="color:#a6e22e">两者接收的性质一样</span> <span style="color:#a6e22e">也可以自定义变量的属性</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">props</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">defineProps</span>([<span style="color:#e6db74">&#39;pagesize&#39;</span>,<span style="color:#e6db74">&#39;pagenum&#39;</span>])
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">子传夫</span><span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">子组件中自定义事件名</span>       <span style="color:#a6e22e">自定义事件名</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">emit</span><span style="color:#f92672">=</span><span style="color:#a6e22e">defineEmits</span>([<span style="color:#e6db74">&#39;aaa&#39;</span>,<span style="color:#e6db74">&#39;bbb&#39;</span>])
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">通过</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">defineEmits</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">emit</span> <span style="color:#a6e22e">两者性质一样</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">aaa</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">传递到父组件的变量名</span> <span style="color:#a6e22e">后面是参数</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">emit</span>(<span style="color:#e6db74">&#39;aaa&#39;</span>,<span style="color:#a6e22e">value</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">父组件接收</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">fenye</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">total</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;total&#34;</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">aaa</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;aaa&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/fenye&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">使用</span><span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#a6e22e">e是接收的参数</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">changesize</span>(<span style="color:#a6e22e">e</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">conlsole</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;e&#39;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="示例">示例</h3>
+<p>父组件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>  &lt;<span style="color:#f92672">hello-world</span> <span style="color:#a6e22e">:num</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;num&#34;</span>&gt;&lt;/<span style="color:#f92672">hello-world</span>&gt;
+</span></span></code></pre></div><p>子组件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span>&gt;{{ num }}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">setup</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">defineProps</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">num</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">defineProps</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">num</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> Number,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><p>父子组件传值流程</p>
+<ol>
+<li>父自定义属性</li>
+<li>子通过<code>**defineProps**</code> 来接收数据</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">num</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">defineProps</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">num</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> Number,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="vuex">VueX</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="安装">安装</h3>
+<ol>
+<li>安装 pnpm i vuex</li>
+<li>新建store/index.js</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">createStore</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vuex&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createStore</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">state</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">coumt</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">store</span>;
+</span></span></code></pre></div><ol start="3">
+<li>挂载到main.js,作为插件注册到app上</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">createApp</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;./style.css&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./App.vue&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">router</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./routes&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">store</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./store&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">createApp</span>(<span style="color:#a6e22e">App</span>).<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">router</span>).<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">store</span>).<span style="color:#a6e22e">mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>);
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="使用">使用</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">createStore</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vuex&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createStore</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">state</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">mutations</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">increment</span>(<span style="color:#a6e22e">state</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">count</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">store</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">template</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">home</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        () =&gt; {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          store.commit(&#39;increment&#39;);
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      {{ <span style="color:#a6e22e">count</span> }}
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/template&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">setup</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useStore</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vuex&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">computed</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useStore</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">store</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 结合计算属性
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">computed</span>(() =&gt; <span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">count</span>);
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">style</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/style&gt;</span>
+</span></span></code></pre></div>
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/cfgytx/"><h4 class="card-text--title text-ellipsis">react 源码解读</h4></a>
+    <p class="card-text--row">2022-07-20 14:24</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658718036083-fe7c89ba-7662-4b1e-a80c-798c33b63bb9.png"></div>
+  <div class="card-text">
+    <a href="/docs/ypxwhp/"><h4 class="card-text--title text-ellipsis">OpenLayers</h4></a>
+    <p class="card-text--row">2022-07-20 02:02</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一入门">一、入门</a>
+          <ul>
+            <li><a href="#定义响应式数据流程">定义响应式数据流程</a></li>
+          </ul>
+        </li>
+        <li><a href="#二refreactivetorefs">二、ref/reactive/toRefs</a></li>
+        <li><a href="#vue3-自定义hooks_借鉴了reacthooks">Vue3 自定义hooks_借鉴了ReactHooks</a></li>
+        <li><a href="#父子组件传值">父子组件传值</a>
+          <ul>
+            <li><a href="#示例">示例</a></li>
+          </ul>
+        </li>
+        <li><a href="#vuex">VueX</a>
+          <ul>
+            <li><a href="#安装">安装</a></li>
+            <li><a href="#使用">使用</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

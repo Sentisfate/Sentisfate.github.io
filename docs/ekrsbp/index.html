@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>文件流 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="文件流" />
+<meta property="og:description" content="是什么 文件流是一种数据集合，在互联网传输文件的过程中，存在两种传输方式，一种是直接将文件整个二进制数据读取传输，另一种，则是一段段读取文件二" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/ekrsbp/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-08-11T12:07:41+00:00" />
+<meta property="article:modified_time" content="2023-07-18T09:02:21+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="文件流"/>
+<meta name="twitter:description" content="是什么 文件流是一种数据集合，在互联网传输文件的过程中，存在两种传输方式，一种是直接将文件整个二进制数据读取传输，另一种，则是一段段读取文件二"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1660219998470-e42df000-5b97-496f-be37-2cd46b382d39.png" alt="https://cdn.nlark.com/yuque/0/2022/png/29064333/1660219998470-e42df000-5b97-496f-be37-2cd46b382d39.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">文件流</h1>
+    
+      <p class="card-text--row">2022-08-11 12:07</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="是什么">是什么</h2>
+<p>文件流是一种数据集合，在互联网传输文件的过程中，存在两种传输方式，一种是直接将文件整个二进制数据读取传输，另一种，则是一段段读取文件二进制数据并进行传输。<!-- raw HTML omitted -->显然，前者适合小文件传输，后者适合大文件传输。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">http</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;http&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;fs&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">createServer</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">readFile</span>(<span style="color:#a6e22e">__dirname</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;/data.txt&#39;</span>, (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">data</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>(<span style="color:#a6e22e">data</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">3000</span>)
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="nodejs-api">Node.js API</h2>
+<p>node.js 提供了一个<code>**stream**</code> api，可以进行流式传输<!-- raw HTML omitted -->Node.js中的流分为4种类型 :</p>
+<ul>
+<li><code>**Readable  **</code>可以通过管道读取、但不能通过管道写入的流,当推送数据到可读流中时，会对其进行缓冲，直到使用者开始读取数据为止。可读流是对可消费的数据源进行的抽象，比如fs.createReadStream</li>
+<li><code>**Writable**</code> 可以通过管道写入、但不能通过管道读取的流。可写流是对流的目的地（destination）的抽象，destination运允许数据写入，比如fs.createWriteStream</li>
+<li><code>**Duplex**</code>双工流是同时实现了 Readable 和 Writable 接口的流，既能写又能读。比如TCP socket</li>
+<li><code>**Transform**</code>交换流本质上是一种Duplex流，可以将其看成输入Writable流，输出的是Readable流，也可以称之为“通过流”（through streams）。比如zlib streams。</li>
+</ul>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1660219998470-e42df000-5b97-496f-be37-2cd46b382d39.png#averageHue=%23f7f7f6&amp;clientId=u028bd401-7ee4-4&amp;from=paste&amp;id=u57f6ecab&amp;originHeight=947&amp;originWidth=1600&amp;originalType=url&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;taskId=u9773d572-869a-4101-8373-02f90c02d2b&amp;title=" alt="" loading="lazy" /></p>
+</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="如何传输流">如何传输流</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="pipe">pipe</h3>
+<p>对于<code>**readable**</code>流而言，有两种消费方式，<code>**Paused Mode(默认)**</code> 和 <code>**Flowing Mode**</code>，使用<code>**resume()**</code>、<code>**pause()**</code>可以在这两种模式相互转换。<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1660220752287-dbfe159a-9392-4e0e-a956-0b010b6e8819.png#averageHue=%23f3f3f3&amp;clientId=u028bd401-7ee4-4&amp;from=paste&amp;height=163&amp;id=u7716ab86&amp;originHeight=204&amp;originWidth=609&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=20473&amp;status=done&amp;style=none&amp;taskId=u97fc3345-7be1-4a9e-b585-da94f669614&amp;title=&amp;width=487.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->pipe方法相当于在在服务端和客户端之间建立了一个管道，使得数据流可以自动传输。此时paused方法的作用就是将管道移除，暂停了数据流动，需要手动进行传输,注意，pipe方法的上游是可读流，下游是可写流。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">http</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;http&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;fs&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">createServer</span>((<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">stream</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">createReadStream</span>(<span style="color:#a6e22e">__dirname</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;/data.txt&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">stream</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">res</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">3000</span>)
+</span></span></code></pre></div><blockquote>
+<p><code>**pipe() **</code>方法的返回值是目标流，这使得可以链接多个 pipe() 调用，如下所示：</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">src</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">dest1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dest1</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">dest2</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//或者
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">src</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">dest1</span>).<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">dest2</span>)
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="流驱动的nodejsapi">流驱动的node.js,API</h3>
+<ul>
+<li><code>**process.stdin**</code> 返回连接到 stdin 的流。</li>
+</ul>
+<blockquote>
+<p>stdin 流是标准输入流，用于获取键盘输入</p>
+</blockquote>
+<ul>
+<li><code>**process.stdout**</code> 返回连接到 stdout 的流。</li>
+<li><code>**process.stderr**</code> 返回连接到 stderr 的流。</li>
+<li><code>**fs.createReadStream()**</code> 创建文件的可读流。</li>
+<li><code>**fs.createWriteStream()**</code> 创建到文件的可写流。</li>
+<li><code>**net.connect()**</code> 启动基于流的连接。</li>
+<li><code>**http.request()**</code> 返回 http.ClientRequest 类的实例，该实例是可写流。</li>
+<li><code>**zlib.createGzip()**</code> 使用 gzip（压缩算法）将数据压缩到流中。</li>
+<li><code>**zlib.createGunzip()**</code> 解压缩 gzip 流。</li>
+<li><code>**zlib.createDeflate()**</code> 使用 deflate（压缩算法）将数据压缩到流中。</li>
+<li><code>**zlib.createInflate() **</code>解压缩 deflate 流。</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="如何创建可读流">如何创建可读流</h3>
+<ol>
+<li>创建可读流对象</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Stream</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;stream&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">readableStream</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Stream</span>.<span style="color:#a6e22e">Readable</span>()
+</span></span></code></pre></div><ol start="2">
+<li>实现流的read读取方法</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">readableStream</span>.<span style="color:#a6e22e">_read</span> <span style="color:#f92672">=</span> () =&gt; {}
+</span></span></code></pre></div><p>或者上面两步可以合在一起</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">readableStream</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Stream</span>.<span style="color:#a6e22e">Readable</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">read</span>() {}
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><ol start="3">
+<li>向流发送数据</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">readableStream</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#39;hi!&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">readableStream</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#39;ho!&#39;</span>)
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="创建可写流">创建可写流</h3>
+<ol>
+<li>创建流对象</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Stream</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;stream&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">writableStream</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Stream</span>.<span style="color:#a6e22e">Writable</span>()
+</span></span></code></pre></div><ol start="2">
+<li>实现write</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">writableStream</span>.<span style="color:#a6e22e">_write</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">chunk</span>, <span style="color:#a6e22e">encoding</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">chunk</span>.<span style="color:#a6e22e">toString</span>())
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">next</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="3">
+<li>通过管道传输流至可写流</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">stdin</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">writableStream</span>)
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="从可读流中获取数据">从可读流中获取数据</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Stream</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;stream&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">readableStream</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Stream</span>.<span style="color:#a6e22e">Readable</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">read</span>() {}
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">writableStream</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Stream</span>.<span style="color:#a6e22e">Writable</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">writableStream</span>.<span style="color:#a6e22e">_write</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">chunk</span>, <span style="color:#a6e22e">encoding</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">chunk</span>.<span style="color:#a6e22e">toString</span>())
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">next</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">readableStream</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">writableStream</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">readableStream</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#39;hi!&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">readableStream</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#39;ho!&#39;</span>)
+</span></span></code></pre></div><p>也可以使用<code>**readable**</code>事件直接读取可读流</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">readableStream</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;readable&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">readableStream</span>.<span style="color:#a6e22e">read</span>())
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="发送数据到可写流">发送数据到可写流</h3>
+<p>使用流的<code>**write()**</code>方法。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">writableStream</span>.<span style="color:#a6e22e">write</span>(<span style="color:#e6db74">&#39;hey!\n&#39;</span>)
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="使用信号结束写入的可写流">使用信号结束写入的可写流</h3>
+<p>使用<code>**end()**</code>方法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Stream</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;stream&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">readableStream</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Stream</span>.<span style="color:#a6e22e">Readable</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">read</span>() {}
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">writableStream</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Stream</span>.<span style="color:#a6e22e">Writable</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">writableStream</span>.<span style="color:#a6e22e">_write</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">chunk</span>, <span style="color:#a6e22e">encoding</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">chunk</span>.<span style="color:#a6e22e">toString</span>())
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">next</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">readableStream</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">writableStream</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">readableStream</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#39;hi!&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">readableStream</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#39;ho!&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">writableStream</span>.<span style="color:#a6e22e">end</span>()<span style="color:#75715e">//异步同步问题会导致报错，但是不影响理解，测试时可以将这句去掉
+</span></span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="视频流的传输实现">视频流的传输实现</h2>
+<p>Node中的Server端HTTP response是Writable流，而通过fs.createReadStream读取视频数据得到的是Readable流。因此，Node的Server端可以直接使用pipe()方法将视频流发到前端。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;express&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">router</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>.<span style="color:#a6e22e">Router</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;fs&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;path&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">rootPath</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">dirname</span>(<span style="color:#a6e22e">__dirname</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/anime&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> { <span style="color:#a6e22e">video</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">query</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">head</span> <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;video/mp4&#39;</span> };
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//需要设置HTTP HEAD
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">writeHead</span>(<span style="color:#ae81ff">200</span>, <span style="color:#a6e22e">head</span>);<span style="color:#75715e">//200表示为一般流式传输
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">//使用pipe
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">createReadStream</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">rootPath</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/public/video/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">video</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>).<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">res</span>);
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="http-206--范围传输断点续传">HTTP 206  范围传输，断点续传</h3>
+<p>HTTP 206 Partial Content 成功状态响应代码表示请求已成功，并且正文包含请求的数据范围，如请求的 Range 标头中所述。</p>
+<ul>
+<li>Range 用于请求头，指定第一个字节的位置和最后一个字节的位置 <code>Range:unit=first byte-last byte</code>，下载整个文件一般用 0-或者不用这个头</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">###
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">GET</span> /test.rar <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
+</span></span><span style="display:flex;"><span>Connection<span style="color:#f92672">:</span> <span style="color:#ae81ff">close</span>
+</span></span><span style="display:flex;"><span>Host<span style="color:#f92672">:</span> <span style="color:#ae81ff">116.1.219.219</span>
+</span></span><span style="display:flex;"><span>Range<span style="color:#f92672">:</span> <span style="color:#ae81ff">bytes=0-  </span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Range: &lt;unit&gt;=&lt;range-start&gt;-
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Range: &lt;unit&gt;=&lt;range-start&gt;-&lt;range-end&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Range: &lt;unit&gt;=&lt;range-start&gt;-&lt;range-end&gt;, &lt;range-start&gt;-&lt;range-end&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Range: &lt;unit&gt;=&lt;range-start&gt;-&lt;range-end&gt;, &lt;range-start&gt;-&lt;range-end&gt;, &lt;range-start&gt;-&lt;range-end&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Range: &lt;unit&gt;=-&lt;suffix-length&gt;
+</span></span></span></code></pre></div><ul>
+<li>Accept-Range 用于响应头，表示服务是否能够支持范围请求（断点续传）</li>
+<li>Content-Range: 服务响应的数据流范围</li>
+<li>Content-Length:响应头，表明了响应数据流长度</li>
+</ul>
+<p>如果只有一个范围，则将整个响应的 Content-Type 设置为文档的类型，并提供一个 Content-Range。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span> <span style="color:#ae81ff">206</span> <span style="color:#a6e22e">Partial Content</span>
+</span></span><span style="display:flex;"><span>Date<span style="color:#f92672">:</span> <span style="color:#ae81ff">Wed, 15 Nov 2015 06:25:24 GMT</span>
+</span></span><span style="display:flex;"><span>Last-Modified<span style="color:#f92672">:</span> <span style="color:#ae81ff">Wed, 15 Nov 2015 04:58:08 GMT</span>
+</span></span><span style="display:flex;"><span>Content-Range<span style="color:#f92672">:</span> <span style="color:#ae81ff">bytes 21010-47021/47022    </span>
+</span></span><span style="display:flex;"><span>Content-Length<span style="color:#f92672">:</span> <span style="color:#ae81ff">26012</span>
+</span></span><span style="display:flex;"><span>Content-Type<span style="color:#f92672">:</span> <span style="color:#ae81ff">image/gif</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># 26012 bytes of partial image data…
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span> <span style="color:#ae81ff">206</span> <span style="color:#a6e22e">Partial Content</span>
+</span></span><span style="display:flex;"><span>Date<span style="color:#f92672">:</span> <span style="color:#ae81ff">Wed, 15 Nov 2015 06:25:24 GMT</span>
+</span></span><span style="display:flex;"><span>Last-Modified<span style="color:#f92672">:</span> <span style="color:#ae81ff">Wed, 15 Nov 2015 04:58:08 GMT</span>
+</span></span><span style="display:flex;"><span>Content-Length<span style="color:#f92672">:</span> <span style="color:#ae81ff">1741</span>
+</span></span><span style="display:flex;"><span>Content-Type<span style="color:#f92672">:</span> <span style="color:#ae81ff">multipart/byteranges; boundary=String_separator</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--String_separator
+</span></span><span style="display:flex;"><span>Content-Type: application/pdf
+</span></span><span style="display:flex;"><span>Content-Range: bytes 234-639/8000
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># the first range
+</span></span><span style="display:flex;"><span>--String_separator
+</span></span><span style="display:flex;"><span>Content-Type: application/pdf
+</span></span><span style="display:flex;"><span>Content-Range: bytes 4590-7999/8000
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># the second range
+</span></span><span style="display:flex;"><span>--String_separator--
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="关于视频的快进如何处理">关于视频的快进如何处理</h2>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/my4rfc/"><h4 class="card-text--title text-ellipsis">canvas-nest 粒子效果</h4></a>
+    <p class="card-text--row">2022-08-13 02:39</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/alxeid/"><h4 class="card-text--title text-ellipsis">静态资源托管</h4></a>
+    <p class="card-text--row">2022-08-07 12:00</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#是什么">是什么</a></li>
+        <li><a href="#nodejs-api">Node.js API</a></li>
+        <li><a href="#如何传输流">如何传输流</a>
+          <ul>
+            <li><a href="#pipe">pipe</a></li>
+            <li><a href="#流驱动的nodejsapi">流驱动的node.js,API</a></li>
+            <li><a href="#如何创建可读流">如何创建可读流</a></li>
+            <li><a href="#创建可写流">创建可写流</a></li>
+            <li><a href="#从可读流中获取数据">从可读流中获取数据</a></li>
+            <li><a href="#发送数据到可写流">发送数据到可写流</a></li>
+            <li><a href="#使用信号结束写入的可写流">使用信号结束写入的可写流</a></li>
+          </ul>
+        </li>
+        <li><a href="#视频流的传输实现">视频流的传输实现</a>
+          <ul>
+            <li><a href="#http-206--范围传输断点续传">HTTP 206  范围传输，断点续传</a></li>
+          </ul>
+        </li>
+        <li><a href="#关于视频的快进如何处理">关于视频的快进如何处理</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

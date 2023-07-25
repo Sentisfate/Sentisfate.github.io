@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>react-router 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="react-router" />
+<meta property="og:description" content="实现类似于vue-router的路由跳转 一、安装 v5 pnpm i react-router-dom@5 二、router v6版本以下的使用方法 导入相关模块 import { BrowserRouter as Router, Route, Link } from &#39;react-router-dom&#39;; 定义路由规则 Link" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/htsvan/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-07-19T01:22:37+00:00" />
+<meta property="article:modified_time" content="2022-09-09T14:14:02+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="react-router"/>
+<meta name="twitter:description" content="实现类似于vue-router的路由跳转 一、安装 v5 pnpm i react-router-dom@5 二、router v6版本以下的使用方法 导入相关模块 import { BrowserRouter as Router, Route, Link } from &#39;react-router-dom&#39;; 定义路由规则 Link"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658215249312-2b53ff3b-c8bc-4dde-9402-c528f2cbb32e.png" alt="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658215249312-2b53ff3b-c8bc-4dde-9402-c528f2cbb32e.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">react-router</h1>
+    
+      <p class="card-text--row">2022-07-19 01:22</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p>实现类似于vue-router的路由跳转
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="一安装-v5">一、安装 v5</h1>
+<p><code>pnpm i react-router-dom@5</code>
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="二router-v6版本以下的使用方法">二、router v6版本以下的使用方法</h1>
+<ol>
+<li>导入相关模块</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserRouter</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">Router</span>, <span style="color:#a6e22e">Route</span>, <span style="color:#a6e22e">Link</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+</span></span></code></pre></div><ol start="2">
+<li>定义路由规则  Link</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>{<span style="color:#75715e">/* 使用link组件配置路由入口 */</span>}
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/&#39;</span>}&gt;<span style="color:#a6e22e">首页</span>&lt;/<span style="color:#f92672">Link</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/articles&#39;</span>}&gt;<span style="color:#a6e22e">列表页</span>&lt;/<span style="color:#f92672">Link</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/details&#39;</span>}&gt;<span style="color:#a6e22e">详情页</span>&lt;/<span style="color:#f92672">Link</span>&gt;
+</span></span></code></pre></div><ol start="3">
+<li>定义路由出口   Route  exact 精确匹配，默认模糊匹配，只匹配前面的字符，符合就进路由</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/&#39;</span>} <span style="color:#a6e22e">exact</span> <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">Home</span>}&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/articles&#39;</span>} <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">ArticlesList</span>}&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/details&#39;</span>} <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">Details</span>}&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="常用组件">常用组件</h2>
+<ul>
+<li>Router组件，包裹整个应用，一个React应用只需要使用一次</li>
+<li>HashRouter，使用url的hash值实现，如   &hellip;/#/details</li>
+<li>BrowserRouter  使用H5的historyAPI实现，样子上省略了# 如&hellip;/details</li>
+<li>Link组件，导航链接a标签
+<ul>
+<li>to:string|object
+<ul>
+<li>string：链接位置的路由，包括路径名，查询参数，等</li>
+<li>object：
+<ul>
+<li>pathname 表示要链接到的路径的字符串</li>
+<li>search：表示查询参数的字符串形式</li>
+<li>hash  哈希，表示放入网址的hash，例如#a-hash</li>
+<li>state  状态持续到 location，子组件可以通过<code>**props.location.state**</code>获取，其余属性也同样在location中可以获取</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">pathname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/courses&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">search</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;?sort=name&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">hash</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#the-hash&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">msg</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hello state&#39;</span> }
+</span></span><span style="display:flex;"><span>}}/&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Topic</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">props</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;{<span style="color:#a6e22e">useRouteMatch</span>().<span style="color:#a6e22e">url</span>}&lt;/<span style="color:#f92672">div</span>&gt;;
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658215249312-2b53ff3b-c8bc-4dde-9402-c528f2cbb32e.png#clientId=u058b1fc3-8307-4&amp;from=paste&amp;height=190&amp;id=ub6fe4473&amp;originHeight=237&amp;originWidth=821&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=29796&amp;status=done&amp;style=none&amp;taskId=udcc8eae2-668b-405b-88ad-0b5e08411b0&amp;title=&amp;width=656.8" alt="image.png" loading="lazy" /></p>
+</p>
+<ul>
+<li>replace:bool 为true则路由跳转时，会把当前的路由出栈，然后再进栈，不能通过返回来回到原来的路由</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">toObj</span>} <span style="color:#a6e22e">replace</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">first</span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">Link</span>&gt;
+</span></span></code></pre></div><ul>
+<li>innerRef:function  允许访问当前Link最终被渲染成的Dom对象</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">toObj</span>} <span style="color:#a6e22e">replace</span> <span style="color:#a6e22e">innerRef</span><span style="color:#f92672">=</span>{(<span style="color:#a6e22e">node</span>) =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">node</span>)}&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">first</span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">Link</span>&gt;
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658215687892-c39ec0b2-e742-4e86-a2b3-57846ac01c10.png#clientId=u058b1fc3-8307-4&amp;from=paste&amp;height=23&amp;id=ubca9159c&amp;originHeight=29&amp;originWidth=617&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=3883&amp;status=done&amp;style=none&amp;taskId=ub0d3c6ee-87b7-43b3-be15-97a2773f42f&amp;title=&amp;width=493.6" alt="image.png" loading="lazy" /></p>
+</p>
+<ul>
+<li>others 如className，ID</li>
+<li>Switch 内部的路由出口，匹配成功后便不会再执行后面的路由出口。不放在里面，匹配成功的都会渲染。</li>
+<li>
+<!-- raw HTML omitted -->
+</li>
+<li><code>**NavLink**</code>  当它与URL匹配时，可以为其渲染元素样式添加样式属性，
+<ul>
+<li><code>**activeClassName**</code>: string  默认是active，可以改为其他</li>
+<li><code>**activeStyle**</code>: object， <code>**activeStyle={{fontWeight: 'bold',color: 'red'}}**</code></li>
+<li><code>**exact**</code>  仅在pathname完全匹配时才会赋予样式，尾部斜线有无都会赋予样式</li>
+<li><code>**strict**</code> 默认为false，为true时会考虑pathname尾部的斜线</li>
+<li>isActive:func(match，location) 为了确定链接是否处于活动状态而添加的额外逻辑的函数，不仅能够验证链接的路径名，函数返回一个bool值，为true则渲染样式，否则不给样式</li>
+<li>location :object 比较不同的位置</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">BrowserRouter</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">Router</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Route</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Link</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">NavLink</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Switch</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useParams</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useRouteMatch</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useHistory</span>,
+</span></span><span style="display:flex;"><span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">oneLevelRoute</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">history</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useHistory</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">history</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;{<span style="color:#a6e22e">history</span>.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">pathname</span>}&lt;/<span style="color:#f92672">div</span>&gt;;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">NavLink</span> <span style="color:#a6e22e">exact</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/&#39;</span>}&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">home</span>
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">NavLink</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">NavLink</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/about/123&#39;</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">activeClassName</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;active&#39;</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">isActive</span><span style="color:#f92672">=</span>{(<span style="color:#a6e22e">match</span>, <span style="color:#a6e22e">location</span>) =&gt; {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;match...&#39;</span>);
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">match</span>);
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">location</span>);
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">match</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">match</span>.<span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;/&#39;</span>)[<span style="color:#a6e22e">match</span>.<span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;/&#39;</span>).<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">match</span>.<span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;/&#39;</span>)[<span style="color:#a6e22e">match</span>.<span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;/&#39;</span>).<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>        }}
+</span></span><span style="display:flex;"><span>        &gt;
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Switch</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/&#39;</span>} <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">oneLevelRoute</span>}&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/about&#39;</span>} <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">oneLevelRoute</span>}&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">Switch</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">App</span>;
+</span></span><span style="display:flex;"><span>            
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>.<span style="color:#a6e22e">active</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">red</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">background</span><span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">eee</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><code>**Redirect**</code>** 重定向**
+<ul>
+<li>to string|object</li>
+<li>push:bool 为true会将新地址推入history，默认为false，会覆盖当前的history中的地址</li>
+<li>from:string 要重定向的地址，有该属性时，要放到Switch里。</li>
+<li>exact:bool  完全匹配from</li>
+<li>strict :bool  严格匹配from</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">oneLevelRoute</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">history</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useHistory</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// console.log(history);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">history</span>.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">pathname</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;/&#39;</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">Redirect</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/about&#39;</span>}&gt;&lt;/<span style="color:#f92672">Redirect</span>&gt;;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;{<span style="color:#a6e22e">history</span>.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">pathname</span>}&lt;/<span style="color:#f92672">div</span>&gt;;
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><ul>
+<li>
+<!-- raw HTML omitted -->
+</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="编程式导航">编程式导航</h2>
+<p>通过Route渲染的组件中，可以通过props.history  来进行编程式跳转</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="url-parameters">URL Parameters</h2>
+<p>依赖模块  <code>**useParams**</code>**  **这个函数可以获取地址栏后拼接的请求参数<!-- raw HTML omitted -->使用：路由出口对应的组件中 <code>**let {id}=useParams()**</code></p>
+<ol>
+<li>导入依赖</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">BrowserRouter</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">Router</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Switch</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Route</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Link</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useParams</span>
+</span></span><span style="display:flex;"><span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-router-dom&#34;</span>;
+</span></span></code></pre></div><ol start="2">
+<li>定义路由规则和路由出口</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/home&#39;</span>}&gt;<span style="color:#a6e22e">首页</span>&lt;/<span style="color:#f92672">Link</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/articles&#39;</span>}&gt;<span style="color:#a6e22e">列表页</span>&lt;/<span style="color:#f92672">Link</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/details&#39;</span>}&gt;<span style="color:#a6e22e">详情页</span>&lt;/<span style="color:#f92672">Link</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">Switch</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/:id&#39;</span>} <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">UserId</span>}&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">Switch</span>&gt;
+</span></span></code></pre></div><ol start="3">
+<li>定义子组件，并在子组件中获取请求参数。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">UserId</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> { <span style="color:#a6e22e">id</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">useParams</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span>{<span style="color:#a6e22e">id</span>}&lt;/<span style="color:#f92672">div</span>&gt;;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658198490423-25ec5a7b-5ef8-45ce-9020-684ed6384081.png#clientId=u8de980f7-c726-4&amp;from=paste&amp;height=62&amp;id=uea36d5d6&amp;originHeight=78&amp;originWidth=258&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=2655&amp;status=done&amp;style=none&amp;taskId=uc50ff3b6-abf0-4d8c-91a9-24282da9870&amp;title=&amp;width=206.4" alt="image.png" loading="lazy" /></p>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="useroutematch">useRouteMatch</h2>
+<p>作用，获取匹配的前端路由，可用于子路由的匹配。<!-- raw HTML omitted -->使用</p>
+<ol>
+<li>导入依赖</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">BrowserRouter</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">Router</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Route</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Link</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Switch</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useParams</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useRouteMatch</span>,
+</span></span><span style="display:flex;"><span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+</span></span></code></pre></div><ol start="2">
+<li>定义一级路由及出口，注意有二级路由的路由出口，不能用<code>exact</code>精确匹配</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Home</span>() {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">home</span>&lt;/<span style="color:#f92672">div</span>&gt;;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">About</span>() {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">about</span>&lt;/<span style="color:#f92672">div</span>&gt;;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Topics</span>() {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">topics</span>&lt;/<span style="color:#f92672">div</span>&gt;;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">Router</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/&#39;</span>}&gt;<span style="color:#a6e22e">home</span>&lt;/<span style="color:#f92672">Link</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/about&#39;</span>}&gt;<span style="color:#a6e22e">about</span>&lt;/<span style="color:#f92672">Link</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/topics&#39;</span>}&gt;<span style="color:#a6e22e">topics</span>&lt;/<span style="color:#f92672">Link</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">Switch</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">exact</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/&#39;</span>} <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">Home</span>}&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">exact</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/about&#39;</span>} <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">About</span>}&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/topics&#39;</span>} <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">Topics</span>}&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;/<span style="color:#f92672">Switch</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">Router</span>&gt;
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><ol start="3">
+<li>在一级路由里定义二级路由规则</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Topic</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">useRouteMatch</span>());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;{<span style="color:#a6e22e">useRouteMatch</span>().<span style="color:#a6e22e">url</span>}&lt;/<span style="color:#f92672">div</span>&gt;;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Topics</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">useRouteMatch</span>());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> { <span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">path</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">useRouteMatch</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">topics</span>
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">url</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;/first&#39;</span>}&gt;<span style="color:#a6e22e">first</span>&lt;/<span style="color:#f92672">Link</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">url</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;/second&#39;</span>}&gt;<span style="color:#a6e22e">second</span>&lt;/<span style="color:#f92672">Link</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#f92672">Switch</span>&gt;
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">path</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;/first&#39;</span>} <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">Topic</span>}&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">path</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;/second&#39;</span>} <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">Topic</span>}&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;/<span style="color:#f92672">Switch</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>关于useRouteMatch的返回值<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658201695140-c7aa1ccb-8e5f-4af5-b872-30dd1dc7aa72.png#clientId=u8de980f7-c726-4&amp;from=paste&amp;height=171&amp;id=u9ddb3c47&amp;originHeight=214&amp;originWidth=725&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=16920&amp;status=done&amp;style=none&amp;taskId=u9c7ea811-8594-403e-a134-5871132728b&amp;title=&amp;width=580" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->path和url的区别<!-- raw HTML omitted -->url是浏览器上的地址栏后面的路径，是一个实际存在的路径<!-- raw HTML omitted -->path则是一个可以匹配的路径，附带参数或变量的路径</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="usehistory">useHistory</h2>
+<p>作用:允许你使用编程式导航<!-- raw HTML omitted -->使用：</p>
+<ol>
+<li>导入依赖 <code>**import {useHistory} from 'react-router-dom'**</code></li>
+<li>必须用在函数式组件里面，并且不能写在函数里。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">GoHomeBtn</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">history</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useHistory</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">history</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">toHome</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">history</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#39;/&#39;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">toHome</span>();
+</span></span><span style="display:flex;"><span>            }}
+</span></span><span style="display:flex;"><span>            &gt;
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">go</span> <span style="color:#a6e22e">home</span>
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="三react-router-dom-v6">三、react-router-dom v6</h1>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="1安装">1.安装</h2>
+<p><code>**pnpm i react-router-dom@6**</code>
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="2入门">2.入门</h2>
+<ol>
+<li>案例</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserRouter</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">Router</span>, <span style="color:#a6e22e">Routes</span>, <span style="color:#a6e22e">Route</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Home</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">home</span>&lt;/<span style="color:#f92672">div</span>&gt;;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">About</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">About</span>&lt;/<span style="color:#f92672">div</span>&gt;;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">hhh</span>
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">Routes</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">Home</span> /&gt;}&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/about&#34;</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">About</span> /&gt;}&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">Routes</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>在<code>**routerv6**</code>版本，<code>**Route**</code>要在<code>**Routes**</code>标签下，且同样，一次匹配成功只能匹配最前面的一个。<!-- raw HTML omitted --><code>**v5**</code>用的是<code>**component={Component}**</code> ，v6用的是<code>**element={&lt;Component/&gt;}**</code><!-- raw HTML omitted -->此外，Route的path属性可以写相对路径，可以写嵌套路由。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="3封装routes">3.封装Routes</h2>
+<p><strong>初步尝试封装</strong>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserRouter</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">Router</span>, <span style="color:#a6e22e">Routes</span>, <span style="color:#a6e22e">Route</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">RouterView</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">props</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        props.routes=[
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            {to:&#39;/&#39;,element=&lt;Home&gt;}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            {to:&#39;/about&#39;,element=&lt;About&gt;}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        ]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//    问题，子路由怎么封装
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">Routes</span>&gt;
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">routes</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">item</span>, <span style="color:#a6e22e">index</span>) =&gt; (
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">to</span>} <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">element</span>} <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">to</span>}&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span><span style="display:flex;"><span>        ))}
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">Routes</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">RouterView</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">routes</span>, <span style="color:#a6e22e">setRoutes</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>([
+</span></span><span style="display:flex;"><span>    { <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#a6e22e">element</span><span style="color:#f92672">:</span> &lt;<span style="color:#f92672">Home</span> /&gt; },
+</span></span><span style="display:flex;"><span>    { <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/about&#39;</span>, <span style="color:#a6e22e">element</span><span style="color:#f92672">:</span> &lt;<span style="color:#f92672">About</span> /&gt; },
+</span></span><span style="display:flex;"><span>  ]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">RouterView</span> <span style="color:#a6e22e">routes</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">routes</span>}&gt;&lt;/<span style="color:#f92672">RouterView</span>&gt;
+</span></span></code></pre></div><p>上面的封装只适合只有一级路由的情况，<del>存在二级路由就会报错，因为，</del><code>~~&lt;Router&gt;~~</code><del>不能包</del><code>~~&lt;Router&gt;~~</code>
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="4组件详解">4.组件详解</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="1link">1.Link</h3>
+<p>属性</p>
+<ul>
+<li>to string|obj  可以写��对路径，obj取值和v5一样，state需要单独在外面定义</li>
+<li>state，路由对应的组件的props不再接收history，获取state要通过<code>**useLocation**</code>来获取。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">Link</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#a6e22e">exact</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">true</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">state</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">msg</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hello home&#39;</span> }}
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//   pathname: &#39;/&#39;,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//   state需要在外面单独定义
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//   state: { msg: &#39;string&#39; },
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//   hash: &#39;#abcd&#39;,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// }}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span> &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">Home</span> <span style="color:#a6e22e">msg</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hello&#34;</span>&gt;&lt;/<span style="color:#f92672">Home</span>&gt;}&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Home</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useLocation</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">location</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;homeprops:&#39;</span>, <span style="color:#a6e22e">props</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">home</span>&lt;/<span style="color:#f92672">div</span>&gt;;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="2navlink">2.NavLink</h3>
+<p>属性<!-- raw HTML omitted -->移出了原来的activeClassName和activeStyle，使用className和style来代替</p>
+<ul>
+<li><code>**className:fun**</code>  该函数接收一个对象作为参数如<code>**{isActive}**</code><strong>这个对象有一个isActive属性，为bool值，用于判断其是否处于激活状态，返回样式名</strong></li>
+<li><code>**style ：function**</code> 同上，也是接收一个函数，不同的是它要返回一个style：obj</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">NavLink</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;first&#39;</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{({ <span style="color:#a6e22e">isActive</span> }) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;first&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">style</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;blue&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">background</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;black&#39;</span>,
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">isActive</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">style</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">undefined</span>;
+</span></span><span style="display:flex;"><span>    }}
+</span></span><span style="display:flex;"><span>    &gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">first</span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">NavLink</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">NavLink</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;second&#39;</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span>{(<span style="color:#a6e22e">obj</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">isActive</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;active&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>    }}
+</span></span><span style="display:flex;"><span>    &gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">second</span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">NavLink</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="3route">3.Route</h3>
+<p>属性</p>
+<ul>
+<li>path 可以写相对路径，省去了useRouteMatch，注意，值为*时表示匹配没有定义过的路由出口，也叫404</li>
+<li>element 优化了原来v5的component，可以直接在组件中自定义属性传值，如:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">Home</span> <span style="color:#a6e22e">msg</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hello&#34;</span>&gt;&lt;/<span style="color:#f92672">Home</span>&gt;}&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658235095057-4835a441-d2c8-4e17-a8f7-a23fd7744262.png#clientId=u09078a19-0f4c-4&amp;from=paste&amp;height=25&amp;id=ud436f4df&amp;originHeight=31&amp;originWidth=620&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=2673&amp;status=done&amp;style=none&amp;taskId=u4030e8a8-6561-4b11-9277-e42eb182683&amp;title=&amp;width=496" alt="image.png" loading="lazy" /></p>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="4routes">4.Routes</h3>
+<p>替换了v5的switch ，并且Route都得包在Routes里。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="5hooks">5.Hooks</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="1usenavigate替换usehistory实现路由跳转">1.useNavigate替换useHistory实现路由跳转</h3>
+<p>操作一样，在函数式组件中使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useNavigate</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-router-dom&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">MyButton</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">navigate</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useNavigate</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">handleClick</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">navigate</span>(<span style="color:#e6db74">&#34;/home&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">handleClick</span>}&gt;<span style="color:#a6e22e">跳转至home</span>&lt;/<span style="color:#f92672">button</span>&gt;;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="2">
+<li></li>
+</ol>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="6工程化">6.工程化</h2>
+<ol>
+<li>定义路由组件，新建router文件夹，index.jsx</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useRoutes</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Home</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../views/Home&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">About</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../views/About&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">RouterView</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">routes</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useRoutes</span>([
+</span></span><span style="display:flex;"><span>    { <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#a6e22e">element</span><span style="color:#f92672">:</span> &lt;<span style="color:#f92672">Home</span> /&gt; },
+</span></span><span style="display:flex;"><span>    { <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/about&#39;</span>, <span style="color:#a6e22e">element</span><span style="color:#f92672">:</span> &lt;<span style="color:#f92672">About</span> /&gt; },
+</span></span><span style="display:flex;"><span>  ]);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">routes</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">RouterView</span>;
+</span></span></code></pre></div><ol start="2">
+<li>编写对应路由组件，新建views文件夹</li>
+<li>在App.jsx中编写路由出口</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useState</span>, <span style="color:#a6e22e">useEffect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">reactLogo</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./assets/react.svg&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;./App.css&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserRouter</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">Router</span>, <span style="color:#a6e22e">Route</span>, <span style="color:#a6e22e">Routes</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">RouterView</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./router&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">Router</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">RouterView</span>&gt;&lt;/<span style="color:#f92672">RouterView</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">Router</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">App</span>;
+</span></span></code></pre></div><ol start="4">
+<li>定义子路由，在router/index.jsx ，路由规则里通过<code>**children**</code>来定义子路由，定义方式与vue相似</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">element</span><span style="color:#f92672">:</span> &lt;<span style="color:#f92672">Home</span> /&gt;,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;messages&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">element</span><span style="color:#f92672">:</span> &lt;<span style="color:#f92672">Messages</span> /&gt;,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>    },
+</span></span></code></pre></div><ol start="5">
+<li>在对应路由的组件里定义子路由的路由出口，使用 <code>**Outlet**</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Outlet</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Home</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">Home</span>
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/* &lt;router-view&gt;&lt;/router-view&gt; */</span>}
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">Outlet</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Home</span>;
+</span></span></code></pre></div><ol start="6">
+<li>重定向 使用Navigate 在子路由同级的最后一个，添加一个父路由的path，并使用Navigate跳转到指定的路由</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">element</span><span style="color:#f92672">:</span> &lt;<span style="color:#f92672">Home</span> /&gt;,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;messages&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">element</span><span style="color:#f92672">:</span> &lt;<span style="color:#f92672">Messages</span> /&gt;,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">element</span><span style="color:#f92672">:</span> &lt;<span style="color:#f92672">Navigate</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;/messages&#39;</span>} /&gt;,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>    },
+</span></span></code></pre></div><blockquote>
+<p>注意，除了第一个根路由，其余的都可以写相对路径，即/about可以写为&rsquo;about'
+此外，/ 必须有</p>
+</blockquote>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658279795799-be23abaa-7bb5-41e9-b9dd-7b4c272481bf.png"></div>
+  <div class="card-text">
+    <a href="/docs/patw5f/"><h4 class="card-text--title text-ellipsis">MapGIS</h4></a>
+    <p class="card-text--row">2022-07-20 01:13</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/xqg4ld/"><h4 class="card-text--title text-ellipsis">React-hooks</h4></a>
+    <p class="card-text--row">2022-07-18 08:41</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一安装-v5">一、安装 v5</a></li>
+    <li><a href="#二router-v6版本以下的使用方法">二、router v6版本以下的使用方法</a>
+      <ul>
+        <li><a href="#常用组件">常用组件</a></li>
+        <li><a href="#编程式导航">编程式导航</a></li>
+        <li><a href="#url-parameters">URL Parameters</a></li>
+        <li><a href="#useroutematch">useRouteMatch</a></li>
+        <li><a href="#usehistory">useHistory</a></li>
+      </ul>
+    </li>
+    <li><a href="#三react-router-dom-v6">三、react-router-dom v6</a>
+      <ul>
+        <li><a href="#1安装">1.安装</a></li>
+        <li><a href="#2入门">2.入门</a></li>
+        <li><a href="#3封装routes">3.封装Routes</a></li>
+        <li><a href="#4组件详解">4.组件详解</a>
+          <ul>
+            <li><a href="#1link">1.Link</a></li>
+            <li><a href="#2navlink">2.NavLink</a></li>
+            <li><a href="#3route">3.Route</a></li>
+            <li><a href="#4routes">4.Routes</a></li>
+          </ul>
+        </li>
+        <li><a href="#5hooks">5.Hooks</a>
+          <ul>
+            <li><a href="#1usenavigate替换usehistory实现路由跳转">1.useNavigate替换useHistory实现路由跳转</a></li>
+          </ul>
+        </li>
+        <li><a href="#6工程化">6.工程化</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>高级特性 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="高级特性" />
+<meta property="og:description" content="无状态组件 本质是一个箭头函数，返回的是个dom，没有this，没有state数据，但可以接收父组件的传来的props，通过形参来接收。 &lt;Son na" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/twdyfv/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-07-13T06:04:12+00:00" />
+<meta property="article:modified_time" content="2022-09-25T09:36:28+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="高级特性"/>
+<meta name="twitter:description" content="无状态组件 本质是一个箭头函数，返回的是个dom，没有this，没有state数据，但可以接收父组件的传来的props，通过形参来接收。 &lt;Son na"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box ">
+
+  <div class="card-cover">
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">高级特性</h1>
+    
+      <p class="card-text--row">2022-07-13 06:04</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="无状态组件">无状态组件</h2>
+<p>本质是一个箭头函数，返回的是个dom，没有this，没有state数据，但可以接收父组件的传来的props，通过形参来接收。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">Son</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;父组件传值&#34;</span>&gt;&lt;/<span style="color:#f92672">Son</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 无状态组件接收父组间的数据是通过函数传参props(形参)来获得
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Son</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">props</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Son</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">h1</span>&gt;;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Son</span>;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="css-module">css module</h2>
+<p>下载插件CSS Modules<!-- raw HTML omitted -->作用:将css作为变量引入，防止样式污染，最后渲染结果会为样式名和随机字符串的组合，但是引用同一个变量的样式名依然是一样的<!-- raw HTML omitted -->使用步骤:</p>
+<ol>
+<li>写样式</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>.<span style="color:#a6e22e">item</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">margin</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">50</span><span style="color:#a6e22e">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">blue</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">font</span><span style="color:#f92672">-</span><span style="color:#a6e22e">size</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span><span style="color:#a6e22e">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">a</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">font</span><span style="color:#f92672">-</span><span style="color:#a6e22e">size</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">60</span><span style="color:#a6e22e">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">b</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">red</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="2">
+<li>导入样式</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">styles</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./App.module.css&#39;</span>;
+</span></span></code></pre></div><ol start="3">
+<li>使用</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">item</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">a</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">b</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> `</span>}&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">多个类名</span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="css-module--多类名">css module  多类名</h2>
+<p>使用方法：<code>**className={</code>${} ${} ${}<code>}**</code>
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="ref-获取dom">ref 获取Dom</h2>
+<blockquote>
+<ol>
+<li>创建ref容器</li>
+<li>(r)=&gt;this.ref=r   这里 的this.ref 相当于上面的 ref.current 直接就是dom元素</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">//创建ref容器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">h1Ref1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createRef</span>();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//测试方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">refClick</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">ref</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// current 属性能够拿到dom
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">ref</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// console.log(ref.current);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">h1Ref1</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">refClick</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">h1Ref1</span>.<span style="color:#a6e22e">current</span>)}
+</span></span><span style="display:flex;"><span>        &gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">我是h1标签</span>
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="后代组件传值">后代组件传值</h2>
+<p>方法</p>
+<ol>
+<li>逐层向下通过props传递😱</li>
+<li>通过<code>**MyContext**</code> 来传递，<code>**MyContext.provider**</code> 提供数据  <code>**MyContext.consumer**</code>使用数据
+<ol>
+<li>定义语境</li>
+</ol>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">createContext</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MyContext</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createContext</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// export {}  --&gt;import {MyContext}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//import MyContext
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">MyContext</span>;
+</span></span></code></pre></div><ol start="2">
+<li>导入语境</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">MyContext</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./MyContext&#39;</span>;
+</span></span></code></pre></div><ol start="3">
+<li>使用语境来传递或使用数据</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">MyContext.Provider</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;200&#39;</span>}&gt;
+</span></span><span style="display:flex;"><span>    {<span style="color:#75715e">/* 后代组件包含在子组件中，就一并被放到provider里面了 */</span>}
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">Son</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;父组件传值&#34;</span>&gt;&lt;/<span style="color:#f92672">Son</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">MyContext.Provider</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">MyContext.Consumer</span>&gt;{(<span style="color:#a6e22e">value</span>) =&gt; &lt;<span style="color:#f92672">div</span>&gt;{<span style="color:#a6e22e">value</span>}&lt;/<span style="color:#f92672">div</span>&gt;}&lt;/<span style="color:#f92672">MyContext.Consumer</span>&gt;
+</span></span><span style="display:flex;"><span>{<span style="color:#75715e">/* 孙组件在provider里面 */</span>}
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">GrandSon</span>&gt;&lt;/<span style="color:#f92672">GrandSon</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">MyContext.Consumer</span>&gt;{(<span style="color:#a6e22e">value</span>) =&gt; &lt;<span style="color:#f92672">h1</span>&gt;{<span style="color:#a6e22e">value</span>}&lt;/<span style="color:#f92672">h1</span>&gt;}&lt;/<span style="color:#f92672">MyContext.Consumer</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="react-插槽">react-插槽</h2>
+<p>本质是父子组件传值，不过是传了一个dom<!-- raw HTML omitted -->不具名插槽</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">Son</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">不具名插槽</span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">Son</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span>&gt;{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">children</span>}&lt;/<span style="color:#f92672">div</span>&gt;{<span style="color:#75715e">/*这里是无状态组件，所以没有this*/</span>}
+</span></span></code></pre></div><p>具名插槽，通过自定义属性传入dom元素</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">Son</span> <span style="color:#a6e22e">header</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">这是头部</span>&lt;/<span style="color:#f92672">div</span>&gt;} <span style="color:#a6e22e">footer</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">这是尾部</span>&lt;/<span style="color:#f92672">div</span>&gt;}&gt;
+</span></span><span style="display:flex;"><span>    {<span style="color:#75715e">/* 不具名插槽 */</span>}
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">这是不具名插槽</span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">Son</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/* 无状态组件和有状态组件相差一个this */</span>}
+</span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">header</span>}
+</span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">footer</span>}
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/* 不具名用props.children 来接收 */</span>}
+</span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">children</span>}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="setstate-同步异步问题">setState 同步异步问题</h2>
+<p><strong>18.X版本</strong>后，就全是异步了<!-- raw HTML omitted -->以前，在原生的dom事件，和setTimeOut事件里就是同步的。<!-- raw HTML omitted -->异步原因，防止数据过大卡死
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="渲染富文本">渲染富文本</h2>
+<p>有一个固定的格式</p>
+<ol>
+<li>获取富文本</li>
+<li>将富文本接收到一个对象的__html属性中，只能是__html</li>
+<li>dangerouslySetInnerHTML={对象}</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Index</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rawHtml</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;h2&gt;富文本&lt;i&gt;斜体&lt;/i&gt;&lt;/h2&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rawHtmlData</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">__html</span><span style="color:#f92672">:</span><span style="color:#a6e22e">rawHtml</span>  <span style="color:#75715e">//格式必须是这样的__html
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (&lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>       &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">dangerouslySetInnerHTML</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">rawHtmlData</span>}&gt;&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Index</span>;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="组件懒加载">组件懒加载</h2>
+<p>作用：前端项目基本都采用打包技术，如 Webpack，随着我们引用的第三方库越来越多或业务逻辑代码也越来越复杂，相应打包好的 bundle.js 文件体积就会越来越大，因为需要先请求加载资源之后，才会渲染页面。懒加载解决了这样的一个问题，即让浏览器按需加载。<!-- raw HTML omitted -->使用步骤：</p>
+<ol>
+<li>通过<code>**React.lazy()**</code>方式引入组件</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Son2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">lazy</span>(() =&gt; <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;./Son2&#39;</span>));
+</span></span></code></pre></div><ol start="2">
+<li>通过<code>**React.Suspense**</code>来使用组件</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">React.Suspense</span> <span style="color:#a6e22e">fallback</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">Loading</span>...&lt;/<span style="color:#f92672">div</span>&gt;}&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">Son2</span>&gt;&lt;/<span style="color:#f92672">Son2</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">React.Suspense</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="purecomponent">PureComponent</h2>
+<p>是用来解决子组件重复渲染，提高性能的一个类。<!-- raw HTML omitted -->让子组件继承该类，在与父组件没有关联的时候，不会随着父组件渲染时一起渲染。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">PureComponent</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 防止子组件没有关联也刷新
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 使用PureComponent
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Son</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">PureComponent</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 内置函数 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 返回一个布尔值 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 决定一个渲染周期中是否render
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// shouldComponentUpdate(){
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//     // 太武断了
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//     // 有联系了还不变
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//     return false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;儿子刷新了&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{<span style="color:#a6e22e">marginTop</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;50px&#39;</span>}}&gt;
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">子组件的计数器</span>
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Son</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">styles</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./App.module.css&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Son</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./Son&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">App</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">addNumber</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 执行了 n (setState次数) + 1 (初次渲染)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// console.log(&#39;我刷新了&#39;)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">item</span>}&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">我是父组件</span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">addNumber</span>}&gt;<span style="color:#a6e22e">计数为</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">count</span>}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Son</span>&gt;&lt;/<span style="color:#f92672">Son</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">App</span>;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="portals">Portals</h2>
+<p>作用：将子组件从父组件身上抽离出来，并前往指定位置<!-- raw HTML omitted -->使用方法：</p>
+<ol>
+<li>子组件引入 ReactDOM</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactDOM</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-dom&#39;</span>
+</span></span></code></pre></div><ol start="2">
+<li>返回一个Portal，<code>**ReactDOM.createPortal**</code>第一个参数为dom对象，第二个为要前往的位置</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">createPortal</span>(
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{<span style="color:#a6e22e">marginTop</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;50px&#39;</span>,<span style="color:#a6e22e">backgroundColor</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;Highlight&#39;</span>}}&gt;
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">子组件</span>&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;/<span style="color:#f92672">div</span>&gt;,
+</span></span><span style="display:flex;"><span>                document.<span style="color:#a6e22e">body</span>  <span style="color:#75715e">//DOM节点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            )
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><ol start="3">
+<li>父组件中调用子组件
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ol>
+<h2 id="受控组件与非受控组件">受控组件与非受控组件</h2>
+<p>受控组件是，其值或某一或某些属性受到state状态影响的组件<!-- raw HTML omitted -->非受控组件是属性不受state影响的组件。<!-- raw HTML omitted -->下面来看一组示例</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">msg</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>};  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">getValue</span>(<span style="color:#a6e22e">ref</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">ref</span>.<span style="color:#a6e22e">value</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">input</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span>{(<span style="color:#a6e22e">r</span>) =&gt; (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">input1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">r</span>)}
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">msg</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">changeMsg</span>}
+</span></span><span style="display:flex;"><span>    /&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getValue</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">input1</span>)}&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">受控组件获取</span>
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">button</span>&gt;
+</span></span></code></pre></div><p>获取该组件相关值的方式有两种，1是通过获取state属性，2是通过ref获取dom<!-- raw HTML omitted -->再看非受控组件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span>{(<span style="color:#a6e22e">r</span>) =&gt; (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">input2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">r</span>)}
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">defaultValue</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;我是默认值&#39;</span>}
+</span></span><span style="display:flex;"><span>    /&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getValue</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">input2</span>)}&gt;<span style="color:#a6e22e">非受控组件</span>&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span></code></pre></div><p>获取该组件的相关属性只能通过ref来获取dom，此外，该组件(input)设置默认值可以通过defaultValue，而受控组件要设置默认值则是通过state属性。</p>
+<blockquote>
+<p>受控组件与非受控组件的<strong>区别</strong>：</p>
+<ul>
+<li>改变相关属性和值的机制不同，受控是setState，非受控则是可以直接根据dom内置的规则修改，从这点来看，非受控更加灵活简洁。</li>
+<li>从获取来看，受控属性有两种获取方式，从state获取相较于获取dom会更方便，这点强于非受控组件。</li>
+</ul>
+</blockquote>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/yfq4um/"><h4 class="card-text--title text-ellipsis">生命周期</h4></a>
+    <p class="card-text--row">2022-07-14 06:11</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1657537987772-1797a648-7324-4660-83d3-660523ef7d8f.png"></div>
+  <div class="card-text">
+    <a href="/docs/ulksxh/"><h4 class="card-text--title text-ellipsis">网站部署</h4></a>
+    <p class="card-text--row">2022-07-12 12:33</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#无状态组件">无状态组件</a></li>
+        <li><a href="#css-module">css module</a></li>
+        <li><a href="#css-module--多类名">css module  多类名</a></li>
+        <li><a href="#ref-获取dom">ref 获取Dom</a></li>
+        <li><a href="#后代组件传值">后代组件传值</a></li>
+        <li><a href="#react-插槽">react-插槽</a></li>
+        <li><a href="#setstate-同步异步问题">setState 同步异步问题</a></li>
+        <li><a href="#渲染富文本">渲染富文本</a></li>
+        <li><a href="#组件懒加载">组件懒加载</a></li>
+        <li><a href="#purecomponent">PureComponent</a></li>
+        <li><a href="#portals">Portals</a></li>
+        <li><a href="#受控组件与非受控组件">受控组件与非受控组件</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

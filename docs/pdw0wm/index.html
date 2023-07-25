@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>空间数据 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="空间数据" />
+<meta property="og:description" content="一、点 &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt; &lt;title&gt;Cesium App&lt;/title&gt; &lt;script src=&#34;../Cesium/Cesium.js&#34;&gt;&lt;/script&gt; &lt;link rel=&#34;stylesheet&#34; href=&#34;../Cesium/Widgets/widgets.css&#34;&gt; &lt;script src=&#34;../config/ion.js&#34;&gt;&lt;/script&gt; &lt;link rel=&#34;stylesheet&#34; href=&#34;../css/index.css&#34;&gt; &lt;/head&gt; &lt;body&gt; &lt;div class=&#34;container&#34; id=&#34;cesium_container&#34;&gt; &lt;/div&gt; &lt;script&gt; //查看器,场景,实体,数据源的介绍 const viewer = new Cesium.Viewer(&#34;cesium_container&#34;,{ animation:false, timeline:false }) const entity = viewer.entities.add({ position:Cesium.Cartesian3.fromDegrees(114.30,30.50,1000), point:{ pixelSize:100, color:Cesium.Color.RED" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/pdw0wm/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-08-22T02:26:31+00:00" />
+<meta property="article:modified_time" content="2022-12-14T07:12:44+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="空间数据"/>
+<meta name="twitter:description" content="一、点 &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt; &lt;title&gt;Cesium App&lt;/title&gt; &lt;script src=&#34;../Cesium/Cesium.js&#34;&gt;&lt;/script&gt; &lt;link rel=&#34;stylesheet&#34; href=&#34;../Cesium/Widgets/widgets.css&#34;&gt; &lt;script src=&#34;../config/ion.js&#34;&gt;&lt;/script&gt; &lt;link rel=&#34;stylesheet&#34; href=&#34;../css/index.css&#34;&gt; &lt;/head&gt; &lt;body&gt; &lt;div class=&#34;container&#34; id=&#34;cesium_container&#34;&gt; &lt;/div&gt; &lt;script&gt; //查看器,场景,实体,数据源的介绍 const viewer = new Cesium.Viewer(&#34;cesium_container&#34;,{ animation:false, timeline:false }) const entity = viewer.entities.add({ position:Cesium.Cartesian3.fromDegrees(114.30,30.50,1000), point:{ pixelSize:100, color:Cesium.Color.RED"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box ">
+
+  <div class="card-cover">
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">空间数据</h1>
+    
+      <p class="card-text--row">2022-08-22 02:26</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="一点">一、点</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#f92672">&lt;!</span><span style="color:#a6e22e">DOCTYPE</span> <span style="color:#a6e22e">html</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">head</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">meta</span> <span style="color:#a6e22e">http</span><span style="color:#f92672">-</span><span style="color:#a6e22e">equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">title</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Cesium</span> <span style="color:#a6e22e">App</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/title&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../Cesium/Cesium.js&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../Cesium/Widgets/widgets.css&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../config/ion.js&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../css/index.css&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/head&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">body</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#66d9ef">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cesium_container&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span><span style="color:#f92672">&gt;</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//查看器,场景,实体,数据源的介绍     
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">viewer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Viewer</span>(<span style="color:#e6db74">&#34;cesium_container&#34;</span>,{
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">animation</span><span style="color:#f92672">:</span><span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">timeline</span><span style="color:#f92672">:</span><span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">entity</span> <span style="color:#f92672">=</span>  <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>.<span style="color:#a6e22e">fromDegrees</span>(<span style="color:#ae81ff">114.30</span>,<span style="color:#ae81ff">30.50</span>,<span style="color:#ae81ff">1000</span>),
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">point</span><span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">pixelSize</span><span style="color:#f92672">:</span><span style="color:#ae81ff">100</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">RED</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;这是一个点&#34;</span>
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//将摄像头设置到圆点处,让我们可以观测到
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">trackedEntity</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">entity</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/body&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/html&gt;</span>
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="二线">二、线</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">polyLineEntity</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">polyline</span><span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">show</span><span style="color:#f92672">:</span><span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">positions</span><span style="color:#f92672">:</span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>.<span style="color:#a6e22e">fromDegreesArray</span>([<span style="color:#ae81ff">114.30</span>,<span style="color:#ae81ff">30.5</span>,<span style="color:#ae81ff">114.40</span>,<span style="color:#ae81ff">30.60</span>]),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span><span style="color:#ae81ff">5</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">material</span><span style="color:#f92672">:</span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">clampToGround</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#75715e">// 是否贴地
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">zoomTo</span>(<span style="color:#a6e22e">polyLineEntity</span>)
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="三面">三、面</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">position</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">plane</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//指定平面的沿那个轴设置和距离
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">plane</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Plane</span>(<span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>.<span style="color:#a6e22e">UNIT_Z</span>, <span style="color:#ae81ff">0.0</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">dimensions</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian2</span>(<span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">300</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">material</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">RED</span>.<span style="color:#a6e22e">withAlpha</span>(<span style="color:#ae81ff">0.5</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">outline</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">outlineColor</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">BLACK</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="四标记">四、标记</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span><span style="color:#a6e22e">position</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">font</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;50px Helvetica&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fillColor</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">SKYBLUE</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">heightReference</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">HeightReference</span>.<span style="color:#a6e22e">CLAMP_TO_GROUND</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="五加载图片">五、加载图片</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">viewer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Viewer</span>(<span style="color:#e6db74">&#34;cesium_container&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* entity 几何图形 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">entity</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>.<span style="color:#a6e22e">fromDegrees</span>(<span style="color:#ae81ff">114.312</span>,<span style="color:#ae81ff">30.50</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">billboard</span><span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">show</span><span style="color:#f92672">:</span><span style="color:#66d9ef">true</span>, <span style="color:#75715e">//default
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">image</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;./data/logo.png&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scale</span><span style="color:#f92672">:</span><span style="color:#ae81ff">2</span>, <span style="color:#75715e">//default 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//像素偏移 type:Cartesian2 default:Cartesian2.ZERO
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">pixelOffset</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian2</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">50</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置颜色
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">RED</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//广告牌的参考高度  CLAMP_TO_GROUND 固定到地形上
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">heightReference</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">HeightReference</span>.<span style="color:#a6e22e">CLAMP_TO_GROUND</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">trackedEntity</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">entity</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">entity</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// id: &#34;&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;billboard&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// show: true,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// description: &#34;&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// orientation: &#34;&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>.<span style="color:#a6e22e">fromDegrees</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">75.59777</span>, <span style="color:#ae81ff">40.03883</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">billboard</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">show</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#75715e">// default
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">image</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;./images/Cesium_Logo_overlay.png&#34;</span>, <span style="color:#75715e">// default: undefined
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">scale</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2.0</span>, <span style="color:#75715e">// default: 1.0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//像素偏移    type: Cartesian2    default:Cartesian2.ZERO
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">pixelOffset</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian2</span>(<span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">50</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//眼睛偏移    type: Cartesian3    default:Cartesian3.ZERO
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">eyeOffset</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>(<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>),
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 水平对齐方式  type: HorizontalOrigin  default:HorizontalOrigin.CENTER
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// CENTER 原点在对象的水平中心；LEFT 原点在对象的左侧；RIGHT 原点在对象的右侧
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">horizontalOrigin</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">HorizontalOrigin</span>.<span style="color:#a6e22e">CENTER</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 垂直对齐方式  type: VerticalOrigin  default:VerticalOrigin.CENTER
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// CENTER 原点位于 BASELINE 和 TOP 之间的垂直中心；BOTTOM 原点在对象的底部；
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// BASELINE 如果对象包含文本，则原点位于文本的基线，否则原点位于对象的底部；TOP 原点在对象的顶部
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">verticalOrigin</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">VerticalOrigin</span>.<span style="color:#a6e22e">BOTTOM</span>, <span style="color:#75715e">// default: CENTER 垂直对齐位置 参考Cesium.VerticalOrigin
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 获取或设置此广告牌的高度参考    type: HeightReference    default:HeightReference.NONE
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// NONE 位置绝对；CLAMP_TO_GROUND 位置固定在地形上；RELATIVE_TO_GROUND 位置高度是指地形上方的高度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">heightReference</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">HeightReference</span>.<span style="color:#a6e22e">CLAMP_TO_GROUND</span>,
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 颜色  type: Color  default:Color.WHITE
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">LIME</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 获取或设置以弧度为单位的旋转角度  type: number  default:0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">rotation</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.Math.<span style="color:#a6e22e">PI_OVER_FOUR</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 获取或设置世界空间中的对齐轴  type:Cartesian3  default:Cartesian3.ZERO
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">alignedAxis</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>.<span style="color:#a6e22e">ZERO</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100</span>, <span style="color:#75715e">// default: undefined
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">25</span>, <span style="color:#75715e">// default: undefined
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 根据广告牌与相机的距离获取或设置广告牌的近和远缩放属性  type:NearFarScalar
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">scaleByDistance</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">NearFarScalar</span>(<span style="color:#ae81ff">1.0</span><span style="color:#a6e22e">e3</span>, <span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">2.0</span><span style="color:#a6e22e">e3</span>, <span style="color:#ae81ff">1.0</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 根据广告牌到相机的距离，获取或设置广告牌的近和远半透明属性  type:NearFarScalar
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">translucencyByDistance</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">NearFarScalar</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">1.0</span><span style="color:#a6e22e">e3</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">1.5</span><span style="color:#a6e22e">e6</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>    ),
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 根据广告牌与摄像头的距离，获取或设置广告牌的近像素偏移量和远像素偏移量缩放属性  type:NearFarScalar
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">pixelOffsetScaleByDistance</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">NearFarScalar</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">1.0</span><span style="color:#a6e22e">e3</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">1.5</span><span style="color:#a6e22e">e6</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    ),
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 设置1000米和2000米之间可见  type:DistanceDisplayCondition
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// distanceDisplayCondition: new Cesium.DistanceDisplayCondition(
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//   1.0e3,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//   2.0e3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// ),
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 获取或设置与相机的距离，在深度处禁用深度测试，例如，以防止剪切地形。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 设置为零时，将始终应用深度测试。设置为Number.POSITIVE_INFINITY时，永远不会应用深度测试。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">disableDepthTestDistance</span><span style="color:#f92672">:</span> Number.<span style="color:#a6e22e">POSITIVE_INFINITY</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span> 
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="六加载模型数据">六、加载模型数据</h2>
+<p><a href="https://share.weiyun.com/WLULWG51" target="_blank" rel="noopener">文件分享</a><!-- raw HTML omitted --><a href="https://blog.csdn.net/u011575168/article/details/83097894" target="_blank" rel="noopener">https://blog.csdn.net/u011575168/article/details/83097894</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;Cesium App&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../Cesium/Cesium.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../Cesium/Widgets/widgets.css&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../config/ion.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../css/index.css&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cesium_container&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt; 
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//查看器,场景,实体,数据源的介绍     
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">viewer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Viewer</span>(<span style="color:#e6db74">&#34;cesium_container&#34;</span>,{
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">animation</span><span style="color:#f92672">:</span><span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">timeline</span><span style="color:#f92672">:</span><span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">position</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>.<span style="color:#a6e22e">fromDegrees</span>(<span style="color:#ae81ff">114.30</span>,<span style="color:#ae81ff">30.50</span>,<span style="color:#ae81ff">1000</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">orientation</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Transforms</span>.<span style="color:#a6e22e">headingPitchRollQuaternion</span>(<span style="color:#a6e22e">position</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//以弧度为单位  z,y,x
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">HeadingPitchRoll</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">entity</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span><span style="color:#a6e22e">position</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">orientation</span><span style="color:#f92672">:</span><span style="color:#a6e22e">orientation</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">model</span><span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">uri</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;../lib/Cesium_Air.glb&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">minimumPixelSize</span><span style="color:#f92672">:</span><span style="color:#ae81ff">100</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">maximunScale</span><span style="color:#f92672">:</span><span style="color:#ae81ff">10000</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">show</span><span style="color:#f92672">:</span><span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//需要对物体进行多角度观察 使用viewBoundingSphere方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">camera</span>.<span style="color:#a6e22e">viewBoundingSphere</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">BoundingSphere</span>(<span style="color:#a6e22e">position</span>,<span style="color:#ae81ff">30</span>),
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">HeadingPitchRoll</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="七绘制多边形">七、绘制多边形</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">greenPolygon</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Green extruded polygon&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">polygon</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">hierarchy</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>.<span style="color:#a6e22e">fromDegreesArray</span>([
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">-</span><span style="color:#ae81ff">108.0</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">42.0</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">-</span><span style="color:#ae81ff">100.0</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">42.0</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">-</span><span style="color:#ae81ff">104.0</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">40.0</span>,
+</span></span><span style="display:flex;"><span>    ]),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">extrudedHeight</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">500000.0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">material</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">GREEN</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">closeTop</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">closeBottom</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//viewer.flyTo(viewer.entities); 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">zoomTo</span>(<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>)
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="八box盒子">八、box盒子</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">entity</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;redBox&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>.<span style="color:#a6e22e">fromDegrees</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">74</span>, <span style="color:#ae81ff">40.67</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">box</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//Cartesian3类型，用户指定框的长度，宽度，高度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">dimensions</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>(<span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">200</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">material</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">RED</span>.<span style="color:#a6e22e">withAlpha</span>(<span style="color:#ae81ff">0.5</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">outline</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fill</span><span style="color:#f92672">:</span><span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">outlineColor</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">BLACK</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//指定距离实体位置的高度是相对于什么的高度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">heightReference</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">HeightReference</span>.<span style="color:#a6e22e">CLAMP_TO_GROUND</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">shadows</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">ShadowMode</span>.<span style="color:#a6e22e">CAST_ONLY</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">zoomTo</span>(<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>)
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="九ellipse-椭圆">九、ellipse 椭圆</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">entity</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>.<span style="color:#a6e22e">fromDegrees</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">103.0</span>, <span style="color:#ae81ff">40.0</span>, <span style="color:#ae81ff">100000</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ellipse</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">semiMajorAxis</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">200</span>, <span style="color:#75715e">// 长半轴距离
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">semiMinorAxis</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100</span>, <span style="color:#75715e">// 短半轴距离
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">material</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">RED</span>.<span style="color:#a6e22e">withAlpha</span>(<span style="color:#ae81ff">0.5</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//离地面的高度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">300</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//可以给几何图形添加高度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">extrudedHeight</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2000.0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// extrudedHeightReference: Cesium.HeightReference.NONE,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">outline</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">outlineColor</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">DARK_GREEN</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">outlineWidth</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">numberOfVerticalLines</span><span style="color:#f92672">:</span><span style="color:#ae81ff">4</span>, <span style="color:#75715e">// 沿轮廓的周长绘制的垂直线的数量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">rotation</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.Math.<span style="color:#a6e22e">toRadians</span>(<span style="color:#ae81ff">90</span>) <span style="color:#75715e">//旋转的角度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">zoomTo</span>(<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>)
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="十ellipsoid椭球体">十、ellipsoid椭球体</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">position</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>.<span style="color:#a6e22e">fromDegrees</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">114.30</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">30.50</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">3000.0</span>
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">entity</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Saturn&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">position</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ellipsoid</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//设置大小
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">radii</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>(<span style="color:#ae81ff">1000</span>, <span style="color:#ae81ff">1000</span>, <span style="color:#ae81ff">1000</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">material</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>(<span style="color:#ae81ff">0.95</span>, <span style="color:#ae81ff">0.82</span>, <span style="color:#ae81ff">0.49</span>),
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">zoomTo</span>(<span style="color:#a6e22e">entity</span>)
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="十一corridor-走廊">十一、corridor 走廊</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">entity</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Green extruded polygon&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">corridor</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">positions</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>.<span style="color:#a6e22e">fromDegreesArray</span>([
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">-</span><span style="color:#ae81ff">80.0</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">40.0</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">-</span><span style="color:#ae81ff">85.0</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">40.0</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">-</span><span style="color:#ae81ff">85.0</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">35.0</span>,
+</span></span><span style="display:flex;"><span>        ]),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">200000.0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">extrudedHeight</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">200000.0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//拐角的样式
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// ROUNDED  角有光滑的边缘  MITERED 拐角点是相邻边的交点  BEVELED 角被剪裁
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">cornerType</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">CornerType</span>.<span style="color:#a6e22e">BEVELED</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">material</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">BLUE</span>.<span style="color:#a6e22e">withAlpha</span>(<span style="color:#ae81ff">0.5</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">outline</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#75715e">// height or extrudedHeight must be set for outlines to display
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">outlineColor</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">WHITE</span>  
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">zoomTo</span>(<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>)
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="十二cylinder圆柱或圆锥">十二、cylinder圆柱或圆锥</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">entiy</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cylinder&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>.<span style="color:#a6e22e">fromDegrees</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">105.0</span>, <span style="color:#ae81ff">40.0</span>, <span style="color:#ae81ff">200000.0</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">cylinder</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">show</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">length</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4000</span>, <span style="color:#75715e">//圆柱体的长度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">topRadius</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2000</span>, <span style="color:#75715e">//圆柱体顶部的半径
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">bottomRadius</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2000</span>, <span style="color:#75715e">//圆柱体底部的半径
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">heightReference</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">HeightReference</span>.<span style="color:#a6e22e">CLAMP_TO_GROUND</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//颜色
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">material</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">RED</span>.<span style="color:#a6e22e">withAlpha</span>(<span style="color:#ae81ff">0.5</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fill</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">outline</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">outlineColor</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">DARK_GREEN</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">outlineWidth</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">numberOfVerticalLines</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">6</span>, <span style="color:#75715e">// 沿轮廓的周长绘制的垂直线的数量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">zoomTo</span>(<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">entiy</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cylinder&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>.<span style="color:#a6e22e">fromDegrees</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">105.0</span>, <span style="color:#ae81ff">40.0</span>, <span style="color:#ae81ff">200000.0</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">cylinder</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">show</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">length</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4000</span>, <span style="color:#75715e">//圆柱体的长度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">topRadius</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">200</span>, <span style="color:#75715e">//圆柱体顶部的半径
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">bottomRadius</span><span style="color:#f92672">:</span><span style="color:#ae81ff">2000</span>, <span style="color:#75715e">//圆柱体底部的半径
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">heightReference</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">HeightReference</span>.<span style="color:#a6e22e">CLAMP_TO_GROUND</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//颜色
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">material</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">RED</span>.<span style="color:#a6e22e">withAlpha</span>(<span style="color:#ae81ff">0.5</span>),
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">zoomTo</span>(<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>)
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="十三polyine-volume多线段柱体">十三、Polyine Volume多线段柱体</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">computeCircle</span>(<span style="color:#a6e22e">radius</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">positions</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">360</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">radians</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Cesium</span>.Math.<span style="color:#a6e22e">toRadians</span>(<span style="color:#a6e22e">i</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">positions</span>.<span style="color:#a6e22e">push</span>(
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian2</span>(
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">radius</span> <span style="color:#f92672">*</span> Math.<span style="color:#a6e22e">cos</span>(<span style="color:#a6e22e">radians</span>),
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">radius</span> <span style="color:#f92672">*</span> Math.<span style="color:#a6e22e">sin</span>(<span style="color:#a6e22e">radians</span>)
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">positions</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">positions</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">redTube</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Red tube with rounded corners&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">polylineVolume</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">show</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 定义线带的 Cartesian3 位置的数组
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">positions</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>.<span style="color:#a6e22e">fromDegreesArray</span>([
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">114.30</span>,<span style="color:#ae81ff">30.50</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">114.40</span>,<span style="color:#ae81ff">30.50</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">114.40</span>,<span style="color:#ae81ff">30.40</span>,
+</span></span><span style="display:flex;"><span>        ]),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 指定 Cartesian2 位置的数组，这些位置定义了要拉伸的形状
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">shape</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">computeCircle</span>(<span style="color:#ae81ff">600.0</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 拐角的样式  type:CornerType
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// ROUNDED	拐角有光滑的边缘;MITERED 拐角点是相邻边的交点;BEVELED	拐角被修剪。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">cornerType</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">CornerType</span>.<span style="color:#a6e22e">ROUNDED</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// fill: true,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">material</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">RED</span>.<span style="color:#a6e22e">withAlpha</span>(<span style="color:#ae81ff">0.5</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">closeTop</span><span style="color:#f92672">:</span><span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="十四矩形rectangle">十四、矩形Rectangle</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">entity</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">rectangle</span><span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">coordinates</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Rectangle</span>.<span style="color:#a6e22e">fromDegrees</span>(<span style="color:#ae81ff">114.30</span>,<span style="color:#ae81ff">30.50</span>,<span style="color:#ae81ff">114.40</span>,<span style="color:#ae81ff">30.60</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">material</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">RED</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fill</span><span style="color:#f92672">:</span><span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//离地的高度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span><span style="color:#ae81ff">1500</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//总高
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">extrudedHeight</span><span style="color:#f92672">:</span><span style="color:#ae81ff">3000</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">outline</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">outlineColor</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">BLACK</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">outlineWidth</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="十五-wall墙体">十五、 wall墙体</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">entity</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Red wall at height&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">wall</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">positions</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Cartesian3</span>.<span style="color:#a6e22e">fromDegreesArrayHeights</span>([
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">-</span><span style="color:#ae81ff">115.0</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">44.0</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">200000.0</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">-</span><span style="color:#ae81ff">90.0</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">44.0</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">200000.0</span>,
+</span></span><span style="display:flex;"><span>        ]),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 用于墙底而不是地球表面的高度数组
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">minimumHeights</span><span style="color:#f92672">:</span> [<span style="color:#ae81ff">100000.0</span>, <span style="color:#ae81ff">100000.0</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 用于墙顶的高度数组，而不是每个位置的高度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// maximumHeights: [],
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">fill</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">material</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">RED</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">outline</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">outlineColor</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">BLACK</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">outlineWidth</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div>
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/az5llp/"><h4 class="card-text--title text-ellipsis">算法与数据结构</h4></a>
+    <p class="card-text--row">2022-08-22 10:56</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/oy0kuz/"><h4 class="card-text--title text-ellipsis">模型数据的加载</h4></a>
+    <p class="card-text--row">2022-08-22 01:42</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一点">一、点</a></li>
+        <li><a href="#二线">二、线</a></li>
+        <li><a href="#三面">三、面</a></li>
+        <li><a href="#四标记">四、标记</a></li>
+        <li><a href="#五加载图片">五、加载图片</a></li>
+        <li><a href="#六加载模型数据">六、加载模型数据</a></li>
+        <li><a href="#七绘制多边形">七、绘制多边形</a></li>
+        <li><a href="#八box盒子">八、box盒子</a></li>
+        <li><a href="#九ellipse-椭圆">九、ellipse 椭圆</a></li>
+        <li><a href="#十ellipsoid椭球体">十、ellipsoid椭球体</a></li>
+        <li><a href="#十一corridor-走廊">十一、corridor 走廊</a></li>
+        <li><a href="#十二cylinder圆柱或圆锥">十二、cylinder圆柱或圆锥</a></li>
+        <li><a href="#十三polyine-volume多线段柱体">十三、Polyine Volume多线段柱体</a></li>
+        <li><a href="#十四矩形rectangle">十四、矩形Rectangle</a></li>
+        <li><a href="#十五-wall墙体">十五、 wall墙体</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

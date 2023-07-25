@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>轨迹回放 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="轨迹回放" />
+<meta property="og:description" content="import { Viewer, Cartesian3, Cartographic, EllipsoidGeodesic, TimeIntervalCollection, TimeInterval, Color, JulianDate, SampledPositionProperty, VelocityOrientationProperty, Entity, ModelGraphics, } from &#39;cesium&#39;; type Track = Cartesian3[]; type TrackWithTime = Array&lt;{ position: Cartesian3; time: Date }&gt;; type TrackWithJuliDate = Array&lt;{ position: Cartesian3; time: JulianDate; }&gt;; type Tracks = Track | Track[] | TrackWithTime | TrackWithTime[]; type ModelUrl = string[] | string; type Speeds = number | number[]; //每条轨迹的速度" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/geyrohex2attuwpc/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2023-06-26T07:01:08+00:00" />
+<meta property="article:modified_time" content="2023-06-26T07:02:11+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="轨迹回放"/>
+<meta name="twitter:description" content="import { Viewer, Cartesian3, Cartographic, EllipsoidGeodesic, TimeIntervalCollection, TimeInterval, Color, JulianDate, SampledPositionProperty, VelocityOrientationProperty, Entity, ModelGraphics, } from &#39;cesium&#39;; type Track = Cartesian3[]; type TrackWithTime = Array&lt;{ position: Cartesian3; time: Date }&gt;; type TrackWithJuliDate = Array&lt;{ position: Cartesian3; time: JulianDate; }&gt;; type Tracks = Track | Track[] | TrackWithTime | TrackWithTime[]; type ModelUrl = string[] | string; type Speeds = number | number[]; //每条轨迹的速度"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box ">
+
+  <div class="card-cover">
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">轨迹回放</h1>
+    
+      <p class="card-text--row">2023-06-26 07:01</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Viewer</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Cartesian3</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Cartographic</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">EllipsoidGeodesic</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">TimeIntervalCollection</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">TimeInterval</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Color</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">JulianDate</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">SampledPositionProperty</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">VelocityOrientationProperty</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Entity</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ModelGraphics</span>,
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;cesium&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Track</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Cartesian3</span>[];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">TrackWithTime</span> <span style="color:#f92672">=</span> Array<span style="color:#f92672">&lt;</span>{ <span style="color:#a6e22e">position</span>: <span style="color:#66d9ef">Cartesian3</span>; <span style="color:#a6e22e">time</span>: <span style="color:#66d9ef">Date</span> }<span style="color:#f92672">&gt;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">TrackWithJuliDate</span> <span style="color:#f92672">=</span> Array<span style="color:#f92672">&lt;</span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">position</span>: <span style="color:#66d9ef">Cartesian3</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">time</span>: <span style="color:#66d9ef">JulianDate</span>;
+</span></span><span style="display:flex;"><span>}<span style="color:#f92672">&gt;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Tracks</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Track</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">Track</span>[] <span style="color:#f92672">|</span> <span style="color:#a6e22e">TrackWithTime</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">TrackWithTime</span>[];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ModelUrl</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">string</span>[] <span style="color:#f92672">|</span> <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Speeds</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">number</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">number</span>[]; <span style="color:#75715e">//每条轨迹的速度，当轨迹无时间时，可提供一个速度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Times</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">number</span>[]; <span style="color:#75715e">//每条轨迹所用时长，与速度只能二选一，同时存在以时间为准
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">TrackOption</span> <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">tracks</span>: <span style="color:#66d9ef">Tracks</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">modelUrl</span>: <span style="color:#66d9ef">ModelUrl</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">speeds?</span>: <span style="color:#66d9ef">Speeds</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">times?</span>: <span style="color:#66d9ef">Times</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">tracksWithJulidate?</span>: <span style="color:#66d9ef">TrackWithJuliDate</span>[] <span style="color:#f92672">|</span> <span style="color:#a6e22e">TrackWithJuliDate</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">tracks?</span>: <span style="color:#66d9ef">Tracks</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">modelUrl</span>: <span style="color:#66d9ef">ModelUrl</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">speeds?</span>: <span style="color:#66d9ef">Speeds</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">times?</span>: <span style="color:#66d9ef">Times</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">tracksWithJulidate</span>: <span style="color:#66d9ef">TrackWithJuliDate</span>[] <span style="color:#f92672">|</span> <span style="color:#a6e22e">TrackWithJuliDate</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">CreateEntityOption</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">startTime</span>: <span style="color:#66d9ef">JulianDate</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">stopTime</span>: <span style="color:#66d9ef">JulianDate</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">property</span>: <span style="color:#66d9ef">SampledPositionProperty</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">modelUrl</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">options?</span>: <span style="color:#66d9ef">Entity.ConstructorOptions</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 大概的功能
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * 默认初始化时，而已初始化一些轨迹，并进行管理
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * 允许添加删除轨迹
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">lengthIsNotSame() {</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;轨迹与times,speeds长度不一致&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TracksManager</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">viewer</span>: <span style="color:#66d9ef">Viewer</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">entities</span>: <span style="color:#66d9ef">Entity</span>[];
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// tracks?: Track[] | TrackWithTime[]; //轨迹集合实例化时传入
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">tracksWithJulidate</span><span style="color:#f92672">!:</span> <span style="color:#a6e22e">TrackWithJuliDate</span>[]; <span style="color:#75715e">//可传入带有儒略日的轨迹
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">modelUrls</span>: <span style="color:#66d9ef">string</span>[]; <span style="color:#75715e">//每条轨迹的模型，如果只有一个，则所有的都是该模型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">speeds</span>: <span style="color:#66d9ef">number</span>[] <span style="color:#f92672">=</span> []; <span style="color:#75715e">//每条轨迹的速度，m/s 当与times同时出现时，以times为准
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">times?</span>: <span style="color:#66d9ef">Times</span>; <span style="color:#75715e">//每��轨迹所用的时间 秒
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">startTime</span><span style="color:#f92672">!:</span> <span style="color:#a6e22e">JulianDate</span>; <span style="color:#75715e">//所有轨迹中最先开始的时候
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">stopTime</span><span style="color:#f92672">!:</span> <span style="color:#a6e22e">JulianDate</span>; <span style="color:#75715e">//最后结束的时候
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">trackEntityMap</span>: <span style="color:#66d9ef">WeakMap</span>&lt;<span style="color:#f92672">TrackWithJuliDate</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">Entity</span>&gt; <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">WeakMap</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// [key: string]: any;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">constructor</span>(<span style="color:#a6e22e">viewer</span>: <span style="color:#66d9ef">Viewer</span>, <span style="color:#a6e22e">options</span>: <span style="color:#66d9ef">TrackOption</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">viewer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">viewer</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">entities</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">speeds</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">speeds</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">speeds</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">speeds</span>;
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">speeds</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">fillArray</span>(
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">speeds</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">tracks</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">tracksWithJulidate</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">length</span>
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">times</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">times</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 处理路径为 TracksWithJulidate
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">tracksWithJulidate</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getTwoDimensionArray</span><span style="color:#f92672">&lt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">TrackWithJuliDate</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">TrackWithJuliDate</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&gt;</span>(<span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">tracksWithJulidate</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getStartAndStopFromTracksWithJulidate</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">tracks</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tracks</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getTwoDimensionArray</span>&lt;<span style="color:#f92672">Track</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">TrackWithTime</span>&gt;(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">tracks</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">speeds</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">tracks</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">!==</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">speeds</span>.<span style="color:#a6e22e">length</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">lengthIsNotSame</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">times</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">times</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">!==</span> <span style="color:#a6e22e">tracks</span>.<span style="color:#a6e22e">length</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">lengthIsNotSame</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">toTracksWithJuliDate</span>(<span style="color:#a6e22e">tracks</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 构建modelUrl
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">modelUrl</span>)) <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">modelUrls</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">modelUrl</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">modelUrls</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">fillArray</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">modelUrl</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span>.<span style="color:#a6e22e">length</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 创建实体
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">createEntities</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * 播放1个或所有的轨迹
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param index 要回放的轨迹或轨迹索引,如果没有赋值，则回放所有的轨迹
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @returns
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">playOne</span>(<span style="color:#a6e22e">track</span>: <span style="color:#66d9ef">number</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">TrackWithJuliDate</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">entity</span>: <span style="color:#66d9ef">Entity</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">twj</span>: <span style="color:#66d9ef">TrackWithJuliDate</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">track</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;number&#39;</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">track</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">twj</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span>[<span style="color:#a6e22e">index</span>];
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">twj</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">track</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">trackEntityMap</span>.<span style="color:#a6e22e">has</span>(<span style="color:#a6e22e">twj</span>)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">entity</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">trackEntityMap</span>.<span style="color:#66d9ef">get</span>(<span style="color:#a6e22e">twj</span>) <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">Entity</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;没有管理该轨迹&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">addEntity</span>(<span style="color:#a6e22e">entity</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setClockTime</span>(<span style="color:#a6e22e">twj</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">time</span>, <span style="color:#a6e22e">twj</span>[<span style="color:#a6e22e">twj</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">time</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">entity</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">setClockTime</span>(<span style="color:#a6e22e">start</span>: <span style="color:#66d9ef">JulianDate</span>, <span style="color:#a6e22e">stop</span>: <span style="color:#66d9ef">JulianDate</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">clock</span>.<span style="color:#a6e22e">startTime</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">start</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">clock</span>.<span style="color:#a6e22e">stopTime</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">stop</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">clock</span>.<span style="color:#a6e22e">shouldAnimate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">play</span>(<span style="color:#a6e22e">tracks?</span>: <span style="color:#66d9ef">number</span>[] <span style="color:#f92672">|</span> <span style="color:#a6e22e">TrackWithJuliDate</span>[]) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">entities</span>: <span style="color:#66d9ef">Entity</span>[] <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">twjs</span>: <span style="color:#66d9ef">TrackWithJuliDate</span>[] <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">tracks</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;undefined&#39;</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">tracks</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 播放所有的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">entity</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">entity</span>);
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setClockTime</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">startTime</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">stopTime</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">entities</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">tracks</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;number&#39;</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">tracks</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">index</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">twj</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span>[<span style="color:#a6e22e">index</span> <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">number</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">twjs</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">twj</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">trackEntityMap</span>.<span style="color:#a6e22e">has</span>(<span style="color:#a6e22e">twj</span>))
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;没有找到该轨迹的实体&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">e</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">trackEntityMap</span>.<span style="color:#66d9ef">get</span>(<span style="color:#a6e22e">twj</span>) <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">Entity</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">e</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">e</span>);
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">twjs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tracks</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">TrackWithJuliDate</span>[];
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">twjs</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">twj</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">trackEntityMap</span>.<span style="color:#a6e22e">has</span>(<span style="color:#a6e22e">twj</span>))
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;没有找到该轨迹的实体&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">e</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">trackEntityMap</span>.<span style="color:#66d9ef">get</span>(<span style="color:#a6e22e">twj</span>) <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">Entity</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">e</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">e</span>);
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 计算开始结束时间
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">stop</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getStartAndStopFromTracksWithJulidate</span>(<span style="color:#a6e22e">twjs</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setClockTime</span>(<span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">stop</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">entities</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">addEntity</span>(<span style="color:#a6e22e">entity</span>: <span style="color:#66d9ef">Entity</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">contains</span>(<span style="color:#a6e22e">entity</span>)) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">entity</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * 从viewer中移除指定的实体
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param entity 要移除的实体
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">removeEntity</span>(<span style="color:#a6e22e">entity</span>: <span style="color:#66d9ef">Entity</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">contains</span>(<span style="color:#a6e22e">entity</span>))
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">remove</span>(<span style="color:#a6e22e">entity</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * 从viewer中移除所有实体
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">removeAll() {</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">entity</span> <span style="color:#66d9ef">of</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">entities</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">removeEntity</span>(<span style="color:#a6e22e">entity</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * 添加一条新的轨迹
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param trackOption
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">addTrack</span>(<span style="color:#a6e22e">trackOption</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">track</span>: <span style="color:#66d9ef">Track</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">TrackWithTime</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">speed?</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">time?</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">modelUrl</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">startTime?</span>: <span style="color:#66d9ef">JulianDate</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">entityOption?</span>: <span style="color:#66d9ef">Entity.ConstructorOptions</span>;
+</span></span><span style="display:flex;"><span>  }) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 转换为trackWithJulidate
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">track</span>, <span style="color:#a6e22e">speed</span>, <span style="color:#a6e22e">time</span>, <span style="color:#a6e22e">modelUrl</span>, <span style="color:#a6e22e">startTime</span>, <span style="color:#a6e22e">entityOption</span> } <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">trackOption</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">twj</span>: <span style="color:#66d9ef">TrackWithJuliDate</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">track</span>[<span style="color:#ae81ff">0</span>] <span style="color:#66d9ef">instanceof</span> <span style="color:#a6e22e">Cartesian3</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">twj</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getTWJFromTrack</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">track</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">Track</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">startTime</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">JulianDate</span>.<span style="color:#a6e22e">fromDate</span>(<span style="color:#66d9ef">new</span> Date()),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">speed</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">time</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">twj</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getTWJFromTWT</span>(<span style="color:#a6e22e">track</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">TrackWithTime</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">addTrackWithJulidate</span>({ <span style="color:#a6e22e">track</span>: <span style="color:#66d9ef">twj</span>, <span style="color:#a6e22e">modelUrl</span>: <span style="color:#66d9ef">modelUrl</span>, <span style="color:#a6e22e">entityOption</span> });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">removeTrack</span>(<span style="color:#a6e22e">track?</span>: <span style="color:#66d9ef">TrackWithJuliDate</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">track</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">trackEntityMap</span>.<span style="color:#a6e22e">has</span>(<span style="color:#a6e22e">track</span>)) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 删除实体
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">e</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">trackEntityMap</span>.<span style="color:#66d9ef">get</span>(<span style="color:#a6e22e">track</span>) <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">Entity</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">entities</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">removeItemInArr</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">entities</span>, <span style="color:#a6e22e">e</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 移除viewer的实体
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">removeEntity</span>(<span style="color:#a6e22e">e</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 删除映射
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">trackEntityMap</span>.<span style="color:#66d9ef">delete</span>(<span style="color:#a6e22e">track</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 删除轨迹
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">removeItemInArr</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">track</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 移除所有
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">removeAll</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">entities</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span>.<span style="color:#a6e22e">length</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">twj</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span>.<span style="color:#a6e22e">pop</span>() <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">TrackWithJuliDate</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">trackEntityMap</span>.<span style="color:#66d9ef">delete</span>(<span style="color:#a6e22e">twj</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 重新确定起止时间
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getStartAndStopFromTracksWithJulidate</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param trackOption 要添加实体的选项
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">addTrackWithJulidate</span>(<span style="color:#a6e22e">trackOption</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">track</span>: <span style="color:#66d9ef">TrackWithJuliDate</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">modelUrl</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">entityOption?</span>: <span style="color:#66d9ef">Entity.ConstructorOptions</span>;
+</span></span><span style="display:flex;"><span>  }) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_addTWJ</span>(<span style="color:#a6e22e">trackOption</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 更新整个manager的startTime和stopTime
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getStartAndStopFromTracksWithJulidate</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">_addTWJ</span>(<span style="color:#a6e22e">trackOption</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">track</span>: <span style="color:#66d9ef">TrackWithJuliDate</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">modelUrl</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">entityOption?</span>: <span style="color:#66d9ef">Entity.ConstructorOptions</span>;
+</span></span><span style="display:flex;"><span>  }) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">modelUrls</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">trackOption</span>.<span style="color:#a6e22e">modelUrl</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">trackOption</span>.<span style="color:#a6e22e">track</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">createEntities</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">trackOption</span>.<span style="color:#a6e22e">entityOption</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">addTracksWithJulidate</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">trackOptions</span>: <span style="color:#66d9ef">Array</span><span style="color:#f92672">&lt;</span>{
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">track</span>: <span style="color:#66d9ef">TrackWithJuliDate</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">modelUrl</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">entityOption?</span>: <span style="color:#66d9ef">Entity.ConstructorOptions</span>;
+</span></span><span style="display:flex;"><span>    }<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  ) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">trackOptions</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">trackOption</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_addTWJ</span>(<span style="color:#a6e22e">trackOption</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getStartAndStopFromTracksWithJulidate</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// deleteTrack(track: TrackWithJuliDate) {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">//   // this.removeItemInArr()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 移除回放过路径的实体
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">deleteEntity</span>(<span style="color:#a6e22e">entity</span>: <span style="color:#66d9ef">Entity</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">remove</span>(<span style="color:#a6e22e">entity</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   *创建对应轨迹的实体，或者是所有轨迹的实体，谨防重复创建
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param index 要创建实体的对应轨迹的索引，undefined表示创建所有实体
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">createEntities</span>(<span style="color:#a6e22e">index?</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">entityOption?</span>: <span style="color:#66d9ef">Entity.ConstructorOptions</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">create</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">i</span>: <span style="color:#66d9ef">number</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">twj</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span>[<span style="color:#a6e22e">i</span>];
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">property</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getProperty</span>(<span style="color:#a6e22e">twj</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">startTime</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">twj</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">time</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">stopTime</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">twj</span>[<span style="color:#a6e22e">twj</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">time</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">modelUrl</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">modelUrls</span>[<span style="color:#a6e22e">i</span>];
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">entity</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">createEntity</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">startTime</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">property</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">stopTime</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">modelUrl</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">options</span>: <span style="color:#66d9ef">entityOption</span>,
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">entity</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 记录轨迹和实体的映射
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">trackEntityMap</span>.<span style="color:#66d9ef">set</span>(<span style="color:#a6e22e">twj</span>, <span style="color:#a6e22e">entity</span>);
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">index</span> <span style="color:#f92672">!==</span> <span style="color:#66d9ef">undefined</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">create</span>(<span style="color:#a6e22e">index</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 创建实体
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tracksWithJulidate</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">create</span>(<span style="color:#a6e22e">i</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * 创建实体的方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param option
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @returns
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">createEntity</span>(<span style="color:#a6e22e">option</span>: <span style="color:#66d9ef">CreateEntityOption</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> { <span style="color:#a6e22e">startTime</span>, <span style="color:#a6e22e">stopTime</span>, <span style="color:#a6e22e">property</span>, <span style="color:#a6e22e">modelUrl</span>, <span style="color:#a6e22e">options</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">option</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">modelOption</span>: <span style="color:#66d9ef">ModelGraphics.ConstructorOptions</span> <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">modelUrl</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">modelOption</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">uri</span>: <span style="color:#66d9ef">modelUrl</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">minimumPixelSize</span>: <span style="color:#66d9ef">128</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">maximumScale</span>: <span style="color:#66d9ef">2000</span>,
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Entity</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">availability</span>: <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TimeIntervalCollection</span>([
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TimeInterval</span>({
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">start</span>: <span style="color:#66d9ef">startTime</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">stop</span>: <span style="color:#66d9ef">stopTime</span>,
+</span></span><span style="display:flex;"><span>        }),
+</span></span><span style="display:flex;"><span>      ]),
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 采样属性，为一系列，点+时间组成的坐标属性，每两个坐标属性之间是匀速直线运动
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">position</span>: <span style="color:#66d9ef">property</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 模型朝向，为速度的实时方向
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">orientation</span>: <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">VelocityOrientationProperty</span>(<span style="color:#a6e22e">property</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">model</span>: <span style="color:#66d9ef">modelOption</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 轨迹路径
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">resolution</span>: <span style="color:#66d9ef">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">material</span>: <span style="color:#66d9ef">Color.YELLOW</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">width</span>: <span style="color:#66d9ef">2</span>,
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      ...<span style="color:#a6e22e">options</span>,
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 获取采样属性
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">getProperty</span>(<span style="color:#a6e22e">track</span>: <span style="color:#66d9ef">TrackWithJuliDate</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">property</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SampledPositionProperty</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> { <span style="color:#a6e22e">position</span>, <span style="color:#a6e22e">time</span> } <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">track</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">property</span>.<span style="color:#a6e22e">addSample</span>(<span style="color:#a6e22e">time</span>, <span style="color:#a6e22e">position</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">property</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 获取一个路径点位时间
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">static</span> <span style="color:#a6e22e">getSiteTime</span>(<span style="color:#a6e22e">trackCate3</span>: <span style="color:#66d9ef">Cartesian3</span>[], <span style="color:#a6e22e">speed</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">25</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">timeSum</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">siteTimes</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">trackCate3</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">prePoint</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">trackCate3</span>[<span style="color:#a6e22e">i</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">curPoint</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">trackCate3</span>[<span style="color:#a6e22e">i</span>];
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">timeSum</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">TracksManager</span>.<span style="color:#a6e22e">getSpaceDistance</span>(<span style="color:#a6e22e">prePoint</span>, <span style="color:#a6e22e">curPoint</span>) <span style="color:#f92672">/</span> <span style="color:#a6e22e">speed</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">siteTimes</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">timeSum</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">timeSum</span>, <span style="color:#a6e22e">siteTimes</span> };
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 计算多个点的总距离
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">static</span> <span style="color:#a6e22e">getSpaceDistance</span>(...<span style="color:#a6e22e">positions</span>: <span style="color:#66d9ef">Cartesian3</span>[])<span style="color:#f92672">:</span> <span style="color:#66d9ef">number</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sumDistance</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">positions</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">prePoint</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Cartographic</span>.<span style="color:#a6e22e">fromCartesian</span>(<span style="color:#a6e22e">positions</span>[<span style="color:#a6e22e">i</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">curPoint</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Cartographic</span>.<span style="color:#a6e22e">fromCartesian</span>(<span style="color:#a6e22e">positions</span>[<span style="color:#a6e22e">i</span>]);
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 计算当前点到上一点的距离
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">geodesic</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">EllipsoidGeodesic</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">geodesic</span>.<span style="color:#a6e22e">setEndPoints</span>(<span style="color:#a6e22e">prePoint</span>, <span style="color:#a6e22e">curPoint</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">horizontalDistance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">geodesic</span>.<span style="color:#a6e22e">surfaceDistance</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">verticalDistance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">prePoint</span>.<span style="color:#a6e22e">height</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">curPoint</span>.<span style="color:#a6e22e">height</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">sumDistance</span> <span style="color:#f92672">+=</span> Math.<span style="color:#a6e22e">sqrt</span>(
+</span></span><span style="display:flex;"><span>        Math.<span style="color:#a6e22e">pow</span>(<span style="color:#a6e22e">horizontalDistance</span>, <span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> Math.<span style="color:#a6e22e">pow</span>(<span style="color:#a6e22e">verticalDistance</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">sumDistance</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">toTracksWithJuliDate</span>(<span style="color:#a6e22e">tracks</span>: <span style="color:#66d9ef">Track</span>[] <span style="color:#f92672">|</span> <span style="color:#a6e22e">TrackWithTime</span>[])<span style="color:#f92672">:</span> <span style="color:#a6e22e">TrackWithJuliDate</span>[] {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 如果已经是trackWithTime 直接返回
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> ((<span style="color:#a6e22e">tracks</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">TrackWithTime</span>[])[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">time</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//将时间转为julidate
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getTracksWithJulidateFromTrackWithTime</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">tracks</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">TrackWithTime</span>[]
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getTracksWithJulidateFromTracks</span>(<span style="color:#a6e22e">tracks</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">Track</span>[]);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getTracksWithJulidateFromTracks</span>(<span style="color:#a6e22e">tracks</span>: <span style="color:#66d9ef">Track</span>[]) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tracksWithJuliDate</span>: <span style="color:#66d9ef">TrackWithJuliDate</span>[] <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">startTime</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JulianDate</span>.<span style="color:#a6e22e">fromDate</span>(<span style="color:#66d9ef">new</span> Date());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">stopTime</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">startTime</span>.<span style="color:#a6e22e">clone</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 如果有时间，根据时间计算速度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">times</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">speeds</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">times</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">time</span>, <span style="color:#a6e22e">i</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">speed</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">TracksManager</span>.<span style="color:#a6e22e">getSpaceDistance</span>(...<span style="color:#a6e22e">tracks</span>[<span style="color:#a6e22e">i</span>]) <span style="color:#f92672">/</span> <span style="color:#a6e22e">time</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">speeds</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">speed</span>);
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 按照速度计算日期
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">tracks</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">track</span>, <span style="color:#a6e22e">i</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> { <span style="color:#a6e22e">siteTimes</span>, <span style="color:#a6e22e">timeSum</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">TracksManager</span>.<span style="color:#a6e22e">getSiteTime</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">track</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">speeds</span>[<span style="color:#a6e22e">i</span>]
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">tracksWithJuliDate</span>.<span style="color:#a6e22e">push</span>([]);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">siteTimes</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">time</span>, <span style="color:#a6e22e">j</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">tracksWithJuliDate</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">push</span>({
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">position</span>: <span style="color:#66d9ef">track</span>[<span style="color:#a6e22e">j</span>],
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">time</span>: <span style="color:#66d9ef">JulianDate.addSeconds</span>(<span style="color:#a6e22e">stopTime</span>, <span style="color:#a6e22e">time</span>, <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">JulianDate</span>()),
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">stopTime</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JulianDate</span>.<span style="color:#a6e22e">addSeconds</span>(<span style="color:#a6e22e">stopTime</span>, <span style="color:#a6e22e">timeSum</span>, <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">JulianDate</span>());
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">stopTime</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">stopTime</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">tracksWithJuliDate</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getTWJFromTrack</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">track</span>: <span style="color:#66d9ef">Track</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">startTime</span>: <span style="color:#66d9ef">JulianDate</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">speed</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">25</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">time?</span>: <span style="color:#66d9ef">number</span>
+</span></span><span style="display:flex;"><span>  ) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">twj</span>: <span style="color:#66d9ef">TrackWithJuliDate</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">time</span>) <span style="color:#a6e22e">speed</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">TracksManager</span>.<span style="color:#a6e22e">getSpaceDistance</span>(...<span style="color:#a6e22e">track</span>) <span style="color:#f92672">/</span> <span style="color:#a6e22e">time</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">siteTimes</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">TracksManager</span>.<span style="color:#a6e22e">getSiteTime</span>(<span style="color:#a6e22e">track</span>, <span style="color:#a6e22e">speed</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">track</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">carte3</span>, <span style="color:#a6e22e">i</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">twj</span>.<span style="color:#a6e22e">push</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">position</span>: <span style="color:#66d9ef">carte3</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">time</span>: <span style="color:#66d9ef">JulianDate.addSeconds</span>(<span style="color:#a6e22e">startTime</span>, <span style="color:#a6e22e">siteTimes</span>[<span style="color:#a6e22e">i</span>], <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">JulianDate</span>()),
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">twj</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getTWJFromTWT</span>(<span style="color:#a6e22e">track</span>: <span style="color:#66d9ef">TrackWithTime</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">twj</span>: <span style="color:#66d9ef">TrackWithJuliDate</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">track</span>.<span style="color:#a6e22e">forEach</span>(({ <span style="color:#a6e22e">position</span>, <span style="color:#a6e22e">time</span> }) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">twj</span>.<span style="color:#a6e22e">push</span>({ <span style="color:#a6e22e">position</span>, <span style="color:#a6e22e">time</span>: <span style="color:#66d9ef">JulianDate.fromDate</span>(<span style="color:#a6e22e">time</span>) });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">twj</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 从TrackWithTime获取轨迹
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">getTracksWithJulidateFromTrackWithTime</span>(<span style="color:#a6e22e">tracks</span>: <span style="color:#66d9ef">TrackWithTime</span>[]) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tracksWithJuliDate</span>: <span style="color:#66d9ef">TrackWithJuliDate</span>[] <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">tracks</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">track</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">tracksWithJuliDate</span>.<span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getTWJFromTWT</span>(<span style="color:#a6e22e">track</span>));
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getStartAndStopFromTracksWithTime</span>(<span style="color:#a6e22e">tracks</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">tracksWithJuliDate</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 获取startTime和stopTime 从TrackWithTime
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">getStartAndStopFromTracksWithTime</span>(<span style="color:#a6e22e">tracks</span>: <span style="color:#66d9ef">TrackWithTime</span>[]) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">minStart</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tracks</span>[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">time</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">maxEnd</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tracks</span>[<span style="color:#ae81ff">0</span>][<span style="color:#a6e22e">tracks</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">time</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">tracks</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">start</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tracks</span>[<span style="color:#a6e22e">i</span>][<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">time</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">end</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tracks</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">tracks</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">time</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">minStart</span> <span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">start</span>) <span style="color:#a6e22e">minStart</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">start</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">maxEnd</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">end</span>) <span style="color:#a6e22e">maxEnd</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">end</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">startTime</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JulianDate</span>.<span style="color:#a6e22e">fromDate</span>(<span style="color:#a6e22e">minStart</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">stopTime</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JulianDate</span>.<span style="color:#a6e22e">fromDate</span>(<span style="color:#a6e22e">maxEnd</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">minStart</span>, <span style="color:#a6e22e">maxEnd</span>];
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getStartAndStopFromTracksWithJulidate</span>(<span style="color:#a6e22e">tracks</span>: <span style="color:#66d9ef">TrackWithJuliDate</span>[]) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">tracks</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">startTime</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">JulianDate</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">stopTime</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">JulianDate</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">minStart</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tracks</span>[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">time</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">maxEnd</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tracks</span>[<span style="color:#ae81ff">0</span>][<span style="color:#a6e22e">tracks</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">time</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">tracks</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">start</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tracks</span>[<span style="color:#a6e22e">i</span>][<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">time</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">end</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tracks</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">tracks</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">time</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">JulianDate</span>.<span style="color:#a6e22e">compare</span>(<span style="color:#a6e22e">minStart</span>, <span style="color:#a6e22e">start</span>) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#a6e22e">minStart</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">start</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">JulianDate</span>.<span style="color:#a6e22e">compare</span>(<span style="color:#a6e22e">maxEnd</span>, <span style="color:#a6e22e">end</span>) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#a6e22e">maxEnd</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">end</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">startTime</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">minStart</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">stopTime</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">maxEnd</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">minStart</span>, <span style="color:#a6e22e">maxEnd</span>];
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fillArray</span>&lt;<span style="color:#f92672">T</span>&gt;(<span style="color:#a6e22e">value</span>: <span style="color:#66d9ef">T</span>, <span style="color:#a6e22e">length?</span>: <span style="color:#66d9ef">number</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">length</span>) <span style="color:#66d9ef">return</span> [];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">value</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * 传入成员类型可能为一个二维数组或一维数组，返回一个二维数组
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param arr
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getTwoDimensionArray</span>&lt;<span style="color:#f92672">T1</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">T2</span>&gt;(
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">arr</span>: <span style="color:#66d9ef">T1</span> <span style="color:#f92672">|</span> Array&lt;<span style="color:#f92672">T1</span>&gt; <span style="color:#f92672">|</span> <span style="color:#a6e22e">T2</span> <span style="color:#f92672">|</span> Array&lt;<span style="color:#f92672">T2</span>&gt;
+</span></span><span style="display:flex;"><span>  )<span style="color:#f92672">:</span> Array&lt;<span style="color:#f92672">T1</span>&gt; <span style="color:#f92672">|</span> Array&lt;<span style="color:#f92672">T2</span>&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">arr</span>) <span style="color:#f92672">&amp;&amp;</span> Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>])) {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//如果arr 是一个二维数组直接返回
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//否则，将其转换为二维数组返回
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">arr</span>] <span style="color:#66d9ef">as</span> Array&lt;<span style="color:#f92672">T1</span>&gt; <span style="color:#f92672">|</span> Array&lt;<span style="color:#f92672">T2</span>&gt;;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">removeItemInArr</span>&lt;<span style="color:#f92672">T</span>&gt;(<span style="color:#a6e22e">arr</span>: <span style="color:#66d9ef">Array</span>&lt;<span style="color:#f92672">T</span>&gt;, <span style="color:#a6e22e">item</span>: <span style="color:#66d9ef">T</span>)<span style="color:#f92672">:</span> Array&lt;<span style="color:#f92672">T</span>&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newArr</span>: <span style="color:#66d9ef">T</span>[] <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">ele</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">arr</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">item</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">arr</span>) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">newArr</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">ele</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">newArr</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/aozmgse9cnp4kg8t/"><h4 class="card-text--title text-ellipsis">WebGPU</h4></a>
+    <p class="card-text--row">2023-06-26 07:57</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2023/png/29064333/1687760495626-f065395c-794e-48d4-aa8e-07d39924d2e6.png"></div>
+  <div class="card-text">
+    <a href="/docs/uwvo1sbp9k1ub9ib/"><h4 class="card-text--title text-ellipsis">绘制圆形轨道</h4></a>
+    <p class="card-text--row">2023-06-26 06:21</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents"></nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

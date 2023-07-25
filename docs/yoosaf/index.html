@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>统计子串中的唯一字符 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="统计子串中的唯一字符" />
+<meta property="og:description" content="题目描述 leetcode 解法1. 穷举法 思路： 采用滑动窗口来寻找所有的子串，并统计子串的唯一字符的个数 临界条件： :::info 窗口的起始位置索引 **i**，窗口的宽度 *" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/yoosaf/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-09-06T03:14:33+00:00" />
+<meta property="article:modified_time" content="2023-07-04T01:46:22+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="统计子串中的唯一字符"/>
+<meta name="twitter:description" content="题目描述 leetcode 解法1. 穷举法 思路： 采用滑动窗口来寻找所有的子串，并统计子串的唯一字符的个数 临界条件： :::info 窗口的起始位置索引 **i**，窗口的宽度 *"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1662434085867-1a4dce13-3a51-4f96-9a4e-084023bbdca3.png" alt="https://cdn.nlark.com/yuque/0/2022/png/29064333/1662434085867-1a4dce13-3a51-4f96-9a4e-084023bbdca3.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">统计子串中的唯一字符</h1>
+    
+      <p class="card-text--row">2022-09-06 03:14</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="题目描述">题目描述</h2>
+<p>
+  <figure class="figure-image">
+    <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1662434085867-1a4dce13-3a51-4f96-9a4e-084023bbdca3.png#clientId=ud34d1610-ce4c-4&amp;from=paste&amp;height=524&amp;id=u7beca74c&amp;originHeight=655&amp;originWidth=611&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=true&amp;size=45080&amp;status=done&amp;style=none&amp;taskId=u46d63bde-3839-446c-a6c6-c4f95b4aaee&amp;title=leetcode&amp;width=488.8" title="leetcode" alt="leetcode" loading="lazy" />
+    <figcaption>leetcode</figcaption>
+  </figure>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="解法1-穷举法">解法1. 穷举法</h2>
+<p>思路：</p>
+<blockquote>
+<p>采用滑动窗口来寻找所有的子串，并统计子串的唯一字符的个数</p>
+</blockquote>
+<p>临界条件：
+:::info
+窗口的起始位置索引 <code>**i**</code>，窗口的宽度 <code>**width**</code>,字符串的长度<code>**length**</code><!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/__latex/bb6a2d552d76d88d17388da0145295b7.svg#card=math&amp;code=i%2Bwidth%3Clength&amp;id=duCWf" alt="" loading="lazy" /></p>
+
+:::</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {string} s
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {number}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">uniqueLetterString</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">s</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//获得一个字符串的无重复字符的数量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">countUniqueChars</span><span style="color:#f92672">=</span>(<span style="color:#a6e22e">s</span>)=&gt;{
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">count</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">map</span><span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Map</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">length</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">c</span><span style="color:#f92672">=</span><span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">i</span>])<span style="color:#f92672">||</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">i</span>],<span style="color:#a6e22e">c</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">val</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">values</span>()){
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">val</span><span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>){
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">count</span><span style="color:#f92672">++</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">count</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sum</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">length</span><span style="color:#f92672">=</span><span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">length</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#a6e22e">length</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 以一个滑动窗口来获取子串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span>(<span style="color:#a6e22e">width</span><span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">1</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#a6e22e">width</span><span style="color:#f92672">&lt;=</span><span style="color:#a6e22e">length</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">subStr</span><span style="color:#f92672">=</span><span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#a6e22e">i</span>,<span style="color:#a6e22e">width</span><span style="color:#f92672">+</span><span style="color:#a6e22e">i</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">subStr</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">sum</span><span style="color:#f92672">+=</span><span style="color:#a6e22e">countUniqueChars</span>(<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#a6e22e">i</span>,<span style="color:#a6e22e">width</span><span style="color:#f92672">+</span><span style="color:#a6e22e">i</span>))
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">width</span><span style="color:#f92672">--</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sum</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">sum</span>
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="解法2-计算每个子串">解法2 计算每个子串</h2>
+<p>思路：
+:::danger
+观察到，字符串中的每个字符都会对某些子串贡献一个无重复字符。因此只需要找出每个字符贡献的子串的个数，再累加起来
+:::
+临界条件：
+:::info
+对于字符串中的一个字符的第i个重复的字符的索引<code>**c****i**</code>包含它的子串可以通过一个滑动窗口来获得。窗口的起始位置的范围为上一个重复字符<code>**c****i-1****+1**</code><strong>到</strong><code>**ci**</code>，窗口的结束位置为<code>**c****i**</code>到<code>**c****i+1****-1**</code>。则起始位置共有<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/__latex/af6ccf224283b27737064b8a59f47330.svg#card=math&amp;code=c_i-c_%7Bi-1%7D%0A&amp;id=phMav" alt="" loading="lazy" /></p>
+种可能<!-- raw HTML omitted -->终止位置有<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/__latex/fec955b188f632d85cfa5b5402ac0bf3.svg#card=math&amp;code=c_%7Bi%2B1%7D-c_%7Bi%7D&amp;id=kIAyJ" alt="" loading="lazy" /></p>
+种可能<!-- raw HTML omitted -->所以，包含某一唯一字符的索引的子串的个数最多有<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/__latex/1725b0043ffe672e40129802b3c37647.svg#card=math&amp;code=%28c_i-c_%7Bi-1%7D%29%2A%28c_%7Bi%2B1%7D-c_%7Bi%7D%29&amp;id=MlDQt" alt="" loading="lazy" /></p>
+种<!-- raw HTML omitted -->注意：</p>
+<ul>
+<li>如果当前字符的前面没有重复字符的时候，
+  <p><img src="https://cdn.nlark.com/yuque/__latex/8a9eddc427301f61fc86d5ce986e0147.svg#card=math&amp;code=c_%7Bi-1%7D%3D-1&amp;id=DeNku" alt="" loading="lazy" /></p>
+</li>
+<li>如果当前字符的后面没有重复的字符的时候，
+  <p><img src="https://cdn.nlark.com/yuque/__latex/5605b7abf8a77f3c3f8c9beea7ef0f69.svg#card=math&amp;code=c_%7Bi%2B1%7D%3Dlength&amp;id=OYn8A" alt="" loading="lazy" /></p>
+
+:::</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {string} s
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {number}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">uniqueLetterString</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">s</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//获取同一字符的索引位置
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">map</span><span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Map</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">length</span><span style="color:#f92672">=</span><span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">length</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sum</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">length</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">has</span>(<span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">i</span>])){
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">i</span>]).<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">i</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">i</span>],[<span style="color:#a6e22e">i</span>])
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//遍历每个字符出现的索引数组
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arr</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">values</span>()){
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//将索引数组前后拼接-1和length
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">arr</span><span style="color:#f92672">=</span>[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,...<span style="color:#a6e22e">arr</span>,<span style="color:#a6e22e">length</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">l</span><span style="color:#f92672">=</span><span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">l</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">sum</span><span style="color:#f92672">+=</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]<span style="color:#f92672">-</span><span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])<span style="color:#f92672">*</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">-</span><span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>])
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">sum</span>
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//遍历索引数组的另外一种写法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arr</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">values</span>()){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">l</span><span style="color:#f92672">=</span><span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//计算第一个字符贡献的子串的个数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">sum</span><span style="color:#f92672">+=</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">*</span>((<span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">||</span><span style="color:#a6e22e">length</span>)<span style="color:#f92672">-</span><span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">l</span><span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">2</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//计算最后一个字符贡献的子串的个数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#a6e22e">sum</span><span style="color:#f92672">+=</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">l</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">-</span><span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">l</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>])<span style="color:#f92672">*</span>(<span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">l</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">l</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">sum</span><span style="color:#f92672">+=</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]<span style="color:#f92672">-</span><span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])<span style="color:#f92672">*</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">-</span><span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>])
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div>
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1662467227844-61cbd6e4-0194-4550-89df-233fd9338615.png"></div>
+  <div class="card-text">
+    <a href="/docs/aiz6gk/"><h4 class="card-text--title text-ellipsis">图论</h4></a>
+    <p class="card-text--row">2022-09-06 11:52</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1662380969766-1269922c-70ab-4d5a-a60b-da53c19863c5.png"></div>
+  <div class="card-text">
+    <a href="/docs/omlwlb/"><h4 class="card-text--title text-ellipsis">跳跃游戏</h4></a>
+    <p class="card-text--row">2022-09-05 12:30</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#题目描述">题目描述</a></li>
+        <li><a href="#解法1-穷举法">解法1. 穷举法</a></li>
+        <li><a href="#解法2-计算每个子串">解法2 计算每个子串</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

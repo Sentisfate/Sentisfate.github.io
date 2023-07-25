@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>WMS服务 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="WMS服务" />
+<meta property="og:description" content="支持的操作： GetCapabilities 请求服务的元数据 GetMap请求地图图像 GetFeatureInfo请求关于地图要素的信息 GetLegendGraphic请求" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/psm94b3iqr9061zw/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2023-06-28T02:01:33+00:00" />
+<meta property="article:modified_time" content="2023-06-28T06:46:54+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="WMS服务"/>
+<meta name="twitter:description" content="支持的操作： GetCapabilities 请求服务的元数据 GetMap请求地图图像 GetFeatureInfo请求关于地图要素的信息 GetLegendGraphic请求"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1687919811787-2e5355da-99f2-4f63-9c45-f2940c957839.png" alt="https://cdn.nlark.com/yuque/0/2023/png/29064333/1687919811787-2e5355da-99f2-4f63-9c45-f2940c957839.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">WMS服务</h1>
+    
+      <p class="card-text--row">2023-06-28 02:01</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p>支持的操作：</p>
+<ul>
+<li><code>GetCapabilities</code> 请求服务的元数据</li>
+<li><code>GetMap</code>请求地图图像</li>
+<li><code>GetFeatureInfo</code>请求关于地图要素的信息</li>
+<li><code>GetLegendGraphic</code>请求图例</li>
+<li><code>GetStyles</code>请求用户自定义的样式</li>
+</ul>
+<p>WMS必须至少支持<code>GetCapabilities</code> <code>GetMap</code>操作，根据服务的元数据来确定支持那些操作.</p>
+<blockquote>
+<p>元数据的类型，不同元数据支持什么操作？</p>
+</blockquote>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="getcapabilities">GetCapabilities</h2>
+<p>可以通过类似下面的地址来获取一个服务的元数据，<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1687919811787-2e5355da-99f2-4f63-9c45-f2940c957839.png#averageHue=%23edebea&amp;clientId=ua9da6cc7-7d75-4&amp;from=paste&amp;height=202&amp;id=uad8a6356&amp;originHeight=202&amp;originWidth=702&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=37622&amp;status=done&amp;style=none&amp;taskId=u79b3c3e0-dfd2-4164-ab90-87ef60185a7&amp;title=&amp;width=702" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted --><code>http://localhost:8080/geoserver/newSpace/wms?service=WMS&amp;request=GetCapabilities</code></p>
+<ul>
+<li>http://localhost:8080/geoserver/Space/wms 请求路径</li>
+<li>service=WMS 请求的服务类型</li>
+<li>request=GetCapabilities 请求的操作</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>This XML file does not appear to have any style information associated with it. The document tree is shown below.
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;WMS_Capabilities</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.opengis.net/wms&#34;</span> <span style="color:#a6e22e">xmlns:xlink=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/xlink&#34;</span> <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.3.0&#34;</span> <span style="color:#a6e22e">updateSequence=</span><span style="color:#e6db74">&#34;388&#34;</span> <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.opengis.net/wms http://localhost:8080/geoserver/schemas/wms/1.3.0/capabilities_1_3_0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;Service&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;Name&gt;</span>WMS<span style="color:#f92672">&lt;/Name&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;Title&gt;</span>GeoServer Web Map Service<span style="color:#f92672">&lt;/Title&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;Abstract&gt;</span>A compliant implementation of WMS plus most of the SLD extension (dynamic styling). Can also generate PDF, SVG, KML, GeoRSS<span style="color:#f92672">&lt;/Abstract&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;KeywordList&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;Keyword&gt;</span>WMS<span style="color:#f92672">&lt;/Keyword&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;Keyword&gt;</span>GEOSERVER<span style="color:#f92672">&lt;/Keyword&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/KeywordList&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;OnlineResource</span> <span style="color:#a6e22e">xlink:type=</span><span style="color:#e6db74">&#34;simple&#34;</span> <span style="color:#a6e22e">xlink:href=</span><span style="color:#e6db74">&#34;http://geoserver.org&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;ContactInformation&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;ContactPersonPrimary&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;ContactPerson&gt;</span>Claudius Ptolomaeus<span style="color:#f92672">&lt;/ContactPerson&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;ContactOrganization&gt;</span>OSGeo<span style="color:#f92672">&lt;/ContactOrganization&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/ContactPersonPrimary&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;ContactPosition&gt;</span>Chief Geographer<span style="color:#f92672">&lt;/ContactPosition&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;ContactAddress&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;AddressType&gt;</span>Work<span style="color:#f92672">&lt;/AddressType&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Address/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;City&gt;</span>Alexandria<span style="color:#f92672">&lt;/City&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;StateOrProvince&gt;</span>Egypt<span style="color:#f92672">&lt;/StateOrProvince&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;PostCode/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Country&gt;</span>Roman Empire<span style="color:#f92672">&lt;/Country&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/ContactAddress&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;ContactVoiceTelephone/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;ContactFacsimileTelephone/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;ContactElectronicMailAddress&gt;</span>claudius.ptolomaeus@mercury.olympus.gov<span style="color:#f92672">&lt;/ContactElectronicMailAddress&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/ContactInformation&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;Fees&gt;</span>NONE<span style="color:#f92672">&lt;/Fees&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;AccessConstraints&gt;</span>NONE<span style="color:#f92672">&lt;/AccessConstraints&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/Service&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;Capability&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;Request&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;GetCapabilities&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>text/xml<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;DCPType&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;HTTP&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;Get&gt;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&lt;OnlineResource</span> <span style="color:#a6e22e">xlink:type=</span><span style="color:#e6db74">&#34;simple&#34;</span> <span style="color:#a6e22e">xlink:href=</span><span style="color:#e6db74">&#34;http://localhost:8080/geoserver/newSpace/ows?SERVICE=WMS&amp;&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;/Get&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;Post&gt;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&lt;OnlineResource</span> <span style="color:#a6e22e">xlink:type=</span><span style="color:#e6db74">&#34;simple&#34;</span> <span style="color:#a6e22e">xlink:href=</span><span style="color:#e6db74">&#34;http://localhost:8080/geoserver/newSpace/ows?SERVICE=WMS&amp;&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;/Post&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;/HTTP&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/DCPType&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/GetCapabilities&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;GetMap&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>image/png<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>application/atom+xml<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>application/json;type=utfgrid<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>application/pdf<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>application/rss+xml<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>application/vnd.google-earth.kml+xml<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>application/vnd.google-earth.kml+xml;mode=networklink<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>application/vnd.google-earth.kmz<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>image/geotiff<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>image/geotiff8<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>image/gif<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>image/jpeg<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>image/png; mode=8bit<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>image/svg+xml<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>image/tiff<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>image/tiff8<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>image/vnd.jpeg-png<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>image/vnd.jpeg-png8<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>text/html; subtype=openlayers<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>text/html; subtype=openlayers2<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>text/html; subtype=openlayers3<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;DCPType&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;HTTP&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;Get&gt;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&lt;OnlineResource</span> <span style="color:#a6e22e">xlink:type=</span><span style="color:#e6db74">&#34;simple&#34;</span> <span style="color:#a6e22e">xlink:href=</span><span style="color:#e6db74">&#34;http://localhost:8080/geoserver/newSpace/ows?SERVICE=WMS&amp;&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;/Get&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;/HTTP&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/DCPType&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/GetMap&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;GetFeatureInfo&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>text/plain<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>application/vnd.ogc.gml<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>text/xml<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>application/vnd.ogc.gml/3.1.1<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>text/xml; subtype=gml/3.1.1<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>text/html<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>application/json<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;DCPType&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;HTTP&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;Get&gt;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&lt;OnlineResource</span> <span style="color:#a6e22e">xlink:type=</span><span style="color:#e6db74">&#34;simple&#34;</span> <span style="color:#a6e22e">xlink:href=</span><span style="color:#e6db74">&#34;http://localhost:8080/geoserver/newSpace/ows?SERVICE=WMS&amp;&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;/Get&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;/HTTP&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/DCPType&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/GetFeatureInfo&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/Request&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;Exception&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;Format&gt;</span>XML<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;Format&gt;</span>INIMAGE<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;Format&gt;</span>BLANK<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;Format&gt;</span>JSON<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/Exception&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;Layer&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;Title&gt;</span>GeoServer Web Map Service<span style="color:#f92672">&lt;/Title&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;Abstract&gt;</span>A compliant implementation of WMS plus most of the SLD extension (dynamic styling). Can also generate PDF, SVG, KML, GeoRSS<span style="color:#f92672">&lt;/Abstract&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;EX_GeographicBoundingBox&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;westBoundLongitude&gt;</span>110.48667429534434<span style="color:#f92672">&lt;/westBoundLongitude&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;eastBoundLongitude&gt;</span>112.2999236963396<span style="color:#f92672">&lt;/eastBoundLongitude&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;southBoundLatitude&gt;</span>28.408119429996205<span style="color:#f92672">&lt;/southBoundLatitude&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;northBoundLatitude&gt;</span>30.128876030438512<span style="color:#f92672">&lt;/northBoundLatitude&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/EX_GeographicBoundingBox&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;BoundingBox</span> <span style="color:#a6e22e">CRS=</span><span style="color:#e6db74">&#34;CRS:84&#34;</span> <span style="color:#a6e22e">minx=</span><span style="color:#e6db74">&#34;110.48667429534434&#34;</span> <span style="color:#a6e22e">miny=</span><span style="color:#e6db74">&#34;28.408119429996205&#34;</span> <span style="color:#a6e22e">maxx=</span><span style="color:#e6db74">&#34;112.2999236963396&#34;</span> <span style="color:#a6e22e">maxy=</span><span style="color:#e6db74">&#34;30.128876030438512&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;Layer</span> <span style="color:#a6e22e">queryable=</span><span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#a6e22e">opaque=</span><span style="color:#e6db74">&#34;0&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Name&gt;</span>dem<span style="color:#f92672">&lt;/Name&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Title&gt;</span>dem<span style="color:#f92672">&lt;/Title&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Abstract/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;KeywordList&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;Keyword&gt;</span>dem<span style="color:#f92672">&lt;/Keyword&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;Keyword&gt;</span>WCS<span style="color:#f92672">&lt;/Keyword&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;Keyword&gt;</span>GeoTIFF<span style="color:#f92672">&lt;/Keyword&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/KeywordList&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;CRS&gt;</span>EPSG:3857<span style="color:#f92672">&lt;/CRS&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;CRS&gt;</span>CRS:84<span style="color:#f92672">&lt;/CRS&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;EX_GeographicBoundingBox&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;westBoundLongitude&gt;</span>110.48667429534434<span style="color:#f92672">&lt;/westBoundLongitude&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;eastBoundLongitude&gt;</span>112.2999236963396<span style="color:#f92672">&lt;/eastBoundLongitude&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;southBoundLatitude&gt;</span>28.408119429996205<span style="color:#f92672">&lt;/southBoundLatitude&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;northBoundLatitude&gt;</span>30.128876030438512<span style="color:#f92672">&lt;/northBoundLatitude&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/EX_GeographicBoundingBox&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;BoundingBox</span> <span style="color:#a6e22e">CRS=</span><span style="color:#e6db74">&#34;CRS:84&#34;</span> <span style="color:#a6e22e">minx=</span><span style="color:#e6db74">&#34;110.48667429534434&#34;</span> <span style="color:#a6e22e">miny=</span><span style="color:#e6db74">&#34;28.408119429996205&#34;</span> <span style="color:#a6e22e">maxx=</span><span style="color:#e6db74">&#34;112.2999236963396&#34;</span> <span style="color:#a6e22e">maxy=</span><span style="color:#e6db74">&#34;30.128876030438512&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;BoundingBox</span> <span style="color:#a6e22e">CRS=</span><span style="color:#e6db74">&#34;EPSG:3857&#34;</span> <span style="color:#a6e22e">minx=</span><span style="color:#e6db74">&#34;1.2299320322E7&#34;</span> <span style="color:#a6e22e">miny=</span><span style="color:#e6db74">&#34;3300526.4354&#34;</span> <span style="color:#a6e22e">maxx=</span><span style="color:#e6db74">&#34;1.2501170322E7&#34;</span> <span style="color:#a6e22e">maxy=</span><span style="color:#e6db74">&#34;3520126.4354&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Style&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;Name&gt;</span>dem1<span style="color:#f92672">&lt;/Name&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;Title&gt;</span>dem1<span style="color:#f92672">&lt;/Title&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;LegendURL</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;82&#34;</span> <span style="color:#a6e22e">height=</span><span style="color:#e6db74">&#34;273&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;Format&gt;</span>image/png<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;OnlineResource</span> <span style="color:#a6e22e">xmlns:xlink=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/xlink&#34;</span> <span style="color:#a6e22e">xlink:type=</span><span style="color:#e6db74">&#34;simple&#34;</span> <span style="color:#a6e22e">xlink:href=</span><span style="color:#e6db74">&#34;http://localhost:8080/geoserver/newSpace/ows?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=dem&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;/LegendURL&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/Style&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/Layer&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/Layer&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/Capability&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/WMS_Capabilities&gt;</span>
+</span></span></code></pre></div><ol>
+<li>service 之间描述的是服务的名称，关键词，等信息</li>
+<li>Capability 之间描述的是服务支持的操作及包含的图层
+<ol>
+<li>Request 支持的操作</li>
+<li>Layer 服务包含的图层，样式信息，图例信息等</li>
+<li>DCPType 规定了请求的方式</li>
+</ol>
+</li>
+</ol>
+<p>根据元数据信息，可以使用GetMap进行请求地图
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="getmap">GetMap</h2>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1687920013151-40eb3d7d-147e-4521-977e-38d344dcd278.png#averageHue=%23edebe9&amp;clientId=ua9da6cc7-7d75-4&amp;from=paste&amp;height=455&amp;id=u583a9853&amp;originHeight=455&amp;originWidth=699&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=104279&amp;status=done&amp;style=none&amp;taskId=u841268c8-5eb1-4327-b45f-b68b8a6864e&amp;title=&amp;width=699" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted --><code>http://localhost:8080/geoserver/newSpace/wms?service=WMS&amp;request=GetMap&amp;CRS=EPSG:3857&amp;version=1.3.0&amp;Layers=dem&amp;styles=dem1&amp;bbox=1.2299320322E7,3300526.4354,1.2501170322E7,3520126.4354&amp;width=1200&amp;height=900&amp;format=image/png&amp;transparent=true</code><!-- raw HTML omitted -->将上面这串url输入到浏览器中可以得到下面的图片<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1687930823290-cdd9341b-9971-4fed-9c89-b08703ccdf91.png#averageHue=%2336a404&amp;clientId=ua9da6cc7-7d75-4&amp;from=paste&amp;height=695&amp;id=u5a8da2ec&amp;originHeight=695&amp;originWidth=906&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=405395&amp;status=done&amp;style=none&amp;taskId=uf30ada93-c488-4fa8-b7bc-b0d68ba8013&amp;title=&amp;width=906" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->WMS getMap请求涉及到的字段如表中所示，</p>
+<ul>
+<li>version  The mandatory VERSION parameter is defined in 6.9.1. The value “1.3.0” shall be used for GetMap requests that comply with this International Standard.  最新版应填1.3.0</li>
+<li>request 为getMap</li>
+<li>Layers为要请求的图层名称，多个图层<code>,</code>分隔</li>
+<li>Width 图片宽度，像素</li>
+<li>Height 高度，像素</li>
+<li>Styles 样式名称</li>
+<li>Format 元数据支持的格式
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ul>
+<h2 id="getfeatureinfo">GetFeatureInfo</h2>
+<p>获取要素信息</p>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2023/png/29064333/1687932181471-9cd771ed-5138-4306-a803-ad1b1c853f4b.png"></div>
+  <div class="card-text">
+    <a href="/docs/obcagrk4il65cm4s/"><h4 class="card-text--title text-ellipsis">获取地图服务遇到的问题</h4></a>
+    <p class="card-text--row">2023-06-28 05:58</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2023/png/29064333/1687945606073-393425ef-0e97-4280-813e-a3245e10dfee.png"></div>
+  <div class="card-text">
+    <a href="/docs/pm7bhup41curff3p/"><h4 class="card-text--title text-ellipsis">TypedArray</h4></a>
+    <p class="card-text--row">2023-06-27 07:21</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#getcapabilities">GetCapabilities</a></li>
+        <li><a href="#getmap">GetMap</a></li>
+        <li><a href="#getfeatureinfo">GetFeatureInfo</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

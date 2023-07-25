@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>IndexedDB 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="IndexedDB" />
+<meta property="og:description" content="IndexedDB是一个事务性数据库系统，，一种底层API，用于客户端存储大量结构化数据也包括文件/二进制大型对象（blobs））。调试工具" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/pg7m6ol3hvf03flq/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2023-03-17T02:57:54+00:00" />
+<meta property="article:modified_time" content="2023-05-17T06:52:56+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="IndexedDB"/>
+<meta name="twitter:description" content="IndexedDB是一个事务性数据库系统，，一种底层API，用于客户端存储大量结构化数据也包括文件/二进制大型对象（blobs））。调试工具"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679915650717-36baa31e-6f2f-4c3c-a42c-a680793f7479.png" alt="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679915650717-36baa31e-6f2f-4c3c-a42c-a680793f7479.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">IndexedDB</h1>
+    
+      <p class="card-text--row">2023-03-17 02:57</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p>IndexedDB是一个事务性数据库系统，，一种底层API，用于客户端存储大量结构化数据也包括文件/二进制大型对象（blobs））。<!-- raw HTML omitted -->调试工具-&gt;应用里可以看到。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="存储限制">存储限制</h2>
+<p>理论上该数据库存储限制无大小，为计算机硬盘空间的一半。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="使用">使用</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyIndexedDB</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * 打开一个DB，并允许创建仓库并初始化数据，将db挂在this.db
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param {object} dbOption {name:打开的数据库的名称,version:版本号,onsuccess,onerror,onupgradeneeded}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param {object} createStoreOption {name:创建对象仓库的名称,option:创建对象仓库的选项,indexArr:索引数组[ string|[index,key-path,option] ],initData:array 初始化数据 要额外传key的需要 [data,key]}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @returns
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">dbOption</span>, <span style="color:#a6e22e">createStoreOption</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>window.<span style="color:#a6e22e">indexedDB</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">dbName</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">version</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">onsuccess</span> <span style="color:#f92672">=</span> () =&gt; {},
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">onerror</span> <span style="color:#f92672">=</span> () =&gt; {},
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">onupgradeneeded</span> <span style="color:#f92672">=</span> () =&gt; {},
+</span></span><span style="display:flex;"><span>    } <span style="color:#f92672">=</span> <span style="color:#a6e22e">dbOption</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//新建或打开一个数据库
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">request</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">indexedDB</span>.<span style="color:#a6e22e">open</span>(<span style="color:#a6e22e">dbName</span>, <span style="color:#a6e22e">version</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">onsuccess</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">e</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">db</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">onsuccess</span>(<span style="color:#a6e22e">e</span>);
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">onerror</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">e</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">onerror</span>(<span style="color:#a6e22e">e</span>);
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">onupgradeneeded</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">e</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">db</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">createStoreOption</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">obStoreName</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">option</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">obStoreOption</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">indexArr</span> <span style="color:#f92672">=</span> [],
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">initData</span> <span style="color:#f92672">=</span> [],
+</span></span><span style="display:flex;"><span>        } <span style="color:#f92672">=</span> <span style="color:#a6e22e">createStoreOption</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">obStoreName</span>)
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">createObjectStore</span>(
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">obStoreName</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">obStoreOption</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">indexArr</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">initData</span>
+</span></span><span style="display:flex;"><span>          );
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">onupgradeneeded</span>(<span style="color:#a6e22e">e</span>);
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * 创建对象仓库，
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param {string} name 对象仓库名称
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param {object} option 创建对象仓库时的选项
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param {array[]} indexArr 子元素可为string或者array，单个元素表示index和key-path，无其他选项 子元素为数组时，表示createIndex(index key-path option)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param {array} initData 表示初始化数据库里的数据,单个元素可为数组[data,key]或者data
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">createObjectStore</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">option</span>, <span style="color:#a6e22e">indexArr</span> <span style="color:#f92672">=</span> [], <span style="color:#a6e22e">initData</span> <span style="color:#f92672">=</span> []) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">obStore</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">createObjectStore</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">option</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">indexArr</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">item</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">item</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">obStore</span>.<span style="color:#a6e22e">createIndex</span>(...<span style="color:#a6e22e">item</span>);
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">obStore</span>.<span style="color:#a6e22e">createIndex</span>(<span style="color:#a6e22e">item</span>, <span style="color:#a6e22e">item</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">obStore</span>.<span style="color:#a6e22e">transaction</span>.<span style="color:#a6e22e">oncomplete</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">initData</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">item</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">item</span>)) <span style="color:#a6e22e">obStore</span>.<span style="color:#a6e22e">add</span>(...<span style="color:#a6e22e">item</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">obStore</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">item</span>);
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * 增加数据某一请求
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param {string} name 对象仓库的名称
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param {any} value 增加的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param {any} key 增加的key
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @returns 返回request
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">key</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">db</span>
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">transaction</span>(<span style="color:#a6e22e">name</span>, <span style="color:#e6db74">&#39;readwrite&#39;</span>)
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">objectStore</span>(<span style="color:#a6e22e">name</span>)
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">key</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param {string} name 对象仓库的名称
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param {any} key key
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @returns 返回request
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">delete</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">key</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">transaction</span>(<span style="color:#a6e22e">name</span>, <span style="color:#e6db74">&#39;readwrite&#39;</span>).<span style="color:#a6e22e">objectStore</span>(<span style="color:#a6e22e">name</span>).<span style="color:#66d9ef">delete</span>(<span style="color:#a6e22e">key</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * 更新数据某一请求
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param {string} name 对象仓库的名称
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param {any} value 修改的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param {any} key 需要修改的key
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @returns 返回request
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">put</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">key</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">db</span>
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">transaction</span>(<span style="color:#a6e22e">name</span>, <span style="color:#e6db74">&#39;readwrite&#39;</span>)
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">objectStore</span>(<span style="color:#a6e22e">name</span>)
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">put</span>(<span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">key</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * 获取
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param {string} name 对象仓库的名称
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @param {any} key key
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * @returns 返回request
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">key</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">transaction</span>(<span style="color:#a6e22e">name</span>, <span style="color:#e6db74">&#39;readonly&#39;</span>).<span style="color:#a6e22e">objectStore</span>(<span style="color:#a6e22e">name</span>).<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">key</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>为了获取数据库的访问权限，需要在 window 对象的 indexedDB (en-US) 属性上调用 open() 方法。该方法返回一个 IDBRequest 对象；异步操作通过在 IDBRequest 对象上触发事件来和调用程序进行通信。<!-- raw HTML omitted -->判断是否提供indexedDB</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>window.<span style="color:#a6e22e">indexedDB</span>) {
+</span></span><span style="display:flex;"><span>  window.<span style="color:#a6e22e">alert</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Your browser doesn&#39;t support a stable version of IndexedDB. Such and such feature will not be available.&#34;</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="基本模式">基本模式</h3>
+<ul>
+<li>打开数据库。</li>
+<li>在数据库中创建一个对象仓库（object store）。</li>
+<li>启动一个事务，并发送一个请求来执行一些数据库操作，像增加或提取数据等。</li>
+<li>通过监听正确类型的 DOM 事件以等待操作完成。</li>
+<li>在操作结果上进行一些操作（可以在 request 对象中找到）
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ul>
+<h3 id="打开数据库">打开数据库</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 打开我们的数据库
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">request</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">indexedDB</span>.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#34;MyTestDatabase&#34;</span>);
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="添加成功或失败回调">添加成功或失败回调</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">onerror</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Do something with request.errorCode!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">onsuccess</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Do something with request.result!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>};
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="获得idbdatabase实例">获得IDBDatabase实例</h3>
+<p>在打开成功回调里，可以获得数据库实例</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">onsuccess</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">db</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="错误处理">错误处理</h3>
+<p>错误事件遵循冒泡机制。错误事件都是针对产生这些错误的请求的，然后事件冒泡到事务，然后最终到达数据库对象。避免为所有的请求都增加错误处理程序，可以替代性的仅对数据库对象添加一个错误处理程序</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">onerror</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Generic error handler for all errors targeted at this database&#39;s
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// requests!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;Database error: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">errorCode</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="创建一个新的对象仓库">创建一个新的对象仓库</h3>
+<p>或者增加已存在的数据库的版本号（当打开数据库时，指定一个比之前更大的版本号）， onupgradeneeded 事件会被触发，IDBVersionChangeEvent (en-US) 对象会作为参数传递给绑定在 request.result（例如例子中的 db）上的 onversionchange 事件处理函数，你应该在此创建该版本需要的对象仓库（object store）这个操作必须在onupgradeneeded里进行。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 该事件仅在较新的浏览器中实现了
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">onupgradeneeded</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 保存 IDBDataBase 接口
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">db</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 为该数据库创建一个对象仓库
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">objectStore</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">createObjectStore</span>(<span style="color:#e6db74">&#34;name&#34;</span>, { <span style="color:#a6e22e">keyPath</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;id&#34;</span> });
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>对象仓库通常由一系列键值对组成，键的提供方式有如下几种：</p>
+<table>
+<thead>
+<tr>
+<th>键路径 (keyPath)</th>
+<th>键生成器 (autoIncrement)</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No</td>
+<td>No</td>
+<td>这种对象存储空间可以持有任意类型的值，甚至是像数字和字符串这种基本数据类型的值。每当我们想要增加一个新值的时候，必须提供一个单独的键参数。</td>
+</tr>
+<tr>
+<td>Yes</td>
+<td>No</td>
+<td>这种对象存储空间只能持有 JavaScript 对象。这些对象必须具有一个和 key path 同名的属性。</td>
+</tr>
+<tr>
+<td>No</td>
+<td>Yes</td>
+<td>这种对象存储空间可以持有任意类型的值。键会为我们自动生成，或者如果你想要使用一个特定键的话你可以提供一个单独的键参数。</td>
+</tr>
+<tr>
+<td>Yes</td>
+<td>Yes</td>
+<td>这种对象存储空间只能持有 JavaScript 对象。通常一个键被生成的同时，生成的键的值被存储在对象中的一个和 key path 同名的属性中。然而，如果这样的一个属性已经存在的话，这个属性的值被用作键而不会生成一个新的键。</td>
+</tr>
+</tbody>
+</table>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="增加一条数据">增加一条数据</h3>
+<p>可以在创建对象仓库的时候添加数据</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">onupgradeneeded</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">e</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  window.<span style="color:#a6e22e">db</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dbStore</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">createObjectStore</span>(<span style="color:#e6db74">&#39;primitive&#39;</span>, {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">keyPath</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;id&#39;</span>,
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">dbStore</span>.<span style="color:#a6e22e">add</span>({ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span> });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;创建了或者更新了一个数据库&#39;</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679915650717-36baa31e-6f2f-4c3c-a42c-a680793f7479.png#averageHue=%23fcfbfb&amp;clientId=uce6fd99b-4a74-4&amp;from=paste&amp;height=295&amp;id=uc480420b&amp;originHeight=369&amp;originWidth=985&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=28313&amp;status=done&amp;style=none&amp;taskId=uf45a4557-a381-436a-8b9c-90ef9a6fd60&amp;title=&amp;width=788" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->通过事务<code>**transaction([storageName],'read'|'readwrite')**</code>获取objectStore来添加数据</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transaction</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">transaction</span>([<span style="color:#e6db74">&#39;primitive&#39;</span>], <span style="color:#e6db74">&#39;readwrite&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">dbstore</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">transaction</span>.<span style="color:#a6e22e">objectStore</span>(<span style="color:#e6db74">&#39;primitive&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dbstore</span>.<span style="color:#a6e22e">add</span>({ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">22</span> });
+</span></span></code></pre></div><p>总之，添加数据，需要获得对象仓库的实例，然后通过<code>**add**</code>方法添加，注意键值，索引等问题。<!-- raw HTML omitted -->不管是添加还是删除读取之类的操作，都是IDBRequest对象，可以进行成功回调和失败回调处理。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">request</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dbstore</span>.<span style="color:#a6e22e">add</span>({ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">22</span> });
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">onsuccess</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;添加成功&#39;</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679919515655-5a7c5b79-b3de-4232-aff2-07c1f9084cd3.png#averageHue=%23fefcfb&amp;clientId=uce6fd99b-4a74-4&amp;from=paste&amp;height=182&amp;id=u255b129b&amp;originHeight=228&amp;originWidth=961&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=32985&amp;status=done&amp;style=none&amp;taskId=ucd96be54-546e-4a9b-9e43-2f4011a8c56&amp;title=&amp;width=768.8" alt="image.png" loading="lazy" /></p>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="删除数据">删除数据</h3>
+<p>通过<code>objectStore.delete(key)</code> 来删除，<strong>注意key的类型要和传入的一致</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">request</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">db</span>
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">transaction</span>([<span style="color:#e6db74">&#39;primitive&#39;</span>], <span style="color:#e6db74">&#39;readwrite&#39;</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">objectStore</span>(<span style="color:#e6db74">&#39;primitive&#39;</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#66d9ef">delete</span>(<span style="color:#ae81ff">4</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">onsuccess</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">e</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;delete success&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">result</span><span style="color:#f92672">===</span><span style="color:#a6e22e">request</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="获取数据">获取数据</h3>
+<p>通过<code>objectStore.get(key)</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">request</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">db</span>
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">transaction</span>([<span style="color:#e6db74">&#39;primitive&#39;</span>], <span style="color:#e6db74">&#39;readwrite&#39;</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">objectStore</span>(<span style="color:#e6db74">&#39;primitive&#39;</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">get</span>(<span style="color:#ae81ff">4</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">onsuccess</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">e</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;get success&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">request</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">result</span>);<span style="color:#75715e">//结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>};
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="更新数据">更新数据</h3>
+<p>put 会自动提取数据中的key(如果是key-path的话，非key-path要再加一个key参数)，然后替换或者新增(没有对应的key)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">request</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">db</span>
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">transaction</span>([<span style="color:#e6db74">&#39;primitive&#39;</span>], <span style="color:#e6db74">&#39;readwrite&#39;</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">objectStore</span>(<span style="color:#e6db74">&#39;primitive&#39;</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">put</span>({ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">99</span> });
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">onsuccess</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;put success&#39;</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">onerror</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">error</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;put error&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="使用游标">使用游标</h3>
+<p>类似C的指针，逐个遍历对象仓库里的数据（cursor的value字段里存储着数据）。<code>openCursor</code>里可以设置要访问的<strong>key的范围</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">objectStore</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">transaction</span>(<span style="color:#e6db74">&#39;primitive&#39;</span>).<span style="color:#a6e22e">objectStore</span>(<span style="color:#e6db74">&#39;primitive&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">objectStore</span>.<span style="color:#a6e22e">openCursor</span>().<span style="color:#a6e22e">onsuccess</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cursor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">cursor</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">cursor</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;id :&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">cursor</span>.<span style="color:#a6e22e">key</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;  value:&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">cursor</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">value</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">cursor</span>.<span style="color:#66d9ef">continue</span>();
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;No more entries!&#39;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="索引">索引</h3>
+<p>索引可以对象仓库像关系数据库一样能够通过某一字段来查找。这能够大大提高要查找某个值的效率，因为不用依次通过游标遍历。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">objectStore</span>.<span style="color:#a6e22e">createIndex</span>(<span style="color:#e6db74">&#34;name&#34;</span>, <span style="color:#e6db74">&#34;name&#34;</span>);<span style="color:#75715e">//需要提前再onupgradeneeded回调里进行创建索引
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">objectStore</span>.<span style="color:#a6e22e">index</span>(<span style="color:#e6db74">&#34;name&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">index</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;Donna&#34;</span>).<span style="color:#a6e22e">onsuccess</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;Donna&#39;s SSN is &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">ssn</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>结合索引和游标进行遍历
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="idbkeyrange">IDBKeyRange</h3>
+<p>指定游标遍历的范围和方向，通过IDBkeyRange可以筛选结果</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 仅匹配 &#34;Donna&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">singleKeyRange</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">IDBKeyRange</span>.<span style="color:#a6e22e">only</span>(<span style="color:#e6db74">&#34;Donna&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 匹配所有超过“Bill”的，包括“Bill”
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">lowerBoundKeyRange</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">IDBKeyRange</span>.<span style="color:#a6e22e">lowerBound</span>(<span style="color:#e6db74">&#34;Bill&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 匹配所有超过“Bill”的，但不包括“Bill”
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">lowerBoundOpenKeyRange</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">IDBKeyRange</span>.<span style="color:#a6e22e">lowerBound</span>(<span style="color:#e6db74">&#34;Bill&#34;</span>, <span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 匹配所有不超过“Donna”的，但不包括“Donna”
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">upperBoundOpenKeyRange</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">IDBKeyRange</span>.<span style="color:#a6e22e">upperBound</span>(<span style="color:#e6db74">&#34;Donna&#34;</span>, <span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 匹配所有在“Bill”和“Donna”之间的，但不包括“Donna”
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">boundKeyRange</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">IDBKeyRange</span>.<span style="color:#a6e22e">bound</span>(<span style="color:#e6db74">&#34;Bill&#34;</span>, <span style="color:#e6db74">&#34;Donna&#34;</span>, <span style="color:#66d9ef">false</span>, <span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 使用其中的一个键范围，把它作为 openCursor()/openKeyCursor 的第一个参数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">index</span>.<span style="color:#a6e22e">openCursor</span>(<span style="color:#a6e22e">boundKeyRange</span>).<span style="color:#a6e22e">onsuccess</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cursor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">cursor</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 当匹配时进行一些操作
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">cursor</span>.<span style="color:#66d9ef">continue</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>通过传递 prev 改变方向</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">objectStore</span>.<span style="color:#a6e22e">openCursor</span>(<span style="color:#a6e22e">boundKeyRange</span>, <span style="color:#e6db74">&#34;prev&#34;</span>).<span style="color:#a6e22e">onsuccess</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cursor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">cursor</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 进行一些操作
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">cursor</span>.<span style="color:#66d9ef">continue</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>不筛选结果改变方向</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">objectStore</span>.<span style="color:#a6e22e">openCursor</span>(<span style="color:#66d9ef">null</span>, <span style="color:#e6db74">&#34;prev&#34;</span>).<span style="color:#a6e22e">onsuccess</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cursor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">cursor</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Do something with the entries.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">cursor</span>.<span style="color:#66d9ef">continue</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="删除对象仓库">删除对象仓库</h3>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/bcm60i6p9hdqsslt/"><h4 class="card-text--title text-ellipsis">WebAssembly</h4></a>
+    <p class="card-text--row">2023-03-17 03:10</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679016276607-df434804-9539-45f7-9b64-7dbbb444eeb8.png"></div>
+  <div class="card-text">
+    <a href="/docs/xcnu233wegbcwe0l/"><h4 class="card-text--title text-ellipsis">yaxis</h4></a>
+    <p class="card-text--row">2023-03-17 00:56</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#存储限制">存储限制</a></li>
+        <li><a href="#使用">使用</a>
+          <ul>
+            <li><a href="#基本模式">基本模式</a></li>
+            <li><a href="#打开数据库">打开数据库</a></li>
+            <li><a href="#添加成功或失败回调">添加成功或失败回调</a></li>
+            <li><a href="#获得idbdatabase实例">获得IDBDatabase实例</a></li>
+            <li><a href="#错误处理">错误处理</a></li>
+            <li><a href="#创建一个新的对象仓库">创建一个新的对象仓库</a></li>
+            <li><a href="#增加一条数据">增加一条数据</a></li>
+            <li><a href="#删除数据">删除数据</a></li>
+            <li><a href="#获取数据">获取数据</a></li>
+            <li><a href="#更新数据">更新数据</a></li>
+            <li><a href="#使用游标">使用游标</a></li>
+            <li><a href="#索引">索引</a></li>
+            <li><a href="#idbkeyrange">IDBKeyRange</a></li>
+            <li><a href="#删除对象仓库">删除对象仓库</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

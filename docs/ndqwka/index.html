@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>Vue router 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="Vue router" />
+<meta property="og:description" content="router-link to tag active-class router-view 一、简介 1.什么是Vue-router 是一个vue官方出品的管理组件切换的插件 ？组件切换在访问不同的路径时，显示相应的组件？插件 2" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/ndqwka/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-06-22T01:12:05+00:00" />
+<meta property="article:modified_time" content="2023-02-21T05:17:39+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue router"/>
+<meta name="twitter:description" content="router-link to tag active-class router-view 一、简介 1.什么是Vue-router 是一个vue官方出品的管理组件切换的插件 ？组件切换在访问不同的路径时，显示相应的组件？插件 2"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1676956087255-c52ce32e-57fc-46e7-9393-c968997272b4.png" alt="https://cdn.nlark.com/yuque/0/2023/png/29064333/1676956087255-c52ce32e-57fc-46e7-9393-c968997272b4.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">Vue router</h1>
+    
+      <p class="card-text--row">2022-06-22 01:12</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p>router-link</p>
+<ul>
+<li>to</li>
+<li>tag</li>
+<li>active-class</li>
+</ul>
+<p>router-view</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="一简介">一、简介</h1>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="1什么是vue-router">1.什么是Vue-router</h2>
+<blockquote>
+<p>是一个vue官方出品的管理组件切换的插件</p>
+</blockquote>
+<p>？组件切换<!-- raw HTML omitted -->在访问不同的路径时，显示相应的组件<!-- raw HTML omitted -->？插件</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="2为什么要用vue-router">2.为什么要用vue-router</h2>
+<p>单页面应用。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="二使用">二、使用</h1>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="1安装">1.安装</h2>
+<p><code>**pnpm i vue-router@3**</code> vue2<!-- raw HTML omitted --><code>**pnpm i vue-router@4**</code>** vue3**
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="2使用-vue2">2.使用 vue2</h2>
+<ol>
+<li>导��相关模块，Vue，VueRouter</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 导入相关模块
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">VueRouter</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue-router&#39;</span>;
+</span></span></code></pre></div><ol start="2">
+<li>注册路由插件</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">useAttrs</span>(<span style="color:#a6e22e">VueRouter</span>);
+</span></span></code></pre></div><ol start="3">
+<li>定义路由规则</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 定义路由规则
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">routes</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/welcom&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> ,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/home&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> ,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>];
+</span></span></code></pre></div><ol start="4">
+<li>创建路由对象</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 创建路由对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">router</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">VueRouter</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 配置路由对象的路由
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">routes</span>,
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><ol start="5">
+<li>导出路由</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">router</span>
+</span></span></code></pre></div><ol start="6">
+<li>main.js挂载路由</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./App.vue&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 导入路由对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">router</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./router/index.js&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">router</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">productionTip</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 挂载路由
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">h</span>) =&gt; <span style="color:#a6e22e">h</span>(<span style="color:#a6e22e">App</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">router</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">router</span>,
+</span></span><span style="display:flex;"><span>}).<span style="color:#a6e22e">$mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>);
+</span></span></code></pre></div><p>vue3 使用挂载路由的方法，注意对应的是vue-router4</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 导入相关模块
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">vueRouter</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue-router&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">HomeCom</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../views/HomeCom.vue&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">WelcomCom</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../views/WelcomCom.vue&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 注册vuerouter插件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 定义路由规则
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">routes</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/welcom&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">WelcomCom</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/home&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">HomeCom</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 创建路由对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">router</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">vueRouter</span>.<span style="color:#a6e22e">createRouter</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">history</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">vueRouter</span>.<span style="color:#a6e22e">createWebHistory</span>(),
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 配置路由对象的路由
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">routes</span>,
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">router</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createApp</span>(<span style="color:#a6e22e">App</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">router</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//或者
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">createApp</span>(<span style="color:#a6e22e">App</span>).<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">router</span>).<span style="color:#a6e22e">mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="3使用vue3">3.使用vue3</h2>
+<ol>
+<li>安装 <code>**pnpm i vue-router**</code></li>
+<li>定义路由组件</li>
+<li>定义路由规则<code>**routes**</code></li>
+<li>创建路由实例<code>**router**</code>并传递<code>**routes**</code>配置  <code>**createRouter()**</code></li>
+<li>挂载根实例，注意挂载到app上</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 1. 定义路由组件.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 也可以从其他文件导入
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Home</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&lt;div&gt;Home&lt;/div&gt;&#39;</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">About</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&lt;div&gt;About&lt;/div&gt;&#39;</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 2. 定义一些路由
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 每个路由都需要映射到一个组件。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 我们后面再讨论嵌套路由。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">routes</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Home</span> },
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/about&#39;</span>, <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">About</span> },
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 3. 创建路由实例并传递 `routes` 配置
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 你可以在这里输入更多的配置，但我们在这里
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 暂时保持简单
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">router</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">VueRouter</span>.<span style="color:#a6e22e">createRouter</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">history</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">VueRouter</span>.<span style="color:#a6e22e">createWebHashHistory</span>(),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">routes</span>, <span style="color:#75715e">// `routes: routes` 的缩写
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 5. 创建并挂载根实例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">createApp</span>({})
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//确保 _use_ 路由实例使
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//整个应用支持路由。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">router</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 现在，应用已经启动了！
+</span></span></span></code></pre></div><blockquote>
+<p>2023/2/21更新：</p>
+</blockquote>
+<p>:::info
+如果直接按照上面的组件写法，<code>const Home = { template: '&lt;div&gt;Home&lt;/div&gt;' }</code>，可能会报下面的错误，导致路由无法使用。<!-- raw HTML omitted -->Component provided template option but runtime compilation is not supported in this build of Vue. Configure your bundler to alias &ldquo;vue&rdquo; to &ldquo;vue/dist/vue.esm-bundler.js&rdquo;.<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1676956087255-c52ce32e-57fc-46e7-9393-c968997272b4.png#averageHue=%23faf3d9&amp;clientId=u45ef9f85-8f0c-4&amp;from=paste&amp;height=68&amp;id=ua0f807cb&amp;originHeight=68&amp;originWidth=760&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=10069&amp;status=done&amp;style=none&amp;taskId=ud47d3ffa-7771-43e4-a8fb-4d0fc925930&amp;title=&amp;width=760" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->由于我是vite构建的项目，解决方案是在vite.config.js里配置如下：
+:::</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">defineConfig</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vite&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@vitejs/plugin-vue&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// https://vitejs.dev/config/
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// export default defineConfig({
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//   plugins: [vue()],
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// });
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">defineConfig</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">plugins</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">vue</span>()],
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">resolve</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">alias</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;vue&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;vue/dist/vue.esm-bundler.js&#39;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>:::info
+或者将组件的引入方式改为文件式引入。<!-- raw HTML omitted --><code>{ path: &quot;/&quot;, component: () =&gt; import(&quot;../components/HelloWorld.vue&quot;) },</code>
+:::
+嵌套路由</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">createRouter</span>, <span style="color:#a6e22e">createWebHashHistory</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue-router&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">routes</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;@/views/main-body/index.vue&#39;</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">redirect</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/today&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/today&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;@/views/main-body/today-cards.vue&#39;</span>),
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/all&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;@/views/main-body/all-cards.vue&#39;</span>),
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/:pathMatch(.*)&#39;</span>, <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;@/views/404.vue&#39;</span>) },
+</span></span><span style="display:flex;"><span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">router</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createRouter</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">history</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">createWebHashHistory</span>(),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">routes</span>,
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="在setup中访问路由">在setup中访问路由</h3>
+<p>使用<code>**useRouter**</code>来代替<code>**this.$router**</code>,<code>**useRoute**</code>代替<code>**this.$route**</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useRouter</span>, <span style="color:#a6e22e">useRoute</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue-router&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">setup</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">router</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useRouter</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">route</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useRoute</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">pushWithQuery</span>(<span style="color:#a6e22e">query</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">push</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;search&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">query</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>          ...<span style="color:#a6e22e">route</span>.<span style="color:#a6e22e">query</span>,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>      })
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658910883979-388b8444-8b84-4b51-b0d1-7fae0fec072d.png#averageHue=%23fcfbfa&amp;clientId=u0ecab540-4df5-4&amp;from=paste&amp;height=382&amp;id=u5d2137b0&amp;originHeight=477&amp;originWidth=732&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=84839&amp;status=done&amp;style=none&amp;taskId=u4ca67f64-d7bc-4cf4-a396-f484722714f&amp;title=&amp;width=585.6" alt="image.png" loading="lazy" /></p>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="编程式跳转">编程式跳转</h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="userouter">useRouter</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useRouter</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue-router&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleClick</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">router</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#39;/about&#39;</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="useroute">useRoute</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">onMounted</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useRoute</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue-router&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">$route</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useRoute</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">onMounted</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">$route</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658911197112-19d15efd-2da8-4e2b-82cf-4c956a08c5b4.png#averageHue=%23fbfaf8&amp;clientId=u0ecab540-4df5-4&amp;from=paste&amp;height=254&amp;id=u9ede83de&amp;originHeight=318&amp;originWidth=1112&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=69173&amp;status=done&amp;style=none&amp;taskId=ua04073fd-4a8b-449d-a55e-e43c7d3b6ea&amp;title=&amp;width=889.6" alt="image.png" loading="lazy" /></p>
+</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="路由守卫工作原理">路由守卫工作原理</h2>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/29064333/1655947056943-7487f12a-1966-42a8-bc04-ec617904dfbe.jpeg" alt="" loading="lazy" /></p>
+<!-- raw HTML omitted -->其有什么<strong>作用</strong>呢？打个比方(个人理解)：</p>
+<blockquote>
+<p>甲要去A城，去A城要通行证，甲没有通行证，到A城前被大数据查到，被禁止进入A城，大数据要求甲到A城里B地办理通行证。于是甲若想到A城只能到B地办理通行证。
+一个网站，里面有众多资源，其中有非公开(并非所有人都可以访问)，和公开的资源，url可以定义任一个资源，我们想要非公开资源不被随意访问，除非具有某一”通行证“，<strong>路由守卫的作用就是保护非公开资源</strong>。其判断条件常有两种，</p>
+<ol>
+<li>访问的是否是公开资源</li>
+<li>是否具有通行证</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 设置全局前置导航守位
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">beforeEach</span>((<span style="color:#a6e22e">to</span>, <span style="color:#a6e22e">from</span>, <span style="color:#a6e22e">next</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// to 需要访问的path,to.path 是只读的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// from 从哪里来
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// next() 放行  前往to指定的页面
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// localStorage---本地存储，是一个对象，可以理解成字典，存储的是键值对密钥
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">isLogin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">getItem</span>(<span style="color:#e6db74">&#39;isLogin&#39;</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">true</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">isLogin</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">to</span>.<span style="color:#a6e22e">path</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">from</span>.<span style="color:#a6e22e">path</span>); <span style="color:#75715e">//上一个页面的路径，刷新的话为/
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">//判断访问的是否是公开资源，这里是是否是登录页面
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">to</span>.<span style="color:#a6e22e">path</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;/login&#39;</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//是的话放行
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">next</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//非公开资源时，再判断是否登录，也就是有通行证
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isLogin</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//是的话放行
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">next</span>();
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//否则的话，前往登录页面
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">next</span>(<span style="color:#e6db74">&#39;/login&#39;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="路由的存储原理">路由的存储原理</h2>
+<p>路由存储在<strong>栈的结构</strong><!-- raw HTML omitted -->A页面跳转到B页面，destroy生命周期和create周期，哪个在前，哪个在后。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="同步路由异步路由">同步路由异步路由</h2>
+<p>同步路由的写法:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">AboutView</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@/views/AboutView&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/about&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;about&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AboutView</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span></code></pre></div><p>异步路由的写法:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/city&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;city&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;@/views/CityView.vue&#39;</span>),
+</span></span><span style="display:flex;"><span>  },
+</span></span></code></pre></div><p>区别:是按需导入</p>
+<ul>
+<li>同步路由会一次性将路由对应的组件集中同步加载。</li>
+<li>异步路由，加载到对应的路由模块，才会开始加载。也叫做懒加载。</li>
+</ul>
+<p>
+  <figure class="figure-image">
+    <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658456066001-7f3f69fc-bce4-4997-99d6-9eb7fff52205.png#averageHue=%23e7e7e7&amp;clientId=u2e097c66-8726-4&amp;from=paste&amp;height=562&amp;id=ua8136d2c&amp;originHeight=702&amp;originWidth=780&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=true&amp;size=37127&amp;status=done&amp;style=none&amp;taskId=u2df8f935-51e7-4dee-af81-b2462994d19&amp;title=app.js&amp;width=624" title="app.js" alt="app.js" loading="lazy" />
+    <figcaption>app.js</figcaption>
+  </figure>
+<!-- raw HTML omitted --><strong>异步路由的好处，减少首屏加载的时间</strong>
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="keep-alive">keep-alive</h2>
+<p>让组件保持会话状态，不销毁</p>
+<ol>
+<li>keep-alive包裹的router-view，组件的生命周期只会触发一次，不会再因路由跳转而销毁，但是可以手动销毁<code>this.$destroy</code></li>
+<li>keep-alive 将不活动的组件实例缓存起来，mounted，destroy等生命周期不会再重复触发</li>
+</ol>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658457056538-d4eca540-b354-44bf-8351-890483c0e768.png#averageHue=%23f2a578&amp;clientId=u455d2cf9-29a4-4&amp;from=paste&amp;height=78&amp;id=uc6219469&amp;originHeight=97&amp;originWidth=363&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=11187&amp;status=done&amp;style=none&amp;taskId=ud361bb33-bd48-49a1-b17f-5f704ddca25&amp;title=&amp;width=290.4" alt="image.png" loading="lazy" /></p>
+</p>
+<ol start="3">
+<li>keep-alive 包裹的router-view 对应的组件会多两个生命周期 <code>activated</code> <code>deactivated</code> ，执行顺序是 一个组件活动状态-&gt;不活动状态-&gt;另一个组件活动状态</li>
+<li>不想要某个组件缓存，给组件加一个<code>**name**</code>属性，并且在<code>**keep-alive**</code>上加一个<code>**exclude**</code>参数</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//给组件设置name属性
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;DetailView&#39;</span>,
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">keep</span><span style="color:#f92672">-</span><span style="color:#a6e22e">alive</span> <span style="color:#a6e22e">exclude</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;DetailView&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">router</span><span style="color:#f92672">-</span><span style="color:#a6e22e">view</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/keep-alive&gt;</span>
+</span></span></code></pre></div><ol start="5">
+<li>一个页面滚动，对另一个页面造成影响，<code>scrollBehavior</code>，函数返回一个对象，有x，y属性，表示滚动条的位置，跳转的时候，滚动条会在定位的位置</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span> <span style="color:#a6e22e">scrollBehavior</span>(<span style="color:#a6e22e">to</span>, <span style="color:#a6e22e">from</span>, <span style="color:#a6e22e">savedPosition</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;to:&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">to</span>, <span style="color:#a6e22e">from</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">to</span>.<span style="color:#a6e22e">path</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;/detail&#39;</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">x</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">y</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span> };
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;savedPosition&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// savedPostion 只会在浏览器导航栏前进后退时触发
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">savedPosition</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">savedPosition</span>;
+</span></span><span style="display:flex;"><span>  },
+</span></span></code></pre></div>
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1656297094051-952bbca3-ae98-4df7-85bf-91aaa19ef16b.png"></div>
+  <div class="card-text">
+    <a href="/docs/ws9c4s/"><h4 class="card-text--title text-ellipsis">vscode上的简单使用</h4></a>
+    <p class="card-text--row">2022-06-27 03:04</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/itxt1y/"><h4 class="card-text--title text-ellipsis">Array</h4></a>
+    <p class="card-text--row">2022-06-21 03:15</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一简介">一、简介</a>
+      <ul>
+        <li><a href="#1什么是vue-router">1.什么是Vue-router</a></li>
+        <li><a href="#2为什么要用vue-router">2.为什么要用vue-router</a></li>
+      </ul>
+    </li>
+    <li><a href="#二使用">二、使用</a>
+      <ul>
+        <li><a href="#1安装">1.安装</a></li>
+        <li><a href="#2使用-vue2">2.使用 vue2</a></li>
+        <li><a href="#3使用vue3">3.使用vue3</a>
+          <ul>
+            <li><a href="#在setup中访问路由">在setup中访问路由</a></li>
+            <li><a href="#编程式跳转">编程式跳转</a>
+              <ul>
+                <li><a href="#userouter">useRouter</a></li>
+                <li><a href="#useroute">useRoute</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#路由守卫工作原理">路由守卫工作原理</a></li>
+        <li><a href="#路由的存储原理">路由的存储原理</a></li>
+        <li><a href="#同步路由异步路由">同步路由异步路由</a></li>
+        <li><a href="#keep-alive">keep-alive</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

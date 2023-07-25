@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>问题集锦 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="问题集锦" />
+<meta property="og:description" content="center 不生效 view的默认投影是**ESPG:3857**(伪墨卡托投影，也叫球体墨卡托投影，**Web Mercator**)，而我们常使用的是" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/mmlzo8/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-07-24T07:34:38+00:00" />
+<meta property="article:modified_time" content="2022-11-16T03:30:08+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="问题集锦"/>
+<meta name="twitter:description" content="center 不生效 view的默认投影是**ESPG:3857**(伪墨卡托投影，也叫球体墨卡托投影，**Web Mercator**)，而我们常使用的是"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658650254688-25ed70d6-85b4-4ab7-9345-35fc8e12a072.png" alt="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658650254688-25ed70d6-85b4-4ab7-9345-35fc8e12a072.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">问题集锦</h1>
+    
+      <p class="card-text--row">2022-07-24 07:34</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="center-不生效">center 不生效</h2>
+<p>view的默认投影是<code>**ESPG:3857**</code>(伪墨卡托投影，也叫球体墨卡托投影，<code>**Web Mercator**</code>)，而我们常使用的是<code>**EPSG:4326**</code> 也就是WGS84。我们一般使用web墨卡托显示数据，用WGS84存储数据。</p>
+<blockquote>
+<p><code>**EPSG:3857**</code>是一种投影坐标系，它的数据一般是这种的。<code>**[12914838.35,4814529.9]**</code>，单位是m，看上去相对数值较大。不利于存储，比较占内存。
+<strong>经度[-180°, 180°]，纬度[-85°, 85°]对应</strong>x[-20037508.3427892, 20037508.3427892]，范围y同��是[-20037508.3427892, 20037508.3427892]，单位为米。
+<code>**EPSG:4326**</code> 是一种地理坐标系，它的数据一般是这种的。<code>**[22.37，114.05]**</code>单位是经纬度。利于存储，可读性高，但是页面变形大，两极区域变形极大</p>
+</blockquote>
+<p>需要注意的是，对于墨卡托投影来说，越到高纬度，大小扭曲越严重，到两极会被放到无限大，所以，墨卡托投影无法显示极地地区。另外，伪墨卡托投影还切掉了南北85.051129°纬度以上的地区，以保证整个投影是正方形的。因为墨卡托投影等正形性的特点，在不同层级的图层上物体的形状保持不变，一个正方形可以不断被划分为更多更小的正方形以显示更清晰的细节。
+:::info
+不生效的原因:其实是生效了，但是数值太小，肉眼看不出来。<!-- raw HTML omitted -->解决方案:</p>
+<ol>
+<li>将投影设置为 projection:&lsquo;EPSG:4326&rsquo;</li>
+<li>将WGS84坐标转换为Web墨卡托
+<ol>
+<li>使用transform转换坐标。<code>**center: ol.proj.transform([114, 30], 'EPSG:4326', 'EPSG:3857'),**</code></li>
+<li>使用fromLonLat 转换经纬度为投影坐标,<code>center:** ol.proj.fromLonLat([114, 30])**,</code></li>
+<li>调用 <code>**useGeographic()**</code>** **
+:::</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>Use geographic coordinates (WGS-84 datum) in API methods. This includes all API methods except for those interacting with tile grids.</p>
+</blockquote>
+<p>
+  <figure class="figure-image">
+    <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658650254688-25ed70d6-85b4-4ab7-9345-35fc8e12a072.png#clientId=ud5b551ca-c1bd-4&amp;from=paste&amp;height=754&amp;id=u282dd4e9&amp;originHeight=942&amp;originWidth=1860&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=true&amp;size=1702095&amp;status=done&amp;style=none&amp;taskId=uc78162cf-74b1-4300-8918-e5a9af3dd30&amp;title=Web%20%E5%A2%A8%E5%8D%A1%E6%89%98&amp;width=1488" title="Web 墨卡托" alt="Web 墨卡托" loading="lazy" />
+    <figcaption>Web 墨卡托</figcaption>
+  </figure>
+<!-- raw HTML omitted -->
+  <figure class="figure-image">
+    <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658650345037-6a8bec48-b154-412e-9dfc-95b925fe59cd.png#clientId=ud5b551ca-c1bd-4&amp;from=paste&amp;height=754&amp;id=u94bd7284&amp;originHeight=942&amp;originWidth=1860&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=true&amp;size=1117563&amp;status=done&amp;style=none&amp;taskId=ua385422d-a035-44cd-b969-312d6a06f0b&amp;title=WGS84&amp;width=1488" title="WGS84" alt="WGS84" loading="lazy" />
+    <figcaption>WGS84</figcaption>
+  </figure>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="鹰眼图不显示">鹰眼图不显示</h2>
+<p>鹰眼图图层与地图图层不能是同一个。此外，要保证投影是同一种</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="map-undefined">map undefined</h2>
+<p>在组件嵌套以及其他过程中，即使是放到了useEffect里，对map的赋值还可能是在dom渲染之前，</p>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/gcw4tn/"><h4 class="card-text--title text-ellipsis">获取定位</h4></a>
+    <p class="card-text--row">2022-07-24 12:30</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1658823058665-bcc5e449-468b-49a5-9bb2-043e3cb8b24e.png"></div>
+  <div class="card-text">
+    <a href="/docs/vrmmrg/"><h4 class="card-text--title text-ellipsis">VueX</h4></a>
+    <p class="card-text--row">2022-07-24 03:36</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#center-不生效">center 不生效</a></li>
+        <li><a href="#鹰眼图不显示">鹰眼图不显示</a></li>
+        <li><a href="#map-undefined">map undefined</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

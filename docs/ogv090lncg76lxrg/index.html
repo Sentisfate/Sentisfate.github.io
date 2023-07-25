@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>花样事件绑定 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="花样事件绑定" />
+<meta property="og:description" content="数据绑定 使用{{}}进行数据绑定，绑定的变量表示的字符串，是page.js内注册的方法名，如： &lt;button id=&#34;btn&#34; bindtap=&#34;{{handle" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/ogv090lncg76lxrg/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-11-26T12:29:54+00:00" />
+<meta property="article:modified_time" content="2022-11-26T14:48:46+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="花样事件绑定"/>
+<meta name="twitter:description" content="数据绑定 使用{{}}进行数据绑定，绑定的变量表示的字符串，是page.js内注册的方法名，如： &lt;button id=&#34;btn&#34; bindtap=&#34;{{handle"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box ">
+
+  <div class="card-cover">
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">花样事件绑定</h1>
+    
+      <p class="card-text--row">2022-11-26 12:29</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="数据绑定">数据绑定</h2>
+<p>使用<code>{{}}</code>进行数据绑定，绑定的变量表示的字符串，是<code>page.js</code>内注册的方法名，如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn&#34;</span> <span style="color:#a6e22e">bindtap</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{handleName}}&#34;</span>&gt;数据绑定&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">Page</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">arr</span><span style="color:#f92672">:</span>[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">isShow</span><span style="color:#f92672">:</span><span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">handleName</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;handleTap&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">handleTap</span>(<span style="color:#a6e22e">e</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">currentTarget</span>)
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>利用这种效果可以动态的设置事件处理函数，如达到禁用事件的效果。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="阻止事件冒泡">阻止事件冒泡</h2>
+<p>catch 阻止事件冒泡
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="互斥事件绑定">互斥事件绑定</h2>
+<p>绑定方式<code>mut-bind:事件名</code>，该类型的事件绑定只会触发一次，不会冒泡，但是不影响<code>bind</code>和<code>catch</code>的绑定效果。如tap事件被触发后，事件源的<code>mut-bind:tap</code>回调会被触发，但是父级的<code>mut-bind:tap</code>不会被触发，但是<code>bind:tap</code>和<code>catch:tap</code>会被触发。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">view</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;outer&#34;</span> <span style="color:#a6e22e">bindtap</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleTap&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  outer view
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">view</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;middle&#34;</span> <span style="color:#a6e22e">mut-bind:tap</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleMutTap&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    middle view
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;inside&#34;</span> <span style="color:#a6e22e">mut-bind:tap</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleMutTap&#34;</span>&gt;click me&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">view</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">view</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">Page</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">handleTap</span>(<span style="color:#a6e22e">e</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">currentTarget</span>)
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">handleMutTap</span>(<span style="color:#a6e22e">e</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;mutTap&#39;</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><blockquote>
+<p>当给一个组件同时绑定bindtap和mut-bind:tap时，触发的回调是<code>handleMutTap</code>，但是互斥性就消失了</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">view</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;outer&#34;</span> <span style="color:#a6e22e">bindtap</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleTap&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>outer view
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">view</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;middle&#34;</span> <span style="color:#a6e22e">mut-bind:tap</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleMutTap&#34;</span>&gt;
+</span></span><span style="display:flex;"><span> middle view
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;inside&#34;</span> <span style="color:#a6e22e">bindtap</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleTap&#34;</span> <span style="color:#a6e22e">mut-bind:tap</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleMutTap&#34;</span>&gt;click me&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">view</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">view</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="事件的捕获">事件的捕获</h2>
+<p>触摸类事件支持捕获阶段。</p>
+<ul>
+<li>事件冒泡指从触发事件的元素向上同类事件触发一直到根元素。</li>
+<li>事件捕获相反，是从根元素向下逐个确认事件触发的元素</li>
+</ul>
+<p><code>capture-bind</code>用于监听捕获���段、<code>capture-catch</code>用于终止捕获阶段，进而终止事件的触发。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">view</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;outer&#34;</span> <span style="color:#a6e22e">bind:touchstart</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleTap1&#34;</span> <span style="color:#a6e22e">capture-bind:touchstart</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleTap2&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  outer view
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">view</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;inner&#34;</span> <span style="color:#a6e22e">bind:touchstart</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleTap3&#34;</span> <span style="color:#a6e22e">capture-bind:touchstart</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleTap4&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    inner view
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">view</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">view</span>&gt;
+</span></span></code></pre></div>
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/fa1fi8fosa2geb24/"><h4 class="card-text--title text-ellipsis">事件对象</h4></a>
+    <p class="card-text--row">2022-11-26 14:49</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/nih90olls9of8how/"><h4 class="card-text--title text-ellipsis">882 细分图中的可到达节点</h4></a>
+    <p class="card-text--row">2022-11-26 02:50</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#数据绑定">数据绑定</a></li>
+        <li><a href="#阻止事件冒泡">阻止事件冒泡</a></li>
+        <li><a href="#互斥事件绑定">互斥事件绑定</a></li>
+        <li><a href="#事件的捕获">事件的捕获</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

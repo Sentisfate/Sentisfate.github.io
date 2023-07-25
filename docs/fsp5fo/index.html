@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>文件上传 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="文件上传" />
+<meta property="og:description" content="后端接收文件 **node**使用**multer**解析**form-data**数据 安装multer中间件 **npm install multer -S** 在需要解析formdat" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/fsp5fo/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-07-31T08:56:06+00:00" />
+<meta property="article:modified_time" content="2023-07-06T09:14:27+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="文件上传"/>
+<meta name="twitter:description" content="后端接收文件 **node**使用**multer**解析**form-data**数据 安装multer中间件 **npm install multer -S** 在需要解析formdat"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2022/jpeg/29064333/1657119040398-cfbd78c1-0f37-4309-a663-d1e9957c086b.jpeg" alt="https://cdn.nlark.com/yuque/0/2022/jpeg/29064333/1657119040398-cfbd78c1-0f37-4309-a663-d1e9957c086b.jpeg" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">文件上传</h1>
+    
+      <p class="card-text--row">2022-07-31 08:56</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/29064333/1657119040398-cfbd78c1-0f37-4309-a663-d1e9957c086b.jpeg" alt="" loading="lazy" /></p>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="后端接收文件">后端接收文件</h2>
+<p><code>**node**</code>使用<code>**multer**</code>解析<code>**form-data**</code>数据</p>
+<ol>
+<li>安装multer中间件</li>
+</ol>
+<p><code>**npm install multer -S**</code></p>
+<ol start="2">
+<li>在需要解析formdata的路由上注册中间件。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;express&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">multer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;multer&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">router</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>.<span style="color:#a6e22e">Router</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">upload</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">multer</span>({ <span style="color:#a6e22e">dest</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;uploads/&#39;</span> });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">upload</span>.<span style="color:#a6e22e">single</span>(<span style="color:#e6db74">&#39;file&#39;</span>));
+</span></span></code></pre></div><ol start="3">
+<li>解析form-data  <code>**req.body**</code> <code>**req.file**</code>** **</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;received...&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">file</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">readFile</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">path</span>, (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">data</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">err</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;上传失败&#39;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">time</span> <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>      Date.<span style="color:#a6e22e">now</span>() <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>      parseInt(Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">*</span> <span style="color:#ae81ff">999</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>      parseInt(Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">*</span> <span style="color:#ae81ff">2222</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">extname</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">mimetype</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;/&#39;</span>)[<span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">keepname</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">time</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">extname</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">keepname</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">basename</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">dirname</span>(<span style="color:#a6e22e">__dirname</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">writeFile</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">basename</span>, <span style="color:#e6db74">&#39;/public/img/&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">keepname</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">data</span>,
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">err</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">err</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;写入失败&#39;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>({ <span style="color:#a6e22e">err</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">msg</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;上传ok&#39;</span>, <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;public/img/&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">keepname</span> });
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>表单http请求 常见数据格式：</p>
+<ul>
+<li><code>**application/x-www-urlencoded**</code></li>
+</ul>
+<p><code>**GET**</code>请求编码格式只支持ASCII码，Post则会把数据以<code>**x-www-urlencoded**</code>** **格式编码</p>
+<ul>
+<li><code>multipart/form-data</code></li>
+</ul>
+<p>该种请求类型是为了支持文件上传，文件上传多用这种数据格式。<!-- raw HTML omitted -->该种格式的基础请求方法是<code>**POST**</code>，是由POST方法来组合实现的，不同之处在于请求头和请求体。<!-- raw HTML omitted --><code>**Multipart/form-data**</code> 常规请求头必须包含一个特殊信息，<code>**Content-Type:multipart/form-data**</code>，还需要规定一个内容分隔符用于分隔请求体中的多个POST的内容。如文件内容和文本内容需要分割开来。<!-- raw HTML omitted -->常规POST请求体是<strong>name=value</strong> 的<strong>JSON</strong>格式的键值对，而<code>**Multipart/form-data**</code>，是添加了分隔符的构造体。</p>
+<pre tabindex="0"><code>Content-Type: multipart/form-data; boundary=LLL
+</code></pre><p>分隔符为<code>**--LLL**</code></p>
+<pre tabindex="0"><code>--LLL
+Content-Disposition: form-data; name=&#34;UserID&#34;  
+  
+lee1994
+--LLL
+Content-Disposition: form-data; name=&#34;imageName&#34;; filename=&#34;imageName.png&#34;  
+Content-Type: image/png  
+
+...contents of image.png...  
+--LLL你好帅  
+</code></pre><p>分隔符中间的部分为数据，Content-Disposition 在此处是一个通用标题(更多作用可以搜索)，可以在多部分主体的子部分中使用，以提供有关它适用的字段的信息。有点像一个小型的请求头，”请求头(参数信息)“和“请求体(参数值)”之间要空一行
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="element-ui上传文件">element-ui上传文件</h2>
+<p>自带方法中的file，并非是文件本身，而是它的一个dom，要获得文件，要用file.raw</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="vant4-图片上传">vant4 图片上传</h2>
+<p>使用formData</p>
+<blockquote>
+<p>formData对象用于处理key-value数据，常用来处理表单格式数据
+也可以用来上传文件</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">axios</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;axios&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BASEURL</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../constants&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">uploadInstance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">create</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">baseURL</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">BASEURL</span>,
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">uploadInstance</span>.<span style="color:#a6e22e">interceptors</span>.<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">use</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">config</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 在发送请求之前做些什么
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">headers</span>[<span style="color:#e6db74">&#39;Content-Type&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;multipart/form-data&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//这里是token验证
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">headers</span>[<span style="color:#e6db74">&#39;Authorization&#39;</span>] <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsImlhdCI6MTY2MDI3NDQyMywiZXhwIjoxNjYwMzYwODIzfQ.58QNV_WqVZ2I7U4hrO5IAMMustUxp0drbyG1XmwWsJY&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">config</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">config</span>;
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 对请求错误做些什么
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> Promise.<span style="color:#a6e22e">reject</span>(<span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">upload</span>(<span style="color:#a6e22e">data</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">uploadInstance</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/upload/img&#39;</span>, <span style="color:#a6e22e">data</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">afterRead</span>(<span style="color:#a6e22e">file</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 此时可以自行将文件上传至服务器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">file</span>, <span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">content</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">form</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormData</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//注意文件数据在file.file里
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;file&#39;</span>, <span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">file</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">upload</span>(<span style="color:#a6e22e">form</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//图片回显
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>},
+</span></span></code></pre></div>
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/xuh2sl/"><h4 class="card-text--title text-ellipsis">vue-cli自定义路径别名</h4></a>
+    <p class="card-text--row">2022-07-31 08:57</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1657176526270-151f4c56-815c-45ec-807b-f3907e96c38e.png"></div>
+  <div class="card-text">
+    <a href="/docs/gfgud9/"><h4 class="card-text--title text-ellipsis">前端交互原理</h4></a>
+    <p class="card-text--row">2022-07-31 08:54</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#后端接收文件">后端接收文件</a></li>
+        <li><a href="#element-ui上传文件">element-ui上传文件</a></li>
+        <li><a href="#vant4-图片上传">vant4 图片上传</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

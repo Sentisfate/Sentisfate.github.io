@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>js手写 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="js手写" />
+<meta property="og:description" content="实现快速排序 基本思想是:通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/atv5zt/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-09-19T13:44:10+00:00" />
+<meta property="article:modified_time" content="2023-03-31T07:42:27+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="js手写"/>
+<meta name="twitter:description" content="实现快速排序 基本思想是:通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box ">
+
+  <div class="card-cover">
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">js手写</h1>
+    
+      <p class="card-text--row">2022-09-19 13:44</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="实现快速排序">实现快速排序</h2>
+<blockquote>
+<p>基本思想是:通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以<a href="https://link.zhihu.com/?target=https%3A//baike.so.com/doc/5725016-5937752.html" target="_blank" rel="noopener">递归</a>进行，以此达到整个数据变成有序序列。</p>
+</blockquote>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="核心思想">核心思想</h3>
+<ol>
+<li>任取一个元素为基准</li>
+<li>将待排序的元素进行分块，比基准大的元���移动到基准元素的右侧，比基准小的移动到左侧，从而一趟排序过程就可以锁定基准元素的最终位置</li>
+<li>对以上两块进行上述规则的排序</li>
+<li>将左边排序好的和基准元素和右边排序好的拼接起来。<strong>递归所在</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">quickSort</span>(<span style="color:#a6e22e">nums</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">len</span><span style="color:#f92672">=</span><span style="color:#a6e22e">nums</span>.<span style="color:#a6e22e">length</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">len</span><span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">nums</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">base</span><span style="color:#f92672">=</span><span style="color:#a6e22e">nums</span>[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">left</span><span style="color:#f92672">=</span>[],<span style="color:#a6e22e">right</span><span style="color:#f92672">=</span>[]
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">len</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">base</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>]) <span style="color:#a6e22e">left</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>])
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">right</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>])
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> [...<span style="color:#a6e22e">quickSort</span>(<span style="color:#a6e22e">left</span>),<span style="color:#a6e22e">base</span>,...<span style="color:#a6e22e">quick</span>(<span style="color:#a6e22e">right</span>)]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="实现vue数据劫持">实现vue数据劫持</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="核心思想-1">核心思想</h3>
+<p>:::info
+使用object.defineProperty来劫持数据，对data的每个属性进行劫持即可
+:::</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 在对象中添加一个设置了存取描述符属性的示例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">bValue</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">38</span>;
+</span></span><span style="display:flex;"><span>Object.<span style="color:#a6e22e">defineProperty</span>(<span style="color:#a6e22e">o</span>, <span style="color:#e6db74">&#34;b&#34;</span>, {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 使用了方法名称缩写（ES2015 特性）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// 下面两个缩写等价于：
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// get : function() { return bValue; },
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// set : function(newValue) { bValue = newValue; },
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">get</span>() { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">bValue</span>; },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">newValue</span>) { <span style="color:#a6e22e">bValue</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newValue</span>; },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">enumerable</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">configurable</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">defineReactive</span>(<span style="color:#a6e22e">target</span>,<span style="color:#a6e22e">key</span>,<span style="color:#a6e22e">value</span>){
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">===</span><span style="color:#e6db74">&#39;object&#39;</span>) <span style="color:#a6e22e">observe</span>(<span style="color:#a6e22e">value</span>)
+</span></span><span style="display:flex;"><span>  Object.<span style="color:#a6e22e">defineProperty</span>(<span style="color:#a6e22e">target</span>,<span style="color:#a6e22e">key</span>,{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">get</span>(){
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//执行获取前的操作
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">value</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">val</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#a6e22e">val</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 渲染视图
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">observe</span>(<span style="color:#a6e22e">target</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">target</span><span style="color:#f92672">&amp;&amp;</span><span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">target</span><span style="color:#f92672">!=</span><span style="color:#e6db74">&#39;object&#39;</span>) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">target</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">target</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">defineReactive</span>(<span style="color:#a6e22e">target</span>,<span style="color:#a6e22e">key</span>,<span style="color:#a6e22e">target</span>[<span style="color:#a6e22e">key</span>])
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="实现dom树转js对象">实现dom树转js对象</h2>
+<p>思路：
+:::info
+dom对象中记录哪些内容，当前节点的类型type=TagName，子节点children
+:::</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">domToObject</span>(<span style="color:#a6e22e">root</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 如果不是元素节点，就直接返回
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">nodeType</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;1&#39;</span>) <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">node</span> <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">tagName</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">attr</span> <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">attributes</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">attr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">attributes</span>[<span style="color:#a6e22e">i</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">attr</span>[<span style="color:#a6e22e">attr</span>.<span style="color:#a6e22e">name</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">attr</span>.<span style="color:#a6e22e">value</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">children</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">children</span> <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">n</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">children</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">children</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">domToObject</span>(<span style="color:#a6e22e">n</span>))
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">node</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">root</span><span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#39;html&#39;</span>)[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">domToObject</span>(<span style="color:#a6e22e">root</span>))
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="实现instanceof">实现instanceof</h2>
+<p>思路：
+:::warning
+检查类型是否出现在对象的原型链上，如果出现，就返回true，否则返回false。<!-- raw HTML omitted -->如何获得原型链。通过__proto__获得
+:::</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">myInstanceof</span>(<span style="color:#a6e22e">obj</span>,<span style="color:#a6e22e">origin</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">obj</span><span style="color:#f92672">===</span><span style="color:#66d9ef">null</span><span style="color:#f92672">||</span><span style="color:#a6e22e">obj</span><span style="color:#f92672">===</span><span style="color:#66d9ef">undefined</span>) <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">proto</span><span style="color:#f92672">=</span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">__proto__</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#a6e22e">proto</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">proto</span><span style="color:#f92672">===</span><span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">prototype</span>) <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">proto</span><span style="color:#f92672">=</span><span style="color:#a6e22e">proto</span>.<span style="color:#a6e22e">__proto__</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="数组去重">数组去重</h2>
+<p>思路：
+:::warning</p>
+<ol>
+<li>set集合</li>
+<li>map对象</li>
+<li>不使用任何数据结构，和数组的方法。并且不新建数组。也就是说在原数组中进行改变。思路有如下两步
+<ol>
+<li>先在数组中将重复的元素设置为undefined</li>
+<li>将数组中的元素向前移动，并修改长度
+:::</li>
+</ol>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">unique</span>(<span style="color:#a6e22e">arr</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> Array.<span style="color:#a6e22e">from</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Set</span>(<span style="color:#a6e22e">arr</span>))
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">unique2</span>(<span style="color:#a6e22e">arr</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">map</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Map</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">item</span>) =&gt; <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">item</span>, <span style="color:#a6e22e">item</span>));
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> Array.<span style="color:#a6e22e">from</span>(<span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">keys</span>());
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">unique</span>(...<span style="color:#a6e22e">arr</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">len</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">len</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">myIndexOf</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">item</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">===</span> <span style="color:#a6e22e">item</span>) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">i</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">len</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">myIndexOf</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">index</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">i</span>) <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">undefined</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">start</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">start</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">len</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">len</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">start</span>] <span style="color:#f92672">!==</span> <span style="color:#66d9ef">undefined</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">start</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">j</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">start</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">j</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">len</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>] <span style="color:#f92672">!==</span> <span style="color:#66d9ef">undefined</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">start</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">undefined</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">start</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">len</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">==</span> <span style="color:#66d9ef">undefined</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">i</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="数组扁平化">数组扁平化</h2>
+<p>思路：
+:::warning</p>
+<ol>
+<li>如果某个元素是数组的话，就将其展开和两边连起来。
+:::</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">flat</span>(<span style="color:#a6e22e">arr</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>] <span style="color:#66d9ef">instanceof</span> Array){
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">arr</span><span style="color:#f92672">=</span>[...<span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">0</span>,<span style="color:#a6e22e">i</span>),...<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>],...<span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//方法2toString()和split()结合可以获得字符串形式的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">flatStr</span>(<span style="color:#a6e22e">arr</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">toString</span>().<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;,&#39;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="实现深拷贝">实现深拷贝</h2>
+<p>思路：
+:::warning</p>
+<ol>
+<li>基本数据类型返回原来的</li>
+<li>数组返回数组</li>
+<li>对象返回对象
+:::</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">deepCopy</span>(<span style="color:#a6e22e">target</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">target</span><span style="color:#f92672">!=</span><span style="color:#e6db74">&#39;object&#39;</span><span style="color:#f92672">||</span><span style="color:#a6e22e">target</span><span style="color:#f92672">===</span><span style="color:#66d9ef">null</span>) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">target</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">res</span><span style="color:#f92672">=</span>{}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">target</span>)<span style="color:#f92672">===</span><span style="color:#e6db74">&#39;[object Array]&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">res</span><span style="color:#f92672">=</span>[]
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">target</span>) <span style="color:#a6e22e">res</span>[<span style="color:#a6e22e">key</span>]<span style="color:#f92672">=</span><span style="color:#a6e22e">deepCopy</span>(<span style="color:#a6e22e">target</span>[<span style="color:#a6e22e">key</span>])
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="实现reduce">实现reduce</h2>
+<p>思路：
+:::info
+reduce((pre,cur,i,arr)=&gt;{},initialValue)</p>
+<ol>
+<li>pre表示上一个回调的结果</li>
+<li>cur表式当前遍历的元素</li>
+<li>i当前的索引</li>
+<li>initialValue，pre初始值，如果没有，pre默认为数组的第一个元素，此时cur从第二个元素开始
+:::</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">myReduce</span><span style="color:#f92672">=</span><span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">fn</span>,<span style="color:#a6e22e">initVal</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arr</span><span style="color:#f92672">=</span><span style="color:#66d9ef">this</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">pre</span><span style="color:#f92672">=</span><span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">initVal</span><span style="color:#f92672">!==</span><span style="color:#66d9ef">undefined</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">start</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">pre</span><span style="color:#f92672">=</span><span style="color:#a6e22e">initVal</span>
+</span></span><span style="display:flex;"><span>  } 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#a6e22e">start</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">cur</span><span style="color:#f92672">=</span><span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">pre</span><span style="color:#f92672">=</span><span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">pre</span>,<span style="color:#a6e22e">cur</span>,<span style="color:#a6e22e">i</span>,<span style="color:#a6e22e">arr</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">pre</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="解决精度丢失问题">解决精度丢失问题</h2>
+<p>思路：</p>
+<blockquote>
+<p>转换位整数后进行计算，再转换为小数</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">num1</span>,<span style="color:#a6e22e">num2</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">num1</span><span style="color:#f92672">%</span><span style="color:#ae81ff">1</span><span style="color:#f92672">==</span><span style="color:#ae81ff">0</span><span style="color:#f92672">&amp;&amp;</span><span style="color:#a6e22e">num2</span><span style="color:#f92672">%</span><span style="color:#ae81ff">1</span><span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">num1</span><span style="color:#f92672">+</span><span style="color:#a6e22e">num2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">decimal1</span><span style="color:#f92672">=</span><span style="color:#a6e22e">num1</span>.<span style="color:#a6e22e">toString</span>().<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;.&#39;</span>)[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">||</span><span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">decimal2</span><span style="color:#f92672">=</span><span style="color:#a6e22e">num2</span>.<span style="color:#a6e22e">toString</span>().<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;.&#39;</span>)[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">||</span><span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">e</span><span style="color:#f92672">=</span><span style="color:#ae81ff">10</span><span style="color:#f92672">**</span>Math.<span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">decimal1</span>.<span style="color:#a6e22e">length</span>,<span style="color:#a6e22e">decimal2</span>.<span style="color:#a6e22e">length</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">num1</span><span style="color:#f92672">*</span><span style="color:#a6e22e">e</span><span style="color:#f92672">+</span><span style="color:#a6e22e">num2</span><span style="color:#f92672">*</span><span style="color:#a6e22e">e</span>)<span style="color:#f92672">/</span><span style="color:#a6e22e">e</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="函数节流">函数节流</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 节流，第一次立即触发，此后每次间隔指定时间触发
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">throttle</span>(<span style="color:#a6e22e">func</span>, <span style="color:#a6e22e">wait</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">500</span>) {
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">previous</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">now</span> <span style="color:#f92672">=</span> <span style="color:#f92672">+</span><span style="color:#66d9ef">new</span> Date();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">context</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">now</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">previous</span> <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">wait</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">func</span>.<span style="color:#a6e22e">apply</span>(<span style="color:#a6e22e">context</span>, <span style="color:#a6e22e">arguments</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">previous</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">now</span>; <span style="color:#75715e">// 执行后更新 previous 值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="函数防抖">函数防抖</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 思路 延迟用户执行的代码，在一定范围时间内，重复触发，取消上次用户执行的代码，执行最新的一次。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">debounce</span>(<span style="color:#a6e22e">func</span>,<span style="color:#a6e22e">delay</span><span style="color:#f92672">=</span><span style="color:#ae81ff">500</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">timer</span><span style="color:#f92672">=</span><span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">=</span><span style="color:#66d9ef">this</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">timer</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">clearTimeout</span>(<span style="color:#a6e22e">timer</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setTimeout</span>(()=&gt;{
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">func</span>.<span style="color:#a6e22e">apply</span>(<span style="color:#a6e22e">self</span>,<span style="color:#a6e22e">arguments</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">timer</span><span style="color:#f92672">=</span><span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>    },<span style="color:#a6e22e">delay</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1663645859466-6e6710f4-c99c-4425-9812-caf15e7ce2bc.png"></div>
+  <div class="card-text">
+    <a href="/docs/rg1gc4/"><h4 class="card-text--title text-ellipsis">划分为k个相等的子集</h4></a>
+    <p class="card-text--row">2022-09-20 03:51</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/at0qk6/"><h4 class="card-text--title text-ellipsis">实现异步的方法</h4></a>
+    <p class="card-text--row">2022-09-19 11:51</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#实现快速排序">实现快速排序</a>
+          <ul>
+            <li><a href="#核心思想">核心思想</a></li>
+          </ul>
+        </li>
+        <li><a href="#实现vue数据劫持">实现vue数据劫持</a>
+          <ul>
+            <li><a href="#核心思想-1">核心思想</a></li>
+          </ul>
+        </li>
+        <li><a href="#实现dom树转js对象">实现dom树转js对象</a></li>
+        <li><a href="#实现instanceof">实现instanceof</a></li>
+        <li><a href="#数组去重">数组去重</a></li>
+        <li><a href="#数组扁平化">数组扁平化</a></li>
+        <li><a href="#实现深拷贝">实现深拷贝</a></li>
+        <li><a href="#实现reduce">实现reduce</a></li>
+        <li><a href="#解决精度丢失问题">解决精度丢失问题</a></li>
+        <li><a href="#函数节流">函数节流</a></li>
+        <li><a href="#函数防抖">函数防抖</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

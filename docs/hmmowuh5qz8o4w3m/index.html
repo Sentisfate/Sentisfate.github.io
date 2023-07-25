@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>关于IIFE 立即调用函数 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="关于IIFE 立即调用函数" />
+<meta property="og:description" content="IIFE的全称为Immediately Invoked Function Expression，翻译过来就是立即调用函数表达式。 在浏览一些源码的时候，常常见到一些类似下面这" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/hmmowuh5qz8o4w3m/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2023-03-29T13:26:33+00:00" />
+<meta property="article:modified_time" content="2023-03-29T14:27:47+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="关于IIFE 立即调用函数"/>
+<meta name="twitter:description" content="IIFE的全称为Immediately Invoked Function Expression，翻译过来就是立即调用函数表达式。 在浏览一些源码的时候，常常见到一些类似下面这"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1680097196601-4cd505ca-0a7c-4bef-b808-622feaeb61eb.png" alt="https://cdn.nlark.com/yuque/0/2023/png/29064333/1680097196601-4cd505ca-0a7c-4bef-b808-622feaeb61eb.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">关于IIFE 立即调用函数</h1>
+    
+      <p class="card-text--row">2023-03-29 13:26</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <blockquote>
+<p>IIFE的全称为Immediately Invoked Function Expression，翻译过来就是立即调用函数表达式。</p>
+</blockquote>
+<p>在浏览一些源码的时候，常常见到一些类似下面这样的写法。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>(<span style="color:#66d9ef">function</span>(){...}())
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 或者
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>(<span style="color:#66d9ef">function</span>(){})()
+</span></span></code></pre></div><p>或者更常见的下面这种</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#f92672">!</span><span style="color:#66d9ef">function</span>(){}
+</span></span></code></pre></div><p>上面这几种写法，目的都是一个，就是实现函数自执行。<!-- raw HTML omitted -->众所周知，函数的声明方式有两类：声明式和赋值表达式</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fnA</span>(){<span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;msg&#39;</span>);}<span style="color:#75715e">//声明式定义函数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fnB</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(){<span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;msg&#39;</span>);}<span style="color:#75715e">//函数赋值表达式定义函数
+</span></span></span></code></pre></div><p>通常调用的时候，只需通过诸如<code>fnA() fnB()</code>这样调用，而直接在 <code>function fnA(){alert('msg');}()</code>调用是会报错的。<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1680097196601-4cd505ca-0a7c-4bef-b808-622feaeb61eb.png#averageHue=%23fef3f1&amp;clientId=u172018b5-718f-4&amp;from=paste&amp;height=57&amp;id=udfd3cd09&amp;originHeight=71&amp;originWidth=466&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=5415&amp;status=done&amp;style=none&amp;taskId=u4d5f6364-5553-4583-9a04-4f386c7b0c8&amp;title=&amp;width=372.8" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->而通过文章开头那几种方式调用时，可以正常执行。原因则是，在括号将函数包裹后，解析器会将函数以表达式的方式去调用。此外一些具有类似功能的运算符都可以实现这样的功能。如<code>+-&amp;&amp; || !</code><!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1680097726829-4f3d1552-c998-4253-b388-60c2788fc7ab.png#averageHue=%23fefdfc&amp;clientId=u172018b5-718f-4&amp;from=paste&amp;height=62&amp;id=u60dca259&amp;originHeight=78&amp;originWidth=362&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=3239&amp;status=done&amp;style=none&amp;taskId=ubf1d25b2-a8e8-4684-8e1f-b0d96ecf6c2&amp;title=&amp;width=289.6" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1680097592400-b1e0e903-e4b6-45e5-83d5-be0f1052bcb6.png#averageHue=%23fefcfb&amp;clientId=u172018b5-718f-4&amp;from=paste&amp;height=84&amp;id=ub353d010&amp;originHeight=105&amp;originWidth=475&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=6415&amp;status=done&amp;style=none&amp;taskId=ubc72a27c-392d-4f42-9740-0df11336205&amp;title=&amp;width=380" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1680097663237-baca5ccb-879c-495c-8461-614ca390bb98.png#averageHue=%23fefdfd&amp;clientId=u172018b5-718f-4&amp;from=paste&amp;height=98&amp;id=uad71c7a0&amp;originHeight=122&amp;originWidth=419&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=6700&amp;status=done&amp;style=none&amp;taskId=ua300a0fe-b95f-4c71-8d40-d07a21e77f6&amp;title=&amp;width=335.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1680098016146-58b214b4-65b5-4c74-a4c5-29b9737c1475.png#averageHue=%23fefdfd&amp;clientId=u172018b5-718f-4&amp;from=paste&amp;height=52&amp;id=ud9268890&amp;originHeight=65&amp;originWidth=321&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=2671&amp;status=done&amp;style=none&amp;taskId=u30a0d7f2-9bfa-434b-b3a7-fa80490a19c&amp;title=&amp;width=256.8" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->甚至是一些关键字如<code>void delete</code>等<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1680098178741-11409f37-32a4-4193-be28-4c34c55a5fa0.png#averageHue=%23fefdfd&amp;clientId=u172018b5-718f-4&amp;from=paste&amp;height=129&amp;id=u519d94a9&amp;originHeight=161&amp;originWidth=422&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=8646&amp;status=done&amp;style=none&amp;taskId=u5d16b921-6856-4534-83be-acf66fd2600&amp;title=&amp;width=337.6" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->一直以来有个疑问，为什么更多人选择<code>!function (){}()</code>这种写法呢，除了少一个字符以外，难道只是个人习惯吗，会不会有什么性能方面的差异呢。为什么不直接写函数里面的代码呢。<!-- raw HTML omitted -->先谈谈性能方面，下面是参看了一位大佬的测试<a href="https://swordair.com/function-and-exclamation-mark/" target="_blank" rel="noopener">https://swordair.com/function-and-exclamation-mark/</a>，就不再自己测试了。<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1680098712660-7c8dd386-c57b-4f33-9130-e1f732710d60.png#averageHue=%23f4f3f1&amp;clientId=u172018b5-718f-4&amp;from=paste&amp;height=604&amp;id=uf4f4aa94&amp;originHeight=755&amp;originWidth=865&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=153583&amp;status=done&amp;style=none&amp;taskId=uc4669abf-a0d5-4115-92da-b983e2ad44e&amp;title=&amp;width=692" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->总结下来：
+:::info</p>
+<ul>
+<li>+- ()在一般情况是非常快的，google里+-甚至更快</li>
+<li>！相比上面几个要慢
+:::
+看来，性能方面的问题，！写法可能更是一种习惯。<!-- raw HTML omitted -->再来看另一个问题，为什么要写成匿名函数自调用，而不直接写里面的内容。<!-- raw HTML omitted -->这个问题的原因应该是，多数三方库的实现都是在ES5环境下写的，为了避免变量污染，<strong>隔离变量的作用域</strong>。<!-- raw HTML omitted -->而ES6新增块级作用域，使用let，const声明变量，应该就不用这样的写法了。</li>
+</ul>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2023/png/29064333/1681705773315-5903c76a-1ca5-4922-aa1a-2be158476f0b.png"></div>
+  <div class="card-text">
+    <a href="/docs/zkrgxqngkkw1fu3a/"><h4 class="card-text--title text-ellipsis">添加标注</h4></a>
+    <p class="card-text--row">2023-04-17 04:20</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679639908245-70c8ea87-dcd3-4309-bb15-c31b24b1f29a.png"></div>
+  <div class="card-text">
+    <a href="/docs/feh4pqyykg3x5ry9/"><h4 class="card-text--title text-ellipsis">更改geojson(entity)的属性</h4></a>
+    <p class="card-text--row">2023-03-24 06:37</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents"></nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

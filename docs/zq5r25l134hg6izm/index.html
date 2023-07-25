@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>属性Attribute变量 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="属性Attribute变量" />
+<meta property="og:description" content="属性的设置流程 以这个顶点着色器为例 attribute vec2 a_position; attribute vec4 a_color; ... 着色器里有两个变量，一个是坐标，一个是颜色。初始化缓冲时，基本做了如下几步： gl.creat" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/zq5r25l134hg6izm/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2023-07-04T07:47:07+00:00" />
+<meta property="article:modified_time" content="2023-07-11T03:37:22+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="属性Attribute变量"/>
+<meta name="twitter:description" content="属性的设置流程 以这个顶点着色器为例 attribute vec2 a_position; attribute vec4 a_color; ... 着色器里有两个变量，一个是坐标，一个是颜色。初始化缓冲时，基本做了如下几步： gl.creat"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box ">
+
+  <div class="card-cover">
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">属性Attribute变量</h1>
+    
+      <p class="card-text--row">2023-07-04 07:47</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="属性的设置流程">属性的设置流程</h2>
+<p>以这个顶点着色器为例</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-glsl" data-lang="glsl"><span style="display:flex;"><span><span style="color:#66d9ef">attribute</span> <span style="color:#66d9ef">vec2</span> a_position;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">attribute</span> <span style="color:#66d9ef">vec4</span> a_color;
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>着色器里有两个变量，一个是坐标，一个是颜色。<!-- raw HTML omitted -->初始化缓冲时，基本做了如下几步：</p>
+<ol>
+<li><code>gl.createBuffer()</code>创建一个用于存储顶点数据或着色数据的<code>WebGLBuffer</code>对象,<strong>该对象是GPU内存中创建的一个区块的引用</strong>。</li>
+<li><code>gl.bindBuffer(gl.ARRAY_BUFFER,glBuffer)</code>将缓冲与接口（这里我将<strong>gl.ARRAY_BUFFER理解成GPU和CPU的数据接口</strong>，glBuffer则是GPU内的缓冲区）对接</li>
+<li><code>gl.bufferData(gl.ARRAY_BUFFER,dataBuffer,useage)</code>将数据通过接口写入到glBuffer里</li>
+<li><code>gl.getAttribLocation(program,'a_position')</code>获取某一属性在GPU的内存位置</li>
+<li><code>gl.enableVertexAttribArray(positionLocation)</code>启用对应的属性</li>
+<li>&hellip;</li>
+</ol>
+<p>这里只是初始化了数据以及启用了属性而已，但并不能确定哪个buffer是哪个attribute的数据。因此还需要下面的操作：</p>
+<ol>
+<li><code>gl.bindBuffer(gl.ARRAY_BUFFER,positionBuffer)</code>将接口与要关联的属性的glBuffer相关联</li>
+<li><code>gl.vertexAttribPointer(positionLocation,size,type,normalize,stride,offset)</code>配置要关联的坐标属性的顶点属性指针，<strong>并将</strong><code>**gl.ARRAY_Buffer**</code><strong>绑定的buffer，写入到对应顶点属性里。</strong></li>
+</ol>
+<p>绑定第二个attribute</p>
+<ol start="3">
+<li><code>gl.bindBuffer(gl.ARRAY_BUFFER,colorBuffer)</code></li>
+<li><code>gl.vertexAttribPointer(colorLocation,size,type,normalize,stride,offset)</code>
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ol>
+<h2 id="伪代码实现">伪代码实现</h2>
+<blockquote>
+<p>引用自：<a href="https://webglfundamentals.org/webgl/lessons/zh_cn/webgl-attributes.html" target="_blank" rel="noopener">https://webglfundamentals.org/webgl/lessons/zh_cn/webgl-attributes.html</a></p>
+</blockquote>
+<p>用js伪代码来大致描述属性的特点</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 伪代码
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">gl</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">arrayBuffer</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">vertexArray</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">attributes</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">enable</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">size</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">normalize</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">stride</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">buffer</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">divisor</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>, },
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">enable</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">size</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">normalize</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">stride</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">buffer</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">divisor</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>, },
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">enable</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">size</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">normalize</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">stride</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">buffer</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">divisor</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>, },
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">enable</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">size</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">normalize</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">stride</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">buffer</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">divisor</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>, },
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">enable</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">size</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">normalize</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">stride</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">buffer</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">divisor</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>, },
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">enable</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">size</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">normalize</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">stride</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">buffer</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">divisor</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>, },
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">enable</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">size</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">normalize</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">stride</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">buffer</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">divisor</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>, },
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">enable</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">size</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">normalize</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">stride</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">buffer</span><span style="color:#f92672">:</span> <span style="color:#f92672">?</span>, <span style="color:#a6e22e">divisor</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>, },
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">elementArrayBuffer</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>操作每个属性需要获得location，是由<code>gl.getAttribLocation</code>获得，而获得之前，需要通过<code>gl.linkProgram(program)</code>将顶点着色器、片段着色器链接在一起，然后Webgl（驱动/GPU/浏览器）才能决定每个属性的索引单元/存储单元。<!-- raw HTML omitted -->在链接程序之前，可以通过<code>gl.bindAttribLocation</code>来选择某一属性的存储单元。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 告诉 `gl.linkProgram` 将 `position` 分配给属性 #7
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">bindAttribLocation</span>(<span style="color:#a6e22e">program</span>, <span style="color:#ae81ff">7</span>, <span style="color:#e6db74">&#39;position&#39;</span>);
+</span></span></code></pre></div><p><code>attribute</code>变量存放在<code>vertexArray</code>对象中，每个<code>attribute</code>有8个属性，其中<code>buffer</code>数据则是存放<code>buffer</code>数据，执行<code>gl.enableVertexAttribArray(location)</code>则是修改的enable属性</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 伪代码
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">enableVertexAttribArray</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">location</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">attrib</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">vertexArray</span>.<span style="color:#a6e22e">attributes</span>[<span style="color:#a6e22e">location</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">attrib</span>.<span style="color:#a6e22e">enable</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">disableVertexAttribArray</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">location</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">attrib</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">vertexArray</span>.<span style="color:#a6e22e">attributes</span>[<span style="color:#a6e22e">location</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">attrib</span>.<span style="color:#a6e22e">enable</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>绑定<code>gl.ARRAY_BUFFER</code>与<code>glBuffer</code>的gl.bindBuffer的执行大概是这样：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 伪代码
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">bindBuffer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">target</span>, <span style="color:#a6e22e">buffer</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">switch</span> (<span style="color:#a6e22e">target</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">ARRAY_BUFFER</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">arrayBuffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">buffer</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">ELEMENT_ARRAY_BUFFER</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">vertexArray</span>.<span style="color:#a6e22e">elementArrayBuffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">buffer</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>执行<code>gl.vertexAttribPointer</code>用来设置几乎所有其他属性，包括<code>**buffer**</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 伪代码
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">vertexAttribPointer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">location</span>, <span style="color:#a6e22e">size</span>, <span style="color:#a6e22e">type</span>, <span style="color:#a6e22e">normalize</span>, <span style="color:#a6e22e">stride</span>, <span style="color:#a6e22e">offset</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">attrib</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">vertexArray</span>.<span style="color:#a6e22e">attributes</span>[<span style="color:#a6e22e">location</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">attrib</span>.<span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">size</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">attrib</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">attrib</span>.<span style="color:#a6e22e">normalize</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">normalize</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">attrib</span>.<span style="color:#a6e22e">stride</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">stride</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">stride</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">sizeof</span>(<span style="color:#a6e22e">type</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">size</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">attrib</span>.<span style="color:#a6e22e">offset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">offset</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">attrib</span>.<span style="color:#a6e22e">buffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">arrayBuffer</span>;  <span style="color:#75715e">// !!!! &lt;-----属性的buffer会指向gl.ARRAY_Buffer指向的对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>};
+</span></span></code></pre></div><p>这也解释了为什么在调用方法前要先将<code>gl.ARRAY_BUFFER</code>与<code>glBuffer</code>先绑定，才能通过绑定点来设置对应数据信息。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="属性最大值">属性最大值</h2>
+<p>webgl要求至少支持 8个属性，由浏览器、硬件等决定。可以用下面的方法查询最大数量。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">maxAttributes</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getParameter</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">MAX_VERTEX_ATTRIBS</span>);
+</span></span></code></pre></div>
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/lgqhq1kg7l3ll1v3/"><h4 class="card-text--title text-ellipsis">着色器精度</h4></a>
+    <p class="card-text--row">2023-07-05 01:11</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2023/gif/29064333/1688435333105-44d46882-9a26-47a9-961f-406d3fac4441.gif"></div>
+  <div class="card-text">
+    <a href="/docs/ba6kg76p0uqit3ol/"><h4 class="card-text--title text-ellipsis">工作原理</h4></a>
+    <p class="card-text--row">2023-07-04 03:44</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#属性的设置流程">属性的设置流程</a></li>
+        <li><a href="#伪代码实现">伪代码实现</a></li>
+        <li><a href="#属性最大值">属性最大值</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

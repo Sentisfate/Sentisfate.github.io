@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>yaxis 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="yaxis" />
+<meta property="og:description" content="y轴组件，一般最多有两个，多余两个要配置offset id string 组件id show boolean 是否显示 gridIndex number alignTicks boolean 自动对齐刻度 position &#39;left&#39;|&#39;right&#39; right offset number y轴偏移，注：若未将 yAxis.axisLine.onZero 设为 false , 则该" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/xcnu233wegbcwe0l/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2023-03-17T00:56:22+00:00" />
+<meta property="article:modified_time" content="2023-03-17T09:47:27+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="yaxis"/>
+<meta name="twitter:description" content="y轴组件，一般最多有两个，多余两个要配置offset id string 组件id show boolean 是否显示 gridIndex number alignTicks boolean 自动对齐刻度 position &#39;left&#39;|&#39;right&#39; right offset number y轴偏移，注：若未将 yAxis.axisLine.onZero 设为 false , 则该"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679016276607-df434804-9539-45f7-9b64-7dbbb444eeb8.png" alt="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679016276607-df434804-9539-45f7-9b64-7dbbb444eeb8.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">yaxis</h1>
+    
+      <p class="card-text--row">2023-03-17 00:56</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p>y轴组件，一般最多有两个，多余两个要配置offset
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="id--string">id  <code>string</code></h2>
+<p>组件id
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="show---boolean">show   <code>boolean</code></h2>
+<p>是否显示
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="gridindex-number">gridIndex <code>number</code></h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="alignticks-boolean">alignTicks <code>boolean</code></h2>
+<p>自动对齐刻度</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="position--leftright">position  <code>'left'|'right'</code></h2>
+<p>
+  <figure class="figure-image">
+    <img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679016276607-df434804-9539-45f7-9b64-7dbbb444eeb8.png#averageHue=%23fef9ee&amp;clientId=u9e96a474-e56a-4&amp;from=paste&amp;height=418&amp;id=uf3393022&amp;originHeight=418&amp;originWidth=641&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=true&amp;size=8844&amp;status=done&amp;style=none&amp;taskId=u3df443ea-068e-4016-97c1-369dde5618d&amp;title=right&amp;width=641" title="right" alt="right" loading="lazy" />
+    <figcaption>right</figcaption>
+  </figure>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="offset--number">offset  <code>number</code></h2>
+<p>y轴偏移，注：若未将 yAxis.axisLine.onZero 设为 false , 则该项无法生效<!-- raw HTML omitted -->
+  <figure class="figure-image">
+    <img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679016649043-dd5413e8-08e7-4031-a62d-a68b257fa00a.png#averageHue=%23fac95d&amp;clientId=udea591cb-24d4-4&amp;from=paste&amp;height=333&amp;id=u4dcf6d1d&amp;originHeight=333&amp;originWidth=575&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=true&amp;size=6404&amp;status=done&amp;style=none&amp;taskId=uc76763f7-9b4a-456f-b927-f53fdf859c3&amp;title=offset%3A-100&amp;width=575" title="offset:-100" alt="offset:-100" loading="lazy" />
+    <figcaption>offset:-100</figcaption>
+  </figure>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="type-valuecategorytimelog">type <code>'value'|'category'|'time'|'log'</code></h2>
+<p>坐标轴类型<!-- raw HTML omitted -->category一般会自动从dataset读取，也可以主动设置<code>yaxis.data</code><!-- raw HTML omitted -->time 时间轴，适用于连续的时序数据。<!-- raw HTML omitted -->log 对数轴
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="name-string">name <code>string</code></h2>
+<p>坐标轴名。<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679018452983-8ab8bd87-a8e1-4719-816e-7055edcfa325.png#averageHue=%23fef8ea&amp;clientId=ub1231a61-f2f6-4&amp;from=paste&amp;height=319&amp;id=u43425ed1&amp;originHeight=319&amp;originWidth=639&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=5587&amp;status=done&amp;style=none&amp;taskId=u1669a89c-f6ca-4fa2-8165-ba741b3b62e&amp;title=&amp;width=639" alt="image.png" loading="lazy" /></p>
+</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="namelocation-startmiddleend">nameLocation <code>'start'|'middle'|'end'</code></h2>
+<p>
+  <figure class="figure-image">
+    <img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679018530631-b6fbee39-e8b7-4eba-b84d-4749b987bb81.png#averageHue=%23fac95b&amp;clientId=ub1231a61-f2f6-4&amp;from=paste&amp;height=148&amp;id=u45ebceef&amp;originHeight=148&amp;originWidth=257&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=true&amp;size=3124&amp;status=done&amp;style=none&amp;taskId=ub5212826-e98b-4351-a2b1-364194b5824&amp;title=start&amp;width=257" title="start" alt="start" loading="lazy" />
+    <figcaption>start</figcaption>
+  </figure>
+<!-- raw HTML omitted -->
+  <figure class="figure-image">
+    <img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679018554067-ff6053c9-aadc-4cf3-b8bd-b8d6b710dadf.png#averageHue=%23fefefe&amp;clientId=ub1231a61-f2f6-4&amp;from=paste&amp;height=254&amp;id=u76396e8d&amp;originHeight=254&amp;originWidth=72&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=true&amp;size=2170&amp;status=done&amp;style=none&amp;taskId=uc5d4bbe0-9a4b-4329-9508-31f50e7f800&amp;title=middle&amp;width=72" title="middle" alt="middle" loading="lazy" />
+    <figcaption>middle</figcaption>
+  </figure>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="nametextstyle-object">nameTextStyle <code>object</code></h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="color">color</h3>
+<p>颜色
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="fontstyle-normalitalicoblique">fontStyle <code>'normal'|'italic'|'oblique'</code></h3>
+<p>字体风格
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="fontweight-normalboldbolderlighternumber">fontWeight <code>'normal'|'bold'|'bolder'|'lighter'|number</code></h3>
+<p>字体粗细
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="fontsize-number">fontSize <code>'number'</code></h3>
+<p>大小
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="align-leftcenterright">align <code>'left'|'center'|'right'</code></h3>
+<p>水平对齐
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="verticalalign-topmiddlebottom">verticalAlign <code>'top'|'middle'|'bottom'</code></h3>
+<p>水平对齐
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="lineheight-number">lineHeight <code>number</code></h3>
+<p>行高
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="backgroundcolor-stringobject">backgroundColor <code>string|object</code></h3>
+<p>string 为颜色<!-- raw HTML omitted -->object为背景图片如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">backgroundColor</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">image</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;xxx/xxx.png&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 这里可以是图片的 URL，
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 或者图片的 dataURI，
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 或者 HTMLImageElement 对象，
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 或者 HTMLCanvasElement 对象。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="bordercolor-color">borderColor <code>color</code></h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="borderwidth-number">borderWidth <code>number</code></h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="bordertype-soliddasheddotted">borderType <code>'solid'|'dashed'|'dotted'</code></h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="borderdashoffset-number">borderDashOffset <code>number</code></h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="borderradius-numberarray">borderRadius <code>number|Array</code></h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="padding-numberarray">padding <code>number|Array</code></h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="shadowcolor">shadowColor</h3>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679915650717-36baa31e-6f2f-4c3c-a42c-a680793f7479.png"></div>
+  <div class="card-text">
+    <a href="/docs/pg7m6ol3hvf03flq/"><h4 class="card-text--title text-ellipsis">IndexedDB</h4></a>
+    <p class="card-text--row">2023-03-17 02:57</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/lwav68xglu7dzgr8/"><h4 class="card-text--title text-ellipsis">通用基础组件</h4></a>
+    <p class="card-text--row">2023-03-16 09:11</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

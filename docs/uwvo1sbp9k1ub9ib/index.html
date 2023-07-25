@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>绘制圆形轨道 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="绘制圆形轨道" />
+<meta property="og:description" content="先来看下效果图： 简单来说就是绘制一些以地球中心为圆心的圆形轨道。对于要画一个圆，至少得要知道它的方程。二维平面圆的方程有： 放到三维里会变得更" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/uwvo1sbp9k1ub9ib/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2023-06-26T06:21:07+00:00" />
+<meta property="article:modified_time" content="2023-06-26T07:56:53+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="绘制圆形轨道"/>
+<meta name="twitter:description" content="先来看下效果图： 简单来说就是绘制一些以地球中心为圆心的圆形轨道。对于要画一个圆，至少得要知道它的方程。二维平面圆的方程有： 放到三维里会变得更"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1687760495626-f065395c-794e-48d4-aa8e-07d39924d2e6.png" alt="https://cdn.nlark.com/yuque/0/2023/png/29064333/1687760495626-f065395c-794e-48d4-aa8e-07d39924d2e6.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">绘制圆形轨道</h1>
+    
+      <p class="card-text--row">2023-06-26 06:21</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p>先来看下效果图：<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1687760495626-f065395c-794e-48d4-aa8e-07d39924d2e6.png#averageHue=%231c1c02&amp;clientId=u506bc4c5-570f-4&amp;from=paste&amp;height=684&amp;id=u35c6b7f8&amp;originHeight=684&amp;originWidth=738&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=328851&amp;status=done&amp;style=none&amp;taskId=uedf922d6-941f-43f1-a489-0f2128c466f&amp;title=&amp;width=738" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->简单来说就是绘制一些以地球中心为圆心的圆形轨道。对于要画一个圆，至少得要知道它的方程。二维平面圆的方程有：<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/__latex/eaa6bc4e82a60444f856c013bb85bff2.svg#card=math&amp;code=x%5E%7B2%7D%2By%5E%7B2%7D%3DR%5E%7B2%7D%20%20%20%20%20%20%20%20%20%0A&amp;id=RseGr" alt="" loading="lazy" /></p>
+             
+  <p><img src="https://cdn.nlark.com/yuque/__latex/80ca0485e2cd9c0be92c4db66271ebc2.svg#card=math&amp;code=%5Crho%20%3D%5Ctheta%0A&amp;id=KZMmM" alt="" loading="lazy" /></p>
+<!-- raw HTML omitted -->放到三维里会变得更加复杂，<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/__latex/dd6430426c808d797fa5ec75a0e0d493.svg#card=math&amp;code=x%5E2%2By%5E2%2Bz%5E2%3DR%5E2%0A&amp;id=xZX3B" alt="" loading="lazy" /></p>
+<!-- raw HTML omitted -->考虑到要画的圆形轨道，本质上是以地球为圆心的某个球面的大圆。因此，只要知道大圆的方程，就能方便的绘制轨道了。<!-- raw HTML omitted -->这里我们采用极坐标方程加经纬度来计算，参考了下网上有人推导出来的单位球面大圆方程：<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/__latex/4302608f9b2cbe0e6534ed6373c6c3ab.svg#card=math&amp;code=sin%28lat%29%3Dk%2Acos%5Cbeta%2Asin%28lon%2B%5Cgamma%29%0A&amp;id=rMAGD" alt="" loading="lazy" /></p>
+<!-- raw HTML omitted -->简单化简下可经纬度的关系式：<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/__latex/3d0a4ac1f1e50775038f7228f96517e8.svg#card=math&amp;code=lat%3Darctan%5Bk%2Asin%28lon%2B%5Cgamma%29%5D&amp;id=KyyrL" alt="" loading="lazy" /></p>
+<!-- raw HTML omitted -->其中出了
+  <p><img src="https://cdn.nlark.com/yuque/__latex/b26e7c7ecb2be99b424658e5f9d74354.svg#card=math&amp;code=lon&amp;id=nHzfV" alt="" loading="lazy" /></p>
+
+  <p><img src="https://cdn.nlark.com/yuque/__latex/65bbd1ccded18abfbf68fa7fe12d080f.svg#card=math&amp;code=lat&amp;id=dmLlL" alt="" loading="lazy" /></p>
+ 经纬度这两个参数外，还有另外两个参数用来确定一个大圆的方程，
+  <p><img src="https://cdn.nlark.com/yuque/__latex/df976ff7fcf17d60490267d18a1e3996.svg#card=math&amp;code=k&amp;id=Mtejh" alt="" loading="lazy" /></p>
+表示轨道与赤道的夹角的正切，也就是斜率，面面夹角相关知识，高三数学选修里应该介绍过，
+  <p><img src="https://cdn.nlark.com/yuque/__latex/37713bea5bc8e384deb3945aeca2b979.svg#card=math&amp;code=%5Cgamma%0A&amp;id=hUufI" alt="" loading="lazy" /></p>
+表示大圆的朝向，这两个参数确定后则能确定一个大圆的位置。<!-- raw HTML omitted -->
+  <figure class="figure-image">
+    <img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1687762204656-cdbc75d1-6fa4-4524-aab5-342570884120.png#averageHue=%23778370&amp;clientId=u506bc4c5-570f-4&amp;from=paste&amp;height=937&amp;id=ua1976055&amp;originHeight=937&amp;originWidth=1872&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=true&amp;size=1929593&amp;status=done&amp;style=none&amp;taskId=u829e3eca-033f-4d3e-9715-b8ca72bd523&amp;title=%E5%9B%BE%E4%B8%AD%E5%88%99%E6%98%AF%E4%B8%A4%E4%B8%AA%E5%80%BE%E8%A7%92%E4%B8%BA45%C2%B0%EF%BC%8C%E6%9C%9D%E5%90%91%E5%88%86%E5%88%AB%E4%B8%BA0%E5%92%8C20%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%90%83%E9%9D%A2%E5%A4%A7%E5%9C%86&amp;width=1872" title="图中则是两个倾角为45°，朝向分别为0和20的两个球面大圆" alt="图中则是两个倾角为45°，朝向分别为0和20的两个球面大圆" loading="lazy" />
+    <figcaption>图中则是两个倾角为45°，朝向分别为0和20的两个球面大圆</figcaption>
+  </figure>
+</p>
+<blockquote>
+<p>这里在赤道上标注只是更方便直观展示朝向的影响，本质上朝向的计算应该是圆面的法向量在赤道面的投影与正东方向的夹角，至少我是这么理解的。</p>
+</blockquote>
+<p>上面的方程已经能表示绝大部分的大圆，但是还有一类特殊的大圆极轨，无法表示，需要另加实现。<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1687764523746-519d2d80-3157-4f9d-8acc-a48bd251a2e6.png#averageHue=%23dbdf30&amp;clientId=u4285e39e-21ed-4&amp;from=paste&amp;height=617&amp;id=u11a152e2&amp;originHeight=617&amp;originWidth=758&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=461968&amp;status=done&amp;style=none&amp;taskId=u5d594ec4-4150-4b26-825d-499706816fd&amp;title=&amp;width=758" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->下面就是这样一个大圆的轨迹如何生成的代码实现了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">JulianDate</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;cesium&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Cartesian3</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;cesium&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * 生成绕地轨道大圆轨迹
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param a 大圆轨道倾角
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param y 大圆轨道朝向
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param height 大圆上的点具地面的高度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getTrack</span>(<span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">y</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">height</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">degreeUnit</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">PI</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">180</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">radianUnit</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">180</span> <span style="color:#f92672">/</span> Math.<span style="color:#a6e22e">PI</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">a</span> <span style="color:#f92672">&lt;=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">90</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">90</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;圆面倾角不能为90&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">startTime</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JulianDate</span>.<span style="color:#a6e22e">fromDate</span>(<span style="color:#66d9ef">new</span> Date())
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 定义轨道与地球赤道的倾角
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 90为极轨
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">startLon</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">degreeUnit</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">y</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">degreeUnit</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">tanA</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">tan</span>(<span style="color:#a6e22e">a</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">tanA</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">track</span> <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 以经度作为微分轴，将整个轨迹分为360份
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">startLon</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">360</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">startLon</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 计算每一经度对应的经纬度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">lon</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">i</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">lat</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">atan</span>(<span style="color:#a6e22e">tanA</span> <span style="color:#f92672">*</span> Math.<span style="color:#a6e22e">sin</span>(<span style="color:#a6e22e">degreeUnit</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">lon</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">y</span>)) <span style="color:#f92672">*</span> <span style="color:#a6e22e">radianUnit</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">track</span>.<span style="color:#a6e22e">push</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">position</span>: <span style="color:#66d9ef">Cartesian3.fromDegrees</span>(<span style="color:#a6e22e">lon</span>, <span style="color:#a6e22e">lat</span>, <span style="color:#a6e22e">height</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">time</span>: <span style="color:#66d9ef">JulianDate.addSeconds</span>(<span style="color:#a6e22e">startTime</span>, <span style="color:#a6e22e">i</span>, <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">JulianDate</span>()),
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">track</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getPolarTrack</span>(<span style="color:#a6e22e">lon</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">height</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">startTime</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JulianDate</span>.<span style="color:#a6e22e">fromDate</span>(<span style="color:#66d9ef">new</span> Date())) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tracks</span> <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">360</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">tracks</span>.<span style="color:#a6e22e">push</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">position</span>: <span style="color:#66d9ef">Cartesian3.fromDegrees</span>(<span style="color:#a6e22e">lon</span>, <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">height</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">time</span>: <span style="color:#66d9ef">JulianDate.addSeconds</span>(<span style="color:#a6e22e">startTime</span>, <span style="color:#a6e22e">i</span>, <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">JulianDate</span>())
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">tracks</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>将两个方法整合一下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">JulianDate</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;cesium&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Cartesian3</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;cesium&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * 生成绕地轨道大圆轨迹
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param a 大圆轨道倾角
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param y 大圆轨道朝向
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param height 大圆上的点具地面的高度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBigCircleTrack</span>(<span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">y</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">height</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,<span style="color:#a6e22e">startLon</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,<span style="color:#a6e22e">startTime</span><span style="color:#f92672">=</span><span style="color:#a6e22e">JulianDate</span>.<span style="color:#a6e22e">fromDate</span>(<span style="color:#66d9ef">new</span> Date())) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">degreeUnit</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">PI</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">180</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">radianUnit</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">180</span> <span style="color:#f92672">/</span> Math.<span style="color:#a6e22e">PI</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">a</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">90</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">90</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">getPolarTrack</span>(<span style="color:#a6e22e">startLon</span>,<span style="color:#a6e22e">height</span>,<span style="color:#a6e22e">startTime</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 转为弧度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">degreeUnit</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">y</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">degreeUnit</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">tanA</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">tan</span>(<span style="color:#a6e22e">a</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">track</span> <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 以经度作为微分轴，将整个轨迹分为360份
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">startLon</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">360</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">startLon</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 计算每一经度对应的经纬度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">lon</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">i</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">lat</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">atan</span>(<span style="color:#a6e22e">tanA</span> <span style="color:#f92672">*</span> Math.<span style="color:#a6e22e">sin</span>(<span style="color:#a6e22e">degreeUnit</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">lon</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">y</span>)) <span style="color:#f92672">*</span> <span style="color:#a6e22e">radianUnit</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">track</span>.<span style="color:#a6e22e">push</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">position</span>: <span style="color:#66d9ef">Cartesian3.fromDegrees</span>(<span style="color:#a6e22e">lon</span>, <span style="color:#a6e22e">lat</span>, <span style="color:#a6e22e">height</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">time</span>: <span style="color:#66d9ef">JulianDate.addSeconds</span>(<span style="color:#a6e22e">startTime</span>, <span style="color:#a6e22e">i</span>, <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">JulianDate</span>()),
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">track</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getPolarTrack</span>(<span style="color:#a6e22e">lon</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">height</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">startTime</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JulianDate</span>.<span style="color:#a6e22e">fromDate</span>(<span style="color:#66d9ef">new</span> Date())) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tracks</span> <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">360</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">tracks</span>.<span style="color:#a6e22e">push</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">position</span>: <span style="color:#66d9ef">Cartesian3.fromDegrees</span>(<span style="color:#a6e22e">lon</span>, <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">height</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">time</span>: <span style="color:#66d9ef">JulianDate.addSeconds</span>(<span style="color:#a6e22e">startTime</span>, <span style="color:#a6e22e">i</span>, <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">JulianDate</span>())
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">tracks</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>当然如果想要让圆更圆，记得使用Cesium中的样条插值来平滑曲线：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>(<span style="color:#a6e22e">entity</span>.<span style="color:#a6e22e">position</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">SampledPositionProperty</span>).<span style="color:#a6e22e">setInterpolationOptions</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">interpolationAlgorithm</span>: <span style="color:#66d9ef">LagrangePolynomialApproximation</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">interpolationDegree</span>: <span style="color:#66d9ef">5</span>,
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div>
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/geyrohex2attuwpc/"><h4 class="card-text--title text-ellipsis">轨迹回放</h4></a>
+    <p class="card-text--row">2023-06-26 07:01</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/pcplhgn2vlxy27pq/"><h4 class="card-text--title text-ellipsis">关于互斥，至少一个字段类型的设计</h4></a>
+    <p class="card-text--row">2023-06-22 13:50</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents"></nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

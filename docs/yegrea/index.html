@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>vue基础 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="vue基础" />
+<meta property="og:description" content="一、vue简介 1.什么是vue :::info vue是一个动态的渐进式的构建用户界面的js框架，遵循MVVM模式 ::: 构建用户界面：将数据转换成界面 渐进式：由" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/yegrea/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-06-06T02:57:08+00:00" />
+<meta property="article:modified_time" content="2023-05-26T08:33:56+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="vue基础"/>
+<meta name="twitter:description" content="一、vue简介 1.什么是vue :::info vue是一个动态的渐进式的构建用户界面的js框架，遵循MVVM模式 ::: 构建用户界面：将数据转换成界面 渐进式：由"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1654511326950-1108f6aa-3b79-4ab1-9762-649548988a28.png" alt="https://cdn.nlark.com/yuque/0/2022/png/29064333/1654511326950-1108f6aa-3b79-4ab1-9762-649548988a28.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">vue基础</h1>
+    
+      <p class="card-text--row">2022-06-06 02:57</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="一vue简介">一、vue简介</h1>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="1什么是vue">1.什么是vue</h2>
+<p>:::info
+vue是一个动态的渐进式的构建用户界面的js框架，遵循MVVM模式
+:::</p>
+<ul>
+<li>构建用户界面：将数据转换成界面</li>
+<li>渐进式：由简到难，自底向上慢慢改进
+<ul>
+<li>替代jquery，js函数库功能</li>
+<li>应用组件化，重构某一页面</li>
+<li>全家桶开发某一大型应用</li>
+</ul>
+</li>
+<li>MVVM 模式，实现的响应式的框架
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ul>
+<h2 id="2vue的特点">2.Vue的特点</h2>
+<ol>
+<li>数据驱动</li>
+<li>声明式</li>
+<li>组件化开发
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ol>
+<h1 id="二vue的快速上手">二、vue的快速上手</h1>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="1环境搭建">1.环境搭建</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="11初始化">1.1初始化</h3>
+<p><code>npm init -y</code>创建一个package.json文件
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="12安装vue">1.2安装Vue</h3>
+<p>终端执行命令<code>npm i vue@2 --save</code> 可以简写为<code>npm i vue@2</code>这里vue的默认版本为3，如果要下vue2的话，用<code>@指定版本号</code>。<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1654511326950-1108f6aa-3b79-4ab1-9762-649548988a28.png#averageHue=%237babb0&amp;clientId=u9e62ffca-7a39-4&amp;from=paste&amp;height=585&amp;id=u9b89b84c&amp;originHeight=731&amp;originWidth=406&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=50992&amp;status=done&amp;style=none&amp;taskId=u74051717-c8b2-4f56-a328-ef22b506803&amp;title=&amp;width=324.8" alt="image.png" loading="lazy" /></p>
+</p>
+<p>:::info
+💡 vue的各种版本说明</p>
+<ul>
+<li>vue.js是完整版，在初学阶段使用。</li>
+<li>common，使用的是commonJS规范导入导出<code>module.exports</code>的，这种文件不能再浏览器里使用</li>
+<li>esm(ES Module)  使用ES模块的规范导入导出，<code>export default</code></li>
+<li>runtime 运行时版本，相对于编译版本体积更小，效率更高</li>
+<li>min 压缩版
+:::
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ul>
+<h3 id="13-小结">1.3 小结</h3>
+<p>:::success
+vue上手步骤</p>
+<ol>
+<li>项目初始化 <code>npm init -y</code></li>
+<li>安装 <code>npm i vue@版本</code>
+:::</li>
+</ol>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="2入门案例">2.入门案例</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="21-引入vuejs">2.1 引入vue.js</h3>
+<p>在html 头部通过script 来引入vue.js</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;./node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="22编写页面">2.2编写页面</h3>
+<p>在body里写一个div，id为app，所有视图将在这部分渲染，其中的<code>{{msg}}</code>是模板语法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    {{msg}}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="23编写vue实例">2.3编写vue实例</h3>
+<p>在body的最末尾，使用<code>&lt;script&gt;</code>编写vue实例。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span><span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;#app&#39;</span>,<span style="color:#75715e">//对应操作的元素，必填参数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>        },<span style="color:#75715e">//数据部分
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span>{}
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><blockquote>
+<p>语法：</p>
+<ul>
+<li>new Vue(一个配置对象)创建)，属性有：</li>
+<li>el ，表示操作的元素，值为选择器字符串，通常使用id选择器</li>
+<li>data，表示数据，值为一个json对象，对象的成员名对应着元素标签体里的{{XXX}}，即要用啥声明啥，声明式特点</li>
+<li>methods，方法</li>
+</ul>
+</blockquote>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="24渲染数据">2.4渲染数据</h3>
+<p>在data中定义数据</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span><span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;#app&#39;</span>,<span style="color:#75715e">//对应操作的元素，必填参数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">msg</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;hello world&#39;</span>
+</span></span><span style="display:flex;"><span>        },<span style="color:#75715e">//数据部分
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span>{}
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><p>以键值对形式渲染。其中<code>msg</code>相当于变量名，<code>'heelo world'</code>相当于变量值。</p>
+<blockquote>
+<p>扩展</p>
+</blockquote>
+<p>:::info
+声明式编程，需要什么就声明什么<!-- raw HTML omitted -->命令式编程，按照步骤执行命令，如jquery
+:::
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="25-总结">2.5 总结</h3>
+<blockquote>
+<p>vue.js编程步骤</p>
+<ol>
+<li>引入vue.js</li>
+<li>编写视图</li>
+<li>创建vue对象</li>
+<li>渲染数据</li>
+</ol>
+</blockquote>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="三mvvm模型">三、MVVM模型</h1>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="1是什么">1.是什么</h2>
+<p>:::info
+M Model(数据模型) V View(视图) 和 VM (View Model)组成
+:::
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="11-核心思想">1.1 核心思想</h3>
+<p>实现<strong>数据</strong>和<strong>视图</strong>的**双向绑定 **</p>
+<ul>
+<li>Model 操作数据</li>
+<li>View 显示数据</li>
+<li>VM 双向绑定M和V，即操作数据后显示数据改变，操作视图改变数据后，model里的数据发生变化。VM封装了这一过程。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ul>
+<h3 id="12-原理">1.2 原理</h3>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1654528216682-72d4bf2c-44cc-46a8-8c1f-6c61f919912b.png#averageHue=%23f3eeeb&amp;clientId=u9e62ffca-7a39-4&amp;from=paste&amp;height=390&amp;id=u9fc61af3&amp;originHeight=488&amp;originWidth=1012&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=103280&amp;status=done&amp;style=none&amp;taskId=u9ed7cc9f-4a09-4da6-b4e1-1f1209048d3&amp;title=&amp;width=809.6" alt="image.png" loading="lazy" /></p>
+</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="四vue实例">四、Vue实例</h1>
+<p>vue实例通常由三个配置选项组成，分别为el，data，methods
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="1el">1.el</h2>
+<p>el配置选项是用来确定vue实例所关联的视图。其取值可以是<strong>选择器字符串</strong>或者<strong>dom对象</strong>。<!-- raw HTML omitted --><code>el: string|elemet</code><!-- raw HTML omitted --><strong>注意点：</strong>
+:::info</p>
+<ul>
+<li>只会关联string所匹配的第一个元素。</li>
+<li>只能匹配一个元素，因此推荐使用id选择器。</li>
+<li>使用选择器相较于dom元素多数情况更方便些，更推荐
+:::
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ul>
+<h2 id="2data">2.data</h2>
+<p>通过data选项配置的各种数据叫<strong>属性</strong>，也叫**状态。**以键值对的形式，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">data</span><span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">msg</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;111&#39;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>上面的msg就可以看成是变量名。可以通过Mustache语法<code>{{}}</code>使用。如<!-- raw HTML omitted --><code>{{msg}}</code><!-- raw HTML omitted -->msg的 使用，遵循着js语法，如对象的话可以通过对象.属性来获取属性数据，数组的话可以通过索引获取某一个元素等。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="3methods">3.methods</h2>
+<p>在vue实例中，方法通过methods配置，方法中可以通过this访问到data里的数据。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">f1</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">f2</span>(){
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">msg</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>上面的写法中使用了简写形式，直接用属性名(){}<!-- raw HTML omitted --><strong>作用</strong>：</p>
+<ul>
+<li>响应视图的事件</li>
+<li>操作属性</li>
+</ul>
+<p>方法操作数据的原理</p>
+<blockquote>
+<ul>
+<li>this指向的是当前的vm实例</li>
+<li>data和methods中的属性都被挂载到了vm实例上</li>
+<li>调用方法时，相当于执行了vm.方法()</li>
+</ul>
+</blockquote>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="4深入理解">4.深入理解</h2>
+<p>:::info</p>
+<ol>
+<li>同名问题，data和method里的属性不能同名。</li>
+<li>箭头函数问题，methods中尽量不使用箭头函数，箭头函数不方便对数据进行操作因为其不具有自己的this，this为父级作用域。
+:::
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ol>
+<h2 id="5总结">5.总结</h2>
+<p>:::info</p>
+<ul>
+<li>el是用来数据在什么地方展示以及操作的</li>
+<li>属性是用来保存数据的</li>
+<li>方法是用来操作数据的
+:::
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ul>
+<h1 id="五模板语法">五、模板语法</h1>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="1什么是模板">1.什么是模板</h2>
+<p>简单来说，能被vue关联且解析的DOM中的字符串是模板。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="2模板语法的分类">2.模板语法的分类</h2>
+<p>分为<strong>插值语法</strong>和<strong>指令语法</strong>
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="3插值语法">3.插值语法</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="31什么是插值语法">3.1什么是插值语法</h3>
+<p>一言以蔽之，<code>{{}}</code>括起来的就是插值语法。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="32如何使用">3.2如何使用</h3>
+<p>插值语法通常使用在文本节点。<code>{{}}</code>内部可以写属性名，js表达式，不能写语句(定义，声明，流程语句)。</p>
+<blockquote>
+<p>💡如何判断一个节点是文本节点</p>
+</blockquote>
+<p>:::info
+先来了解啥是节点，根据 W3C 的 HTML DOM 标准，HTML 文档中的所有内容都是节点：</p>
+<ul>
+<li>整个文档是一个文档节点</li>
+<li>每个 HTML 元素是元素节点</li>
+<li>HTML 元素内的文本是文本节点</li>
+<li>每个 HTML 属性是属性节点</li>
+<li>注释是注释节点</li>
+</ul>
+<p>上面的解释还不够清楚的话，打开vscode，调试页面打开开发者模式，在元素页面选择某一节点，可以看到$0符号，在控制台console.dir($0)，查找nodeType属性，属性值为3就是文本节点。
+:::
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="4指令语法">4.指令语法</h2>
+<p>顾名思义，是基于某种指令的语法，所谓的指令就是带有v-开头的特殊属性attribute(可以包括自定义的属性)。指令语法分为一下几类。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="41单向绑定">4.1单向绑定</h3>
+<p>单向绑定绑定的是普通元素(非表单元素)的<code>**attribute**</code>，通常使用<code>**v-bind**</code>来进行绑定。其<strong>特点</strong>是<strong>V不会改变M，但操作M会改变V</strong>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">v-bind:href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;url&#34;</span>&gt;某个神秘链接&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">:href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;simpleUrl&#34;</span>&gt;百度？&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span></code></pre></div><p>上面的示例中用到了简写形式，即可以省去v-bind保留**: **。<code>**attribute**</code>的值，就是双引号里的内容，是一个指令表达式。</p>
+<blockquote>
+<p>指令表达式是什么</p>
+</blockquote>
+<p>:::info
+指令的值就是指令表达式。所以指令表达式返回的是一个值。指令是一个特殊的属性，指令表达式就是这个属性的值。
+:::</p>
+<blockquote>
+<p>指令表达式能写什么</p>
+</blockquote>
+<p>:::info</p>
+<ol>
+<li>可以写<code>**vm**</code>里的属性名，从而使该指令响应式的获得属性值</li>
+<li>由<code>**vm**</code>的属性名构成的表达式，注意是表达式，不能是语句</li>
+<li>根据指令的不同，还可以写<code>**vm**</code>的方法名(括号问题由要不要传参决定)
+:::
+简单案例</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;v-bind&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- 单向绑定，操作的是普通元素，非表单元素 --&gt;</span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;url&#34;</span>&gt;百度&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- 应用指令后，属性值被当作 指令表达式解析 --&gt;</span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">v-bind:href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;url&#34;</span>&gt;百度&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- 简写 省略v-bind 保留：--&gt;</span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">:href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;url&#34;</span>&gt;百度？&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- 指令表达式
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            1.可以直接访问vm实例身上的属性
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            2.可以是一个js表达式
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            3.不能写js语句
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#app&#39;</span>,<span style="color:#75715e">//指定vue解析的模板
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://www.baidu.com&#39;</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="42-双向绑定">4.2 双向绑定</h3>
+<p>绑定的是表单元素，通常使用<code>**v-model='指令表达式'**</code>来绑定。其绑定的是表单元素的<code>**value**</code>属性。其特点是<strong>M,V会相互影响</strong>。<!-- raw HTML omitted -->双向绑定是一个语法糖，其原理就是通过<code>**v-bind**</code>绑定了表单的<code>**value**</code>属性并监听其相应的<strong>事件</strong>(文本框是input事件)。下面通过一个案例来实现双向绑定的原理。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;双向绑定&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            双向绑定 表单元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            input type
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">                text
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">                password
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">                radio 单选框
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">                checkbox 复选框
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            select 下拉选框
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">                option 选项
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            textarea 文本域
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">         --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            v-mode  语法糖
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            1.数据改变，会影响视图
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            2.视图的改变会影响数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">         --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">:value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">v-on:input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleInput&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span><span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;#app&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">username</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">handleInput</span>(<span style="color:#a6e22e">e</span>){
+</span></span><span style="display:flex;"><span>                    <span style="color:#75715e">// e代表输入事件的对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>)
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">data</span>)
+</span></span><span style="display:flex;"><span>                    <span style="color:#75715e">// +=只适合只能输入，不能删除，删除会变null
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    <span style="color:#75715e">//this.username+=e.data//输入事件是监听输入的字符，e.data只是当前输入的字符的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">username</span><span style="color:#f92672">=</span><span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span><span style="color:#75715e">//e.target 获取的是dom对象，能���更准确的获得当前的输入框里的值。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="43-事件绑定">4.3 事件绑定</h3>
+<p>将事件与事件处理函数绑定在一起。通常使用<code>**v-on:**</code>来绑定事件，可简写为<code>**@事件**</code>。<!-- raw HTML omitted -->如果事件绑定的回调函数十分简单，就可以使用指令表达式达到同样的效果，如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;事件绑定&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;counter++&#34;</span>&gt;点我看看&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h3</span>&gt;{{counter}}&lt;/<span style="color:#f92672">h3</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#app&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">counter</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>						}
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>关于处理函数何时加括号及其相关的问题。
+:::info</p>
+<ol>
+<li>当要传参的时候，加括号传参</li>
+<li>加了括号后就不能直接获得事件对象了</li>
+<li>要通过<code>**$event**</code>将事件对象传入再通过形参获取
+:::</li>
+</ol>
+<blockquote>
+<p>💡回调函数</p>
+</blockquote>
+<p>:::info</p>
+<ol>
+<li>通俗来讲，回调函数是不会按照正常流程执行，需要在某种情况下触发的函数。</li>
+<li>从同步异步角度来讲，回调函数是异步函数。</li>
+<li>从代码逻辑角度，回调函数通常是作为另一函数的参数。
+:::</li>
+</ol>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="44-事件修饰符">4.4 事件修饰符</h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="441基础事件修饰符">4.4.1基础事件修饰符</h4>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="1-prevent">1) .prevent</h5>
+<p>用法：<code>**v-on:属性.prevent**</code> 简写形式<code>**@属性.prevent**</code><!-- raw HTML omitted -->作用：阻止默认行为</p>
+<blockquote>
+<p>什么元素具有默认行为呢</p>
+</blockquote>
+<p>:::info</p>
+<ol>
+<li>a标签默认跳转</li>
+<li>form表单，提交请求会根据method属性发送http请求，从而页面跳转
+:::
+用法案例</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;Document&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            有默认行为的元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            a元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            form 元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">                根据method属性，发起了http请求
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">         --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- .prevent 阻止默认行为 --&gt;</span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.baidu.com&#34;</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">prevent</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleClick&#34;</span>&gt;百度&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#app&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {},
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">handleClick</span>() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="2stop">2）.stop</h5>
+<p>用法：<code>**v-on:属性.stop**</code>简写形式<code>**@属性.stop**</code><!-- raw HTML omitted -->作用：阻止事件的冒泡行为。<!-- raw HTML omitted -->原生的js通过事件对象 <code>**e.stopPropagation()**</code></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="3-once">3） .once</h5>
+<p>用法：<code>**v-on:属性.once**</code>简写形式<code>**@属性.once**</code><!-- raw HTML omitted -->作用：事件只绑定一次。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="442-按键修饰符">4.4.2 按键修饰符</h3>
+<p>绑定在键盘相关事件时使用，在按下特定的键时才会触发。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="1常用功能键">1）常用功能键</h5>
+<p>:::info</p>
+<ul>
+<li>enter</li>
+<li>up</li>
+<li>down</li>
+<li>left</li>
+<li>right
+:::
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ul>
+<h5 id="2系统功能键">2）系统功能键</h5>
+<p>:::info</p>
+<ul>
+<li>ctrl</li>
+<li>alt</li>
+<li>shift
+:::
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ul>
+<h3 id="45-条件渲染">4.5 条件渲染</h3>
+<p>分类：v-if ，v-show<!-- raw HTML omitted -->两者的共同点：
+:::info</p>
+<ul>
+<li>
+<p>在条件成立的时候，会渲染DOM
+:::
+区别：
+:::info</p>
+</li>
+<li>
+<p>在条件不成立的时候，v-if不会渲染DOM，v-show会渲染DOM，但是通过display属性来隐藏DOM元素。
+:::
+特点：
+:::info</p>
+</li>
+<li>
+<p>v-if的空间效率更高，v-show的时间效率更高</p>
+</li>
+<li>
+<p>v-if与v-else-if，v-else搭配适合逻辑更复杂的情况。</p>
+</li>
+<li>
+<p>v-show适合频繁切换显示。
+:::
+注意：
+:::info
+v-if与v-else-if与v-else要紧跟着。否则后面的无法被识��。就像使用if-else一样。
+:::
+小示例</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;条件渲染&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            条件为真没有区别都显示。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            条件为假，v-if不会渲染真实的DOM
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">                v-show会渲染DOM，但是会通过display:none属性隐藏。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">         --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">             时间和空间效率
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">             v-show 时间效率高，用于频繁切换显示
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">             v-if 空间效率高，用的时候占用空间，占空间少。适合逻辑复杂的场景。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">          --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            逻辑角度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            v-if适合逻辑复杂的场景,如 v-if  v-else-if v-else,但这些需要紧跟在一起使用的,否则后面的无法被识别
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">         --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            v-if是真正的条件渲染，条件成立渲染DOM，不成立不渲染 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;flag&#34;</span>&gt;这是通过v-if渲染的&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- &lt;div v-else-if=&#34;flag==true&#34;&gt;这个是通过v-else渲染的&lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        &lt;div v-else&gt;这个是通过v-else渲染的&lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        &lt;div v-show=&#34;flag&#34;&gt;这是通过v-show渲染的&lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        &lt;div v-show=&#34;!flag&#34;&gt;这是通过v-show渲染的&lt;/div&gt; --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;toggleShow&#34;</span>&gt;切换显示&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;flag=!flag&#34;</span>&gt;切换显示&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;flag=flag?false:true&#34;</span>&gt;切换显示&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#app&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">flag</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">toggleShow</span>() {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">flag</span> <span style="color:#f92672">=</span> <span style="color:#f92672">!</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">flag</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="46-列表渲染">4.6 列表渲染</h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="1-什么是列表渲染">1) 什么是列表渲染</h4>
+<p>我们可以用<code>** v-for**</code> 指令基于一个可迭代对象来渲染一个列表(li，等dom元素)。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="2语法">2）语法</h4>
+<p><code>v-for='循环变量 in 迭代对象'</code>
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="3说明">3）说明</h4>
+<p>:::info</p>
+<ul>
+<li>当迭代对象为数组的时候，循环变量可以有两个参数，第一个为当前遍历到的元素，第二个为当前遍历到的元素的索引，只有一个不需要加括号。
+- <code>**v-for='(item,index) in arr'**</code>
+- <code>**v-for='item in arr'**</code></li>
+<li>当迭代对象为对象的时候，遍历的为对象的属性(<strong>方法也是对象的一种属性也会被遍历</strong>)。循环遍历第一个参数为属性值，第二个参数为属性名，还可以有第三个参数为当前遍历到的属性的下标。
+- <code>**v-for='(value,key,index) in obj'**</code>
+- <code>**v-for='(value,key) in obj'**</code>
+- <code>**v-for='value in obj'**</code>
+:::
+示例：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;列表渲染&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- 语法 循环变量 in 可迭代对象 --&gt;</span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">&lt;!-- 只获取数组的元素 --&gt;</span>
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item in items&#34;</span>&gt;{{item}}&lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- 获取数组下标 --&gt;</span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;(item,index) in items&#34;</span>&gt;{{index}}--{{item}}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            遍历对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">                第一个参数是属性值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">                第二个参数是属性名
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">                第三个参数是下标 基本不用
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">         --&gt;</span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;value in obj&#34;</span>&gt;{{value}}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;(value,key) in obj&#34;</span>&gt;{{key}}--{{value}}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#app&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">items</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;item1&#39;</span>, <span style="color:#e6db74">&#39;item2&#39;</span>, <span style="color:#e6db74">&#39;item3&#39;</span>],
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">obj</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">attr1</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;111&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">attr2</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;222&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">attr3</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;333&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">fn</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () { },
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">users</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>                    { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;小米&#39;</span> },
+</span></span><span style="display:flex;"><span>                    { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;小胖&#39;</span> },
+</span></span><span style="display:flex;"><span>                    { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;小强&#39;</span> },
+</span></span><span style="display:flex;"><span>                ]
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">add</span>() {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">unshift</span>({ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;小明&#39;</span> })
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="4注意-key的绑定">4）注意 key的绑定</h4>
+<p>接下来看下下面这个案例。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;列表渲染&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h1</span>&gt;用户列表&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;add&#34;</span>&gt;添加一个用户&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item in users&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>							{{item.name}} 
+</span></span><span style="display:flex;"><span>							&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>					&lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#app&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">users</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>                    { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;小米&#39;</span> },
+</span></span><span style="display:flex;"><span>                    { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;小胖&#39;</span> },
+</span></span><span style="display:flex;"><span>                    { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;小强&#39;</span> },
+</span></span><span style="display:flex;"><span>                ]
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">add</span>() {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">unshift</span>({ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;小明&#39;</span> })
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>打开上面这个页面，并进行如下操作：<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1654677814896-6f8daee4-2cef-4675-aef1-1875db23b567.png#averageHue=%23f3f3f3&amp;clientId=u72f7e444-ab56-4&amp;from=paste&amp;height=285&amp;id=ub996126a&amp;originHeight=356&amp;originWidth=534&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=14985&amp;status=done&amp;style=none&amp;taskId=u64b9d6ae-c129-47fd-9f4e-cc0399b30c3&amp;title=&amp;width=427.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->当我们点击添加按钮时，会出现下面这种情况。</p>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1654677869895-42120262-938b-491d-84e6-4caa78bf7ff1.png#averageHue=%23f7f7f6&amp;clientId=u72f7e444-ab56-4&amp;from=paste&amp;height=146&amp;id=u600b6d0c&amp;originHeight=182&amp;originWidth=438&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=8208&amp;status=done&amp;style=none&amp;taskId=u87a4ae7b-c0e8-470a-8d84-4bfd8dcbb4b&amp;title=&amp;width=350.4" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->右侧的文本框上移了，按照代码逻辑的表明来看，我们在数组最前面新增了一个对象，vue在渲染li这个节点的，应该会渲染一个小明以及空文本框才对。<!-- raw HTML omitted -->
+  <figure class="figure-image">
+    <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1654678182129-c1700760-228b-41db-9780-09f96e4ad371.png#averageHue=%23f4f4f4&amp;clientId=u72f7e444-ab56-4&amp;from=paste&amp;height=280&amp;id=uc5232c08&amp;originHeight=350&amp;originWidth=556&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=true&amp;size=15967&amp;status=done&amp;style=none&amp;taskId=u1661b57c-c394-434c-af42-13c6156ad0a&amp;title=%E8%BF%99%E6%98%AF%E6%88%91%E4%BB%AC%E6%9C%9F%E5%BE%85%E7%9A%84%E7%BB%93%E6%9E%9C&amp;width=444.8" title="这是我们期待的结果" alt="这是我们期待的结果" loading="lazy" />
+    <figcaption>这是我们期待的结果</figcaption>
+  </figure>
+<!-- raw HTML omitted -->发生这个现象的原因是什么呢。在解决这个问题之前，先来了解以下几个概念。</p>
+<blockquote>
+<p>MVVM原理</p>
+</blockquote>
+<p>:::info
+vue的一大核心原理便是MVVM原理，
+:::</p>
+<blockquote>
+<p>Diff算法</p>
+</blockquote>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="47-样式绑定">4.7 样式绑定</h3>
+<p>响应式的修改元素的css样式。分为<code>**class**</code>绑定和<code>**style**</code>绑定两种。<!-- raw HTML omitted -->语法：<code>**v-bind:class**</code>** <strong><code>**v-bind:style**</code></strong> **简写：<code>**:class**``**:sytle**</code><!-- raw HTML omitted --><strong>取值：</strong>
+:::info</p>
+<ul>
+<li>字符串，如<code>** &quot;样式1 样式2 ...&quot;**</code></li>
+<li>数组 ，如 <code>**[&quot;样式1&quot;,&quot;样式2&quot;...]**</code></li>
+<li>对象，如 <code>**:class=&quot;{属性:'样式'}&quot;**</code>** <strong><code>**:style=&quot;{样式:值}&quot;**</code>注意要</strong>style <strong>样式名带有</strong>-<strong>要用</strong>camel**命名法
+:::
+示例:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;样式绑定&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">red</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">blue</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">blue</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;obj&#34;</span>&gt;绑定一个对象&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;arr&#34;</span>&gt;绑定一个数组&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- 动态绑定可以和原生的共存 --&gt;</span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;flag?&#39;active&#39;:&#39;&#39;&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;red&#34;</span>&gt;绑定一个数组&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- style 样式绑定 尽量不使用，不利于代码的分离--&gt;</span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;color:red&#34;</span>&gt;红色&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- style 可以绑定对象 --&gt;</span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">:style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;obj2&#34;</span>&gt; 红色&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#app&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">obj</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">red</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">blue</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">arr</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;red&#39;</span>, <span style="color:#e6db74">&#39;blue&#39;</span>],
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">flag</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">obj2</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;red&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">fontSize</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;18px&#39;</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><strong>动态样式绑定</strong></p>
+<blockquote>
+<p>通过一个标识符来确定当前的样式类型，标识符满足某一条件时绑定指定样式</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;Tab&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        思路
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        1.vue三部曲
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        2.静态页面，CSS样式
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        3.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/* 重置样式 */</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">*</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">li</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">list-style</span>: <span style="color:#66d9ef">none</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/* 业务样式 */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/* 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            CSS书写规范
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            1.布局相关
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            2.宽高 辅助背景色
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            3.文字相关 font-  line-height
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            4.背景
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            5.CSS3 transition transform box-shadow border-radius
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        */</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">tab-container</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">width</span>: fit-content;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#eee</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">border-bottom</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#e4393c</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#f7f7f7</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">tab-container</span> <span style="color:#f92672">ul</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">flex</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">align-items</span>: <span style="color:#66d9ef">center</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">tab-container</span> <span style="color:#f92672">ul</span> <span style="color:#f92672">li</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">25</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">tab-container</span> <span style="color:#f92672">ul</span> <span style="color:#f92672">li</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#e4393c</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">cursor</span>: <span style="color:#66d9ef">pointer</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">tab-container</span> <span style="color:#f92672">ul</span> <span style="color:#f92672">li</span>.<span style="color:#a6e22e">current</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#fff</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#e4393c</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tab-container&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;(item,index) in menus&#34;</span> <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;current==index?&#39;current&#39;:&#39;&#39;&#34;</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;current=index&#34;</span>&gt;{{item}}
+</span></span><span style="display:flex;"><span>                &lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#app&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">menus</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;商品介绍&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;规格与包装&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;售后保障&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;商品评价&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;手机社区&#39;</span>,
+</span></span><span style="display:flex;"><span>                ],
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">current</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="六计算属性computed与侦听器watch">六、计算属性computed与侦听器watch</h1>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="1介绍">1.介绍</h2>
+<p>:::info</p>
+<ul>
+<li>
+<p>计算属性是一个属性，会挂载到vm实例上。</p>
+</li>
+<li>
+<p>作用：对原始数据进行再次加工后输出。</p>
+</li>
+<li>
+<p>特点：计算属性存在缓存，方便调试，是响应式的。
+:::
+:::info</p>
+</li>
+<li>
+<p>侦听器是一个用于观察某一数据变动的属性，其并不会挂载到vm实例上。</p>
+</li>
+<li>
+<p>在侦听的数据发生变化时执行相应的回调函数
+:::
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+</li>
+</ul>
+<h2 id="2语法-1">2.语法</h2>
+<p>计算属性：<code>**computed:{key:function|key:Object|key(){}}**</code><!-- raw HTML omitted -->示例</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;练习 计算属性&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        姓：&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">v-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastname&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>        名：&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">v-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstname&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>        全名:{{name}}
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>        全名:{{name2}}
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>        全名:{{name3}}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#app&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">lastname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">firstname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">computed</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">get</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastname</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstname</span>
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">name2</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastname</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstname</span>
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">name3</span>() {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastname</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstname</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">vm</span>);
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><strong>侦听器</strong>：<code>**watch:{Function|key:Object}**</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;练习 计算属性&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        姓：&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">v-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastname&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>        名：&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">v-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstname&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>        全名:{{name}}
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>        全名:{{name2}}
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>        全名:{{name3}}
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>        全名:{{fullName}}
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- watch 不会在vm实例上挂载新的属性 --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#app&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">lastname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">firstname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">fullName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">stu</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;xiaoming&#39;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">20</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">job</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                        <span style="color:#a6e22e">desc</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;giser&#39;</span>,
+</span></span><span style="display:flex;"><span>                        <span style="color:#a6e22e">salary</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;20k&#39;</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    },
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 当一个结果对多个变化量的时候，使用计算属性
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">// 监听器，监听的是变化的量，计算属性得到的是结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">//监听器可以获得变化的情况，通过给函数穿参，监听器(newValue,oldValue)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">// watch 可以开启深度监听
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#a6e22e">watch</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 定义函数 函数名要与data中的属性名保持一致
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#a6e22e">lastname</span>() {
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;lastname is changed&#39;</span>)
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">firstname</span>() {
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;lastname is changed&#39;</span>)
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">stu</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                    <span style="color:#75715e">// 是否深度监听,默认为false，为true时，只要下面有变化，不管是属性名还是属性值还是属性的属性...，都会执行处理函数，false时，只有一级属性有增减才会执行处理函数，shux的属性有变化不影响
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    <span style="color:#75715e">// deep: true,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    <span style="color:#a6e22e">handler</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>                        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span>                        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;stu is changed...&#39;</span>);
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">computed</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">get</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastname</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstname</span>
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">name2</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastname</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstname</span>
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">name3</span>() {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastname</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstname</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">vm</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>注意：</p>
+<blockquote>
+<ul>
+<li>侦听器选项中的函数或key要与监测的数据同名</li>
+<li>深度侦听的区别，默认为非深度侦听</li>
+<li>要用深度侦听需要使用Object形式。</li>
+</ul>
+</blockquote>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="3过滤器">3.过滤器</h2>
+<p>是一个函数，完成数据的格式化。有<strong>全局过滤器</strong>和<strong>器</strong>两种<!-- raw HTML omitted -->语法：
+:::info
+全局：<code>**Vue.filter(String,Function)**</code>第一个参数为过滤器名，第二个为过滤方法<!-- raw HTML omitted -->局部：<code>**filters:{Function,...}**</code>
+:::
+可以进行链式操作，即多次格式化同一个数据，这是相对于computed的差距。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;test&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../node_modules/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- 创建视图 --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        {{msg | formatMsg |format }}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- 实例化vue对象 --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#e6db74">&#39;format&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">msg</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">msg</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;元&#39;</span>
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#app&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">filters</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">formatMsg</span>(<span style="color:#a6e22e">msg</span>) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;￥&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">msg</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">msg</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="七插槽">七、插槽</h1>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="插槽-slot">插槽 <code>slot</code></h2>
+<p>什么是插槽，供可替换性的组件使用，可以提供程序的扩展性<!-- raw HTML omitted -->使用步骤：
+:::info</p>
+<ol>
+<li>
+<p>预留插槽</p>
+</li>
+<li>
+<p>替换插槽
+:::
+具名插槽<!-- raw HTML omitted -->使用步骤
+:::info</p>
+</li>
+<li>
+<p>预留插槽，起名 <code>**name=&quot;&quot;**</code></p>
+</li>
+<li>
+<p>替换插槽，确定插槽类型 slot=&ldquo;name&rdquo;
+:::
+插槽匹配机制
+:::info</p>
+</li>
+<li>
+<p>首先先判断要插入插槽的内容的插槽名称<code>**slot=&quot;name&quot;**</code>，没有类型默认为default</p>
+</li>
+<li>
+<p>寻找是组件上否有预留这样类型的插槽</p>
+</li>
+<li>
+<p>有就替换相应的位置</p>
+</li>
+<li>
+<p>没有就放入默认插槽，<code>**name=&quot;default&quot;**</code><strong>，或者没有指定name的插槽</strong></p>
+</li>
+<li>
+<p><strong>有多个同名插槽，则匹配的内容就会将所有都替换一遍</strong>
+:::</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;city-item-container&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">slot</span>&gt;&lt;/<span style="color:#f92672">slot</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">slot</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;city&#39;</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p>使用组件，默认插槽</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">CityItem</span>&gt;
+</span></span><span style="display:flex;"><span>  写在这里的内容都会替换&lt;<span style="color:#f92672">slot</span>&gt;&lt;/<span style="color:#f92672">slot</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">CityItem</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">CityItem</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;city&#34;</span>&gt;hello&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">CityItem</span>&gt;
+</span></span></code></pre></div><blockquote>
+<p><strong>注意，插槽的作用域是可以访问到父组件的作用域的，即父组件中定义的数据可以使用在子组件中。</strong></p>
+</blockquote>
+<p><strong>如何在插槽中使用子组件的数据？</strong></p>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1654831348830-58fa2e4c-2266-4afb-aae0-f0f1fb7511f0.png"></div>
+  <div class="card-text">
+    <a href="/docs/dd5295/"><h4 class="card-text--title text-ellipsis">js如何判断数组是否为空</h4></a>
+    <p class="card-text--row">2022-06-10 02:59</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/lm8qk5/"><h4 class="card-text--title text-ellipsis">Mysql 配置文件</h4></a>
+    <p class="card-text--row">2022-06-02 03:35</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一vue简介">一、vue简介</a>
+      <ul>
+        <li><a href="#1什么是vue">1.什么是vue</a></li>
+        <li><a href="#2vue的特点">2.Vue的特点</a></li>
+      </ul>
+    </li>
+    <li><a href="#二vue的快速上手">二、vue的快速上手</a>
+      <ul>
+        <li><a href="#1环境搭建">1.环境搭建</a>
+          <ul>
+            <li><a href="#11初始化">1.1初始化</a></li>
+            <li><a href="#12安装vue">1.2安装Vue</a></li>
+            <li><a href="#13-小结">1.3 小结</a></li>
+          </ul>
+        </li>
+        <li><a href="#2入门案例">2.入门案例</a>
+          <ul>
+            <li><a href="#21-引入vuejs">2.1 引入vue.js</a></li>
+            <li><a href="#22编写页面">2.2编写页面</a></li>
+            <li><a href="#23编写vue实例">2.3编写vue实例</a></li>
+            <li><a href="#24渲染数据">2.4渲染数据</a></li>
+            <li><a href="#25-总结">2.5 总结</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#三mvvm模型">三、MVVM模型</a>
+      <ul>
+        <li><a href="#1是什么">1.是什么</a>
+          <ul>
+            <li><a href="#11-核心思想">1.1 核心思想</a></li>
+            <li><a href="#12-原理">1.2 原理</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#四vue实例">四、Vue实例</a>
+      <ul>
+        <li><a href="#1el">1.el</a></li>
+        <li><a href="#2data">2.data</a></li>
+        <li><a href="#3methods">3.methods</a></li>
+        <li><a href="#4深入理解">4.深入理解</a></li>
+        <li><a href="#5总结">5.总结</a></li>
+      </ul>
+    </li>
+    <li><a href="#五模板语法">五、模板语法</a>
+      <ul>
+        <li><a href="#1什么是模板">1.什么是模板</a></li>
+        <li><a href="#2模板语法的分类">2.模板语法的分类</a></li>
+        <li><a href="#3插值语法">3.插值语法</a>
+          <ul>
+            <li><a href="#31什么是插值语法">3.1什么是插值语法</a></li>
+            <li><a href="#32如何使用">3.2如何使用</a></li>
+          </ul>
+        </li>
+        <li><a href="#4指令语法">4.指令语法</a>
+          <ul>
+            <li><a href="#41单向绑定">4.1单向绑定</a></li>
+            <li><a href="#42-双向绑定">4.2 双向绑定</a></li>
+            <li><a href="#43-事件绑定">4.3 事件绑定</a></li>
+            <li><a href="#44-事件修饰符">4.4 事件修饰符</a>
+              <ul>
+                <li><a href="#441基础事件修饰符">4.4.1基础事件修饰符</a></li>
+              </ul>
+            </li>
+            <li><a href="#442-按键修饰符">4.4.2 按键修饰符</a>
+              <ul>
+                <li></li>
+              </ul>
+            </li>
+            <li><a href="#45-条件渲染">4.5 条件渲染</a></li>
+            <li><a href="#46-列表渲染">4.6 列表渲染</a>
+              <ul>
+                <li><a href="#1-什么是列表渲染">1) 什么是列表渲染</a></li>
+                <li><a href="#2语法">2）语法</a></li>
+                <li><a href="#3说明">3）说明</a></li>
+                <li><a href="#4注意-key的绑定">4）注意 key的绑定</a></li>
+              </ul>
+            </li>
+            <li><a href="#47-样式绑定">4.7 样式绑定</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#六计算属性computed与侦听器watch">六、计算属性computed与侦听器watch</a>
+      <ul>
+        <li><a href="#1介绍">1.介绍</a></li>
+        <li><a href="#2语法-1">2.语法</a></li>
+        <li><a href="#3过滤器">3.过滤器</a></li>
+      </ul>
+    </li>
+    <li><a href="#七插槽">七、插槽</a>
+      <ul>
+        <li><a href="#插槽-slot">插槽 <code>slot</code></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

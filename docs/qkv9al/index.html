@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>MySql 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="MySql" />
+<meta property="og:description" content="数据类型 整形 tinyint 8位二进制 1个字节 2^8 smallint 2个 2^16 int/integer 4个 bigint 8个 浮点型 float(m,d) m精度，表示总位数，d标度，表示小数点后的位数 4个字节 double(m,d) 8个字节 decimal(m,d) --钱常用类" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/qkv9al/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-09-08T04:21:45+00:00" />
+<meta property="article:modified_time" content="2022-11-17T07:12:05+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MySql"/>
+<meta name="twitter:description" content="数据类型 整形 tinyint 8位二进制 1个字节 2^8 smallint 2个 2^16 int/integer 4个 bigint 8个 浮点型 float(m,d) m精度，表示总位数，d标度，表示小数点后的位数 4个字节 double(m,d) 8个字节 decimal(m,d) --钱常用类"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box ">
+
+  <div class="card-cover">
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">MySql</h1>
+    
+      <p class="card-text--row">2022-09-08 04:21</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="数据类型">数据类型</h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="整形">整形</h4>
+<pre tabindex="0"><code>tinyint 8位二进制 1个字节 2^8
+smallint 2个 2^16
+int/integer 4个
+bigint 8个
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="浮点型">浮点型</h4>
+<pre tabindex="0"><code>float(m,d) m精度，表示总位数，d标度，表示小数点后的位数 4个字节
+double(m,d)  8个字节
+decimal(m,d) --钱常用类型
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="字符型">字符型</h4>
+<pre tabindex="0"><code>char(M) 定长
+varchar(M) 变长，理论范围0-65535字符
+text 允许长度 0-65535字节
+enum(值1,值2...) 枚举
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="日期和时间类型">日期和时间类型</h4>
+<pre tabindex="0"><code>date 3个字节 2000-10-07 1000-01-01~99999-12-31
+time 3个字节 
+year 1个字节 1901~2155
+datetime 8个字节 1000-01-01 00:00:00~99999-12-31 23:59:59
+timestamp 4个字节 1970-01-01 00:00:00/2038 结束时间是第 2147483647 秒，北京时间 2038-1-19 11:14:07，格林尼治时间 2038年1月19日 凌晨 03:14:07
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="字段属性">字段属性</h3>
+<pre tabindex="0"><code>1.能否为空
+	不设置就可以为null
+	设置为not null
+2.默认值
+	使用default来设置
+3.主键
+	主键唯一，不为空，可以有多个
+	作用 用来标识唯一的一行
+	看需要可以设置自动递增
+	使用 primary key 来标识
+4.自增
+	一般会和主键一起使用，可以让id序号自动增长，这个主键id序号不能重复使用，比如删除掉id为5的再添加一条记录，id为6
+	使用 auto_increment 设置
+
+5.注释 
+	作用：解释说明当前字段，给程序员看的
+	使用comment 设置
+6.唯一
+	作用：让列表中的数据保持唯一
+	使用UNIQUE KEY
+
+创建一个博客blog 表
+	字段			字段类型	字段属性
+	id	  			int		主键 自动增长	
+	title	 	varchar(255)	非空
+	publish_time 	date	 非空
+	view		    int		 非空 default 0
+	comments 		int		 非空 default 0
+	content			text	 非空
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="建库操作">建库操作</h3>
+<pre tabindex="0"><code>Create database db01;
+use db01;
+create table tb01(
+	id int primary key auto_increment,
+	字段 数据类型 字段属性
+	username varchar(20) not null unqiue,
+	password varchar(20) not null
+)
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="数据写操作">数据写操作</h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="增加-insert">增加 insert</h4>
+<pre tabindex="0"><code>insert into 表名(字段1，字段2，字段3 可以省略，省略表示插入所有字段) values(值1，值2，值3)，(值1，值2，值3)
+
+注意
+	可以插入部分字段，前面要写好部分字段的名称并且省略的字段没有非空约束，相当于其他字段为null，除了设置了自动增加的主键。
+	可以插入多条记录，在values的后面有几个括号，就有几条记录，记录间用逗号隔开
+	新建查询要切换到对应的数据库,才能找到对应的表
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="修改-update">修改 update</h4>
+<pre tabindex="0"><code>update 表名 set 字段 = 值 where 字段 = 值
+注意 不写where 会修改所有记录该字段的值
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="删除记录-delete">删除记录 delete</h4>
+<pre tabindex="0"><code>delete from 表名 where id=0
+注意 一半都是通过id来删除记录
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="注意">注意</h4>
+<pre tabindex="0"><code>1.增删改的数据，会进行一个类型转换,能转换的数据会进行操作不能转换的数据会报错
+2. 修改和删除一定要加条件，否则会影响到所有数据
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="数据查询">数据查询</h3>
+<pre tabindex="0"><code>查询所有
+	select * from 表名 --一般和分页查询结合使用
+条件查询
+	select 字段1，字段2，字段3 as 别名3 from 表明 where 条件
+	
+模糊查询
+	%代表0，1，或多个字符
+	_ 匹配一个字符，注意mysql里汉字占1个字符
+	%x%
+	_x_
+	...
+聚合函数查询 ---查询结果是单值
+	max(字段)
+	min(字段)
+	sum(字段)
+	avg(字段)
+	count(*)
+
+where + group by 
+	先where再分组
+group by +having 
+	先group by 再having
+	
+	注意，分组之后的查询字段，一般为聚合函数或者是分组字段，查询语句是对分组后的每一组进行查询，如果查询的不是分组字段，只会显示那一组的第一个记录对应的字段值。
+	
+select 字段或字段表达式 from 表 [where 分组前条件过滤] group by 字段 [having 分组后条件过滤] [order by 字段 [desc/asc]]
+
+
+分页查询
+	limit 当前页的第一个记录在表中的索引(从0开始),页面显示条数
+	
+总结 select * from 表 [where 查询前过滤] group by 字段  [having 查询后过滤] [order by 字段 asc/desc] limit 首索引，页面条数
+select--from--where---group by-- having--order by--limit
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="单表约束">单表约束</h3>
+<pre tabindex="0"><code>主键约束
+	primary key
+非空约束
+	not null
+唯一约束
+	unique
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="多表约束">多表约束</h3>
+<pre tabindex="0"><code>外键约束
+	foreign key(当前表的某一个要约束为外键的字段) reference(另一张表中的主键)
+	作用 保证数据的完整性和有效性，有了外键约束，就不能随便删除表中的记录。
+
+代码实现外键约束
+	alert table 表名 add constraint foreign key(外键字段) references 另一张表(主键字段)
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="多表关系">多表关系</h3>
+<pre tabindex="0"><code>一对一
+	建表原则
+		在任意一方，添加外键指向另一表的主键，并且外键唯一 -----说明，外键可以是主键
+	应用
+		数据库优化(后台) 分表(把一张表分成2张表)
+一对多
+	建表原则
+		在多的一方添加外键，指向另一方的主键。
+
+多对多
+	建表原则
+		建立一张中间表，中间表至少有两个字段，这些字段作为第三张表的外键分别指向另外两张表的主键
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="多表查询">多表查询</h3>
+<pre tabindex="0"><code>交叉查询 (笛卡尔积，第一张表的每一行均依次与第二张表的每一行组合)
+	select * from 表A,表B
+	如A={a，b} B={1，2，3}
+	AxB={a1，a2，a3, b1, b2, b3} BXA顺序可能变化，但是
+内连接查询
+	隐式内连接
+	select * from A,B where A.字段=B.字段
+	显示内连接
+	[inner] join 
+	select * from A inner join B on A.字段=B.字段
+	根据两表中字段值相同进行连接，这种查询查的其实是两表的交集
+	
+外连接查询
+	左外连接查询 左边表的全部和两张表的交集
+	select * from A left outer join B on A.字段=B.字段
+	右外连接 右边表的全部和两张表的交集
+	select * from A left outer join B on A.字段=B.字段
+	外连接查询的是交集和补集，没有匹配的内容会返回空
+	
+子查询
+	查询的结果可以作为条件来查询，B可以是A
+	单行单列的用=
+	select * from A where A.字段=(select B.字段 from B where) 
+	多行多列的用 in any all
+    in，在范围内的值，为true则返回
+    any ，与范围内的任一值比较，为true则返回true
+    all，与所有值比较，为true则返回true
+    
+    exisits 只要子查询的有结果，就会执行前面的查询
+    select * from A where exisits (select * from B where)
+    
+    子查询可以作为一张虚拟的表来进行查询，注意给子查询的那张虚拟表起个别名
+    select * from (select ...)
+    
+自连接
+	select * from A a1,A a2 where a1. =a2.
+	select * from A a1 left join A a2 where...
+	将一张表看成两张表进行查询
+
+99%以上都是内连接查询
+	1.要查询哪些字段
+	2.要用到哪些表
+	3.这些表之间的关联关系。
+</code></pre>
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1662613871057-8faf9138-c5ba-41cd-99f9-833cced38a97.png"></div>
+  <div class="card-text">
+    <a href="/docs/ny3kcn/"><h4 class="card-text--title text-ellipsis">颜色分类</h4></a>
+    <p class="card-text--row">2022-09-08 05:12</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2022/png/29064333/1662609628487-1e01074e-84a0-4f4d-a791-6ac2b10ed18d.png"></div>
+  <div class="card-text">
+    <a href="/docs/qgrtx5/"><h4 class="card-text--title text-ellipsis">优美的排列</h4></a>
+    <p class="card-text--row">2022-09-08 04:01</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#数据类型">数据类型</a>
+              <ul>
+                <li><a href="#整形">整形</a></li>
+                <li><a href="#浮点型">浮点型</a></li>
+                <li><a href="#字符型">字符型</a></li>
+                <li><a href="#日期和时间类型">日期和时间类型</a></li>
+              </ul>
+            </li>
+            <li><a href="#字段属性">字段属性</a></li>
+            <li><a href="#建库操作">建库操作</a></li>
+            <li><a href="#数据写操作">数据写操作</a>
+              <ul>
+                <li><a href="#增加-insert">增加 insert</a></li>
+                <li><a href="#修改-update">修改 update</a></li>
+                <li><a href="#删除记录-delete">删除记录 delete</a></li>
+                <li><a href="#注意">注意</a></li>
+              </ul>
+            </li>
+            <li><a href="#数据查询">数据查询</a></li>
+            <li><a href="#单表约束">单表约束</a></li>
+            <li><a href="#多表约束">多表约束</a></li>
+            <li><a href="#多表关系">多表关系</a></li>
+            <li><a href="#多表查询">多表查询</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

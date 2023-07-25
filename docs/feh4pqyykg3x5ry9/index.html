@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>更改geojson(entity)的属性 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="更改geojson(entity)的属性" />
+<meta property="og:description" content="在加载GeoJson的时候，可以配置一个全局的样式，如点，线，面的颜色，填充色，线宽，点的大小，面的边框等 但有些需求让对这些属性进行更改，或" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/feh4pqyykg3x5ry9/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2023-03-24T06:37:59+00:00" />
+<meta property="article:modified_time" content="2023-03-25T14:01:52+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="更改geojson(entity)的属性"/>
+<meta name="twitter:description" content="在加载GeoJson的时候，可以配置一个全局的样式，如点，线，面的颜色，填充色，线宽，点的大小，面的边框等 但有些需求让对这些属性进行更改，或"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679639908245-70c8ea87-dcd3-4309-bb15-c31b24b1f29a.png" alt="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679639908245-70c8ea87-dcd3-4309-bb15-c31b24b1f29a.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">更改geojson(entity)的属性</h1>
+    
+      <p class="card-text--row">2023-03-24 06:37</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p>在加载GeoJson的时候，可以配置一个全局的样式，如点，线，面的颜色，填充色，线宽，点的大小，面的边框等<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679639908245-70c8ea87-dcd3-4309-bb15-c31b24b1f29a.png#averageHue=%23f8f6f4&amp;clientId=u8be8642b-e27d-4&amp;from=paste&amp;height=442&amp;id=u1c6825a5&amp;originHeight=552&amp;originWidth=1413&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=69589&amp;status=done&amp;style=none&amp;taskId=u3f3241de-993e-4d2c-a9ee-11526cc5975&amp;title=&amp;width=1130.4" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->但有些需求让对这些属性进行更改，或者修改其中某一个点的颜色等，那么如何优雅的对它进行修改呢，本文就来提供一个大致思路和实现。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="geojsondatasource的构成">geojsonDataSource的构成</h2>
+<p>geojsonDataSource的每一个矢量数据是一个entity，在其<code>entities.values</code>字段里。<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679641206919-7e3bd704-1acc-40ad-9da0-57ca23d513fd.png#averageHue=%23fefdfc&amp;clientId=u8be8642b-e27d-4&amp;from=paste&amp;height=649&amp;id=ue885b597&amp;originHeight=811&amp;originWidth=1457&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=147974&amp;status=done&amp;style=none&amp;taskId=u4cb746df-75e2-49f3-bc4a-6095485a5f2&amp;title=&amp;width=1165.6" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->因此可以通过遍历该数组的方法来获取，修改每一个entity的属性。问题也就转换成修改实体的属性。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//就加载了一个geojson，默认索引为0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">entities</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">dataSources</span>.<span style="color:#a6e22e">get</span>(<span style="color:#ae81ff">0</span>).<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">values</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">entities</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">polygon</span>.<span style="color:#a6e22e">material</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">fromRandom</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">alpha</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="entity属性的修改">entity属性的修改</h2>
+<p>一个实体的类型可以是很多种的一种，如：点<code>point</code>、平面<code>Plane</code>、墙<code>Wall</code>等，要确定一个entity的类型其实还是挺麻烦的，因为要依次去判断。<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679641676700-d3da13fa-a6fe-42f7-8e27-3d4650a59f94.png#averageHue=%23fcfbfa&amp;clientId=u8be8642b-e27d-4&amp;from=paste&amp;height=508&amp;id=udccfab7c&amp;originHeight=635&amp;originWidth=347&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=36517&amp;status=done&amp;style=none&amp;taskId=u2fd35d8e-ef59-44c3-ac64-27f1341d2e4&amp;title=&amp;width=277.6" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->而一个geojson的type字段必定为下面之一：<!-- raw HTML omitted -->&ldquo;Point&rdquo;, &ldquo;MultiPoint&rdquo;, &ldquo;LineString&rdquo;, &ldquo;MultiLineString&rdquo;, &ldquo;Polygon&rdquo;, &ldquo;MultiPolygon&rdquo;, &ldquo;GeometryCollection&rdquo;, &ldquo;Feature&rdquo;, 或者 &ldquo;FeatureCollection&rdquo;。<!-- raw HTML omitted -->这些类型转换到entity中，无外乎就是点线面而已。因此对于geojson生成的entity，只需判断polygon，<del>point</del><code>**billboard**</code>，polyline。<!-- raw HTML omitted -->接下来目标就非常明确了，修改polygon，point，polyline的属性了。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="样式修改">样式修改</h3>
+<p>在这之前，要先解决上面的一个问题，就是Cesium加载的点数据，竟然都是billboard，这合理吗，显然不合理，因此要把它全部改成point才对。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">dataSource</span>.<span style="color:#a6e22e">load</span>(<span style="color:#a6e22e">geojson</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">values</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">entity</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">entities</span>.<span style="color:#a6e22e">values</span>[<span style="color:#a6e22e">i</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">entity</span>.<span style="color:#a6e22e">billboard</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">entity</span>.<span style="color:#a6e22e">billboard</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">undefined</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">entity</span>.<span style="color:#a6e22e">point</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">PointGraphics</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">ALICEBLUE</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">pixelSize</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>
+  <figure class="figure-image">
+    <img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679650327370-05924824-58f5-43d0-8f87-6a1ed3394a23.png#averageHue=%236f7f5e&amp;clientId=u8be8642b-e27d-4&amp;from=paste&amp;height=415&amp;id=ud672b1c0&amp;originHeight=519&amp;originWidth=673&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=true&amp;size=451881&amp;status=done&amp;style=none&amp;taskId=u9d3af9fb-7b5c-4fe8-a39d-43fa23ffb9d&amp;title=%E6%94%B9%E6%AD%A3%E5%89%8D&amp;width=538.4" title="改正前" alt="改正前" loading="lazy" />
+    <figcaption>改正前</figcaption>
+  </figure>
+<!-- raw HTML omitted -->
+  <figure class="figure-image">
+    <img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679650400411-b698ab75-fd09-4087-87c9-e1db46b146eb.png#averageHue=%2355663f&amp;clientId=u8be8642b-e27d-4&amp;from=paste&amp;height=260&amp;id=u75be4423&amp;originHeight=325&amp;originWidth=530&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=true&amp;size=232518&amp;status=done&amp;style=none&amp;taskId=uf98e1a18-978d-40dc-936a-cf66a3e4b12&amp;title=%E6%94%B9%E6%AD%A3%E5%90%8E&amp;width=424" title="改正后" alt="改正后" loading="lazy" />
+    <figcaption>改正后</figcaption>
+  </figure>
+<!-- raw HTML omitted -->在这里可能就会有人想试试了，不把billboard设置为undefined会怎么样，没错它就会变成下面这个样子：<!-- raw HTML omitted -->
+  <p><img src="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679650607449-3df89960-7710-4781-9fc7-ee658af02f46.png#averageHue=%234b5a32&amp;clientId=u8be8642b-e27d-4&amp;from=paste&amp;height=602&amp;id=u70cd4c6d&amp;originHeight=752&amp;originWidth=789&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=729582&amp;status=done&amp;style=none&amp;taskId=u5112cb4c-841e-40af-b912-7bb8d2c75a9&amp;title=&amp;width=631.2" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->这下地图标注和点都有了，<del>不知不觉又搞定一个新的问题</del>。
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="point">Point</h4>
+<p>点的样式无非这几种，点的图标，点的大小，点的颜色甚至点的坐标。对应字段分别为：</p>
+<ul>
+<li>color  点的颜色</li>
+<li>outlineColor 轮廓颜色</li>
+<li>outlineWidth 轮廓宽度</li>
+<li>pixelSize 点的大小</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">entity</span>.<span style="color:#a6e22e">point</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">PointGraphics</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Cesium</span>.<span style="color:#a6e22e">Color</span>.<span style="color:#a6e22e">ALICEBLUE</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">pixelSize</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// outlineColor: Cesium.Color.BLUE,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// outlineWidth: 10,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>});
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Attributes</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>show</td>
+<td><a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | boolean</td>
+<td><!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>| true | A boolean Property specifying the visibility of the point. |
+| pixelSize | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | number | <!-- raw HTML omitted --></p>
+<p>| 1 | A numeric Property specifying the size in pixels. |
+| heightReference | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/global.html#HeightReference" target="_blank" rel="noopener">HeightReference</a> | <!-- raw HTML omitted --></p>
+<p>| HeightReference.NONE | A Property specifying what the height is relative to. |
+| color | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Color.html" target="_blank" rel="noopener">Color</a> | <!-- raw HTML omitted --></p>
+<p>| Color.WHITE | A Property specifying the <a href="https://cesium.com/learn/cesiumjs/ref-doc/Color.html" target="_blank" rel="noopener">Color</a><!-- raw HTML omitted --> of the point. |
+| outlineColor | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Color.html" target="_blank" rel="noopener">Color</a> | <!-- raw HTML omitted --></p>
+<p>| Color.BLACK | A Property specifying the <a href="https://cesium.com/learn/cesiumjs/ref-doc/Color.html" target="_blank" rel="noopener">Color</a><!-- raw HTML omitted --> of the outline. |
+| outlineWidth | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | number | <!-- raw HTML omitted --></p>
+<p>| 0 | A numeric Property specifying the the outline width in pixels. |
+| scaleByDistance | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/NearFarScalar.html" target="_blank" rel="noopener">NearFarScalar</a> | <!-- raw HTML omitted --></p>
+<p>|  | A <a href="https://cesium.com/learn/cesiumjs/ref-doc/NearFarScalar.html" target="_blank" rel="noopener">NearFarScalar</a><!-- raw HTML omitted --> Property used to scale the point based on distance. |
+| translucencyByDistance | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/NearFarScalar.html" target="_blank" rel="noopener">NearFarScalar</a> | <!-- raw HTML omitted --></p>
+<p>|  | A <a href="https://cesium.com/learn/cesiumjs/ref-doc/NearFarScalar.html" target="_blank" rel="noopener">NearFarScalar</a><!-- raw HTML omitted --> Property used to set translucency based on distance from the camera. |
+| distanceDisplayCondition | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/DistanceDisplayCondition.html" target="_blank" rel="noopener">DistanceDisplayCondition</a> | <!-- raw HTML omitted --></p>
+<p>|  | A Property specifying at what distance from the camera that this point will be displayed. |
+| disableDepthTestDistance | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | number | <!-- raw HTML omitted --></p>
+<p>|  | A Property specifying the distance from the camera at which to disable the depth test to. |</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="billboard"><del>billBoard</del></h4>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="polyline">Polyline</h4>
+<ul>
+<li>arcType 圆滑连接处，基本用不到，</li>
+<li>clampToGround 是否固定在地面上</li>
+<li>positions 线段坐标数组，基本用不到</li>
+<li>width 宽度 像素</li>
+<li>material 材质，<a href="https://cesium.com/learn/cesiumjs/ref-doc/MaterialProperty.html" target="_blank" rel="noopener">MaterialProperty</a> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Color.html" target="_blank" rel="noopener">Color</a></li>
+<li>z-index 层级关系
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Attributes</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>show</td>
+<td><a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | boolean</td>
+<td><!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>| true | A boolean Property specifying the visibility of the polyline. |
+| positions | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | Array.&lt;<a href="https://cesium.com/learn/cesiumjs/ref-doc/Cartesian3.html" target="_blank" rel="noopener">Cartesian3</a><!-- raw HTML omitted -->&gt; | <!-- raw HTML omitted --></p>
+<p>|  | A Property specifying the array of <a href="https://cesium.com/learn/cesiumjs/ref-doc/Cartesian3.html" target="_blank" rel="noopener">Cartesian3</a><!-- raw HTML omitted --> positions that define the line strip. |
+| width | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | number | <!-- raw HTML omitted --></p>
+<p>| 1.0 | A numeric Property specifying the width in pixels. |
+| granularity | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | number | <!-- raw HTML omitted --></p>
+<p>| Cesium.Math.RADIANS_PER_DEGREE | A numeric Property specifying the angular distance between each latitude and longitude if arcType is not ArcType.NONE. |
+| material | <a href="https://cesium.com/learn/cesiumjs/ref-doc/MaterialProperty.html" target="_blank" rel="noopener">MaterialProperty</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Color.html" target="_blank" rel="noopener">Color</a> | <!-- raw HTML omitted --></p>
+<p>| Color.WHITE | A Property specifying the material used to draw the polyline. |
+| depthFailMaterial | <a href="https://cesium.com/learn/cesiumjs/ref-doc/MaterialProperty.html" target="_blank" rel="noopener">MaterialProperty</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Color.html" target="_blank" rel="noopener">Color</a> | <!-- raw HTML omitted --></p>
+<p>|  | A property specifying the material used to draw the polyline when it is below the terrain. |
+| arcType | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/global.html#ArcType" target="_blank" rel="noopener">ArcType</a> | <!-- raw HTML omitted --></p>
+<p>| ArcType.GEODESIC | The type of line the polyline segments must follow. |
+| clampToGround | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | boolean | <!-- raw HTML omitted --></p>
+<p>| false | A boolean Property specifying whether the Polyline should be clamped to the ground. |
+| shadows | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/global.html#ShadowMode" target="_blank" rel="noopener">ShadowMode</a> | <!-- raw HTML omitted --></p>
+<p>| ShadowMode.DISABLED | An enum Property specifying whether the polyline casts or receives shadows from light sources. |
+| distanceDisplayCondition | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/DistanceDisplayCondition.html" target="_blank" rel="noopener">DistanceDisplayCondition</a> | <!-- raw HTML omitted --></p>
+<p>|  | A Property specifying at what distance from the camera that this polyline will be displayed. |
+| classificationType | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/global.html#ClassificationType" target="_blank" rel="noopener">ClassificationType</a> | <!-- raw HTML omitted --></p>
+<p>| ClassificationType.BOTH | An enum Property specifying whether this polyline will classify terrain, 3D Tiles, or both when on the ground. |
+| zIndex | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | number | <!-- raw HTML omitted --></p>
+<p>| 0 | A Property specifying the zIndex used for ordering ground geometry. Only has an effect if <code>clampToGround</code> is true and polylines on terrain is supported. |</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="polygon">Polygon</h4>
+<ul>
+<li>arcType</li>
+<li>extrudedHeight</li>
+<li>outline 是否有边框</li>
+<li>outlineColor 边框颜色</li>
+<li>outlineWidth 边框宽度</li>
+<li>material 材质
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Attributes</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>show</td>
+<td><a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | boolean</td>
+<td><!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>| true | A boolean Property specifying the visibility of the polygon. |
+| hierarchy | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/PolygonHierarchy.html" target="_blank" rel="noopener">PolygonHierarchy</a> | <!-- raw HTML omitted --></p>
+<p>|  | A Property specifying the <a href="https://cesium.com/learn/cesiumjs/ref-doc/PolygonHierarchy.html" target="_blank" rel="noopener">PolygonHierarchy</a><!-- raw HTML omitted -->. |
+| height | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | number | <!-- raw HTML omitted --></p>
+<p>| 0 | A numeric Property specifying the altitude of the polygon relative to the ellipsoid surface. |
+| heightReference | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/global.html#HeightReference" target="_blank" rel="noopener">HeightReference</a> | <!-- raw HTML omitted --></p>
+<p>| HeightReference.NONE | A Property specifying what the height is relative to. |
+| extrudedHeight | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | number | <!-- raw HTML omitted --></p>
+<p>|  | A numeric Property specifying the altitude of the polygon&rsquo;s extruded face relative to the ellipsoid surface. |
+| extrudedHeightReference | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/global.html#HeightReference" target="_blank" rel="noopener">HeightReference</a> | <!-- raw HTML omitted --></p>
+<p>| HeightReference.NONE | A Property specifying what the extrudedHeight is relative to. |
+| stRotation | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | number | <!-- raw HTML omitted --></p>
+<p>| 0.0 | A numeric property specifying the rotation of the polygon texture counter-clockwise from north. Only has an effect if textureCoordinates is not defined. |
+| granularity | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | number | <!-- raw HTML omitted --></p>
+<p>| Cesium.Math.RADIANS_PER_DEGREE | A numeric Property specifying the angular distance between each latitude and longitude point. |
+| fill | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | boolean | <!-- raw HTML omitted --></p>
+<p>| true | A boolean Property specifying whether the polygon is filled with the provided material. |
+| material | <a href="https://cesium.com/learn/cesiumjs/ref-doc/MaterialProperty.html" target="_blank" rel="noopener">MaterialProperty</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Color.html" target="_blank" rel="noopener">Color</a> | <!-- raw HTML omitted --></p>
+<p>| Color.WHITE | A Property specifying the material used to fill the polygon. |
+| outline | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | boolean | <!-- raw HTML omitted --></p>
+<p>| false | A boolean Property specifying whether the polygon is outlined. |
+| outlineColor | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Color.html" target="_blank" rel="noopener">Color</a> | <!-- raw HTML omitted --></p>
+<p>| Color.BLACK | A Property specifying the <a href="https://cesium.com/learn/cesiumjs/ref-doc/Color.html" target="_blank" rel="noopener">Color</a><!-- raw HTML omitted --> of the outline. |
+| outlineWidth | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | number | <!-- raw HTML omitted --></p>
+<p>| 1.0 | A numeric Property specifying the width of the outline. |
+| perPositionHeight | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | boolean | <!-- raw HTML omitted --></p>
+<p>| false | A boolean specifying whether or not the height of each position is used. |
+| closeTop | boolean | boolean | <!-- raw HTML omitted --></p>
+<p>| true | When false, leaves off the top of an extruded polygon open. |
+| closeBottom | boolean | boolean | <!-- raw HTML omitted --></p>
+<p>| true | When false, leaves off the bottom of an extruded polygon open. |
+| arcType | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/global.html#ArcType" target="_blank" rel="noopener">ArcType</a> | <!-- raw HTML omitted --></p>
+<p>| ArcType.GEODESIC | The type of line the polygon edges must follow. |
+| shadows | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/global.html#ShadowMode" target="_blank" rel="noopener">ShadowMode</a> | <!-- raw HTML omitted --></p>
+<p>| ShadowMode.DISABLED | An enum Property specifying whether the polygon casts or receives shadows from light sources. |
+| distanceDisplayCondition | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/DistanceDisplayCondition.html" target="_blank" rel="noopener">DistanceDisplayCondition</a> | <!-- raw HTML omitted --></p>
+<p>|  | A Property specifying at what distance from the camera that this polygon will be displayed. |
+| classificationType | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/global.html#ClassificationType" target="_blank" rel="noopener">ClassificationType</a> | <!-- raw HTML omitted --></p>
+<p>| ClassificationType.BOTH | An enum Property specifying whether this polygon will classify terrain, 3D Tiles, or both when on the ground. |
+| zIndex | <a href="https://cesium.com/learn/cesiumjs/ref-doc/ConstantProperty.html" target="_blank" rel="noopener">ConstantProperty</a><!-- raw HTML omitted --> | number | <!-- raw HTML omitted --></p>
+<p>| 0 | A property specifying the zIndex used for ordering ground geometry. Only has an effect if the polygon is constant and neither height or extrudedHeight are specified. |
+| textureCoordinates | <a href="https://cesium.com/learn/cesiumjs/ref-doc/Property.html" target="_blank" rel="noopener">Property</a><!-- raw HTML omitted --> | <a href="https://cesium.com/learn/cesiumjs/ref-doc/PolygonHierarchy.html" target="_blank" rel="noopener">PolygonHierarchy</a> | <!-- raw HTML omitted --></p>
+<p>|  | A Property specifying texture coordinates as a <a href="https://cesium.com/learn/cesiumjs/ref-doc/PolygonHierarchy.html" target="_blank" rel="noopener">PolygonHierarchy</a><!-- raw HTML omitted --> of <a href="https://cesium.com/learn/cesiumjs/ref-doc/Cartesian2.html" target="_blank" rel="noopener">Cartesian2</a><!-- raw HTML omitted --> points. Has no effect for ground primitives. |</p>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2023/png/29064333/1680097196601-4cd505ca-0a7c-4bef-b808-622feaeb61eb.png"></div>
+  <div class="card-text">
+    <a href="/docs/hmmowuh5qz8o4w3m/"><h4 class="card-text--title text-ellipsis">关于IIFE 立即调用函数</h4></a>
+    <p class="card-text--row">2023-03-29 13:26</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" background-image-lazy data-img="https://cdn.nlark.com/yuque/0/2023/png/29064333/1679322027638-d783dd9b-dea7-4403-93d7-ebbec1c1c610.png"></div>
+  <div class="card-text">
+    <a href="/docs/nhvdrv8mq1idbtdl/"><h4 class="card-text--title text-ellipsis">🙃 关于webgl语法的更新</h4></a>
+    <p class="card-text--row">2023-03-20 14:16</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#geojsondatasource的构成">geojsonDataSource的构成</a></li>
+        <li><a href="#entity属性的修改">entity属性的修改</a>
+          <ul>
+            <li><a href="#样式修改">样式修改</a>
+              <ul>
+                <li><a href="#point">Point</a></li>
+                <li><a href="#billboard">billBoard</a></li>
+                <li><a href="#polyline">Polyline</a></li>
+                <li><a href="#polygon">Polygon</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>

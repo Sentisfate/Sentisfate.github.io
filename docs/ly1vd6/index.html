@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" />
+   
+  <meta name="author" content="gisculibur">
+  
+
+   
+  
+  
+  
+  
+  
+  
+  <meta name="keywords"
+    content="theme,kagome">
+  
+
+  
+
+  <meta name="generator" content="Hugo 0.115.2">
+
+
+  
+  
+  
+  
+  <title>跨域 🌟 GIS咖喱棒</title>
+
+  <meta property="og:title" content="跨域" />
+<meta property="og:description" content="思路： :::tips 同源策略，协议，域名，端口，corsjsonppostmessage ::: :::info 跨域是指浏览器当前页面某个接口请求地址和当前 的地址在，协议，" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sentisfate.github.io/docs/ly1vd6/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-09-17T14:15:08+00:00" />
+<meta property="article:modified_time" content="2023-02-06T01:25:25+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="跨域"/>
+<meta name="twitter:description" content="思路： :::tips 同源策略，协议，域名，端口，corsjsonppostmessage ::: :::info 跨域是指浏览器当前页面某个接口请求地址和当前 的地址在，协议，"/>
+
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://Sentisfate.github.io/assets/css/style.min.a9eba8a87a1f5444669cfe92317af83504187100f2529f484b2eeaff89777b86.css" integrity="sha256-qeuoqHofVERmnP6SMXr4NQQYcQDyUp9ISy7q/4l3e4Y=">
+
+  <script src="https://Sentisfate.github.io/assets/js/main.min.182da266209851bc7c828aa7377f98f914e1e76c8decdd53a6cbe9bffea92cde.js" integrity="sha256-GC2iZiCYUbx8goqnN3&#43;Y&#43;RTh52yN7N1Tpsvpv/6pLN4="></script>
+
+  </head><body><header class="header-container layout-block layout-padding">
+  <div class="header-inner content-padding-large soft-size--large soft-style--box">
+    <div class="header-logo">
+      <a href="https://Sentisfate.github.io"><h1>GIS咖喱棒</h1></a>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav--btn">
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+        <div class="btn-item"></div>
+      </div>
+      <div class="header-nav--list">
+        <div>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/" title="GIS咖喱棒">主页</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/docs/" title="Docs">笔记</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/categories/" title="Categories">分类</a>
+          
+          <a class="list-item soft-size--small soft-style--hover soft-style--active" href="/tags/" title="Tags">标签</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main id="content">
+    
+
+    <div class="single-container layout-block">
+      <div class="article-info">
+        <div class="article-header layout-padding">
+          <div class="article-cover card-container content-padding-large soft-size--large soft-style--box img">
+
+  <div class="card-cover">
+    
+      <img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1663425118538-bc8ca0a1-6754-481a-a387-83f1b33bb01f.png" alt="https://cdn.nlark.com/yuque/0/2022/png/29064333/1663425118538-bc8ca0a1-6754-481a-a387-83f1b33bb01f.png" />
+    
+  </div>
+
+  <div class="card-text">
+    <h1 class="card-text--title">跨域</h1>
+    
+      <p class="card-text--row">2022-09-17 14:15</p>
+      
+      
+      
+
+      
+      
+    
+  </div>
+
+</div>
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
+            <p>思路：
+:::tips
+同源策略，协议，域名，端口，<!-- raw HTML omitted -->cors<!-- raw HTML omitted -->jsonp<!-- raw HTML omitted -->postmessage
+:::
+:::info</p>
+<ol>
+<li>跨域是指浏览器当前页面某个接口请求地址和当前 的地址在，协议，域名，端口都不同时，出现跨域。</li>
+<li>产生的原因是浏览器的同源策略</li>
+<li>解决方案
+<ol>
+<li>cors设置后端允许跨域</li>
+</ol>
+</li>
+</ol>
+<p>res.setHeader(&lsquo;Access-Control-Allow-Origin&rsquo;, &lsquo;*&rsquo;);<!-- raw HTML omitted -->res.setHeader(&ldquo;Access-Control-Allow-Methods&rdquo;, &ldquo;GET, PUT, OPTIONS, POST&rdquo;);</p>
+<ol start="2">
+<li>node中间件，nginx反向代理。跨域限制的时候浏览器不能跨域访问服务器，node中间件和nginx反向代理，都是让请求发给代理服务器，静态页面面和代理服务器是同源的，然后代理服务器再向后端服务器发请求，服务器和服务器之间不存在同源限制。</li>
+<li>JSONP：利用原理是script标签可以跨域请求资源。将回调函数作为参数拼接在url中。后端收到请求，调用该回调，并将数据作为参数返回。注意设置响应头返回文档类型为JavaScript
+:::
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ol>
+<h2 id="什么是同源-策略">什么是同源 策略</h2>
+<p>
+  <p><img src="https://cdn.nlark.com/yuque/0/2022/png/29064333/1663425118538-bc8ca0a1-6754-481a-a387-83f1b33bb01f.png#clientId=ud2f8b595-c63e-4&amp;from=paste&amp;height=115&amp;id=u1da4508a&amp;originHeight=144&amp;originWidth=923&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=34728&amp;status=done&amp;style=none&amp;taskId=uea851fc0-e04b-4207-92b8-e444987dd96&amp;title=&amp;width=738.4" alt="image.png" loading="lazy" /></p>
+<!-- raw HTML omitted -->同源策略限制以下几种行为：</p>
+<ul>
+<li>cookie，localstorage无法读取</li>
+<li>DOM，js对象无法获得</li>
+<li>ajax请求不能发送</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="jsonp">JSONP</h2>
+<p>只能发送get请求</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">script</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;script&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">script</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;text/javascript&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 传参一个回调函数名给后端，方便后端返回时执行这个在前端定义的回调函数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">script</span>.<span style="color:#a6e22e">src</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;http://www.domain2.com:8080/login?user=admin&amp;callback=handleCallback&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  document.<span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">script</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 回调执行函数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">handleCallback</span>(<span style="color:#a6e22e">res</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">alert</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">res</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">ajax</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://www.domain2.com:8080/login&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;get&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">dataType</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;jsonp&#39;</span>,  <span style="color:#75715e">// 请求方式为jsonp
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">jsonpCallback</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;handleCallback&#34;</span>,  <span style="color:#75715e">// 自定义回调函数名
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$http</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">axios</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$http</span>.<span style="color:#a6e22e">jsonp</span>(<span style="color:#e6db74">&#39;http://www.domain2.com:8080/login&#39;</span>, {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">params</span><span style="color:#f92672">:</span> {},
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">jsonp</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;handleCallback&#39;</span>
+</span></span><span style="display:flex;"><span>}).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>); 
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>后端node.js代码</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">querystring</span><span style="color:#f92672">=</span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;querystring&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">http</span><span style="color:#f92672">=</span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;http&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span><span style="color:#f92672">=</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">createServer</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;request&#39;</span>,<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>,<span style="color:#a6e22e">res</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">params</span><span style="color:#f92672">=</span><span style="color:#a6e22e">querystring</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;?&#39;</span>)[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fn</span><span style="color:#f92672">=</span><span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">callback</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//jsonp返回设置
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">writeHead</span>(<span style="color:#ae81ff">200</span>,{<span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;text/javascript&#39;</span>})
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">write</span>(<span style="color:#a6e22e">fn</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;(&#39;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">params</span>)<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;)&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>()
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#e6db74">&#39;8080&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;server is running at port 8080...&#39;</span>)
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="cors跨域资源共享">CORS跨域资源共享</h2>
+<p>它允许浏览器向跨源服务器，发出XMLHttpRequest请求，从而克服了AJAX只能同源使用的限制。<!-- raw HTML omitted -->简单请求
+:::tips
+(1)使用下列方法之一：</p>
+<ul>
+<li>head</li>
+<li>get</li>
+<li>post</li>
+</ul>
+<p>(2)请求的Heder是</p>
+<ul>
+<li>Accept</li>
+<li>Accept-Language</li>
+<li>Content-Language</li>
+<li>Content-Type: 只限于三个值：application/x-www-form-urlencoded、multipart/form-data、text/plain
+:::
+对于简单请求，在头信息加一个origin字段
+:::tips
+GET /cors HTTP/1.1<!-- raw HTML omitted -->Origin: <a href="http://api.bob.com" target="_blank" rel="noopener">http://api.bob.com</a><!-- raw HTML omitted -->Host: api.alice.com<!-- raw HTML omitted -->Accept-Language: en-US<!-- raw HTML omitted -->Connection: keep-alive<!-- raw HTML omitted -->User-Agent: Mozilla/5.0&hellip;
+:::
+Origin字段用来说明，本次请求来自哪个源（协议 + 域名 + 端口）。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">xhr</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>(); <span style="color:#75715e">// IE8/9需用window.XDomainRequest兼容
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 前端设置是否带cookie
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">withCredentials</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#39;post&#39;</span>, <span style="color:#e6db74">&#39;http://www.domain2.com:8080/login&#39;</span>, <span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">setRequestHeader</span>(<span style="color:#e6db74">&#39;Content-Type&#39;</span>, <span style="color:#e6db74">&#39;application/x-www-form-urlencoded&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;user=admin&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">onreadystatechange</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">readyState</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">200</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">alert</span>(<span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">responseText</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">ajax</span>({
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">xhrFields</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">withCredentials</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>    <span style="color:#75715e">// 前端设置是否带cookie
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>   },
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">crossDomain</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,   <span style="color:#75715e">// 会让请求头中包含跨域的额外信息，但不会含cookie
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Access-Control-Allow-Origin: http://api.bob.com
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Content-Type: text/html; charset=utf-8
+</span></span></span></code></pre></div><p>对于cookie，cors默认不发送cookie，如果要发送，就需要服务端的响应头里附带<code>Access-Control-Allow-Credentials:true</code>，此外浏览器端的请求需要使用<code>withCredentials:true</code>属性，否则即使服务端同意，也不会发送，设置为false后，能够保证不发送cookie。此外发送cookie，<code>Access-Control-Allow-Origin</code>就不能设置为*</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">xhr</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">withCredentials</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span></code></pre></div><p>对于非简单请求，分为两步</p>
+<ol>
+<li>预检请求，浏览器第一次请求<code>Request Method: OPTIONS</code>，第二次再请求内容，在预检请求不通过，就不再正式发请求。预检请求会包含两个特殊字段，<code>Access-Control-Request-Method</code>，接下来跨域请求会用到哪些请求方法，<code>Access-Control-Request-Headers</code>接下来有哪些字段</li>
+<li>回应请求，服务端检查预检请求的Origin,Access-Control-Request-Method和Access-Control-Request-Headers，确认允许跨域，就做出回应，会有几个关键字段，如<code>Access-Control-Allow-Methods</code>允许的方法，<code>Access-Control-Allow-Headers</code>，如果前面有reques-theaders的话，<code>Access-Control-Max-Age</code>预检请求的有效期，可选</li>
+</ol>
+<p>服务器通过预检请求后，有效期内，每次cors请求就回合简单请求一致</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span> <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">OK</span>
+</span></span><span style="display:flex;"><span>Date<span style="color:#f92672">:</span> <span style="color:#ae81ff">Mon, 01 Dec 2008 01:15:39 GMT</span>
+</span></span><span style="display:flex;"><span>Server<span style="color:#f92672">:</span> <span style="color:#ae81ff">Apache/2.0.61 (Unix)</span>
+</span></span><span style="display:flex;"><span>Access-Control-Allow-Origin<span style="color:#f92672">:</span> <span style="color:#ae81ff">http://api.com</span>
+</span></span><span style="display:flex;"><span>Access-Control-Allow-Methods<span style="color:#f92672">:</span> <span style="color:#ae81ff">GET, POST, PUT</span>
+</span></span><span style="display:flex;"><span>Access-Control-Allow-Headers<span style="color:#f92672">:</span> <span style="color:#ae81ff">X-Custom-Header</span>
+</span></span><span style="display:flex;"><span>Content-Type<span style="color:#f92672">:</span> <span style="color:#ae81ff">text/html; charset=utf-8</span>
+</span></span><span style="display:flex;"><span>Content-Encoding<span style="color:#f92672">:</span> <span style="color:#ae81ff">gzip</span>
+</span></span><span style="display:flex;"><span>Content-Length<span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Keep-Alive<span style="color:#f92672">:</span> <span style="color:#ae81ff">timeout=2, max=100</span>
+</span></span><span style="display:flex;"><span>Connection<span style="color:#f92672">:</span> <span style="color:#ae81ff">Keep-Alive</span>
+</span></span><span style="display:flex;"><span>Content-Type<span style="color:#f92672">:</span> <span style="color:#ae81ff">text/plain</span>
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="nginx代理跨域">nginx代理跨域</h2>
+<p>nginx代理跨域，实质和CORS跨域原理一样，通过配置文件设置请求响应头Access-Control-Allow-Origin…等字段。</p>
+
+          </div>
+        </div>
+                 
+      
+  
+  
+  
+  
+
+  
+
+  <div class="article-paging">
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/efgud1/"><h4 class="card-text--title text-ellipsis">CSRF 跨域请求伪造</h4></a>
+    <p class="card-text--row">2022-09-17 14:59</p>
+  </div>
+</section>
+    
+    
+      <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" ></div>
+  <div class="card-text">
+    <a href="/docs/al3774/"><h4 class="card-text--title text-ellipsis">说一说Promise是什么</h4></a>
+    <p class="card-text--row">2022-09-17 13:35</p>
+  </div>
+</section>
+    
+  </div>
+</div>
+  <aside class="widget-info">
+    
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
+  <div class="widget-body">
+    <div class="author-box avatar">
+      
+      <img class="author-avatar soft-size--round soft-style--box" src="https://cdn.jsdelivr.net/gh/Sentisfate/wanhuatong@main/img/cdai.jfif" alt="gisculibur">
+      
+      <h2 class="author-name text-ellipsis">gisculibur</h2>
+      
+      <p class="author-desc text-ellipsis">新手WebGIS攻城狮</p>
+      
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="aside-widget widget-toc content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>目录</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#什么是同源-策略">什么是同源 策略</a></li>
+        <li><a href="#jsonp">JSONP</a></li>
+        <li><a href="#cors跨域资源共享">CORS跨域资源共享</a></li>
+        <li><a href="#nginx代理跨域">nginx代理跨域</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="aside-widget widget-articles content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>相关文章</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="post-list">
+      
+      
+        <li class="post-item"><a href="/docs/ix726493ddpi6i3q/">3dTiles</a></li>
+      
+        <li class="post-item"><a href="/posts/qa4vydlw37pbsi3v/">WebGL 图像处理</a></li>
+      
+        <li class="post-item"><a href="/docs/goz05uyu3i5v92c9/">Cesium 模型压平</a></li>
+      
+        <li class="post-item"><a href="/docs/cl6l0mww8kkkizwb/">三角剖分</a></li>
+      
+        <li class="post-item"><a href="/docs/prgrgit7lss8vggf/">GIS理论基础</a></li>
+      
+        <li class="post-item"><a href="/docs/vzxnspucb4agb00w/">问题</a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-categories content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>分类</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/webgl/">WebGL</a>
+          <span>1</span>
+        </li>
+      
+        <li>
+          <a href="https://Sentisfate.github.io/categories/%E5%9B%BE%E5%BA%8A/">图床</a>
+          <span>1</span>
+        </li>
+      
+    </ul>
+  </div>
+
+  
+</section>
+
+
+    
+
+
+
+
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
+  <h2 class="widget-header">
+    <div class="title">
+      <span>标签</span>
+    </div>
+  </h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      
+        <a href="https://Sentisfate.github.io/tags/github/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">github</a>
+      
+        <a href="https://Sentisfate.github.io/tags/picgo/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">picgo</a>
+      
+        <a href="https://Sentisfate.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-count="1" class="soft-size--small soft-style--hover soft-style--active">图像处理</a>
+      
+    </div>
+  </div>
+
+  
+</section>
+
+  </aside>
+</div>
+  </main><footer class="footer-container layout-block">
+  
+  <div class="social-icons">
+    
+      <a class="soft-size--primary soft-style--box" href="https://github.com/Sentisfate" target="_blank" rel="noopener noreferrer">
+          
+        <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+        </svg>
+        
+
+        
+
+        
+
+        
+
+        
+      </a>
+    
+  </div>
+  
+
+  <div class="colour-bar"></div>
+  
+  
+
+  
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+</body>
+
+</html>
